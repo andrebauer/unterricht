@@ -1,0 +1,10 @@
+*~
+#*#
+node_modules/
+package-lock.json
+index.htmliso-images
+Gemfile.lock
+*.html
+*.pdf
+generated/
+.asciidoctor/

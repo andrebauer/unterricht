@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'asciidoctor'
+gem 'asciidoctor-diagram', '~> 1.5.7'
+gem 'pygments.rb'
+gem 'temple'
+gem 'tilt'
+gem 'haml'
+gem 'slim', '2.1.0'
+gem 'thread_safe'
+gem 'asciidoctor-mathematical'
+gem 'asciidoctor-revealjs'

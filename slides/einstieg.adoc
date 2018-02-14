@@ -1,0 +1,125 @@
+= AWN
+André Bauer
+:backend: revealjs
+:deckjs_transition: fade
+:navigation:
+:stem:
+:custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
+//:reproducible:
+//:source-highlighter: coderay
+:source-highlighter: pygments
+:listing-caption: Listing
+:revealjs_theme: simple
+:imagesoutdir: generated
+:imagesdir: images
+:oimagesdir: {imagesdir}
+// Uncomment next line to set page size (default is A4)
+//:pdf-page-size: Letter
+
+== Lernfeld 9/17 (AWN)
+
+[.lead]
+Netzwerkdienste einrichten und administrieren
+
+=== Inhaltliche Ziele
+* Betriebssysteme
+** Windows
+** Linux
+
++
+Fokus: Netzwerkdienste
+
+* Internetdienste (HTTP, FTP, E-Mail, DNS, SSH, DHCP, Firewall, ...)
+
+* lokale Vezeichnisdienste (Active Directory, LDAP, NFS, ...)
+
+=== Prozessorientierte Ziele
+
+* Analyse der Kundnenanforderungen
+* Konzept und Umsetzungsplanung
+* Kostenkalkulation
+* Installation
+* Konfiguration
+* Test
+* Dokumentation
+
+== Virtualisierung
+
+:imagesdir: {imagesoutdir}
+
+[ditaa, virtualisierung, separation=false]
+....
++-------------------------------------------+
+| +-----------+ +-----------+ +-----------+ |
+| | Anwendung | | Anwendung | | Anwendung | |
+| +-----------+ +-----------+ +-----------+ |
+| | Gast–BS   | | Gast–BS   | | Gast–BS   | |
+| | (Windows) | | (Linux)   | | (Solaris) | |
+| +-----------+ +-----------+ +-----------+ |
+| | Virtuelle | | Virtuelle | | Virtuelle | |
+| | Maschine  | | Maschine  | | Maschine  | |
+| +-----------+ +-----------+ +-----------+ |
++-------------------------------------------+
+| +---------------------------------------+ |
+| |       Virtualiserungsoftware          | |
+| +---------------------------------------+ |
+| |         Host–Betriebssystem           | |
+| +---------------------------------------+ |
+| |         Physische Maschine            | |
+| +---------------------------------------+ |
++-------------------------------------------+
+....
+
+:imagesdir: {oimagesdir}
+
+* Lern-, Experimentier und Testumgebung für Netzwerkdienste
+* Auch für NIP, PBS, KIC relevant
+
+== Linux
+
+* Kernelname: Mix aus Linus Torvalds und Unix
+
+* Distributionen mit Linux als Kernel: +
+  RHEL, Suse, Debian, Ubuntu, CentOS, Fedora, Arch, ...
+
+* Freie Software (GPL)
+
+* vielfältig und anpassbar: +
+  Client, Server, Eingebettete Systeme, Raspberry Pi, Android, ...
+
+* **L**AMP
+
+== Die Shell
+
+image::bash.png[Bash,300,200]
+
+* universteller Zugang für unixartige Systeme
+
+* Automatisierung (Shell-Programmierung)
+
+* Remote-Zugang über SSH
+
+* gut dokumentierbar
+
+== https://www.lpice.eu/de/unsere-zertifizierungen/linux-essentials-ueberblick/[LPI Linux Essentials]
+
+* Linux-Grundlagen (auch für KIC)
+
+* Vorbereitung: 3 Themenwochen +
+  https://www.netacad.com/courses/ndg-linux-essentials/[Cisco Networking Academy - NDG Linux Essentials]
+  
+* LPI-Prüfung +
+ 60 Minuten +
+ Kosten 50€ +
+ Zertifikat: Linux-Essentials-Professional Development +
+ Prüfer: Herr Bollerhey
+
+* oder Klausur
+
+== Einstieg in die Themenwoche
+
+* Anmeldung https://www.netacad.com/courses/ndg-linux-essentials/[Cisco Networking Academy - NDG Linux Essentials]
+
+* Installation Virtualbox und Ubuntu-Linux
+
+* Lernschrittplaner
