@@ -21,12 +21,12 @@ endif::[]
 
 | *Information {ovm-code} +
   Linux Essentials 1*
-| image:/home/andre/unterricht/images/ovm-logo.png[OvM-Logo]
+| image:/home/andre/unterricht/images/ovm-logo.png[OvM-Logo,76,61]
 
 | *Code*
 | {ovm-code}
 
-| Autor
+| *Autor*
 | André Bauer
 
 | *Datum*
@@ -88,18 +88,17 @@ Bitte erst prüfen, ob die Hardwareunterstützung der Virtualisierung bereits ak
 
 == Virtualbox installieren
 
-Virtualbox ist eine Virtualiserungsoftware, die Vollvirtualisierung erlaubt, so dass unveränderte Betriebssysteme als Gast-Betriebssysteme verwendet werden können. Zudem kann auch die graphische Benutzeroberfläche des Gast-Betriebssystems (in einem Fenster) genutzt werden. Virtualbox stellt die virtuelle Maschinen für die Gast-Systeme bereit und stellt dem Gast-System je nach Konfiguration Ressourcen (Speicher, CPU, Zugriff auf Hardware usw.) des Host-Systems sowie virtuelle Netzwerkkarten, LANs und Festplatten zur Verfügung. 
+Virtualbox ist eine Virtualiserungsoftware, die Vollvirtualisierung erlaubt, so dass unveränderte Betriebssysteme als Gast-Betriebssysteme verwendet werden können. Zudem kann auch die graphische Benutzeroberfläche des Gast-Betriebssystems (in einem Fenster) genutzt werden. Virtualbox stellt die virtuellen Maschinen für die Gast-Systeme bereit und stellt dem Gast-System je nach Konfiguration Ressourcen (Speicher, CPU, Zugriff auf Hardware usw.) des Host-Systems sowie virtuelle Netzwerkkarten, LANs und Festplatten zur Verfügung. 
 
 .Anleitung:
-* https://www.thomas-krenn.com/de/wiki/VirtualBox_installieren[Virtualbox installieren]
+* https://www.thomas-krenn.com/de/wiki/VirtualBox_installieren[Virtualbox unter Windows installieren]
 
 == Ubuntu-Linux unter Virtualbox installieren
 
 Ubuntu ist eine verbreitete Linux-Distribution und wird für den Linux-Essentials-Kurs der Cisco Network Academy verwendet. 
 
 .Anleitung:
-* https://de.wikihow.com/Ubuntu-in-VirtualBox-installieren[Ubuntu in Virtualbox installieren]
+* https://de.wikihow.com/Ubuntu-in-VirtualBox-installieren[Ubuntu unter Virtualbox installieren]
 
-
-NOTE: Das benötigte ISO-Image der Linux-Distribution Ubuntu 16.04.3 LTS steht im Intranet über das Netzlaufwerk `\\ovm-nas\bfi_19` bereit. +
+IMPORTANT: Das benötigte ISO-Image der Linux-Distribution Ubuntu 16.04.3 LTS steht im Intranet über das Netzlaufwerk `\\ovm-nas\bfi_19` bereit. +
 Bitte lade dieses *nicht* aus dem Internet.

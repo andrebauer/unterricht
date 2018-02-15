@@ -35,7 +35,7 @@ Fokus: Netzwerkdienste
 
 === Prozessorientierte Ziele
 
-* Analyse der Kundnenanforderungen
+* Analyse der Kundenanforderungen
 * Konzept und Umsetzungsplanung
 * Kostenkalkulation
 * Installation
@@ -72,8 +72,8 @@ Fokus: Netzwerkdienste
 
 :imagesdir: {oimagesdir}
 
-* Lern-, Experimentier und Testumgebung für Netzwerkdienste
-* Auch für NIP, PBS, KIC relevant
+* Lern-, Experimentier- und Testumgebung für Netzwerkdienste
+* auch für NIP, PBS, KIC relevant
 
 == Linux
 
@@ -91,9 +91,9 @@ Fokus: Netzwerkdienste
 
 == Die Shell
 
-image::bash.png[Bash,300,200]
+// image::bash.png[Bash,300,200]
 
-* universteller Zugang für unixartige Systeme
+* universeller Zugang für unixartige Systeme
 
 * Automatisierung (Shell-Programmierung)
 
