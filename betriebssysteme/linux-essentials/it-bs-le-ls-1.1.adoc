@@ -25,7 +25,7 @@ endif::[]
 | 19. Februar 2018
 
 | *Links*
-| https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]
+| Kurs https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]
 
 | *Verwandte Literatur*
 | IT-BS-LE-INFO-1.1 +
@@ -44,7 +44,7 @@ endif::[]
 . Lies das Informationsblatt IT-BS-LE-INFO-1.1.
 
 . Installiere Virtualbox und richte eine Virutelle Maschine mit Ubuntu-Linux ein.
-
++
 IMPORTANT: Das benötigte ISO-Image der Linux-Distribution Ubuntu 16.04.3 LTS steht im Intranet über das Netzlaufwerk `\\ovm-nas\bfi_19` bereit. +
 Bitte lade dieses *nicht* aus dem Internet.
 

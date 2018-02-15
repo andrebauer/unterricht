@@ -92,6 +92,19 @@ Fokus: Netzwerkdienste
 == Die Shell
 
 // image::bash.png[Bash,300,200]
+----
+[user@linux:~$ tree
+.
+├── Bilder
+├── Dokumente
+├── Downloads
+├── examples.desktop
+├── Musik
+└── Videos
+
+5 directories, 1 file
+[user@linux:~$ 
+----
 
 * universeller Zugang für unixartige Systeme
 
@@ -99,7 +112,7 @@ Fokus: Netzwerkdienste
 
 * Remote-Zugang über SSH
 
-* gut dokumentierbar
+* gut dokumentiert und dokumentierbar
 
 == https://www.lpice.eu/de/unsere-zertifizierungen/linux-essentials-ueberblick/[LPI Linux Essentials]
 
