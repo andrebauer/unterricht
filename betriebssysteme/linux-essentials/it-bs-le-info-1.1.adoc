@@ -2,7 +2,7 @@ ifdef::backend-html5[]
 :cc-by-sa: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
 endif::[]
 ifndef::backend-html5[]
-:cc-by-sa: cc-by-sa-88x31.png
+:cc-by-sa: ../../images/cc-by-sa-88x31.png
 endif::[]
 :icons: font
 :doctype: article
@@ -11,7 +11,7 @@ endif::[]
 :source-highlighter: pygments
 :listing-caption: Listing
 :imagesoutdir: generated
-:imagesdir: images
+//:imagesdir: images
 :oimagesdir: {imagesdir}
 :ovm-code: IT-BS-LE-INFO-1.1
 :icons: font
@@ -21,7 +21,7 @@ endif::[]
 
 | *Information {ovm-code} +
   Linux Essentials 1*
-| image:/home/andre/unterricht/images/ovm-logo.png[OvM-Logo,76,61]
+| image:../../images/ovm-logo.png[OvM-Logo,76,61]
 
 | *Code*
 | {ovm-code}
