@@ -1,5 +1,6 @@
-= AWN
+= LPI Linux Essentials Einstieg
 André Bauer
+19. Februar 2018
 :backend: revealjs
 :deckjs_transition: fade
 :navigation:
@@ -32,6 +33,11 @@ Fokus: Netzwerkdienste
 * Internetdienste (HTTP, FTP, E-Mail, DNS, SSH, DHCP, Firewall, ...)
 
 * lokale Vezeichnisdienste (Active Directory, LDAP, NFS, ...)
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
 
 === Prozessorientierte Ziele
 
