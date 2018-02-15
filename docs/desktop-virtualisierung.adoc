@@ -1,0 +1,105 @@
+ifdef::backend-html5[]
+:cc-by-sa: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+endif::[]
+ifndef::backend-html5[]
+:cc-by-sa: cc-by-sa-88x31.png
+endif::[]
+:icons: font
+:doctype: article
+:reproducible:
+:stem: latexmath
+:source-highlighter: pygments
+:listing-caption: Listing
+:imagesoutdir: generated
+:imagesdir: images
+:oimagesdir: {imagesdir}
+:ovm-code: IT-BS-LE-INFO-1.1
+:icons: font
+
+|===
+|http://ovm-kassel.de \| Information |
+
+| *Information {ovm-code} +
+  Linux Essentials 1*
+| image:/home/andre/unterricht/images/ovm-logo.png[OvM-Logo]
+
+| *Code*
+| {ovm-code}
+
+| Autor
+| André Bauer
+
+| *Datum*
+| 19. Februar 2018
+
+| *Links*
+| siehe unten
+
+| *Verwandte Literatur*
+| IT-BS-LE-LS-1.1
+
+| *Lizenz*
+| image:{cc-by-sa}[Creative Commons License,link=http://creativecommons.org/licenses/by-sa/4.0/] 
+  This work is licensed under a +
+  http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License].
+|===
+
+== Was ist Virtualiserung?
+
+:imagesdir: {imagesoutdir}
+
+[ditaa, virtualisierung, separation=false]
+....
++-------------------------------------------+
+| +-----------+ +-----------+ +-----------+ |
+| | Anwendung | | Anwendung | | Anwendung | |
+| +-----------+ +-----------+ +-----------+ |
+| | Gast–BS   | | Gast–BS   | | Gast–BS   | |
+| | (Windows) | | (Linux)   | | (Solaris) | |
+| +-----------+ +-----------+ +-----------+ |
+| | Virtuelle | | Virtuelle | | Virtuelle | |
+| | Maschine  | | Maschine  | | Maschine  | |
+| +-----------+ +-----------+ +-----------+ |
++-------------------------------------------+
+| +---------------------------------------+ |
+| |       Virtualiserungsoftware          | |
+| +---------------------------------------+ |
+| |         Host–Betriebssystem           | |
+| +---------------------------------------+ |
+| |         Physische Maschine            | |
+| +---------------------------------------+ |
++-------------------------------------------+
+....
+
+:imagesdir: {oimagesdir}
+
+Virtualisierung erlaubt es, mehrere Gast-Betriebssysteme gleichzeitig auf einer physischen Maschine zu betreiben. Dank der Hardwareunterstützung heutiger Prozessoren besteht für die Gast-Betriebssysteme kein spürbarer Geschwindigkeitsnachteil mehr gegenüber dem Host-Betriebssystem bzw. dem direkten Betrieb auf der physischen Hardware.
+
+== Virtualiserung im BIOS aktivieren
+
+Bitte erst prüfen, ob die Hardwareunterstützung der Virtualisierung bereits aktiviert ist: Unter Windows 10 kann dies im Task-Manager unter "Leistung" geprüft werden. Gegebenenfalls kann dann dieser Schritt übersprungen werden.
+
+.Anleitungen:
+* http://daily-experiences.com/intel-virtualisierung-technologie-auf-windows-10-im-bios-aktivieren/#.WoC1LUso9pg[Intel Virtualisierung-Technologie auf Windows 10 im BIOS aktivieren]
+
+* https://docs-old.fedoraproject.org/de-DE/Fedora/12/html/Virtualization_Guide/sect-Virtualization_Guide-Troubleshooting-Enabling_Intel_VT_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html[Aktivieren der Intel VT und AMD-V Virtualisierungs-Hardware-Erweiterungen im BIOS]
+
+* https://www.thomas-krenn.com/de/wiki/Virtualisierungsfunktion_Intel_VT-x_aktivieren[Virtualisierungsfunktion Intel VT-x aktivieren]
+
+== Virtualbox installieren
+
+Virtualbox ist eine Virtualiserungsoftware, die Vollvirtualisierung erlaubt, so dass unveränderte Betriebssysteme als Gast-Betriebssysteme verwendet werden können. Zudem kann auch die graphische Benutzeroberfläche des Gast-Betriebssystems (in einem Fenster) genutzt werden. Virtualbox stellt die virtuelle Maschinen für die Gast-Systeme bereit und stellt dem Gast-System je nach Konfiguration Ressourcen (Speicher, CPU, Zugriff auf Hardware usw.) des Host-Systems sowie virtuelle Netzwerkkarten, LANs und Festplatten zur Verfügung. 
+
+.Anleitung:
+* https://www.thomas-krenn.com/de/wiki/VirtualBox_installieren[Virtualbox installieren]
+
+== Ubuntu-Linux unter Virtualbox installieren
+
+Ubuntu ist eine verbreitete Linux-Distribution und wird für den Linux-Essentials-Kurs der Cisco Network Academy verwendet. 
+
+.Anleitung:
+* https://de.wikihow.com/Ubuntu-in-VirtualBox-installieren[Ubuntu in Virtualbox installieren]
+
+
+NOTE: Das benötigte ISO-Image der Linux-Distribution Ubuntu 16.04.3 LTS steht im Intranet über das Netzlaufwerk `\\ovm-nas\bfi_19` bereit. +
+Bitte lade dieses *nicht* aus dem Internet.

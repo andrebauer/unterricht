@@ -5,7 +5,7 @@
    "main": "index.js",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b html infos/*.adoc && asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b pdf infos/*.adoc && asciidoctor-revealjs -a revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 -r asciidoctor-diagram slides/*.adoc",
+      "build": "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b html docs/*.adoc && asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b pdf -a allow-uri-read */*.adoc && asciidoctor-revealjs -a revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 -r asciidoctor-diagram slides/*.adoc",
        "sync": "browser-sync start --config bs-config.js",
        "watch": "onchange */*.adoc -- npm run build"
    },
