@@ -1,6 +1,6 @@
-= LPI Linux Essentials Einstieg
+= LPI Linux Essentials: 1. Themenwoche - Einstieg
 André Bauer
-19. Februar 2018
+v1.0, 19. Februar 2018
 :backend: revealjs
 :deckjs_transition: fade
 :navigation:
@@ -99,7 +99,7 @@ Actually things aren't that bad
 
 // image::bash.png[Bash,300,200]
 ----
-[user@linux:~$ tree
+user@linux:~$ tree
 .
 ├── Bilder
 ├── Dokumente
@@ -109,7 +109,7 @@ Actually things aren't that bad
 └── Videos
 
 5 directories, 1 file
-[user@linux:~$ 
+user@linux:~$ 
 ----
 
 * universeller Zugang für unixartige Systeme

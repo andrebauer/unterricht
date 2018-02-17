@@ -7,6 +7,11 @@ endif::[]
 //:imagesdir: images
 :icons: font
 :ovm-code: IT-BS-LE-LS-1.1
+= {ovm-code} Lernsituation zu Linux Essentials
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 19. Februar 2018
+:notitle:
+:hide-uri-scheme:
 
 |===
 |http://ovm-kassel.de \| Lernsituation |
@@ -19,10 +24,10 @@ endif::[]
 | {ovm-code}
 
 | *Autor*
-| André Bauer
+| {author}
 
 | *Datum*
-| 19. Februar 2018
+| {revdate}
 
 | *Links*
 | Kurs https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]

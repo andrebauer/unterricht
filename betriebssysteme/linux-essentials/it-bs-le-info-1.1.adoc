@@ -15,6 +15,11 @@ endif::[]
 :oimagesdir: {imagesdir}
 :ovm-code: IT-BS-LE-INFO-1.1
 :icons: font
+= {ovm-code}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 19. Februar 2018
+:notitle:
+:hide-uri-scheme:
 
 |===
 |http://ovm-kassel.de \| Information |
@@ -27,10 +32,10 @@ endif::[]
 | {ovm-code}
 
 | *Autor*
-| André Bauer
+| {author}
 
 | *Datum*
-| 19. Februar 2018
+| {revdate}
 
 | *Links*
 | siehe unten
