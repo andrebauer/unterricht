@@ -59,4 +59,6 @@ Bitte lade dieses *nicht* aus dem Internet.
 
 . Dokumentiere täglich in deinem E-Portfolio, was du bearbeitet hast, d.h. welche Module (und welche Chapter, Labs und Exams). Notiere auch, welches zusätzliche Material du verwendet hast.
 
+. Dokumentiere ggf. erstellte Shell-Skripte in deinem E-Portfolio.
+
 . Dokumentiere am Ende der Themenwoche in deinem E-Portfolio, welche https://www.lpice.eu/de/unsere-zertifizierungen/linux-essentials-ueberblick/lernziele-010/#c6080[Lerniele der Linux Essentials Prüfung 010] du erreicht hast.

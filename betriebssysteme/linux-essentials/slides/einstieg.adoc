@@ -120,6 +120,23 @@ user@linux:~$
 
 * gut dokumentiert und dokumentierbar
 
+=== Shell-Programmierung
+
+.Shell-Skript zum Starten eines Webservers
+[source,sh]
+----
+#!/bin/bash
+if [ -n "$1" ];
+then
+    port=$1;
+else
+    port=5000;
+fi
+ip4=$(/sbin/ip -o -4 addr list enp0s25 | awk '{print $4}' | cut -d/ -f1)
+echo "running httpd on http://${ip4}:${port}"
+ruby -run -e httpd srv -p $port -b $ip4
+----
+
 == https://www.lpice.eu/de/unsere-zertifizierungen/linux-essentials-ueberblick/[LPI Linux Essentials]
 
 * Linux-Grundlagen (auch für KIC)
@@ -139,6 +156,12 @@ user@linux:~$
 
 * Anmeldung https://www.netacad.com/courses/ndg-linux-essentials/[Cisco Networking Academy - NDG Linux Essentials]
 
+* ISO-Image der Linux-Distribution Ubuntu 16.04.3 LTS unter `_\\ovm-nas\bfi_19_` oder http://10.5.2.6:5000
+
+* Virtualbox unter http://10.5.2.6:5000
+
 * Installation Virtualbox und Ubuntu-Linux
 
 * Lernschrittplaner
+
+
