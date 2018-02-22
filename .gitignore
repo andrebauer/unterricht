@@ -9,6 +9,6 @@ Gemfile.lock
 generated/
 .asciidoctor/
 extra/
-anwendungsentwicklung/oop-java-einstieg/lampe-schalter/Lampe\ mit\ Schalter/
+docs/anwendungsentwicklung/oop-java-einstieg/lampe-schalter/
 vendor/
 _build/

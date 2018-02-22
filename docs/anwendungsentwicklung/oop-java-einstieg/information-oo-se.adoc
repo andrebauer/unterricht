@@ -58,7 +58,7 @@ fort und sendet L2 die Nachricht _einschalten()_.
 
 [[sequenzdiagramm-1]]
 .Sequenzdiagramm zur <<user-story-1>>
-[plantuml, diagram-sequence, svg]
+[plantuml, sequenzdiagramm-1, svg]
 ....
 actor Benutzer
 
@@ -92,7 +92,7 @@ Daraus ergibt sich das folgende Sequenzdiagramm:
 
 [[sequenzdiagramm-2]]
 .Sequenzdiagramm zur <<user-story-2>>
-[plantuml, diagram-sequence, svg]
+[plantuml, sequenzdiagramm-2, svg]
 ....
 actor Benutzer
 
@@ -362,8 +362,8 @@ L1 -> State
 S1 "1" --> "1" L1 : controls
 note right on link
   Der Schalter kann jetzt nur
-  noch eine Lampe verwenden
-  (1:1-Beziehung).
+  noch eine Lampe verwenden,
+  eine 1-zu-1-Beziehung.
 end note
 ....
 
@@ -441,8 +441,19 @@ vorgefertigte Komponenten, z.B. eine
 https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html[ArrayList].
 Diese hat u.a. die Methoden
 
-add: Fügt der Sammlung ein Objekt hinzu.
+add:: Fügt der Sammlung ein Objekt hinzu.
 
-remove: Entfernt ein Objekt aus der Sammlung.
+remove:: Entfernt ein Objekt aus der Sammlung.
 
+Zudem gibt es in Java eine besondere `for`-Schleife für Collections:
 
+....
+for (Lamp l: lamps) { <1>
+  l.turnOn(); <2>
+}
+....
+<1> In dem Schleifenkopf wird eine Collection ausgewählt, hier `lamps` sowie
+    ein Bezeichner `l` der Klasse `Lamp`, der in dem Schleifenrumpf gültig ist.
+<2> Im Schleifenrumpf wirden die Aktionen festgelegt, die mit jedem
+    Objekt der Sammlung durchgeführt werden, dazu verwendet man den oben
+    festgelegten Bezeichner `l`.

@@ -24,6 +24,29 @@ gulp.task('build:html', function(cb) {
 	 });
 })
 
+gulp.task('build:pdf', function(cb) {
+    exec('asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf ' +
+	 '-b pdf -a allow-uri-read _build/docs/*/*/*.adoc ' +
+	 '_build/docs/*/*/slides/*.adoc',
+	 function(err, stdout, stderr) {
+	     console.log(stdout);
+	     console.log(stderr);
+	     cb(err);
+	 });
+})
+
+gulp.task('build:slides', function(cb) {
+    exec('asciidoctor-revealjs -a ' +
+	 'revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 ' +
+	 '-r asciidoctor-diagram _build/docs/*/*/slides/*.adoc',
+	 function(err, stdout, stderr) {
+	     console.log(stdout);
+	     console.log(stderr);
+	     cb(err);
+	 });
+})
+
+gulp.task('build', ['prebuild', 'build:html', 'build:pdf', 'build:slides']);
 
 /* Clean builded files
 ============================== */

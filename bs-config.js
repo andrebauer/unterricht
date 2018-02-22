@@ -17,10 +17,7 @@ module.exports = {
         "port": 3001
     },
     "files": [ 
-	"*.html",
-	"*/*.html",
-	"*/*/*.html",
-	"*/*/*/*.html"
+	"_build/docs/**/*.+(html|svg|png)",
     ],
     "watchEvents": [
         "change"
@@ -31,7 +28,10 @@ module.exports = {
     "watchOptions": {
         "ignoreInitial": true
     },
-    "server": true,
+    "server": {
+	"baseDir": "_build/docs",
+	"directory": true
+    },
     "proxy": false,
     "port": 3000,
     "middleware": false,

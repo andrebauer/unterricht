@@ -10,9 +10,6 @@ endif::[]
 :stem: latexmath
 :source-highlighter: pygments
 :listing-caption: Listing
-:imagesoutdir: generated
-//:imagesdir: images
-:oimagesdir: {imagesdir}
 :ovm-code: IT-BS-LE-INFO-1.1
 :icons: font
 = {ovm-code}
@@ -51,8 +48,6 @@ v1.0, 19. Februar 2018
 
 == Was ist Virtualiserung?
 
-:imagesdir: {imagesoutdir}
-
 [ditaa, virtualisierung, separation=false]
 ....
 +-------------------------------------------+
@@ -75,8 +70,6 @@ v1.0, 19. Februar 2018
 | +---------------------------------------+ |
 +-------------------------------------------+
 ....
-
-:imagesdir: {oimagesdir}
 
 Virtualisierung erlaubt es, mehrere Gast-Betriebssysteme gleichzeitig auf einer physischen Maschine zu betreiben. Dank der Hardwareunterstützung heutiger Prozessoren besteht für die Gast-Betriebssysteme kein spürbarer Geschwindigkeitsnachteil mehr gegenüber dem Host-Betriebssystem bzw. dem direkten Betrieb auf der physischen Hardware.
 
