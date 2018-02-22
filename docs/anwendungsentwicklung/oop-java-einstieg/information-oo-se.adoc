@@ -33,7 +33,7 @@ von Szenarien ermittelt, wie die zukünftige Nutzung des (Software-)Systems
 ablaufen soll.
 Dabei werden sogenannte
 https://de.wikipedia.org/wiki/User-Story[User-Stories]
-verfasst.
+verfasst:
 
 [[user-story-1]]
 .User-Story 1
@@ -54,7 +54,7 @@ https://de.wikipedia.org/wiki/Sequenzdiagramm[UML-Sequenzdiagramm] dar,
 so kann man den Programmablauf entlang der Pfeile ablesen.
 So sendet der Schalter S1 die Nachricht `einschalten()` an die Lampe L1. Erst
 wenn diese den Einschaltvorgang abgeschlossen hat, setzt S1 seine Arbeit
-fort und sendet L2 die Nachricht _einschalten()_.
+fort und sendet L2 die Nachricht _einschalten()_ usw.
 
 [[sequenzdiagramm-1]]
 .Sequenzdiagramm zur <<user-story-1>>
@@ -123,8 +123,8 @@ dargestellt.
 Daraus ergibt sich das folgende Objektdiagramm:
 
 [[objektdiagramm-1]]
-.Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen
-[plantuml, objektdiagramm-schalter-drei-lampen, svg]
+.Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zu Beginn der <<user-story-1>>
+[plantuml, objektdiagramm-schalter-drei-lampen-1, svg]
 ....
 object "<u>S1: Schalter</u>" as S1 {
   zustand = AUS
@@ -155,13 +155,43 @@ Das Diagramm in <<objektdiagramm-1>> stellt den
 Zustand zu Beginn der <<user-story-1>> bzw. zum Ende der
 <<user-story-2>> dar, da der Schalter und die Lampen den Zustand `AUS` haben.
 
+Den Zustand zum Ende der <<user-story-1>> bzw. zu Beinn der <<user-story-2>>
+sieht so aus:
+
+[[objektdiagramm-2]]
+.Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zum Ende der <<user-story-1>>
+[plantuml, objektdiagramm-schalter-drei-lampen-2, svg]
+....
+object "<u>S1: Schalter</u>" as S1 {
+  zustand = EIN
+} 
+
+object "<u>L1: Lampe</u>" as L1 {
+  zustand = EIN
+} 
+
+object "<u>L2: Lampe</u>" as L2 {
+  zustand = EIN
+} 
+
+object "<u>L3: Lampe</u>" as L3 {
+  zustand = EIN
+} 
+
+L1 <- S1 : schaltet
+
+S1 -> "schaltet" L3
+
+S1 -> L2 : schaltet
+....
 
 Man könnte jetzt den Schalter und die drei Lampen direkt programmieren, aber
 dies hätte Nachteile:
 
 * für die Lampen würde man dreimal dasselbe Programm schreiben
 
-* es wäre unflexibel, man möchte mit derselben Software auch Schaltungen
+* es wäre eine unflexibele Lösung, man möchte mit derselben
+  Software auch Schaltungen
   mit vier oder mehr Lampen mit einem Schalter verbinden können.
 
 [[objektdiagramm-b]]
