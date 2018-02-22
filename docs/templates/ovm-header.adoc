@@ -1,0 +1,19 @@
+ifdef::backend-html5[]
+:img-cc-by-sa: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+endif::[]
+ifndef::backend-html5[]
+:img-cc-by-sa: ../../images/cc-by-sa-88x31.png
+endif::[]
+:cc-by-sa: image:{img-cc-by-sa}[Creative Commons License,link=http://creativecommons.org/licenses/by-sa/4.0/] +
+This work is licensed under a +
+http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License].
+:icons: font
+:notitle:
+:hide-uri-scheme:
+:source-highlighter: pygments
+:listing-caption: Listing
+:lang: de
+include::attributes-de.adoc[]
+:ldquo: &#8222;
+:rdquo: &#8220;
+:xrefstyle: short

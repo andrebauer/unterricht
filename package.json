@@ -1,23 +1,27 @@
 {
-    "name": "linux",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1",
-	"build:html": "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b html */*/*.adoc */*.adoc *.adoc",
-	"build:pdf": "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b pdf -a allow-uri-read */*/*.adoc */*/slides/*.adoc",
-	"build:slides": "asciidoctor-revealjs -a revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 -r asciidoctor-diagram */*/slides/*.adoc",
-	"build": "npm run build:html && npm run build:pdf && npm run build:slides",
-	"sync": "browser-sync start --config bs-config.js",
-	"watch": "onchange */*/*.adoc */*/*/*.adoc */*.adoc *.adoc -- npm run build",
-	"serve": "ruby -run -e httpd . -p 5000 -b 127.0.0.1"
-    },
-    "author": "André Bauer",
-    "license": "CC-BY-SA",
-    "dependencies": {},
-    "devDependencies": {
-	"browser-sync": "^2.23.6",
-	"onchange": "^3.3.0"
-    }
+   "name": "linux",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build:html": "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b html */*/*.adoc */*.adoc *.adoc",
+      "build:pdf": "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b pdf -a allow-uri-read */*/*.adoc */*/slides/*.adoc",
+      "build:slides": "asciidoctor-revealjs -a revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 -r asciidoctor-diagram */*/slides/*.adoc",
+      "build": "npm run build:html && npm run build:pdf && npm run build:slides",
+      "sync": "browser-sync start --config bs-config.js",
+      "sync2": "browser-sync start */*/*.html",
+      "watch": "onchange */*/*.adoc */*/*/*.adoc */*.adoc *.adoc -- npm run build",
+      "serve": "ruby -run -e httpd . -p 5000 -b 127.0.0.1"
+   },
+   "author": "André Bauer",
+   "license": "CC-BY-SA",
+   "dependencies": {},
+   "devDependencies": {
+      "browser-sync": "^2.23.6",
+      "del": "^3.0.0",
+      "gulp": "^3.9.1",
+      "gulp-copy": "^1.1.0",
+      "onchange": "^3.3.0"
+   }
 }

@@ -1,0 +1,16 @@
+|===
+| http://ovm-kassel.de \| {kind} |
+
+| *{kind} {ovm-code} +
+  {short-title}*
+| image:../../images/ovm-logo.png[OvM-Logo,76,61]
+
+| *Code*
+| {ovm-code}
+
+| *Autor*
+| {author}
+
+| *Datum*
+| {revdate}
+
