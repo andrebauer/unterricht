@@ -14,11 +14,14 @@ gulp.task('prebuild', function() {
 });
 
 gulp.task('build:html', function(cb) {
-    exec('asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b html _build/docs/*/*/*.adoc _build/docs/*/*.adoc _build/docs/*.adoc', function(err, stdout, stderr) {
-	console.log(stdout);
-	console.log(stderr);
-	cb(err);
-    });
+    exec('asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf ' +
+	 '-b html _build/docs/*/*/*.adoc _build/docs/*/*.adoc ' +
+	 '_build/docs/*.adoc',
+	 function(err, stdout, stderr) {
+	     console.log(stdout);
+	     console.log(stderr);
+	     cb(err);
+	 });
 })
 
 
