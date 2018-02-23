@@ -1,33 +1,12 @@
-ifdef::backend-html5[]
-:cc-by-sa: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
-endif::[]
-ifndef::backend-html5[]
-:cc-by-sa: ../../images/cc-by-sa-88x31.png
-endif::[]
-//:imagesdir: images
-:icons: font
+include::../../templates/ovm-header.adoc[]
 :ovm-code: IT-BS-LE-LS-1.1
-= {ovm-code} Lernsituation zu Linux Essentials
+:kind: Lernsituation
+:short-title: Linux Essentials 1
+= {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de>
 v1.0, 19. Februar 2018
-:notitle:
-:hide-uri-scheme:
 
-|===
-|http://ovm-kassel.de \| Lernsituation |
-
-| *Lernsituation {ovm-code} +
-  Linux Essentials 1*
-| image:../../images/ovm-logo.png[OvM-Logo,76,61]
-
-| *Code*
-| {ovm-code}
-
-| *Autor*
-| {author}
-
-| *Datum*
-| {revdate}
+include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
 | Kurs https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]
@@ -37,9 +16,7 @@ v1.0, 19. Februar 2018
  https://www.lpice.eu/de/unsere-zertifizierungen/linux-essentials-ueberblick/lernziele-010/#c6080[Lerniele der Linux Essentials Prüfung 010]
 
 | *Lizenz*
-| image:{cc-by-sa}[Creative Commons License,link=http://creativecommons.org/licenses/by-sa/4.0/] 
-  This work is licensed under a +
-  http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License].
+| {cc-by-sa}
 |===
 
 == Vorbereitung

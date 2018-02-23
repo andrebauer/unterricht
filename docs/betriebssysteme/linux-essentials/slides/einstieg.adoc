@@ -11,9 +11,9 @@ v1.0, 19. Februar 2018
 :source-highlighter: pygments
 :listing-caption: Listing
 :revealjs_theme: simple
-:imagesoutdir: generated
-:imagesdir: images
-:oimagesdir: {imagesdir}
+//:imagesoutdir: generated
+//:imagesdir: images
+//:oimagesdir: {imagesdir}
 // Uncomment next line to set page size (default is A4)
 //:pdf-page-size: Letter
 
@@ -51,8 +51,6 @@ Actually things aren't that bad
 
 == Virtualisierung
 
-:imagesdir: {imagesoutdir}
-
 [ditaa, virtualisierung, separation=false]
 ....
 +-------------------------------------------+
@@ -75,8 +73,6 @@ Actually things aren't that bad
 | +---------------------------------------+ |
 +-------------------------------------------+
 ....
-
-:imagesdir: {oimagesdir}
 
 * Lern-, Experimentier- und Testumgebung für Netzwerkdienste
 * auch für NIP, PBS, KIC relevant

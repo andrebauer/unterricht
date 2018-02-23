@@ -6,7 +6,6 @@ include::../../templates/ovm-header.adoc[]
 André Bauer <a.bauer@ovm-kassel.de>
 v1.0, 21. Februar 2018
 
-
 include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
@@ -124,7 +123,7 @@ Daraus ergibt sich das folgende Objektdiagramm:
 
 [[objektdiagramm-1]]
 .Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zu Beginn der <<user-story-1>>
-[plantuml, objektdiagramm-schalter-drei-lampen-1, svg]
+[plantuml, {ovm-code}-objektdiagramm-schalter-drei-lampen-1, svg]
 ....
 object "<u>S1: Schalter</u>" as S1 {
   zustand = AUS
@@ -261,22 +260,25 @@ end note
 
 In einem Klassendiagramm werden Objekte mit derselben Struktur zu einer
 Klasse zusammengefasst.
-Die Lampen L1, L2 und L3 werden also zu den Klasse Lampe zusammengefasst.
+Die Lampen L1, L2 und L3 werden also zu den Klasse `Lampe` zusammengefasst.
 Die Nachricht `drücken()` wird
-dem Schalter und `ausschalten()` bei Lampe notieren, also bei der
-Klasse, der man die jeweilige Nachrichten sendet.
-Die Daten (Attribute der Objekte bzw. Klassen) werden im Klassendiagramm
-nicht mehr mit Konkreten Werten angegeben, sondern statt dessen der
-Datentyp.
+dem Schalter und `ausschalten()` bei `Lampe` notiert, also jeweils bei der
+Klasse, der die entsprechende Nachricht gesendet wird.
+Die Daten, die auch Attribute der Objekte bzw. Klassen genannt werden,
+werden im Klassendiagramm
+nicht mehr mit konkreten Werten angegeben, sondern statt dessen der
+entsprechende Datentyp.
 
 Das Klassendiagramm stellt im Gegensatz zu einem Objektdiagramm keinen
 Systemzustand dar, sondern die Struktur der zugrundeliegenden Software
 bzw. des Quellcodes.
 
-Aus dem Objektdiagramm in <<objektdiagramm-1>> haben die Objekte das
+In dem Objektdiagrammen <<objektdiagramm-1>> und <<objektdiagramm-2>>
+haben die Objekte das
 Attribut `zustand` mit den möglichen Werten `ON` und `OFF.`
 Anstatt eines vorhandenen Java-Datentyps wie `int`, `boolean` oder `string`
-erstellen wir mithilfe einer Aufzählung (engl. enumeration)
+erstellen wir mithilfe einer Aufzählung (engl. enumeration, in Java abgekürzt
+zu `enum`)
 einen passenden neuen und aussagekräftigen.
 
 [[listing-enum-state]]
@@ -294,7 +296,7 @@ verwenden zudem ab jetzt englische Begriffe. Die Verwendung englischer
 Sprache im Quellcode ist üblich, da bei den meisten Programmiersprachen
 für die Sprachelemente sowie die
 https://de.wikipedia.org/wiki/Programmbibliothek[Programmbibliotheken]
-englischer Sprache verwendet wird. 
+ohnehin englische Sprache verwendet wird, wie z.B. auch bein Java. 
 
 [[klassendiagramm-2]]
 .Klassendiagramm mit Enum und englischen Begriffen
@@ -325,7 +327,7 @@ Damit haben wir aus den User-Stories eine objektorientierte Struktur
 für die Software entworfen. Man nennt diesen Schritt
 https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design[*objektorientierte Modellierung*].
 
-Diesem entspricht das folgende Java-Programm:
+Dem Klassendiagramm entspricht das folgende Java-Programm:
 
 .Java-Programm
 [source,java]
@@ -356,6 +358,7 @@ public class Lamp {
 }       
 ----
 
+Ist damit die Entwicklung der Software abgeschlossen?
 Wirklich? Nein, noch nicht ganz, denn wie kann der Schalter die Lampen
 verwenden?
 

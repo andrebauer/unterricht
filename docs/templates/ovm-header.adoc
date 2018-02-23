@@ -11,7 +11,7 @@ http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-Shar
 :notitle:
 :hide-uri-scheme:
 :source-highlighter: pygments
-:listing-caption: Listing
+:listing-caption: Quellcode
 :lang: de
 include::attributes-de.adoc[]
 :ldquo: &#8222;
