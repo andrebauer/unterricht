@@ -52,7 +52,7 @@ gulp.task('build:pdf', function(cb) {
 gulp.task('build:slides', function(cb) {
     exec('asciidoctor-revealjs -a ' +
 	 'revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 ' +
-	 '-r asciidoctor-diagram ' + verbose +
+	 '-r asciidoctor-diagram ' + verbose + '-v ' +
 	 '-a data-uri -a allow-uri-read ' + slides,
 	 function(err, stdout, stderr) {
 	     console.log(stdout);

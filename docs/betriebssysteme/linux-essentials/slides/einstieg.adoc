@@ -1,21 +1,15 @@
-= LPI Linux Essentials: 1. Themenwoche - Einstieg
-André Bauer
-v1.0, 19. Februar 2018
+include::../../../templates/ovm-header.adoc[]
+:ovm-code: IT-BS-LE-VF-1.1
+:kind: Vortragsfolien
+:short-title: Linux Essentials 1
 :backend: revealjs
 :deckjs_transition: fade
 :navigation:
-:stem:
 :custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
-//:reproducible:
-//:source-highlighter: coderay
-:source-highlighter: pygments
-:listing-caption: Listing
 :revealjs_theme: simple
-//:imagesoutdir: generated
-//:imagesdir: images
-//:oimagesdir: {imagesdir}
-// Uncomment next line to set page size (default is A4)
-//:pdf-page-size: Letter
+= {kind} {ovm-code} {short-title}
+André Bauer
+v1.0, 19. Februar 2018
 
 == Lernfeld 9/17 (AWN)
 
