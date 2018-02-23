@@ -1,13 +1,14 @@
 include::../../../templates/ovm-header.adoc[]
 :ovm-code: IT-BS-LE-VF-1.1
 :kind: Vortragsfolien
-:short-title: Linux Essentials 1
+:short-title: LPI Linux Essentials: 1. Themenwoche - Einstieg
 :backend: revealjs
 :deckjs_transition: fade
 :navigation:
 :custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
 :revealjs_theme: simple
-= {kind} {ovm-code} {short-title}
+:!notitle:
+= {short-title}
 André Bauer
 v1.0, 19. Februar 2018
 
@@ -27,11 +28,6 @@ Fokus: Netzwerkdienste
 * Internetdienste (HTTP, FTP, E-Mail, DNS, SSH, DHCP, Firewall, ...)
 
 * lokale Vezeichnisdienste (Active Directory, LDAP, NFS, ...)
-
-[NOTE.speaker]
---
-Actually things aren't that bad
---
 
 === Prozessorientierte Ziele
 
