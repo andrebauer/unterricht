@@ -1,0 +1,228 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-LJ-5.4
+:kind: Lernjob
+:short-title: Klassendiagramm und Quellcode auf der Grundlage eines Objektdiagramms erstellen
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 24. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| 
+
+| *Verwandte Literatur*
+| IT-AE-JA-LS-5.1
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+.Objektdiagramm
+[plantuml, objektdiagramm-beachvolleyball, svg]
+....
+
+together {
+  object "<u>Platz 1: Spielfeld</u>" as P1 {
+    name = "Platz 1"
+  }
+
+  object "<u>Platz 2: Spielfeld</u>" as P2 {
+    name = "Platz 2"
+  }
+}
+
+  object "<u>A-Team: Mannschaft</u>" as TA {
+    name = "A-Team"
+    trikotfarbe = "rot - blau"
+  }
+
+  object "<u>Team Sandsturm: Mannschaft</u>" as TS {
+    name = "Sandsturm"
+    trikotfarbe = "sandgelb"
+  }
+
+  object "<u>Die Ballhelden: Mannschaft</u>" as TB {
+    name = "Die Ballhelden"
+    trikotfarbe = "weiß"
+  }
+
+SAS -> TA : teamA
+SAS -> TS : teamB
+SAS -> P1 : platz
+
+together {
+  object "<u>Spiel AS: Spiel</u>" as SAS {
+    start = 12:15 Uhr
+    ende = 13:50 Uhr
+  }
+
+  object "<u>Spiel AS - Satz 1: Satz</u>" as S3 {
+    punkteA = 14
+    punkteB = 21
+  }
+
+  object "<u>Spiel AS - Satz 2: Satz</u>" as S4 {
+    punkteA = 25
+    punkteB = 23
+  }
+
+  object "<u>Spiel AS - Satz 3: Satz</u>" as S5 {
+    punkteA = 14
+    punkteB = 16
+  }
+}
+
+S3 -* SAS : satz[0]
+S4 -* SAS : satz[1]
+S5 -* SAS : satz[2]
+S3 -[hidden]-> SAS
+S4 -[hidden]-> S3
+S5 -[hidden]-> S5
+
+together {
+  object "<u>Spiel AB: Spiel</u>" as SAB {
+    start = 14:15 Uhr
+    ende = 15:20 Uhr
+  }
+
+  object "<u>Spiel AB - Satz 1: Satz</u>" as S1 {
+    punkteA = 21
+    punkteB = 17
+  }
+
+  object "<u>Spiel AB - Satz 2: Satz</u>" as S2 {
+    punkteA = 21
+    punkteB = 11
+  }
+}
+
+SAB -> TA : teamA
+SAB -> TB : teamB
+SAB -> P2 : platz
+S1 -* SAB : satz[0]
+S2 -* SAB : satz[1]
+S1 -[hidden]-|> SAB
+S2 -[hidden]-|> S1
+
+together {
+  object "<u>Spiel BS: Spiel</u>" as SBS {
+    start = 16:15 Uhr
+    ende = 17:10 Uhr
+  }
+
+  object "<u>Spiel BS - Satz 1: Satz</u>" as S6 {
+    punkteA = 6
+    punkteB = 21
+  }
+
+  object "<u>Spiel BS - Satz 2: Satz</u>" as S7 {
+    punkteA = 19
+    punkteB = 21
+  }
+}
+
+SBS -> TS : teamA
+SBS -> TB : teamB
+SBS -> P1 : platz
+S6 -* SBS : satz[0]
+S7 -* SBS : satz[1]
+S6 -[hidden]-|> SBS
+S7 -[hidden]-|> S6
+....
+
+Drei Mannschaften tragen eine Beachvolleyballturnier aus. Der Stand zum Ende
+des Turniers ist in dem folgenden Objektdiagramm festgehalten: 
+
+.Objektdiagramm Beachvolleyballturnier
+[graphviz, gv-diag, svg]
+....
+digraph G {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    rankdir = BT
+
+    node [
+        fontname = "Bitstream Vera Sans"
+        fontsize = 8
+        shape = "record"
+    ]
+
+    P1 [ label=<{<u>Platz 1: Spielfeld</u>|name = "Platz 1"}> ]
+    
+    P2 [ label=<{<u>Platz 2: Spielfeld</u>|name = "Platz 2"}> ]
+
+    TA [ label=<{<u>A-Team: Mannschaft</u>|name = "A-Team"<br/>trikotfarbe = "rot - blau"}> ]
+
+    TS [ label=<{<u>Team Sandsturm: Mannschaft</u>|name = "Sandsturm"<br/>trikotfarbe = "sandgelb"}> ]
+
+    TB [ label=<{<u>Die Ballhelden: Mannschaft</u>|name = "Die Ballhelden"<br/>trikotfarbe = "weiß"}> ]
+
+    S3 [ label=<{<u>Spiel AS - Satz 1: Satz</u>|punkteA = 14<br/>punkteB = 21}> ]
+
+    SAS [ label=<{<u>Spiel AS: Spiel</u>|start = 12:15 Uhr<br/>ende = 13:50 Uhr }> ]
+  
+ 
+    S4 [ label=<{<u>Spiel AS - Satz 2: Satz</u>|punkteA = 25<br/>punkteB = 23}> ]
+  
+    S5 [ label=<{<u>Spiel AS - Satz 3: Satz</u>|punkteA = 14<br/>punkteB = 16}> ]
+  
+    SAB [ label=<{<u>Spiel AB: Spiel</u>|start = 14:15 Uhr<br/>ende = 15:20 Uhr}> ]
+  
+
+    S1 [ label=<{<u>Spiel AB - Satz 1: Satz</u>|punkteA = 21<br/>punkteB = 17}> ]
+
+
+    S2 [ label=<{<u>Spiel AB - Satz 2: Satz</u>|punkteA = 21<br/>punkteB = 11}> ]
+
+    SBS [ label=<{<u>Spiel BS: Spiel</u>|start = 16:15 Uhr<br/>ende = 17:10 Uhr}> ]
+  
+    S6 [ label=<{<u>Spiel BS - Satz 1: Satz</u>|punkteA = 6<br/>punkteB = 21}> ]
+  
+    S7 [ label=<{<u>Spiel BS - Satz 2: Satz</u>|punkteA = 19<br/>punkteB = 21}> ]
+
+    edge [
+        fontname = "Bitstream Vera Sans"
+        fontsize = 8
+	arrowhead = "open"
+    ]
+
+    SAS -> TA [ label=teamA ]
+    SAS -> TS [ label=teamB ]
+    SAS -> P1 [ label=platz ]
+    
+    SAB -> TA [ label=teamA ]
+    SAB -> TB [ label=teamB ]
+    SAB -> P2 [ label=platz ]
+
+    SBS -> TS [ label=teamA ]
+    SBS -> TB [ label=teamB ]
+    SBS -> P1 [ label=platz ]
+
+    edge [
+        fontname = "Bitstream Vera Sans"
+        fontsize = 8
+        arrowhead = "diamond"
+    ]
+
+    S3 -> SAS [ label="satz[0]" ]
+    S4 -> SAS [ label="satz[1]" ]
+    S5 -> SAS [ label="satz[2]" ]
+
+    S1 -> SAB [ label="satz[0]" ]
+    S2 -> SAB [ label="satz[1]" ]
+
+    S6 -> SBS [ label="satz[0]" ]
+    S7 -> SBS [ label="satz[1]" ]
+}
+....
+
+=== Aufgabe 1
+
+Erstelle zu dem Objektdiagramm ein Klassendiagramm.
+
+=== Aufgabe 2
+
+Gib den Java-Quellcode zu deinem Klassendiagramm aus Aufgabe 1 an.

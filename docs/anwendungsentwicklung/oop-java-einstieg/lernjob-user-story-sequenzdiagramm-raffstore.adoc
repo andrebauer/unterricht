@@ -1,0 +1,33 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-LJ-5.2
+:kind: Lernjob
+:short-title: User-Stories und Sequenzdiagramme erstellen
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 21. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| 
+
+| *Verwandte Literatur*
+| IT-AE-JA-LS-5.1
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+=== Aufgabe 1
+
+Erstelle User-Stories für die Steuerung eines der Raffstores im Maxi.
+Die User-Stories sollen insgesamt das System-Verhalten vollständig
+beschreiben, d.{nbsp}h. alle Anwendungsfälle und alle möglichen
+Ausgangssituationen (Raffstore oben, unten, teilweise heruntergefahren)
+abdecken.
+
+=== Aufgabe 2
+
+Erstellen Sie Sequenzdiagramme zu den User-Stories.

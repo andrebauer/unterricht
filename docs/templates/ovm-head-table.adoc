@@ -1,8 +1,8 @@
 |===
-| http://ovm-kassel.de \| {kind} |
+| http://ovm-kassel.de {vbar} {kind} | {empty}
 
-| *{kind} {ovm-code} +
-  {short-title}*
+| *{kind} {ovm-code}* +
+  *{short-title}*
 | image:../../images/ovm-logo.png[OvM-Logo,76,61]
 
 | *Code*

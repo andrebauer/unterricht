@@ -1,0 +1,63 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-LJ-5.1
+:kind: Lernjob
+:short-title: Objekt- und Klassendiagramme auf der Basis einer Situationsbeschreibung erstellen
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 21. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| 
+
+| *Verwandte Literatur*
+| IT-AE-JA-LS-5.1
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+.Situationsbeschreibung:
+____
+Carl hört zur Zeit gerne diese Lieder:
+
+* Shape Of You - Ed Sheeran
+
+* Unforgettable - French Montana feat. Swae Lee
+
+* Something Just Like This - The Chainsmokers & Coldplay
+
+* Galway Girl - Ed Sheeran
+
+* Swalla - Jason Derulo feat. Nicki Minaj & Ty Dolla $ign
+
+* Thunder - Imagine Dragons
+
+
+Sophia hört zur Zeit gerne:
+
+* Shape Of You - Ed Sheeran
+
+* OK - Robin Schulz feat. James Blunt
+
+* Galway Girl - Ed Sheeran
+
+* Thunder - Imagine Dragons
+
+* There's Nothing Holdin' Me Back - Shawn Mendes
+____
+
+Sophia und Carl wollen bei ihrem nächsten Treffen nur ihre gemeinsamen
+Lieblingslieder hören, und erstellen dazu eine passende Playlist.
+
+=== Aufgabe 1
+
+Erstelle aus der Situationsbeschreibung ein Objektdiagramm.
+
+=== Aufgabe 2
+
+Erstelle auf der Grundlage deines Objektdiagramms ein Klassendiagramm
+und ergänze sinnvolle Methoden.

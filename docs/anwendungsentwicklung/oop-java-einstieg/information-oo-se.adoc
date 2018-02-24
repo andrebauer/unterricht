@@ -359,14 +359,21 @@ public class Lamp {
 ----
 
 Ist damit die Entwicklung der Software abgeschlossen?
-Wirklich? Nein, noch nicht ganz, denn wie kann der Schalter die Lampen
-verwenden?
+Nein, noch nicht, wir haben bislang erst eine objektorientierte Struktur
+erstellt.
+
+== Wie kann der Schalter die Lampen steuern?
 
 * Wir benötigen Konstruktoren, die wie in den Unser-Stories den
   Anfangszustand herstellen und Objekte einer Klasse kreieren.
 
 * Die Beziehungen zwischen den Objekten müssen erzeugt werden.
   Dazu betrachten wir zunächst eine Vereinfachung:
+
+* Die Aktionen der Objekte, wenn sie eine Nachricht erhalten,
+  müssen programmiert werden, das heißt die Methoden
+  `press()` in `Switch`
+  und `turnOn()` sowie `turnOff()` in Lamp. 
 
 [[klassendiagramm-3]]
 .vereinfachstes Klassendiagramm mit Enum und englischen Begriffen
@@ -403,54 +410,7 @@ end note
 .Java-Programm
 [source,java]
 ----
-enum State {
-  ON,
-  OFF
-}
-
-public class Switch {
-       private State state;
-       private Lamp l;
-
-       public Switch() {
-       	      state = OFF;
-       }      
-
-       public void press() {
-      	      if (l != null) {
-	      	 switch (state) {
-		 	OFF: l.turnOn(); break;
-			ON: l.turnIOff();
-		 }
-	      }
-       }
-
-       connect(Lamp l) {
-	    this.l = l;
-       }
-
-       disconnect(Lamp l) {
-       		       if (this.l == l) {
-		          this.l = null
-			  } 
-       }      
-}
-
-public class Lamp {
-       private State state;
-
-       public void Lamp() {
-       	      state = OFF;
-       }      
-
-       public void turnOn() {
-       	      state = ON;
-       }
-
-       public void turnOff() {
-       	      state = OFF;
-       }      
-}       
+include::src/switch-with-single-lamp.java[]
 ----
 
 Mit diesen Klassen können jetzt die Objekte `l1` und `s1` erzeugt werden
@@ -459,13 +419,15 @@ und die Lampe `l1` mit dem Schalter `s1` verbunden werden.
 .Java-Programm
 [source,java]
 ----
-l1 = new Lamp(); <1>
-s1 = new Switch(); <2>
+Lamp l1 = new Lamp(); <1>
+Switch s1 = new Switch(); <2>
 s1.connect(l1); <3>
+s1.press(); <4>
 ----
 <1> Eine neues Objekt der Klasse Lamp mit dem Bezeichner `l1` wird erzeugt.
 <2> Eine neues Objekt der Klasse Switch mit dem Bezeichner `s1` wird erzeugt.
 <3> Die Lampe `l1` wird mit dem Schalter `s1` verbunden.
+<4> {ldquo}Betätigen{rdqou} des Schalters.
 
 === Wie kann man mehrere Lampen mit einem Schalter verbinden?
 
@@ -480,9 +442,11 @@ remove:: Entfernt ein Objekt aus der Sammlung.
 
 Zudem gibt es in Java eine besondere `for`-Schleife für Collections:
 
+.Java-Programm
+[source,java]
 ....
 for (Lamp l: lamps) { <1>
-  l.turnOn(); <2>
+    l.turnOn(); <2>
 }
 ....
 <1> In dem Schleifenkopf wird eine Collection ausgewählt, hier `lamps` sowie
@@ -490,3 +454,11 @@ for (Lamp l: lamps) { <1>
 <2> Im Schleifenrumpf wirden die Aktionen festgelegt, die mit jedem
     Objekt der Sammlung durchgeführt werden, dazu verwendet man den oben
     festgelegten Bezeichner `l`.
+
+Der vollständige Quellcode, der <<user-story-1>> entspricht.:
+
+.Java-Programm
+[source,java]
+----
+include::src/SwitchWithMultipleLamps.java[]
+----

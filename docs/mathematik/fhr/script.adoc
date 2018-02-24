@@ -1,0 +1,32 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: MA-FHR-SCRIPT-1.1
+:kind: Script
+:short-title: Mathematik FHR
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 24. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| siehe unten
+
+| *Verwandte Literatur*
+| 
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== Funktionale Zusammenhänge
+
+=== Lineare Funktionen
+
+=== Quadratische Funktionen
+
+== Beschreibende Statistik
+
+== Funktionen
+
+=== Ganzrationale Funktionen
+

@@ -4,6 +4,7 @@ var del = require('del')
 var gulpCopy = require('gulp-copy');
 
 var sourcefiles = [ 'docs/**/*' ];
+
 var buildDir = '_build/'
 
 var htmldocs =
@@ -29,7 +30,9 @@ gulp.task('prebuild', function() {
 // builds html docs
 gulp.task('build:html', function(cb) {
     exec('asciidoctor -r asciidoctor-diagram ' + verbose +
-	 '-b html -a data-uri -a allow-uri-read ' + htmldocs,
+	 '-b html ' +
+	 /* -a data-uri -a allow-uri-read ' + */
+	 htmldocs,
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);
@@ -40,7 +43,9 @@ gulp.task('build:html', function(cb) {
 // builds pdf docs
 gulp.task('build:pdf', function(cb) {
     exec('asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf ' + verbose +
-	 '-b pdf -a data-uri -a allow-uri-read ' + pdfdocs + slides,
+	 '-b pdf ' +
+	 /* -a data-uri */
+	 '-a allow-uri-read ' + pdfdocs + slides,
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);
@@ -52,8 +57,9 @@ gulp.task('build:pdf', function(cb) {
 gulp.task('build:slides', function(cb) {
     exec('asciidoctor-revealjs -a ' +
 	 'revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 ' +
-	 '-r asciidoctor-diagram ' + verbose + '-v ' +
-	 '-a data-uri -a allow-uri-read -a notitle!' + slides,
+	 '-r asciidoctor-diagram ' + verbose + 
+	 /* '-a data-uri -a allow-uri-read */
+	 '-a notitle! ' + slides,
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);

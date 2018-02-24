@@ -21,6 +21,14 @@ include::../../templates/ovm-head-table.adoc[]
 
 == Lichtsteuerung für das SmartHome
 
+Die Hometech GmbH entwickelt Hard- und Software für des SmartHome.
+Zur Ziet werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
+entwickelt.
+Steuerungselemente wie Schalter und Dimmer sollen zukünftig nicht mehr
+direkt mit den Lampen verbunden werden. Statt dessen soll eine
+programmierbare Steuerungseinheit.
+
+
 Die HomeSoft AG produziert Produkte im Bereich "SmartHome" und hat Sie
 beauftragt, eine Steuerung für Schalter und Lampen zu entwickeln.
 
