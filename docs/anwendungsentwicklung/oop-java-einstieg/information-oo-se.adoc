@@ -4,7 +4,7 @@ include::../../templates/ovm-header.adoc[]
 :short-title: Objektorientierte Software-Entwicklung 
 = {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 21. Februar 2018
+v1.0, 25. Februar 2018
 
 include::../../templates/ovm-head-table.adoc[]
 
@@ -18,13 +18,15 @@ include::../../templates/ovm-head-table.adoc[]
 | {cc-by-sa}
 |===
 
-== Was ist objektorientierte Software-Entwicklung?
+== {short-title}
 
 Spätestens wenn eine Software mehr als etwa hundert oder wenige hundert
 Zeilen Quellcode umfasst, benötigt man Techniken, um der Software eine klare
 Struktur zu geben. Eine klare Struktur ist wichtig, damit die Software leicht
 angepasst und erweitert werden kann, sowohl durch bisherige als auch durch
 andere Entwickler.
+
+=== User-Stories
 
 Eine sehr häufig angewandte Technik zum Entwurf und zur Strukturierung ist die
 objektorientierte Software-Entwicklung. Dazu wird in der Entwurfsphase anhand

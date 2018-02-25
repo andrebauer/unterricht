@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.2
+:ovm-code: IT-AE-JA-LJ-5.4
 :kind: Lernjob
 :short-title: UML-Diagramme auf der Basis einer User-Story erstellen
 = {kind} {ovm-code} {short-title}
@@ -24,11 +24,11 @@ include::../../templates/ovm-head-table.adoc[]
 ____
 Anastasia stellt bei ihren Internet-Radiowecker die Weckzeit auf 6:25{nbsp}Uhr,
 wählt das Programm super-haarmony.fm aus, aktiviert den Wecker und legt sich
-schlafen. Als der Wecker am nächsten Morgen um 6:25{nbsp}Uhr beginnt das
+schlafen. Als der Wecker am nächsten Morgen um 6:25{nbsp}Uhr beginnt, das
 Radioprogramm
 von super-harmony.fm zu streamen, drückt sie auf die Slummertaste, der
 Wecker schweigt und Anastasia schläft weiter. Als der Wecker nach 5{nbsp}Minuten
-wieder Musik spielt, schaltet sie die Weckfunktion aus und stellt das Radio auf
+wieder Musik spielt, schaltet sie die Weckfunktion aus und stellt den Sender auf
 tecknoh.fm um. Nachdem sie sich umgezogen hat, schaltet sie das Radio
 wieder aus.
 ____
@@ -41,7 +41,7 @@ Erstellen Sie zu der User-Story ein geeignetes Sequenzdiagramm.
 
 Fertigen Sie zu der User-Story zwei Objektdiagramme an, die jeweils
 den Zustand der in der Story vorkommenden Objekte und Personen
-zu zwei verschiedenen Zeitpunkten wiedergeben.
+zu unterschiedlichen Zeitpunkten wiedergeben.
 
 === Aufgabe 3
 

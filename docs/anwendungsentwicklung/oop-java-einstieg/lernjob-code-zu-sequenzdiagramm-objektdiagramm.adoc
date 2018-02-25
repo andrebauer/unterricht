@@ -1,0 +1,61 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-LJ-5.5
+:kind: Lernjob
+:short-title: Quellcode mit einem Sequenzdiagramm und einem Objektdiagramm darstellen
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 25. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| 
+
+| *Verwandte Literatur*
+| IT-AE-JA-LS-5.1
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+Gegeben seien die Klassen `Switch` und `Lamp` sowie die Enumeration `State` in
+ihrer abschließenden Fassung aus dem Informationsblatt IT-AE-JA-INFO-5.1.
+Betrachten Sie folgenden Quellcode, der die `main`-Methode des
+Programms ersetzt.
+
+.Java-Quellcode-Fragment
+[source,java]
+....
+public static void main(String args[]) {
+  Lamp l1 = new Lamp();
+  Lamp l2 = new Lamp();
+  Lamp l3 = new Lamp();
+  Switch s1 = new Switch();
+  s1.connect(l1);
+  s1.connect(l2);
+  Switch s2 = new Switch();
+  s2.connect(l2);
+  s2.connect(l3);
+  s1.press();
+  s2.press();
+}
+....
+
+=== Aufgabe 1
+
+Erstellen Sie ein Sequenzdiagramm für die `main`-Methode.
+
+
+=== Aufgabe 2
+
+Fertigen Sie ein Objektdiagramm an, das den System-Zustand zum Ende
+der `main`-Methode zeigt.
+
+
+=== Aufgabe 3
+
+Bewerten Sie anhand Ihrer Lösungen aus den Aufgaben 1 und 2, ob diese
+Verbindung aus Schaltern und Lampen ein wünschenswertes
+Systemverhalten zeigt.

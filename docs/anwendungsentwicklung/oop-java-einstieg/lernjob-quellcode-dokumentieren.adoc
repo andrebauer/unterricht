@@ -1,0 +1,100 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-LJ-5.6
+:kind: Lernjob
+:short-title: Quellcode dokumentieren
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 25. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+* http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html[How to Write Doc Comments for the Javadoc Tool]
+  * https://www.video2brain.com/de/tutorial/die-api-dokumentation-und-javadoc[Screencast: Die API-Dokumentation und Javadoc]
+
+
+| *Verwandte Literatur*
+| IT-AE-JA-LS-5.1
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+Ein Teil der Dokumentation einer Software besteht in der Verwendung von
+Kommentaren im Quellcode.
+
+In Java beginnen mehrzeilige Kommentare mit `/{asterisk}` und enden
+mit `{asterisk}/`;
+einzeilige Kommentare beginnen mit `//` und wirken bis zum Zeilenende.
+Kommentare werden vom Java-Compiler `javac` ignoriert,
+man kann sie daher dazu verwenden, um bestimmte Teile eines Programms
+{ldquo}ein- und auszuschalten{rdquo}, um z.{nbsp}B. die Wirkung
+derselben zu untersuchen und damit u.{nbsp}a. Fehler zu finden.
+
+In Java wird mit `/{asterisk}{asterisk}` ein mehrzeiliger Kommentar
+eingeleitet, der von
+dem Programm `javadoc` zur automatischen Generierung der
+Quellcode-Dokumentation verwendet
+wird.footnote:[Auch die
+https://docs.oracle.com/javase/8/docs/api/index.html[Java API Dokumentation]
+ist mit `javadoc` erstellt.]
+Dieser endet auch mit `{asterisk}/`; dazwischen können und sollen auch
+Auszeichnungen verwendet werden, wie z.{nbsp}B.:
+
+[horizontal]
+`@author`:: Angabe des Autors
+
+`@version`:: Angabe der Version
+
+`@return`:: Beschreibung des Rückgabewertes einer Methode
+
+`@param name`:: Beschreibung des Parameters mit dem Bezeichner `name`.
+
+Die Auszeichnung `@author` und `@version` werden
+
+.Bes
+[source, java]
+----
+/**
+ * The class switch is the model of a switch with the states on and off.
+ * You can connect multiple Lamp to it. <1>
+ *
+ * @author André Bauer
+ * @version 1.0
+ */
+class Switch {
+
+    ...
+
+    /**
+     * Connects a Lamp with the switch. <2>
+     *
+     * @param l The lamp which should be connected.
+     */
+    public void connect(Lamp l) {
+	lamps.add(l);
+    }
+
+    /**
+     * Returns the state of the switch. <3>
+     *
+     * @return The state of the switch.
+     */
+    public State getState() {
+	return state;
+    }
+    
+    ...
+}
+----
+
+<1> Beschreibung der Aufgabe der Klasse zu Beginn der Datei.
+<2> Erläuterung der Aufgabe einer Methode. Bei Methoden, die
+    als Rückgabe den Typ `void` haben, wird in in der
+    Dokumentation auf `@return` verzichtet.
+
+<3> 

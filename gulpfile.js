@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 var del = require('del')
 var gulpCopy = require('gulp-copy');
 
-var sourcefiles = [ 'docs/**/*' ];
+var sourcefiles = [ 'docs/**/*', 'stylesheets/pdf/*' ];
 
 var buildDir = '_build/'
 
@@ -40,10 +40,18 @@ gulp.task('build:html', function(cb) {
 	 });
 })
 
+/*
+http://asciidoctor.org/docs/user-manual/#applying-a-stylesheet
+
+$ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
+*/
+
+
 // builds pdf docs
 gulp.task('build:pdf', function(cb) {
     exec('asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf ' + verbose +
-	 '-b pdf ' +
+	 '-b pdf ' + 
+	 '-a pdf-style=' + buildDir + 'stylesheets/pdf/default-theme.yml ' +
 	 /* -a data-uri */
 	 '-a allow-uri-read ' + pdfdocs + slides,
 	 function(err, stdout, stderr) {
@@ -52,6 +60,33 @@ gulp.task('build:pdf', function(cb) {
 	     cb(err);
 	 });
 })
+
+/*
+
+
+
+Here’s how you’d load your theme when calling Asciidoctor PDF:
+
+$ asciidoctor-pdf -a pdf-stylesdir=resources/themes -a pdf-style=basic -a pdf-fontsdir=resources/fonts
+
+If all goes well, Asciidoctor PDF should run without an error or warning.
+paperclip
+	You only need to specify the pdf-fontsdir if you are using custom fonts in your theme.
+
+You can skip setting the pdf-stylesdir attribute and just pass the absolute path of your theme file to the pdf-style attribute.
+
+$ asciidoctor-pdf -a pdf-style=resources/themes/basic-theme.yml -a pdf-fontsdir=resources/fonts
+
+However, in this case, image paths in your theme won’t be resolved properly.
+
+Paths are resolved relative to the current directory. However, in the future, this may change so that paths are resolved relative to the base directory (typically the document’s directory). Therefore, it’s recommend that you specify absolute paths for now to future-proof your configuration.
+
+$ asciidoctor-pdf -a pdf-stylesdir=/path/to/resources/themes -a pdf-style=basic -a pdf-fontsdir=/path/to/resources/fonts
+
+As usual, you can also use build tools like Maven and Gradle to build a themed PDF. The only thing you need to add to an existing build is the attributes mentioned above.
+
+
+*/
 
 // builds slides
 gulp.task('build:slides', function(cb) {
