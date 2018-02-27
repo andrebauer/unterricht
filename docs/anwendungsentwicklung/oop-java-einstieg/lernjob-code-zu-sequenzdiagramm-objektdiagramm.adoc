@@ -34,8 +34,8 @@ public static void main(String args[]) {
   Lamp lamp2 = new Lamp();
   Lamp lamp3 = new Lamp();
   Switch switch1 = new Switch();
-  switch1.connect(l1);
-  switch1.connect(l2);
+  switch1.connect(lamp1);
+  switch1.connect(lamp2);
   Switch switch2 = new Switch();
   switch2.connect(lamp2);
   switch2.connect(lamp3);

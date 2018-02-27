@@ -20,8 +20,8 @@ include::../../templates/ovm-head-table.adoc[]
 
 == {short-title}
 
-.Situationsbeschreibung:
-____
+.Situationsbeschreibung
+****
 Carl hört zur Zeit gerne diese Lieder:
 
 * Shape Of You - Ed Sheeran
@@ -51,7 +51,7 @@ Sophias Lieblingslieder sind gerade:
 
 Sophia und Carl wollen bei ihrem nächsten Treffen nur ihre gemeinsamen
 Lieblingslieder hören, und erstellen dazu eine passende Playlist.
-____
+****
 
 === Aufgabe 1
 

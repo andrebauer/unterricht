@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.4
+:ovm-code: IT-AE-JA-LJ-5.3
 :kind: Lernjob
 :short-title: UML-Diagramme auf der Basis einer User-Story erstellen
 = {kind} {ovm-code} {short-title}
@@ -20,10 +20,10 @@ include::../../templates/ovm-head-table.adoc[]
 
 == {short-title}
 
-.User-Story:
-____
+.User-Story
+****
 Anastasia stellt bei ihren Internet-Radiowecker die Weckzeit auf 6:25{nbsp}Uhr,
-wählt das Programm super-haarmony.fm aus, aktiviert den Wecker und legt sich
+wählt das Programm super-harmony.fm aus, aktiviert den Wecker und legt sich
 schlafen.
 Um 0:25{nbsp}Uhr synchronisiert der Wecker seine Uhrzeit mit einem
 NTP-Server.
@@ -32,11 +32,11 @@ Radioprogramm
 von super-harmony.fm zu streamen, drückt sie auf die Slummertaste, der
 Wecker schweigt und Anastasia schläft weiter.
 Als der Wecker nach 5{nbsp}Minuten
-wieder Musik spielt, liest Anastasia die Uhrzeit 6:30{nbsp} vom Display ab,
+wieder Musik spielt, liest Anastasia die Zeit 6:30{nbsp}Uhr vom Display ab,
 schaltet sie die Weckfunktion aus und stellt den Sender auf
-tecknoh.fm um. Nachdem sie sich umgezogen hat, schaltet sie das Radio
+pure-techno.fm um. Nachdem sie sich umgezogen hat, schaltet sie das Radio
 wieder aus.
-____
+****
 
 === Aufgabe 1
 
@@ -51,11 +51,11 @@ zu unterschiedlichen Zeitpunkten wiedergeben.
 === Aufgabe 3
 
 Erstellen Sie zu der User-Story ein Klassendiagramm auf der Grundlage
-ihres Ergebnisses aus Aufgabe 2.
+Ihres Ergebnisses aus Aufgabe 2.
 
-=== Aufgabe 4
+// === Aufgabe 4
 
-Geben Sie zu ihrem Klassendiagramm aus Aufgabe 3 den entsprechende
-Java-Quellcode an.
+// Geben Sie zu ihrem Klassendiagramm aus Aufgabe 3 den entsprechende
+// Java-Quellcode an.
 
 

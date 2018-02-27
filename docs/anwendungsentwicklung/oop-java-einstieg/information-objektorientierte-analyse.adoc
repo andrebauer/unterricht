@@ -43,17 +43,16 @@ verfasst:
 
 [[user-story-1]]
 .User-Story 1
-[quote]
-____
+****
 Die Lampen lampe1, lampe2 und lampe3 sind anfangs ausgeschaltet. Der Schalter schalter1
 ist ebenfalls in der Positon {ldquo}aus{rdquo}.
-Der Benutzer betätigt den Schalter schalter1. Die Lampen  lampe1, lampe2 und lampe3 werden
-eingeschaltet.
-____
+Der Benutzer betätigt den Schalter schalter1.
+Die Lampen lampe1, lampe2 und lampe3 werden eingeschaltet.
+****
 
 Aus den User-Stories können nun die relevanten Objekte abgeleitet werden;
-im Beispiel sind dies der Benutzer, der Schalter schalter1 sowie die Lampen lampe1, lampe2 und
-lampe3.
+im Beispiel sind dies der Benutzer, der Schalter schalter1 sowie die
+Lampen lampe1, lampe2 und lampe3.
 
 === Das Verfahren nach Abbott
 
@@ -68,7 +67,8 @@ erläutert.
 Stellt man die User-Story in einem
 https://de.wikipedia.org/wiki/Sequenzdiagramm[UML-Sequenzdiagramm] dar,
 so kann man den Programmablauf entlang der Pfeile ablesen.
-So sendet der Schalter schalter1 die Nachricht `einschalten()` an die Lampe lampe1. Erst
+So sendet der Schalter schalter1 die Nachricht `einschalten()` an die
+Lampe lampe1. Erst
 wenn diese den Einschaltvorgang abgeschlossen hat, setzt schalter1 seine Arbeit
 fort und sendet lampe2 die Nachricht _einschalten()_ usw.
 
@@ -97,13 +97,12 @@ der Schaltung:
 
 [[user-story-2]]
 .User-Story 2
-[quote]
-____
+****
 Die Lampen lampe1, lampe2 und lampe3 sind eingeschaltet. Der Schalter schalter1
 ist ebenfalls in der Positon {ldquo}ein{rdquo}.
-Der Benutzer betätigt den Schalter schalter1. Die Lampen  lampe1, lampe2 und lampe3 werden
-ausgeschaltet.
-____
+Der Benutzer betätigt den Schalter schalter1. Die Lampen
+lampe1, lampe2 und lampe3 werden ausgeschaltet.
+****
 
 Daraus ergibt sich das folgende Sequenzdiagramm:
 

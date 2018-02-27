@@ -15,6 +15,7 @@ a|
 * http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html[How to Write Doc Comments for the Javadoc Tool]
 * https://www.video2brain.com/de/tutorial/die-api-dokumentation-und-javadoc[Screencast: Die API-Dokumentation und Javadoc]
 * https://google.github.io/styleguide/javaguide.html[Google Java Style Guide]
+* https://docs.oracle.com/javase/8/docs/api/index.html[Java API Dokumentation]
 
 | *Verwandte Literatur*
 | {empty}
@@ -26,9 +27,9 @@ a|
 == {short-title}
 
 Quelltexte sollten so verfasst werden, dass sie gut lesbar sind.
-Dazu sollten die Konventionen, wie in einer Programmiersprache Quellcode
+Dazu sollten die Vereinbarungen, wie in einer Programmiersprache Quellcode
 gestaltet werden soll, eingehalten werden wie der https://google.github.io/styleguide/javaguide.html[Google Java Style Guide].
-Zu disen Konvention zählen u.{nbsp}a. die korrekte Einrückung
+Zu diesen Vereinbarungen zählen u.{nbsp}a. die korrekte Einrückung
 der Zeilen und die Verwendung gut gewählter Namen für Klassen,
 Variablen usw.
 
@@ -50,9 +51,9 @@ In Java wird mit `/{asterisk}{asterisk}` ein mehrzeiliger Kommentar
 eingeleitet, der von
 dem Programm `javadoc` zur automatischen Generierung der
 HTML-Quellcode-Dokumentation verwendet
-wird.footnote:[So ist die
+wird. So ist die
 https://docs.oracle.com/javase/8/docs/api/index.html[Java API Dokumentation]
-mit `javadoc` erstellt.]
+mit `javadoc` erstellt.
 Ein Javadoc-Kommentar endet auch mit `{asterisk}/`;
 dazwischen können und sollen auch
 Javadoc-Tags verwendet werden, wie z.{nbsp}B.:
@@ -67,10 +68,9 @@ Javadoc-Tags verwendet werden, wie z.{nbsp}B.:
 
 `@param name`:: Beschreibung des Parameters mit dem Bezeichner `name`.
 
-Die Tags `@author` und `@version` werden in dem Kommentar verwendet, das eine
-Klasse oder eine Schnittstelle beschreibt, sie werden daher üblicherweise
-zu Beginn einer Java-Datei verwendet.
-
+Die Tags `@author` und `@version` werden in dem Javadoc-Kommentar verwendet,
+der eine Klasse oder eine Schnittstelle beschreibt,
+sie werden daher üblicherweise zu Beginn einer Java-Datei verwendet.
 Neben diesen gibt es noch einige 
 https://de.wikipedia.org/wiki/Javadoc#Übersicht_der_Javadoc-Tags[weitere Tags].
 
@@ -84,9 +84,12 @@ https://de.wikipedia.org/wiki/Javadoc#Übersicht_der_Javadoc-Tags[weitere Tags].
  * @author André Bauer
  * @version 1.0
  */
-class Switch {
+public class Switch {
 
-  ...
+  /**
+   * The current state of the switch.
+   */
+  private State state;
 
   /**
    * Connects a lamp with the switch. <2>
@@ -112,9 +115,9 @@ class Switch {
 
 <1> Beschreibung der Aufgabe der Klasse zu Beginn der Datei.
 <2> Erläuterung der Aufgabe einer Methode. Bei Methoden, die
-    als Rückgabe den Typ `void` haben, wird in in der
+    als Rückgabe den Typ `void` haben, wird in der
     Dokumentation auf das Tag `@return` verzichtet.
-<3> Der Bezeicher nach dem Tag @param, hier ist es `l`, muss
+<3> Der Bezeicher nach dem Tag @param, hier ist es `lamp`, muss
     mit dem Parameter in der dokumentierten Methode übereinstimmen.
 <4> Da `getState()` einen Wert zurückliefert,
     wird dieser mit dem Tag `@return` dokumentiert.
@@ -125,7 +128,7 @@ class Switch {
 
 Javadoc ist ein Kommandozeilen-Werkzeug. Bei einfachen Projekten, bei
 denen alle Quellcode-Dateien in einem Verzeichnis liegen, wird mit dem
-folgende Aufruf die HTML-Dokumentation aller Klassen und Schnittstellen
+folgenden Aufruf die HTML-Dokumentation aller Klassen und Schnittstellen
 erzeugt:
 
 [source,sh]
@@ -135,7 +138,9 @@ $ javadoc -author -version -private *.java
 $ firefox index.html &
 ----
 
-In einigen Entwicklungsumgebungen ist Javadoc integriert,
-in einem
-https://www.video2brain.com/de/tutorial/die-api-dokumentation-und-javadoc[Screencast zur API-Dokumentation mit Javadoc] wird dies anhand von Eclipse
-vorgeführt.
+In einigen Entwicklungsumgebungen ist Javadoc integriert.
+So kann in https://www.bluej.org/[BlueJ] unter `bearbeiten` zwischen
+`Quelltext` und `Dokumentation` gewechselt werden.
+In einem
+https://www.video2brain.com/de/tutorial/die-api-dokumentation-und-javadoc[Screencast zur API-Dokumentation mit Javadoc] wird die Verwendung
+von Javadoc anhand von Eclipse vorgeführt.

@@ -192,8 +192,9 @@ prose:
   margin_top: $block_margin_top
   margin_bottom: $block_margin_bottom
 sidebar:
-  background_color: eeeeee
-  border_color: e1e1e1
+  background_color: ffffff
+  #border_color: e1e1e1
+  border_color: cccccc
   border_radius: $base_border_radius
   border_width: $base_border_width
   # FIXME reenable padding bottom once margin collapsing is implemented

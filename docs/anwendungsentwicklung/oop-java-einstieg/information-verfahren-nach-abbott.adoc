@@ -1,7 +1,8 @@
 include::../../templates/ovm-header.adoc[]
 :ovm-code: IT-AE-JA-INFO-5.2
 :kind: Information
-:short-title: Das Verfahren nach Abbott 
+:short-title: Das Verfahren nach Abbott
+:prefix: abbott
 = {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de> 
 v1.0, 25. Februar 2018
@@ -37,8 +38,10 @@ objektorientierte Analyse (_OOA_) bzw. objektorientierte Modellierung
 Es folgt eine Zusammenfassung der drei erforderlichen 
 Schritte.
 
-|===
-a| Um aus einer umgangssprachlich formulierten Problembeschreibung die Objekte mit den zugehörigen Objektkarten (s.{nbsp}u.) zu erarbeiten, geht man wie folgt vor:
+****
+Um aus einer umgangssprachlich formulierten Problembeschreibung die Objekte mit
+den zugehörigen Attributen und Methoden (s.{nbsp}u.) zu erarbeiten,
+geht man wie folgt vor:
 
 . *Substantive (Hauptwörter) und Eigennamen herausfiltern* +
   Die Hauptwörter sind mögliche _Objekte_.
@@ -53,8 +56,8 @@ a| Um aus einer umgangssprachlich formulierten Problembeschreibung die Objekte m
 
 . *Verben (Zeitwörter) herausfiltern* +
   Sie bezeichnen häufig die Aktionen, welche von Objekten ausgeführt
-  werden können 
-  (die sogenannten _Methoden_ der Objekte).
+  werden können, bzw. die Nachrichten, die diesen gesendet werden können,
+  die sogenannten _Methoden_ der Objekte.
   Es ist festzustellen, welchem Objekt die Methode zugeordnet werden kann.
 
 . *Adjektive (Eigenschaftswörter) herausfiltern* +
@@ -65,7 +68,7 @@ a| Um aus einer umgangssprachlich formulierten Problembeschreibung die Objekte m
   »Seitenzahl« des aktuellen Dudens.
   Auch hier ist wieder festzustellen, welchem Objekt der Attributwert
   zugeordnet und wie das zugehörige Attribut bezeichnet werden kann.
-|===
+****
 
 Die grafische Darstellung von Objekten erfolgt durch Rechtecke. 
 Die erste Zeile beeinhaltet dabei den eindeutigen Namen des Objekts und
@@ -74,29 +77,46 @@ Nach einer horizontalen Trennlinie folgen zeilenweise die Attribute mit ihren
 jeweiligen Attributwerten.
 Die Methoden der Objekte sind (sofern vorhanden) von den Attributen und 
 Attributwerten wiederum durch eine horizontale Linie getrennt.
-Meist wird aber in Objektdiagrammen auf die Darstellung der Methoden
+Oft wird aber in Objektdiagrammen auf die Darstellung der Methoden
 verzichtet. diese werden dann nur im Klassendiagramm notiert.
 
 .Beispiel für ein Objekt
-[plantuml]
+[graphviz, {prefix}-objekt, svg]
 ....
-object "<u>gustavsRadiowecker: Radiowecker</u>" as gr {
-  weckzeit = 06:30 Uhr
-  aktiv = AN
+digraph G {
+    fontname = "Bitstream Vera Sans";
+    fontsize = 8;
+    rankdir = BT;
+
+    node [
+        fontname = "Bitstream Vera Sans"
+        fontsize = 8
+        shape = "record"
+	width = 3.5
+    ];
+
+    P1 [ label=<{<u align="LEFT">gustavsRadiowecker: Radiowecker</u>|weckzeit = 06:30 Uhr<br align="LEFT"/>aktiv = AN|einschalten()<br/>ausschalten()<br/>alarmAuslösen()}> ];
+
+//   P2 [ label="gustavsRadiowecker: Radiowecker\l|weckzeit = 06:30 Uhr\laktiv = AN\l|einschalten()\lausschalten()\lalarmAuslösen()\l" ];
 }
 ....
 
-Per Konvention beginnen _Bezeichner_ für Objekte, Attribute und Methoden 
+// .Beispiel für ein Objekt
+// [plantuml]
+// ....
+// object "<u>gustavsRadiowecker: Radiowecker</u>" as gr {
+//   weckzeit = 06:30 Uhr
+//   aktiv = AN
+// }
+// ....
+
+_Bezeichner_ für Objekte, Attribute und Methoden beginnen
 mit einem Kleinbuchstaben. 
 Es ist in Java üblich, bei zusammengesetzten Bezeichnern neu einsetzende 
 Worte durch Großbuchstaben hervorzuheben (siehe Beispiel).
-Diese Namenkonvention wird auch als
+Diese Schreibweise wird auch als
 https://de.wikipedia.org/wiki/Binnenmajuskel#Programmiersprachen[camel case]
 bezeichnet.
 
-Umlaute, Sonderzeichen und Leerzeichen sind in Java-Bezeichnern grundsätzlich
-verboten.
-Neben den im Englischen verwendeten Groß- und Kleinbuchstaben und den Ziffern 
-0 bis 9 ist allenfalls noch der Unterstrich `_` erlaubt.
 
 

@@ -1,16 +1,19 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.2
+:ovm-code: IT-AE-JA-LJ-5.0
 :kind: Lernjob
-:short-title: Objekt- und Klassendiagramme auf der Basis einer Situationsbeschreibung erstellen
+:short-title: Mit BlueJ arbeiten
 :prefix: bluej
 = {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 25. Februar 2018
+v1.0, 27. Februar 2018
 
 include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
-| {empty}
+a|
+
+* https://www.bluej.org[BlueJ]
+* https://www.bluej.org/tutorial/blueJ-tutorial-deutsch.pdf[Das BlueJ Tutorial]
 
 | *Verwandte Literatur*
 | {empty}
@@ -20,3 +23,122 @@ include::../../templates/ovm-head-table.adoc[]
 |===
 
 == {short-title}
+
+=== Aufgabe 1
+
+Installieren Sie die Java-Entwicklungsumgebung https://www.bluej.org[BlueJ].
+
+=== Aufgabe 2
+
+Entpacken Sie das Projekt ??? und öffnen Sie es mit BlueJ.
+Erkunden Sie BlueJ anhand dieses Projektes.
+
+=== Aufgabe 3
+
+Erzeugen Sie mit BlueJ Lampen und Schalter, verbinden Sie diese und
+prüfen Sie, ob die Lampen ihre Zustände ändern, wenn sie die
+angeschlossenen Schalter mit der Methode `press` betätigen.
+
+=== Aufgabe 4
+
+Führen Sie mit BlueJ die Java-Anweisung {ldquo}per Hand{rdquo} durch und
+notieren Sie, welchen Zustand am Ende die verwendeten Objekte haben
+sowie welche Lampe mit welchem Schalter verbunden ist.
+
+[[java-fragment-zu-aufgabe4]]
+.Java-Anweisungen
+[source, java]
+----
+Lamp lamp1 = new Lamp();
+Switch switch1 = new Switch();
+switch1.connect(lamp1);
+Lamp lamp2 = new Lamp();
+Switch switch2 = new Switch();
+switch1.press();
+switch1.connect(lamp2);
+switch2.connect(lamp1);
+Lamp lamp3 = new Lamp();
+switch1.disconnect(lamp1);
+switch1.press();
+switch1.connect(lamp3);
+switch2.press();
+switch2.connect(lamp2);
+switch2.press();
+switch2.disconnect(lamp1);
+switch2.connect(lamp3);
+switch2.press();
+switch1.press();
+----
+
+=== Aufgabe 5
+
+Betrachten Sie den in dem Objektdiagramm gegebenen Systemzustand.
+Führen Sie diesen {ldquo}per Hand{rdquo} mit BlueJ herbei und dokumentierten
+Sie die dazu notwendigen Schritte wie in <<java-fragment-zu-aufgabe4>>.
+
+[[objektdiagramm-aufgabe-5]]
+.Objektdiagramm
+[plantuml, {prefix}-objektdiagramm-1, svg]
+....
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = EIN
+} 
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = EIN
+} 
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = EIN
+} 
+
+object "<u>lampe3: Lampe</u>" as lampe3 {
+  zustand = OFF
+} 
+
+object "<u>schalter2: Schalter</u>" as schalter2 {
+  zustand = OFF
+} 
+
+object "<u>lampe4: Lampe</u>" as lampe4 {
+  zustand = OFF
+}
+
+lampe1 <- schalter1 : schaltet
+
+schalter1 -> "schaltet       " lampe2
+
+schalter1 -> lampe3 : schaltet
+
+lampe2 <- schalter2 : schaltet
+
+lampe3 <- schalter2 : schaltet
+
+schalter2 -> lampe4 : schaltet
+....
+
+=== Aufgabe 6
+
+Programmieren Sie auch eine Ausgabe für den Schalter,
+die nach jedem Umschalten den aktuellen Zustand des Schalters
+wiedergibt.
+
+=== Aufgabe 7
+
+Verbessern Sie die Zustand-Ausgabe für die Lampen, indem Sie
+ein Attribut `name` hinzufügen, dass mithilfe eines
+Konstruktor-Parameters gesetzt werden kann:
+
+.Der Parameter `"Lampe 1"` wird dem Konstruktor `Lamp` als Parameter übergeben
+[source, java]
+----
+Lamp lamp1 = new Lamp("Lampe 1");
+----
+
+Das Attribut `name` kann dann bei der Ausgabe mit
+`System.out.println(...)` statt `this` verwendet werden,
+so dass nun die Ausgabe z.{nbsp}B. so aussieht:
+----
+Lampe 1: AN
+----
+
