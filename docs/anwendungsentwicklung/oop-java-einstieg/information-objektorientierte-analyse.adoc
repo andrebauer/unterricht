@@ -1,0 +1,349 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-INFO-5.1
+:kind: Information
+:short-title: Objektorientierte Analyse (OOA)
+:prefix: ooa
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 25. Februar 2018
+//:toc: macro
+//:toclevels: 4
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design[Wikipedia: Objektorientierte Analyse und Design]
+
+| *Verwandte Literatur*
+| IT-AE-JA-INFO-5.2
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+//toc::[]
+
+Wenn eine Software mehr als etwa hundert Zeilen Quellcode umfasst,
+spätestens ab mehreren hundert,
+benötigt man Techniken, um der Software eine klare
+Struktur zu geben. Eine klare Struktur ist wichtig, damit die Software leicht
+angepasst und erweitert werden kann, sowohl durch bisherige als auch durch
+andere Entwickler.
+
+=== User-Stories
+
+Eine sehr häufig angewandte Technik zum Entwurf und zur Strukturierung ist die
+objektorientierte Software-Entwicklung. Dazu wird in der objektorientierten
+Analyse anhand von Szenarien ermittelt, wie die zukünftige Nutzung des
+(Software-)Systems ablaufen soll. Dabei werden sogenannte
+https://de.wikipedia.org/wiki/User-Story[User-Stories]
+verfasst:
+
+[[user-story-1]]
+.User-Story 1
+[quote]
+____
+Die Lampen lampe1, lampe2 und lampe3 sind anfangs ausgeschaltet. Der Schalter schalter1
+ist ebenfalls in der Positon {ldquo}aus{rdquo}.
+Der Benutzer betätigt den Schalter schalter1. Die Lampen  lampe1, lampe2 und lampe3 werden
+eingeschaltet.
+____
+
+Aus den User-Stories können nun die relevanten Objekte abgeleitet werden;
+im Beispiel sind dies der Benutzer, der Schalter schalter1 sowie die Lampen lampe1, lampe2 und
+lampe3.
+
+=== Das Verfahren nach Abbott
+
+Mit dem Verfahren von Abbott werden aus einer Problem- oder
+Situationsbeschreibung oder entsprechenden User-Stories
+mögliche Objekte, Attribute und Methoden ermittelt.
+Dieses Verfahren wird auf dem Informationsblatt IT-AE-JA-INFO-5.2
+erläutert.
+
+=== Sequenzdiagramme
+
+Stellt man die User-Story in einem
+https://de.wikipedia.org/wiki/Sequenzdiagramm[UML-Sequenzdiagramm] dar,
+so kann man den Programmablauf entlang der Pfeile ablesen.
+So sendet der Schalter schalter1 die Nachricht `einschalten()` an die Lampe lampe1. Erst
+wenn diese den Einschaltvorgang abgeschlossen hat, setzt schalter1 seine Arbeit
+fort und sendet lampe2 die Nachricht _einschalten()_ usw.
+
+[[sequenzdiagramm-1]]
+.Sequenzdiagramm zur <<user-story-1>>
+[plantuml, {prefix}-sequenzdiagramm-1, svg]
+....
+actor Benutzer
+
+Benutzer -> "schalter1: Schalter" as schalter1: drücken()
+
+schalter1 -> "lampe1: Lampe" as lampe1: einschalten()
+lampe1 --> schalter1
+
+schalter1 -> "lampe2: Lampe" as lampe2: einschalten()
+lampe2 --> schalter1
+
+schalter1 -> "lampe3: Lampe" as lampe3: einschalten()
+lampe3 --> schalter1
+
+schalter1 --> Benutzer
+....
+
+Eine zweite User-Story vervollständigt die möglichen Anwendungsfälle
+der Schaltung:
+
+[[user-story-2]]
+.User-Story 2
+[quote]
+____
+Die Lampen lampe1, lampe2 und lampe3 sind eingeschaltet. Der Schalter schalter1
+ist ebenfalls in der Positon {ldquo}ein{rdquo}.
+Der Benutzer betätigt den Schalter schalter1. Die Lampen  lampe1, lampe2 und lampe3 werden
+ausgeschaltet.
+____
+
+Daraus ergibt sich das folgende Sequenzdiagramm:
+
+[[sequenzdiagramm-2]]
+.Sequenzdiagramm zur <<user-story-2>>
+[plantuml, {prefix}-sequenzdiagramm-2, svg]
+....
+actor Benutzer
+
+Benutzer -> "schalter1: Schalter" as schalter1: drücken()
+
+schalter1 -> "lampe1: Lampe" as lampe1: ausschalten()
+lampe1 --> schalter1
+
+schalter1 -> "lampe2: Lampe" as lampe2: ausschalten()
+lampe2 --> schalter1
+
+schalter1 -> "lampe3: Lampe" as lampe3: ausschalten()
+lampe3 --> schalter1
+
+schalter1 --> Benutzer
+....
+
+=== Objektdiagramme
+
+Aus den User-Stories bzw. den zugehörigen Sequenzdiagrammen kann man
+ablesen, wie die beteiligten Objekte miteinander verknüpt sein müssen,
+um Nachrichten austauschen zu können:
+
+Der Schalter schalter1 verwendet die Lampen lampe1, lampe2 und lampe3, um ihnen jeweils die
+Nachricht `einschalten()` bzw. `ausschalten()` senden zu können.
+Diese Beziehung wird in einem
+https://de.wikipedia.org/wiki/Objektdiagramm[Objektdiagramm] durch Pfeile
+dargestellt.
+
+Objekte, die Nachrichten austauschen, werden im Diagramm mit Linien verbunden. 
+Dieser Beziehungstyp wird _Assoziation_ genannt (auch Kennt-Beziehung).
+Die Beziehungen werden mit einem Namen versehen, im Beispiel lautet dieser
+{ldquo}schaltet{rdquo}.
+Wenn die Nachrichten nur in eine Richtung ausgetauscht werden, wird
+dies durch eine Pfeilspitze kenntlich gemacht.
+
+Daraus ergibt sich das folgende Objektdiagramm:
+
+[[objektdiagramm-1]]
+.Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zu Beginn der <<user-story-1>>
+[plantuml, {prefix}-objektdiagramm-schalter-drei-lampen-1, svg]
+....
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = AUS
+} 
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = AUS
+} 
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = AUS
+} 
+
+object "<u>lampe3: Lampe</u>" as lampe3 {
+  zustand = AUS
+}
+note top
+  <u>Objektname : Klasse</u>
+  
+  --
+  Attribut = Wert der Attributs
+end note
+
+lampe1 <- schalter1 : schaltet
+note top on link
+  Name der Beziehung
+end note
+
+schalter1 -> "schaltet" lampe3
+
+schalter1 -> lampe2 : schaltet
+....
+
+Ein Objektdiagramm stellt den Zustand eines Software-Systems zu einen
+bestimmten Zeitpunkt dar. +
+Das Diagramm in <<objektdiagramm-1>> stellt den
+Zustand zu Beginn der <<user-story-1>> bzw. zum Ende der
+<<user-story-2>> dar, da der Schalter und die Lampen den Zustand `AUS` haben.
+
+Der Zustand zum Ende der <<user-story-1>> bzw. zu Beginn der <<user-story-2>>
+sieht so aus:
+
+[[objektdiagramm-2]]
+.Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zum Ende der <<user-story-1>>
+[plantuml, {prefix}-objektdiagramm-schalter-drei-lampen-2, svg]
+....
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = EIN
+} 
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = EIN
+} 
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = EIN
+} 
+
+object "<u>lampe3: Lampe</u>" as lampe3 {
+  zustand = EIN
+} 
+
+lampe1 <- schalter1 : schaltet
+
+schalter1 -> "schaltet" lampe3
+
+schalter1 -> lampe2 : schaltet
+....
+
+Man könnte jetzt den Schalter und jede der
+drei Lampen direkt programmieren, aber
+dies hätte Nachteile:
+für die Lampen würde man dreimal dasselbe Programm schreiben.
+Es wäre daher eine unflexible Lösung, man möchte mit derselben
+Software auch Schaltungen
+mit vier oder mehr Lampen mit einem Schalter verbinden können.
+
+[[objektdiagramm-b]]
+.Objektdiagramm für einen Aufbau mit einem Schalter und fünf Lampen
+[plantuml, {prefix}-objektdiagramm-schalter-fuenf-lampen, svg]
+....
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = AUS
+} 
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = AUS
+} 
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = AUS
+} 
+
+object "<u>lampe3: Lampe</u>" as lampe3 {
+  zustand = AUS
+} 
+
+object "<u>lampe4: Lampe</u>" as lampe4 {
+  zustand = AUS
+} 
+
+object "<u>lampe5: Lampe</u>" as lampe5 {
+  zustand = AUS
+} 
+
+
+lampe1 <- schalter1 : schaltet
+
+schalter1 -> "schaltet" lampe3
+
+schalter1 -> lampe2 : schaltet
+
+schalter1 -> lampe4 : schaltet
+
+schalter1 -> lampe5 : schaltet
+....
+
+=== Klassendiagramme
+
+Daher verallgemeinert man die möglichen Objektbeziehungen in Form eines
+https://de.wikipedia.org/wiki/Klassendiagramm[UML-Klassendiagramms]:
+
+[[klassendiagramm-1]]
+.Klassendiagramm als Ergebnis der OOA
+[plantuml, {prefix}-klassendiagramm-schalter-lampe, svg]
+....
+class "Schalter" as schalter1 {
+  zustand
+  drücken()
+} 
+
+class "Lampe" as lampe1 {
+  zustand
+  einschalten()
+  ausschalten()
+}
+
+schalter1 "1" --> "*" lampe1 : schaltet
+note right on link
+  Durch die Multiplizitäten 1 und * am
+  Beziehungspfeil wird notiert, dass ein Schalter mit
+  mehreren Lampen verbunden werden kann.
+end note
+....
+
+In einem Klassendiagramm werden Objekte mit derselben Struktur zu einer
+Klasse zusammengefasst.
+Die Lampen lampe1, lampe2 und lampe3 werden also zu den Klasse `Lampe` zusammengefasst.
+Die Nachricht `drücken()` wird
+dem Schalter und `ausschalten()` bei der `Lampe` notiert, also jeweils bei der
+Klasse, der die entsprechende Nachricht gesendet wird.
+Statt Nachricht wird im Zusammenhang mit der Programmsprache
+Java der Begriff _Methode_ verwendet.
+Die Daten, die auch Attribute der Objekte bzw. Klassen genannt werden,
+können im Klassendiagramm mit ihren initialen Werten angegeben werden,
+zudem kann auch der entsprechende Datentyp benannt werden
+wie in <<klassendiagramm-3>>.
+
+[[klassendiagramm-3]]
+.Klassendiagramm mit Datentypen und initialen Werten.
+[plantuml, {prefix}-klassendiagramm-mit-datentypen-und-initialen-werten, svg]
+....
+class "Schalter" as schalter1 {
+  zustand: Zustand = AUS
+  drücken()
+} 
+
+class "Lampe" as lampe1 {
+  zustand: Zustand = AUS
+  einschalten()
+  ausschalten()
+}
+
+schalter1 "1" --> "*" lampe1 : schaltet
+....
+
+
+Das Klassendiagramm stellt im Gegensatz zu einem Objektdiagramm keinen
+Systemzustand dar, sondern die Struktur der zugrundeliegenden Software
+bzw. des Quellcodes.
+Die Darstellung einer Klasse im Klassendiagramm folgt dem folgenden Schema:
+
+[[klassendiagramm-schema]]
+.Schema der graphischen Darstellung einer Klasse
+[plantuml, {prefix}-klassendiagramm-schema, svg]
+....
+class Klassenname {
+  Attribut
+  Attribut: Datentyp
+  Attribut: Datentyp = Initialwert
+  {method} Methode
+  Methode(Argumente)
+  Methode(Argumente): Ergebnistyp  
+}
+....
+

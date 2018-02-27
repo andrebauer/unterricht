@@ -17,7 +17,7 @@ module.exports = {
         "port": 3001
     },
     "files": [ 
-	"_build/docs/**/*.+(html|svg|png)",
+	"_build/**/*.+(html|svg|png|css)",
     ],
     "watchEvents": [
         "change"

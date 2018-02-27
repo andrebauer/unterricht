@@ -1,0 +1,102 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-INFO-5.2
+:kind: Information
+:short-title: Das Verfahren nach Abbott 
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de> 
+v1.0, 25. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Autoren des Orginaldokuments*
+a|
+
+  [small]#Informatikreferendare und ehemalige Informatikreferendare der
+  Studienseminare (heute ZfsL) Arnsberg, Hamm und Solingen. +
+  Die Urheberin der Zusammenfassung des Verfahrens nach Abbott ist
+  unbekannt, dieses wird hier in leicht veränderter Form wiedergegeben.#
+
+| *Orginaldokument*
+| [small]#http://ddi.uni-wuppertal.de/material/materialsammlung/oberstufe/allgemein/abbott/info_01_verfahren_abbott.pdf#
+
+| *Links*
+| {empty}
+
+| *Verwandte Literatur*
+| {empty}
+
+| *Lizenz*
+| {cc-by-nc-sa}
+|===
+
+== {short-title}
+
+Auf Russell J. Abbott geht ein Verfahren zurück, das für die 
+objektorientierte Analyse (_OOA_) bzw. objektorientierte Modellierung 
+(_OOM_) hilfreich sein kann. 
+Es folgt eine Zusammenfassung der drei erforderlichen 
+Schritte.
+
+|===
+a| Um aus einer umgangssprachlich formulierten Problembeschreibung die Objekte mit den zugehörigen Objektkarten (s.{nbsp}u.) zu erarbeiten, geht man wie folgt vor:
+
+. *Substantive (Hauptwörter) und Eigennamen herausfiltern* +
+  Die Hauptwörter sind mögliche _Objekte_.
+  Meist nicht beachtet werden allerdings Mengen- und Größenangaben 
+  (»Kilogramm«), Sammelnamen (»Regierung«), 
+  Materialbezeichnungen (»Plastik«) und abstrakte Begriffe 
+  (»Liebe«, »Arbeit«).
+  Zeitwörter (Verben), die als Hauptwörter benutzt werden (»das Betrachten 
+  eines Bildes«) werden behandelt wie die zugehörigen Zeitwörter.
+  Gattungsnamen wie z.{nbsp}B. »Kraftfahrzeug«, »Säugetier« und 
+  »Einwohner« sind ebenfalls meist keine Objekte.
+
+. *Verben (Zeitwörter) herausfiltern* +
+  Sie bezeichnen häufig die Aktionen, welche von Objekten ausgeführt
+  werden können 
+  (die sogenannten _Methoden_ der Objekte).
+  Es ist festzustellen, welchem Objekt die Methode zugeordnet werden kann.
+
+. *Adjektive (Eigenschaftswörter) herausfiltern* +
+  Sie bezeichnen häufig die »Ausprägungen« (_Attributwerte_), 
+  welche bestimmte Eigenschaften (die _Attribute_) von Objekten annehmen 
+  können. Beispielsweise wäre »ledig« ein Attributwert zum Attribut 
+  »Familienstand« oder »1216« der Attributwert des Attributs 
+  »Seitenzahl« des aktuellen Dudens.
+  Auch hier ist wieder festzustellen, welchem Objekt der Attributwert
+  zugeordnet und wie das zugehörige Attribut bezeichnet werden kann.
+|===
+
+Die grafische Darstellung von Objekten erfolgt durch Rechtecke. 
+Die erste Zeile beeinhaltet dabei den eindeutigen Namen des Objekts und
+durch einen Doppelpunkt getrennt den Namen der Klasse.
+Nach einer horizontalen Trennlinie folgen zeilenweise die Attribute mit ihren 
+jeweiligen Attributwerten.
+Die Methoden der Objekte sind (sofern vorhanden) von den Attributen und 
+Attributwerten wiederum durch eine horizontale Linie getrennt.
+Meist wird aber in Objektdiagrammen auf die Darstellung der Methoden
+verzichtet. diese werden dann nur im Klassendiagramm notiert.
+
+.Beispiel für ein Objekt
+[plantuml]
+....
+object "<u>gustavsRadiowecker: Radiowecker</u>" as gr {
+  weckzeit = 06:30 Uhr
+  aktiv = AN
+}
+....
+
+Per Konvention beginnen _Bezeichner_ für Objekte, Attribute und Methoden 
+mit einem Kleinbuchstaben. 
+Es ist in Java üblich, bei zusammengesetzten Bezeichnern neu einsetzende 
+Worte durch Großbuchstaben hervorzuheben (siehe Beispiel).
+Diese Namenkonvention wird auch als
+https://de.wikipedia.org/wiki/Binnenmajuskel#Programmiersprachen[camel case]
+bezeichnet.
+
+Umlaute, Sonderzeichen und Leerzeichen sind in Java-Bezeichnern grundsätzlich
+verboten.
+Neben den im Englischen verwendeten Groß- und Kleinbuchstaben und den Ziffern 
+0 bis 9 ist allenfalls noch der Unterstrich `_` erlaubt.
+
+

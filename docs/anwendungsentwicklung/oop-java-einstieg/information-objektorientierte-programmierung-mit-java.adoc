@@ -1,0 +1,268 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-INFO-5.3
+:kind: Information
+:short-title: Objektorientierte Programmierung (OOP) mit Java
+:prefix: oop
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 25. Februar 2018
+//:toc: macro
+//:toclevels: 4
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design[Wikipedia: Objektorientierte Analyse und Design]
+
+| *Verwandte Literatur*
+| 
+
+| *Lernjobs*
+| IT-AE-JA-LJ-5.*
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+//toc::[]
+
+Gegenben ist als Ergenis der objektorientierten Modellierung
+das Klassendiagramm in <<klassendiagramm-1>>.
+
+[[klassendiagramm-1]]
+.Klassendiagramm als ein Ergebnis der objektorientierten Modellierung
+[plantuml, {prefix}-klassendiagramm-schalter-lampe-enum-erweitert, svg]
+....
+class "Switch" as switch1 {
+  state: State = OFF
+  Switch()
+  press()
+  connect(Lamp)
+  disconnect(Lamp)
+} 
+
+class "Lamp" as lamp1 {
+  state: State = OFF
+  Lamp()
+  turnOn()
+  turnOff()
+}
+
+class "State" << enum >> 
+
+switch1 "1  " --> "*" lamp1 : controls
+switch1 -> State
+lamp1 -> State
+....
+
+Dem Klassendiagramm in <<klassendiagramm-1>>
+entspricht das folgende Java-Programm:
+
+.Java-Programm
+[source,java]
+----
+// Datei State.java
+include::src/switch-with-lamps-skeleton/State.java[]
+
+// Datei Lamp.java
+include::src/switch-with-lamps-skeleton/Lamp.java[] 
+
+// Datei Switch.java
+include::src/switch-with-lamps-skeleton/Switch.java[]
+----
+
+In Java muss jede Klasse mit dem Zugriffsmodifikator `public`
+in einer Datei mit dem Namen der Klasse gespeichert werden, so dass das
+Programm nun aus drei Dateien besteht.
+
+Ist damit die Entwicklung der Software abgeschlossen?
+Nein, noch nicht, wir haben bislang erst eine objektorientierte Struktur
+erstellt.
+
+=== Was wird noch benötigt, damit der Schalter die Lampen steuert?
+
+.Wir benötigen ...
+* Konstruktoren, die wie in den User-Stories den
+  Anfangszustand herstellen und Objekte einer Klasse kreieren.
+
+* eine Ausgabe, wenn die Lampe ihren Zustand wechselt, damit wir
+  das Programm testen können.
+
+* Quellcode, der die Beziehungen zwischen den Objekten erzeugt.
+  Dazu betrachten wir zunächst eine Vereinfachung.
+
+* Quellcode für die Aktionen der Objekte, wenn sie eine Nachricht erhalten,
+  das heißt die Methoden
+  `press()` in `Switch` sowie
+  `turnOn()` sowie `turnOff()` in `Lamp` müssen implementiert werden. 
+
+Wir vereinfachen zunächst die Kennt-Beziehung zwischen `Switch` und
+`Lamp` so, dass nur eine `Lamp` mit einem `Switch` verbunden werden kann,
+dies nennt man eine _1-zu-1-Beziehung_.
+
+[[klassendiagramm-3]]
+.Klassendiagramm mit einer 1-zu-1-Beziehung zwischen `Switch` und `Lamp`.
+[plantuml, {prefix}-klassendiagramm-schalter-lampe-vereinfacht, svg]
+....
+class "State" << enum >> 
+
+class "Switch" as switch1 {
+  state: State = OFF
+  Switch()
+  press()
+  connect(Lamp)
+  disconnect(Lamp)
+} 
+
+class "Lamp" as lamp1 {
+  state: State = OFF
+  Lamp()
+  turnOn()
+  turnOff()
+}
+
+switch1 -> State
+lamp1 -> State
+
+switch1 "1" --> "1   " lamp1 : controls
+note right on link
+  Der Schalter kann jetzt nur
+  noch eine Lampe verwenden,
+  eine 1-zu-1-Beziehung.
+end note
+....
+
+In Java muss jede Klassen mit dem
+https://de.wikipedia.org/wiki/Zugriffsmodifikator[Zugriffsmodifikator]
+`public` jeweils in einer eigenen `java`-Datei,
+die den Namen der Klasse trägt, gespeichert werden.
+
+.Java-Programm
+[source,java]
+----
+// State.java
+include::src/switch-with-single-lamp/State.java[]
+
+// Datei Lamp.java
+include::src/switch-with-single-lamp/Lamp.java[]
+
+// Switch.java
+include::src/switch-with-single-lamp/Switch.java[]
+----
+<1> Hier wird eine Text auf der Konsole ausgegeben. Diese
+    setzt sich aus dem aktuellen Objekt `this` sowie dem Text `" ON"`
+    zusammen.
+<2> Um eine Beziehung von `Switch` zu `Lamp` herstellen zu
+    können, wird ein Attribut der Klasse `Lamp` benötigt,
+    dieses hat den initialen Wert `null`, d.{nbsp}h. es ist
+    anfangs kein Objekt verknüpft.
+<3> Die Methoden `turnOn()` und `turnOff()` können nur aufgerufen
+    werden, wenn `lamp` mit einem Objekt der Klasse `Lamp` verknüpft ist.
+<4> Die Methode `connect()` stellt die Verknüpfung einer Lampe mit einem
+    Schalter her.
+<5> Eine neue Verknüpfung wird nur dann hergestellt, wenn der
+    Schalter noch nicht verbunden ist.
+<6> Die Methode `disconnect()` löst eine Verknüpfung zwischen einer Lampe und
+    einem Schalter.
+<7> Die Verknüpfung wird nur gelöst, wenn die im Parameter angegebene
+    `lamp` mit der bereits verknüpften identisch ist.
+
+Mit diesen Klassen können jetzt die Objekte `lamp1` und `switch1` erzeugt werden
+und die Lampe `lamp1` mit dem Schalter `switch1` verbunden werden.
+
+.Java-Programm
+[source,java]
+----
+Lamp lamp1 = new Lamp(); <1>
+Switch switch1 = new Switch(); <2>
+switch1.connect(lamp1); <3>
+switch1.press(); <4>
+----
+<1> Eine neues Objekt der Klasse Lamp mit dem Bezeichner `lamp1` wird erzeugt.
+<2> Eine neues Objekt der Klasse Switch mit dem Bezeichner `switch1` wird erzeugt.
+<3> Die Lampe `lamp1` wird mit dem Schalter `switch1` verbunden.
+<4> {ldquo}Betätigen{rdquo} des Schalters.
+
+Diese Befehle können in
+https://www.bluej.org/[BlueJ] auch ohne `main`-Methode
+direkt über die Oberfläche oder im integrierten CodePad ausgeführt
+werden.
+Für ein vollständiges Java-Programm wird hingegen in einer
+Klasse eine `main`-Methode benötigt wie in der Klasse `Controller`
+im <<final-source-code>>.
+
+=== Wie kann man mehrere Lampen mit einem Schalter verbinden?
+
+Wir benötigen dazu eine Objekt-Sammlung im Switch. In Java gibt es dazu
+vorgefertigte Komponenten, z.B. eine
+https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html[ArrayList].
+Diese hat u.a. die Methoden
+
+[horizontal]
+`add(E e)`:: Fügt am Ende der Liste ein Objekt hinzu.
+
+`get(int index): E`:: Gibt das Objekt an der angegeben Position `index` aus.
+
+`remove(Object o)`:: Entfernt ein Objekt aus der Sammlung.
+
+Zudem gibt es in Java eine besondere `for`-Schleife für Collections wie
+u.{nbsp}a. die ArrayList:
+
+.Java-Programm
+[source,java]
+....
+for (Lamp lamp: lamps) { <1>
+  lamp.turnOn(); <2>
+}
+....
+<1> In dem Schleifenkopf wird eine Collection ausgewählt, hier `lamps` sowie
+    ein Bezeichner `lamp` der Klasse `Lamp` definiert,
+    der nur in dem Schleifenrumpf gültig ist.
+<2> Im Schleifenrumpf wirden die Aktionen festgelegt, die mit jedem
+    Objekt der Sammlung durchgeführt werden, dazu verwendet man den oben
+    definierten Bezeichner `lamp`.
+
+Hier der vollständige Quellcode, der <<user-story-1>> entspricht.:
+
+[[final-source-code]]
+.Vollständiges Java-Programm mit Javadoc-Kommentaren
+[source,java]
+----
+// State.java
+include::src/switch-with-multiple-lamps/State.java[]
+
+// Lamp.java
+include::src/switch-with-multiple-lamps/Lamp.java[]
+
+// Switch.java
+include::src/switch-with-multiple-lamps/Switch.java[]
+
+// Controller.java
+include::src/switch-with-multiple-lamps/Controller.java[]
+----
+
+Der Quellcode wird mit dem Java-Compiler `javac` übersetzt.
+Dabei genügt es, die Datei `Controller.java` anzugeben.
+Der Java-Compiler übersetzt dann automatisch alle weiteren
+benötigten Dateien.
+
+[source,sh]
+----
+$ javac Controller.java
+----
+
+Das Programm wird mit `java` ausgeführt:
+
+[source,sh]
+----
+$ java Controller
+Lamp@6d06d69c ON <1>
+Lamp@7852e922 ON
+Lamp@4e25154f ON
+----
+<1> `Lamp@6d06d69c` wird durch `this` in der Ausgabe mit
+    `System.out.println(this + " ON");` erzeugt und setzt
+    sich aus dem Namen der Klasse und der ID des Objektes zusammen.
+

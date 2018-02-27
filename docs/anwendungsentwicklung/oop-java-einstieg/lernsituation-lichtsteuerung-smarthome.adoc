@@ -1,0 +1,56 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-LS-5.1
+:kind: Lernsituation
+:short-title: Lichtsteuerung für das SmartHome
+= {ovm-code} {kind} zu Linux Essentials
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 20. Februar 2018
+
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| 
+
+| *Verwandte Literatur*
+| {empty}
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+Die Hometech GmbH entwickelt Hard- und Software für des SmartHome.
+Zur Zeit werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
+entwickelt.
+Steuerungskomponenten wie Schalter, Taster, Dimmer, Zeitschalter,
+sowie Bewegungs- und Geräuschsensoren
+sollen zukünftig nicht mehr
+direkt mit den Lampen verbunden werden. Statt dessen soll eine
+programmierbare Steuerungseinheit diese Aufgabe übernehmen.
+
+Die Hometech GmbH hat nun Sie
+beauftragt, eine Software für die
+kundenspezifische Programmierung der Komponenten zu entwickeln.
+Die Komponenten sollen als objektorientierte
+Software-Module mit Java entwickelt werden, so dass diese
+flexibel miteinander verbunden werden können.
+Zudem soll die Software gut dokumentiert werden, damit zu
+einem späteren Zeitpunkt ggf. interne Entwickler
+das Projekt übernehmen können.
+
+Mit der Software sollen auch Funktionen ermöglicht werden,
+die mit der bisherigen Haustechnik nur sehr aufwändig oder nicht möglich
+waren, z.{nbsp}B. ein Taster, der alle Beleuchtungskörper ausschaltet.
+Taster, die jeweils mehrere, sich überschneidende Gruppen
+vom Beleuchtungskörpern schalten usw.
+
+=== Aufgabe
+
+Wählen Sie Steuerungskomponenten und passende Beleuchtungskörper aus und
+erstellen Sie ein oder mehrere Anwendungsfälle.
+Führen Sie die
+Schritte der objektorientierten Analyse, objektorientierten Modellierung
+und der objektorientierten Programmierung durch.
+Erstellen Sie jeweils geeignete Dokumentationen.

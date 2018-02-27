@@ -1,0 +1,46 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-INFO-5.4
+:kind: Information
+:short-title: Software dokumentieren mit Asciidoctor
+= {ovm-code} {kind} zu Linux Essentials
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 20. Februar 2018
+
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| 
+
+| *Verwandte Literatur*
+| IT-AE-JA-INFO-5.1
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+=== AsciiDoc
+
+https://de.wikipedia.org/wiki/AsciiDoc[AsciiDoc] ist eine
+https://de.wikipedia.org/wiki/Kategorie:Vereinfachte_Auszeichnungssprache[vereinfachte Auszeichnungssprache], wie z.{nbsp}B.
+auch https://de.wikipedia.org/wiki/Markdown[Markdown].
+
+Ein AsciiDoc-Dokument wird mit einem Texteditor wie TextMate, GEdit,
+Notepad++, Vim, Emacs oder Sublime Text verfasst --
+Textprozessoren wie Word oder Writer sind nicht geeignet.
+Nach dem Speichern (mit der Dateiendung `adoc`)
+wird ein AsciiDoc-Dokument mit einer Software
+in ein Ausgabeformat (PDF, HTML5, Docbook usw.) übersetzt.
+
+=== Asciidoctor
+
+Ein Übersetzer für AsciiDoc-Dokumente ist
+https://asciidoctor.org/[Asciidoctor].
+Diese Software kann unter Ubuntu über den folgenden Weg installiert
+werden.
+
+...
+
+Nach der Installation wird ein 

@@ -9,10 +9,10 @@ v1.0, 21. Februar 2018
 include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
-| 
+| {empty} 
 
 | *Verwandte Literatur*
-| IT-AE-JA-LS-5.1
+| {empty}
 
 | *Lizenz*
 | {cc-by-sa}
@@ -24,11 +24,16 @@ include::../../templates/ovm-head-table.adoc[]
 ____
 Anastasia stellt bei ihren Internet-Radiowecker die Weckzeit auf 6:25{nbsp}Uhr,
 wählt das Programm super-haarmony.fm aus, aktiviert den Wecker und legt sich
-schlafen. Als der Wecker am nächsten Morgen um 6:25{nbsp}Uhr beginnt, das
+schlafen.
+Um 0:25{nbsp}Uhr synchronisiert der Wecker seine Uhrzeit mit einem
+NTP-Server.
+Als der Wecker am nächsten Morgen um 6:25{nbsp}Uhr beginnt, das
 Radioprogramm
 von super-harmony.fm zu streamen, drückt sie auf die Slummertaste, der
-Wecker schweigt und Anastasia schläft weiter. Als der Wecker nach 5{nbsp}Minuten
-wieder Musik spielt, schaltet sie die Weckfunktion aus und stellt den Sender auf
+Wecker schweigt und Anastasia schläft weiter.
+Als der Wecker nach 5{nbsp}Minuten
+wieder Musik spielt, liest Anastasia die Uhrzeit 6:30{nbsp} vom Display ab,
+schaltet sie die Weckfunktion aus und stellt den Sender auf
 tecknoh.fm um. Nachdem sie sich umgezogen hat, schaltet sie das Radio
 wieder aus.
 ____
@@ -40,7 +45,7 @@ Erstellen Sie zu der User-Story ein geeignetes Sequenzdiagramm.
 === Aufgabe 2
 
 Fertigen Sie zu der User-Story zwei Objektdiagramme an, die jeweils
-den Zustand der in der Story vorkommenden Objekte und Personen
+den Zustand der in der User-Story vorkommenden Objekte und Personen
 zu unterschiedlichen Zeitpunkten wiedergeben.
 
 === Aufgabe 3

@@ -9,10 +9,10 @@ v1.0, 25. Februar 2018
 include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
-| 
+| {empty}
 
 | *Verwandte Literatur*
-| IT-AE-JA-LS-5.1
+| {empty}
 
 | *Lizenz*
 | {cc-by-sa}

@@ -24,7 +24,7 @@ font:
 page:
   background_color: ffffff
   layout: portrait
-  margin: [0.5in, 0.67in, 0.67in, 0.67in]
+  margin: [0.67in, 0.67in, 0.67in, 0.67in]
   # margin_inner and margin_outer keys are used for recto/verso print margins when media=prepress
   margin_inner: 0.75in
   margin_outer: 0.59in
@@ -38,7 +38,8 @@ base:
   # color as CMYK array (approximated)
   #font_color: [0, 0, 0, 0.92]
   #font_color: [0, 0, 0, 92%]
-  font_family: Noto Serif
+  font_family: Helvetica
+  #font_family: Noto Serif
   # choose one of these font_size/line_height_length combinations
   #font_size: 14
   #line_height_length: 20
@@ -53,7 +54,7 @@ base:
   #font_size: 11.25
   #line_height_length: 18
   line_height: $base_line_height_length / $base_font_size
-  font_size_large: round($base_font_size * 1.25)
+  font_size_large: round($base_font_size * 1.1)
   font_size_small: round($base_font_size * 0.85)
   font_size_min: $base_font_size * 0.75
   font_style: normal
@@ -81,10 +82,10 @@ heading:
   font_family: $base_font_family
   font_style: bold
   # h1 is used for part titles (book doctype only)
-  h1_font_size: floor($base_font_size * 2.6)
+  h1_font_size: floor($base_font_size * 1.75)
   # h2 is used for chapter titles (book doctype only)
-  h2_font_size: floor($base_font_size * 2.15)
-  h3_font_size: round($base_font_size * 1.7)
+  h2_font_size: floor($base_font_size * 1.5)
+  h3_font_size: round($base_font_size * 1.2)
   h4_font_size: $base_font_size_large
   h5_font_size: $base_font_size
   h6_font_size: $base_font_size_small
@@ -138,6 +139,7 @@ abstract:
     font_family: $heading_font_family
     font_size: $heading_h4_font_size
     font_style: $heading_font_style
+
 admonition:
   column_rule_color: $base_border_color
   column_rule_width: $base_border_width
@@ -152,7 +154,7 @@ admonition:
     font_style: bold
 blockquote:
   font_color: $base_font_color
-  font_size: $base_font_size_large
+  font_size: $base_font_size
   border_color: $base_border_color
   border_width: 5
   # FIXME disable negative padding bottom once margin collapsing is implemented
@@ -168,7 +170,7 @@ code:
   line_height: 1.25
   # line_gap is an experimental property to control how a background color is applied to an inline block element
   line_gap: 3.8
-  background_color: f5f5f5
+  background_color: ffffff
   border_color: cccccc
   border_radius: $base_border_radius
   border_width: 0.75
@@ -236,36 +238,54 @@ toc:
     font_color: a9a9a9
     #levels: 2 3
 # NOTE in addition to footer, header is also supported
-footer:
+header:
   font_size: $base_font_size_small
-  # NOTE if background_color is set, background and border will span width of page
   border_color: dddddd
   border_width: 0.25
   height: $base_line_height_length * 2.5
   line_height: 1
-  padding: [$base_line_height_length / 2, 1, 0, 1]
+  padding: [15, 1, 0, 1]
   vertical_align: top
-  #image_vertical_align: <alignment> or <number>
-  # additional attributes for content:
-  # * {page-count}
-  # * {page-number}
-  # * {document-title}
-  # * {document-subtitle}
-  # * {chapter-title}
-  # * {section-title}
-  # * {section-or-chapter-title}
   recto:
-    #columns: "<50% =0% >50%"
+    left:
+      content: '{kind} {ovm-code} | {short-title}'
     right:
       content: '{page-number}'
-      #content: '{section-or-chapter-title} | {page-number}'
-      #content: '{document-title} | {page-number}'
-    #center:
-    #  content: '{page-number}'
   verso:
-    #columns: $footer_recto_columns
     left:
-      content: $footer_recto_right_content
-      #content: '{page-number} | {chapter-title}'
-    #center:
-    #  content: '{page-number}'
+      content: '{kind} {ovm-code} | {short-title}'
+    right:
+      content: '{page-number}'
+# footer:
+#   font_size: $base_font_size_small
+#   # NOTE if background_color is set, background and border will span width of page
+#   border_color: dddddd
+#   border_width: 0.25
+#   height: $base_line_height_length * 2.5
+#   line_height: 1
+#   padding: [$base_line_height_length / 2, 1, 0, 1]
+#   vertical_align: top
+#   #image_vertical_align: <alignment> or <number>
+#   # additional attributes for content:
+#   # * {page-count}
+#   # * {page-number}
+#   # * {document-title}
+#   # * {document-subtitle}
+#   # * {chapter-title}
+#   # * {section-title}
+#   # * {section-or-chapter-title}
+#   recto:
+#     #columns: "<50% =0% >50%"
+#     #right:
+#       #content: '{page-number}'
+#       #content: '{section-or-chapter-title} | {page-number}'
+#       #content: '{document-title} | {page-number}'
+#     center:
+#       content: '{page-number}'
+#   verso:
+#     #columns: $footer_recto_columns
+#     #left:
+#       #content: $footer_recto_right_content
+#       #content: '{page-number} | {chapter-title}'
+#     center:
+#       content: '{page-number}'

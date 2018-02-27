@@ -9,10 +9,10 @@ v1.0, 25. Februar 2018
 include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
-| 
+| {empty}
 
 | *Verwandte Literatur*
-| IT-AE-JA-LS-5.1
+| {empty}
 
 | *Lizenz*
 | {cc-by-sa}
@@ -48,14 +48,14 @@ Sophias Lieblingslieder sind gerade:
 * Thunder - Imagine Dragons
 
 * There's Nothing Holdin' Me Back - Shawn Mendes
-____
 
 Sophia und Carl wollen bei ihrem nächsten Treffen nur ihre gemeinsamen
 Lieblingslieder hören, und erstellen dazu eine passende Playlist.
+____
 
 === Aufgabe 1
 
-Erstellen Sie anhand Situationsbeschreibung ein Objektdiagramm.
+Erstellen Sie anhand der Situationsbeschreibung ein Objektdiagramm.
 
 === Aufgabe 2
 
