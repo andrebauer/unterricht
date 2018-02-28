@@ -1,0 +1,42 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-K-5.1
+:kind: Kompetenzen
+:short-title: Kompetenzen
+:prefix: kompetenzen
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de> 
+v1.0, 28. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| {empty}
+
+| *Verwandte Literatur*
+| {empty}
+
+| *Lizenz*
+| {cc-by-nc-sa}
+|===
+
+== {short-title}
+
+|===
+| Bereich | Kompetenzen
+
+| objektorientierte Analyse
+| Ein Problem mit den Methoden der objektorientierten Analyse
+  bearbeiten und das Ergebnis mit geeigneten Mitteln, einschließlich
+  der UML-Diagramme, dokumentieren.
+
+| objektorientierte Modellierung
+| Auf Grundlage der objektorientierten Analyse eine objektorientierte
+  Modellierung durchführen und mit geeigneten Mitteln, einschließlich
+  der UML-Diagramme, dokumentieren.
+
+| objektorientiere Programmierung
+| Eine objektorientierte Modellierung in einer objektorientierten
+  Programmiersprache (z.{nbsp}.B Java), implementieren, testen und
+  dokumentieren (z.{nbsp}B. mit Javadoc).
+
+|===

@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-INFO-5.3
+:ovm-code: IT-AE-JA-INFO-5.4
 :kind: Information
 :short-title: Objektorientierte Programmierung (OOP) mit Java
 :prefix: oop
@@ -50,7 +50,10 @@ class "Lamp" as lamp1 {
   turnOff()
 }
 
-class "State" << enum >> 
+class "State" << enum >> {
+  ON
+  OFF
+}
 
 switch1 "1  " --> "*" lamp1 : controls
 switch1 -> State
@@ -73,8 +76,10 @@ include::src/switch-with-lamps-skeleton/Lamp.java[]
 include::src/switch-with-lamps-skeleton/Switch.java[]
 ----
 
-In Java muss jede Klasse mit dem Zugriffsmodifikator `public`
-in einer Datei mit dem Namen der Klasse gespeichert werden, so dass das
+In Java muss jede Klasse mit dem
+https://de.wikipedia.org/wiki/Zugriffsmodifikator[Zugriffsmodifikator]
+`public` in einer eigenen `java`-Datei mit dem Namen der
+Klasse gespeichert werden, so dass das
 Programm nun aus drei Dateien besteht.
 
 Ist damit die Entwicklung der Software abgeschlossen?
@@ -106,7 +111,10 @@ dies nennt man eine _1-zu-1-Beziehung_.
 .Klassendiagramm mit einer 1-zu-1-Beziehung zwischen `Switch` und `Lamp`.
 [plantuml, {prefix}-klassendiagramm-schalter-lampe-vereinfacht, svg]
 ....
-class "State" << enum >> 
+class "State" << enum >> {
+  ON
+  OFF
+}
 
 class "Switch" as switch1 {
   state: State = OFF
@@ -134,11 +142,6 @@ note right on link
 end note
 ....
 
-In Java muss jede Klassen mit dem
-https://de.wikipedia.org/wiki/Zugriffsmodifikator[Zugriffsmodifikator]
-`public` jeweils in einer eigenen `java`-Datei,
-die den Namen der Klasse trägt, gespeichert werden.
-
 .Java-Programm
 [source,java]
 ----
@@ -151,12 +154,14 @@ include::src/switch-with-single-lamp/Lamp.java[]
 // Switch.java
 include::src/switch-with-single-lamp/Switch.java[]
 ----
-<1> Hier wird eine Text auf der Konsole ausgegeben. Diese
-    setzt sich aus dem aktuellen Objekt `this` sowie dem Text `" ON"`
+<1> Hier wird ein Text auf der Konsole ausgegeben. Dieser
+    setzt sich aus einer Information über
+    das aktuellen Objekt `this` sowie dem Text `" ON"`
     zusammen.
 <2> Um eine Beziehung von `Switch` zu `Lamp` herstellen zu
     können, wird ein Attribut der Klasse `Lamp` benötigt,
-    dieses hat den initialen Wert `null`, d.{nbsp}h. es ist
+    dieses hat, wenn nichts angegeben wird,
+    den initialen Wert `null`, d.{nbsp}h. es ist
     anfangs kein Objekt verknüpft.
 <3> Die Methoden `turnOn()` und `turnOff()` können nur aufgerufen
     werden, wenn `lamp` mit einem Objekt der Klasse `Lamp` verknüpft ist.
@@ -172,7 +177,7 @@ include::src/switch-with-single-lamp/Switch.java[]
 Mit diesen Klassen können jetzt die Objekte `lamp1` und `switch1` erzeugt werden
 und die Lampe `lamp1` mit dem Schalter `switch1` verbunden werden.
 
-.Java-Programm
+.Java-Anweisungen, um Objekte zu erzeugen und zu verbinden
 [source,java]
 ----
 Lamp lamp1 = new Lamp(); <1>
@@ -187,8 +192,8 @@ switch1.press(); <4>
 
 Diese Befehle können in
 https://www.bluej.org/[BlueJ] auch ohne `main`-Methode
-direkt über die Oberfläche oder im integrierten CodePad ausgeführt
-werden.
+direkt über die Oberfläche {ldquo}per Hand{rdquo}
+oder im integrierten CodePad ausgeführt werden.
 Für ein vollständiges Java-Programm wird hingegen in einer
 Klasse eine `main`-Methode benötigt wie in der Klasse `Controller`
 im <<final-source-code>>.
@@ -203,7 +208,8 @@ Diese hat u.a. die Methoden
 [horizontal]
 `add(E e)`:: Fügt am Ende der Liste ein Objekt hinzu.
 
-`get(int index): E`:: Gibt das Objekt an der angegeben Position `index` aus.
+`get(int index): E`:: Gibt das Objekt an der angegeben Position `index` aus,
+	 	      der Index beginn in Java bei 0.
 
 `remove(Object o)`:: Entfernt ein Objekt aus der Sammlung.
 
@@ -220,11 +226,12 @@ for (Lamp lamp: lamps) { <1>
 <1> In dem Schleifenkopf wird eine Collection ausgewählt, hier `lamps` sowie
     ein Bezeichner `lamp` der Klasse `Lamp` definiert,
     der nur in dem Schleifenrumpf gültig ist.
-<2> Im Schleifenrumpf wirden die Aktionen festgelegt, die mit jedem
+<2> Im Schleifenrumpf werden die Aktionen festgelegt, die mit jedem
     Objekt der Sammlung durchgeführt werden, dazu verwendet man den oben
     definierten Bezeichner `lamp`.
 
-Hier der vollständige Quellcode, der <<user-story-1>> entspricht.:
+Hier der vollständige Quellcode, der User-Story 1 aus IT-AE-JA-INFO-5.1
+entspricht:
 
 [[final-source-code]]
 .Vollständiges Java-Programm mit Javadoc-Kommentaren

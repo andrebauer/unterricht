@@ -1,10 +1,12 @@
 ifdef::backend-html5[]
 :img-cc-by-sa: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
 :img-cc-by-nc-sa: https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png
+:graphviz-format: svg
 endif::[]
 ifndef::backend-html5[]
 :img-cc-by-sa: ../../images/cc-by-sa-88x31.png
 :img-cc-by-nc-sa: ../../images/cc-by-nc-sa-88x31.png
+:graphviz-format: png
 endif::[]
 :cc-by-sa: image:{img-cc-by-sa}[Creative Commons Lizenzvertrag,link=http://creativecommons.org/licenses/by-sa/4.0/] +
 Dieses Werk ist lizenziert unter einer +

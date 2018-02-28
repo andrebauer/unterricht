@@ -35,7 +35,7 @@ Methoden eingefügt.
 Gegebenenfalls werden die Diagramme um weitere Klassen ergänzt,
 die sich nicht unmittelbar aus der Analyse ergeben haben, aber für
 die Implementierung in der gewählten Programmiersprache benötigt werden,
-wie die Definition einer Enumeration.
+wie die Definition einer Aufzählung (englisch Enumeration).
 
 === Enumerations
 
@@ -100,6 +100,8 @@ Anstatt eines vorhandenen Java-Datentyps wie `int`, `boolean` oder `string`
 erstellen wir mithilfe einer Aufzählung (engl. enumeration, in Java abgekürzt
 zu `enum`)
 einen passenden neuen und aussagekräftigen Datentyp.
+Eine Enumeration ermöglicht es, einen Datentyp durch die Aufzählung der
+möglichen Werte zu definieren.
 
 [[listing-enum-state]]
 .Enumumertation State in Java
@@ -134,7 +136,10 @@ class "Lamp" as lamp1 {
   turnOff()
 }
 
-class "State" << enum >> 
+class "State" << enum >> {
+  ON
+  OFF
+}
 note right
   Eine Enumeration wird in
   Klassendiagrammen mit «enum»
@@ -153,10 +158,11 @@ in <<klassendiagramm-2>> gekennzeichnet ist.
 
 Um Objekte einer Klasse zu erstellen, wird ein sogenannter Konstruktor
 benötigt. In Java sind Konstruktoren besondere Methoden, die
-denselben Namen wie die Klasse tragen. Sie können Paramter haben,
+denselben Namen wie die Klasse tragen. Sie können Parameter haben,
 um z.{nbsp}B. Attribute zu initialisieren.
 In unserem Beispiel erhält `Switch` den Konstruktor `Switch()` und
-`Lamp` den Konstruktor `Lamp()`, also jeweils ohne Parameter.
+`Lamp` den Konstruktor `Lamp()`.
+Die beiden Konstruktoren haben also jeweils keinen Parameter.
 
 Um die Beziehungen zwischen Objekten der Klasse `Lamp` und einem
 Objekt der Klasse `Switch` herzustellen bzw. auch wieder zu lösen,
@@ -184,7 +190,10 @@ class "Lamp" as lamp1 {
   turnOff()
 }
 
-class "State" << enum >> 
+class "State" << enum >> {
+  ON
+  OFF
+}
 
 switch1 "1  " --> "*" lamp1 : controls
 switch1 -> State
@@ -221,7 +230,7 @@ end note
 Die Raute (auch Diamand genannt),
 die diesen Beziehungstyp kennzeichnet, darf _nicht_ wie
 die Pfeilspitze der Assoziation interpretiert werden, denn die Beziehung
-geht vom Motorrad zum Vorderrad und nicht vom
+geht vom Motorrad zum Vorderrad und _nicht_ vom
 Vorderrad zum Motorrad.
 Auf der Ebene der Programmierung ist bei einer Aggregation die Klasse
 Motorrad für die Verwaltung der Objekte der Klasse Vorderrad zuständig.

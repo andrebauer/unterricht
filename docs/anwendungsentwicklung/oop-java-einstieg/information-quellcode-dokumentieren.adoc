@@ -1,7 +1,8 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-INFO-5.4
+:ovm-code: IT-AE-JA-INFO-5.5
 :kind: Information
 :short-title: Quellcode dokumentieren
+:prefix: qcd
 = {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de>
 v1.0, 25. Februar 2018
@@ -26,14 +27,14 @@ a|
 
 == {short-title}
 
-Quelltexte sollten so verfasst werden, dass sie gut lesbar sind.
+Quellcode sollte so verfasst werden, dass er gut lesbar ist.
 Dazu sollten die Vereinbarungen, wie in einer Programmiersprache Quellcode
 gestaltet werden soll, eingehalten werden wie der https://google.github.io/styleguide/javaguide.html[Google Java Style Guide].
 Zu diesen Vereinbarungen zählen u.{nbsp}a. die korrekte Einrückung
 der Zeilen und die Verwendung gut gewählter Namen für Klassen,
 Variablen usw.
 
-Ein Teil der Dokumentation einer Software besteht in der Verwendung von
+Ein Teil der Dokumentation einer Software besteht auch in der Verwendung von
 Kommentaren im Quellcode.
 Mit ihnen kann man ausgewählte Teile des Quellcode erläutern.
 
@@ -41,7 +42,7 @@ In Java beginnen mehrzeilige Kommentare mit `/{asterisk}` und enden
 mit `{asterisk}/`.
 Einzeilige Kommentare beginnen mit `//` und wirken bis zum Zeilenende.
 Kommentare werden vom Java-Compiler `javac` ignoriert,
-man kann sie daher dazu verwenden, um bestimmte Teile eines Programms
+man kann sie daher auch dazu verwenden, um bestimmte Teile eines Programms
 {ldquo}ein- und auszuschalten{rdquo}, um z.{nbsp}B. die Wirkung
 derselben zu untersuchen und damit u.{nbsp}a. Fehler zu finden.
 

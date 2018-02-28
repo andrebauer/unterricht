@@ -78,15 +78,15 @@ fort und sendet lampe2 die Nachricht _einschalten()_ usw.
 ....
 actor Benutzer
 
-Benutzer -> "schalter1: Schalter" as schalter1: drücken()
+Benutzer -> "<u>schalter1: Schalter</u>" as schalter1: drücken()
 
-schalter1 -> "lampe1: Lampe" as lampe1: einschalten()
+schalter1 -> "<u>lampe1: Lampe</u>" as lampe1: einschalten()
 lampe1 --> schalter1
 
-schalter1 -> "lampe2: Lampe" as lampe2: einschalten()
+schalter1 -> "<u>lampe2: Lampe</u>" as lampe2: einschalten()
 lampe2 --> schalter1
 
-schalter1 -> "lampe3: Lampe" as lampe3: einschalten()
+schalter1 -> "<u>lampe3: Lampe</u>" as lampe3: einschalten()
 lampe3 --> schalter1
 
 schalter1 --> Benutzer
@@ -112,15 +112,15 @@ Daraus ergibt sich das folgende Sequenzdiagramm:
 ....
 actor Benutzer
 
-Benutzer -> "schalter1: Schalter" as schalter1: drücken()
+Benutzer -> "<u>schalter1: Schalter</u>" as schalter1: drücken()
 
-schalter1 -> "lampe1: Lampe" as lampe1: ausschalten()
+schalter1 -> "<u>lampe1: Lampe</u>" as lampe1: ausschalten()
 lampe1 --> schalter1
 
-schalter1 -> "lampe2: Lampe" as lampe2: ausschalten()
+schalter1 -> "<u>lampe2: Lampe</u>" as lampe2: ausschalten()
 lampe2 --> schalter1
 
-schalter1 -> "lampe3: Lampe" as lampe3: ausschalten()
+schalter1 -> "<u>lampe3: Lampe</u>" as lampe3: ausschalten()
 lampe3 --> schalter1
 
 schalter1 --> Benutzer
@@ -130,13 +130,7 @@ schalter1 --> Benutzer
 
 Aus den User-Stories bzw. den zugehörigen Sequenzdiagrammen kann man
 ablesen, wie die beteiligten Objekte miteinander verknüpt sein müssen,
-um Nachrichten austauschen zu können:
-
-Der Schalter schalter1 verwendet die Lampen lampe1, lampe2 und lampe3, um ihnen jeweils die
-Nachricht `einschalten()` bzw. `ausschalten()` senden zu können.
-Diese Beziehung wird in einem
-https://de.wikipedia.org/wiki/Objektdiagramm[Objektdiagramm] durch Pfeile
-dargestellt.
+um Nachrichten austauschen zu können.
 
 Objekte, die Nachrichten austauschen, werden im Diagramm mit Linien verbunden. 
 Dieser Beziehungstyp wird _Assoziation_ genannt (auch Kennt-Beziehung).
@@ -145,7 +139,12 @@ Die Beziehungen werden mit einem Namen versehen, im Beispiel lautet dieser
 Wenn die Nachrichten nur in eine Richtung ausgetauscht werden, wird
 dies durch eine Pfeilspitze kenntlich gemacht.
 
-Daraus ergibt sich das folgende Objektdiagramm:
+Der Schalter schalter1 verwendet die Lampen lampe1, lampe2 und lampe3,
+um ihnen jeweils die
+Nachricht `einschalten()` bzw. `ausschalten()` senden zu können.
+Diese Beziehung wird daher in dem
+https://de.wikipedia.org/wiki/Objektdiagramm[Objektdiagramm]
+in <<objektdiagramm-1>> durch Pfeile dargestellt.
 
 [[objektdiagramm-1]]
 .Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zu Beginn der <<user-story-1>>
@@ -170,7 +169,7 @@ note top
   <u>Objektname : Klasse</u>
   
   --
-  Attribut = Wert der Attributs
+  Attribut = Wert des Attributs
 end note
 
 lampe1 <- schalter1 : schaltet

@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.0
+:ovm-code: IT-AE-JA-LJ-5.1
 :kind: Lernjob
 :short-title: Mit BlueJ arbeiten
 :prefix: bluej
@@ -126,7 +126,7 @@ wiedergibt.
 === Aufgabe 7
 
 Verbessern Sie die Zustand-Ausgabe für die Lampen, indem Sie
-ein Attribut `name` hinzufügen, dass mithilfe eines
+ein Attribut `name` hinzufügen, das mithilfe eines
 Konstruktor-Parameters gesetzt werden kann:
 
 .Der Parameter `"Lampe 1"` wird dem Konstruktor `Lamp` als Parameter übergeben

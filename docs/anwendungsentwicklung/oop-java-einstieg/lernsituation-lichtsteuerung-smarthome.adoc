@@ -10,10 +10,21 @@ v1.0, 20. Februar 2018
 include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
-| 
+a|
+
+Zum Erstellen von UML-Diagrammen bieten sich die Programme
+https://wiki.gnome.org/Apps/Dia/[Dia],
+https://www.draw.io/[draw.io],
+http://www.yworks.com/products/yed[yEd] bzw.
+https://www.yworks.com/yed-live/[yEd Live] und
+http://plantuml.com/[PlantUML] an, dieses kann in u.{nbsp}a. in
+https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse und Word als Plugin verwendet werden].
 
 | *Verwandte Literatur*
-| {empty}
+a|
+
+* Informationsblätter IT-AE-JA-INFO-5.1-5 
+* Lernjobs IT-AE-JA-LJ-5.1-6 
 
 | *Lizenz*
 | {cc-by-sa}
@@ -21,7 +32,7 @@ include::../../templates/ovm-head-table.adoc[]
 
 == {short-title}
 
-Die Hometech GmbH entwickelt Hard- und Software für days SmartHome.
+Die Hometech GmbH entwickelt Hard- und Software für das SmartHome.
 Zur Zeit werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
 entwickelt.
 Steuerungskomponenten wie Schalter, Taster, Dimmer, Zeitschalter
@@ -31,20 +42,32 @@ direkt mit den Lampen verbunden werden. Stattdessen soll eine
 programmierbare Steuerungseinheit diese Aufgabe übernehmen.
 
 Die Hometech GmbH hat Sie
-beauftragt, eine Software für die
-kundenspezifische Programmierung der Komponenten zu entwickeln.
-Die Komponenten sollen als objektorientierte
-Software-Module mit Java entwickelt werden, so dass diese
-flexibel miteinander verbunden werden können.
+beauftragt, eine Software für diese Steuerungseinheit zu entwickeln.
+// für die
+// kundenspezifische Programmierung der Komponenten zu entwickeln.
+// Die Komponenten sollen als objektorientierte
+// Software-Module mit Java entwickelt werden, so dass diese
+// flexibel miteinander verbunden werden können.
+Als Vorgabe wurde festgelegt, dass die Software objektorientiert mit
+Java entwickelt werden soll, da die Hometech GmbH auch intern damit
+arbeitet.
 Zudem soll die Software gut dokumentiert werden, damit zu
 einem späteren Zeitpunkt ggf. interne Entwickler
 das Projekt übernehmen können.
 
-Mit der Software sollen auch Funktionen ermöglicht werden,
+Damit das Produkt möglichst interessant für die Kunden wird,
+sollen mit der Software auch Funktionen ermöglicht werden,
 die mit der bisherigen Haustechnik nur sehr aufwändig oder nicht möglich
-waren, z.{nbsp}B. ein Taster, der alle Beleuchtungskörper ausschaltet.
-Taster, die jeweils mehrere, sich überschneidende Gruppen
-vom Beleuchtungskörpern schalten usw.
+waren, zum Beispiel:
+
+* ein Taster, der alle Beleuchtungskörper ausschaltet.
+
+* Taster, die jeweils mehrere, sich überschneidende Gruppen
+  vom Beleuchtungskörpern schalten.
+
+* Dimmer, die bei einer Gruppe von Beleuchtungskörpern je nach
+  eingestellter Stufe mehr oder weniger (nicht dimmbare) Lampen
+  leuchten lassen.
 
 === Aufgabe
 

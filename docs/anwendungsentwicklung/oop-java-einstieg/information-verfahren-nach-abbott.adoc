@@ -73,6 +73,7 @@ geht man wie folgt vor:
 Die grafische Darstellung von Objekten erfolgt durch Rechtecke. 
 Die erste Zeile beeinhaltet dabei den eindeutigen Namen des Objekts und
 durch einen Doppelpunkt getrennt den Namen der Klasse.
+Diese Zeile wird unterstrichen.
 Nach einer horizontalen Trennlinie folgen zeilenweise die Attribute mit ihren 
 jeweiligen Attributwerten.
 Die Methoden der Objekte sind (sofern vorhanden) von den Attributen und 
@@ -81,7 +82,7 @@ Oft wird aber in Objektdiagrammen auf die Darstellung der Methoden
 verzichtet. diese werden dann nur im Klassendiagramm notiert.
 
 .Beispiel für ein Objekt
-[graphviz, {prefix}-objekt, svg]
+[graphviz, {prefix}-objekt, {graphviz-format}]
 ....
 digraph G {
     fontname = "Bitstream Vera Sans";
@@ -95,7 +96,7 @@ digraph G {
 	width = 3.5
     ];
 
-    P1 [ label=<{<u align="LEFT">gustavsRadiowecker: Radiowecker</u>|weckzeit = 06:30 Uhr<br align="LEFT"/>aktiv = AN|einschalten()<br/>ausschalten()<br/>alarmAuslösen()}> ];
+    P1 [ label=<{<u align="left">gustavsRadiowecker: Radiowecker</u>|weckzeit = 06:30 Uhr<br align="LEFT"/>aktiv = AN|einschalten()<br/>ausschalten()<br/>alarmAuslösen()}> ];
 
 //   P2 [ label="gustavsRadiowecker: Radiowecker\l|weckzeit = 06:30 Uhr\laktiv = AN\l|einschalten()\lausschalten()\lalarmAuslösen()\l" ];
 }

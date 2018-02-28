@@ -9,10 +9,21 @@ v1.0, 25. Februar 2018
 include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
-| {empty}
+a|
+
+Zum Erstellen von UML-Diagrammen bieten sich die Programme
+https://wiki.gnome.org/Apps/Dia/[Dia],
+https://www.draw.io/[draw.io],
+http://www.yworks.com/products/yed[yEd] bzw.
+https://www.yworks.com/yed-live/[yEd Live] und
+http://plantuml.com/[PlantUML] an, dieses kann in u.{nbsp}a. in
+https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse und Word als Plugin verwendet werden].
 
 | *Verwandte Literatur*
-| {empty}
+a|
+
+* IT-AE-JA-INFO-5.1
+* IT-AE-JA-INFO-5.2| {empty}
 
 | *Lizenz*
 | {cc-by-sa}
@@ -22,8 +33,8 @@ include::../../templates/ovm-head-table.adoc[]
 == {short-title}
 
 Gegeben seien die Klassen `Switch` und `Lamp` sowie die Enumeration `State` in
-ihrer abschließenden Fassung aus dem Informationsblatt IT-AE-JA-INFO-5.1.
-Betrachten Sie folgenden Quellcode, der die `main`-Methode des
+ihrer abschließenden Fassung aus dem Informationsblatt IT-AE-JA-INFO-5.4.
+Betrachten Sie folgenden Quellcode, der die Methode `main` des
 Programms ersetzt.
 
 .Java-Quellcode-Fragment
@@ -46,7 +57,8 @@ public static void main(String args[]) {
 
 === Aufgabe 1
 
-Erstellen Sie ein Sequenzdiagramm für die `main`-Methode.
+Erstellen Sie ein Sequenzdiagramm für die in der `main`-Methode erzeugten
+Objekte.
 
 
 === Aufgabe 2

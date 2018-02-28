@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.3
+:ovm-code: IT-AE-JA-LJ-5.4
 :kind: Lernjob
 :short-title: UML-Diagramme auf der Basis einer User-Story erstellen
 = {kind} {ovm-code} {short-title}
@@ -9,10 +9,21 @@ v1.0, 21. Februar 2018
 include::../../templates/ovm-head-table.adoc[]
 
 | *Links*
-| {empty} 
+a|
+
+Zum Erstellen von UML-Diagrammen bieten sich die Programme
+https://wiki.gnome.org/Apps/Dia/[Dia],
+https://www.draw.io/[draw.io],
+http://www.yworks.com/products/yed[yEd] bzw.
+https://www.yworks.com/yed-live/[yEd Live] und
+http://plantuml.com/[PlantUML] an, dieses kann in u.{nbsp}a. in
+https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse und Word als Plugin verwendet werden].
 
 | *Verwandte Literatur*
-| {empty}
+a|
+
+* IT-AE-JA-INFO-5.1
+* IT-AE-JA-INFO-5.2
 
 | *Lizenz*
 | {cc-by-sa}
@@ -44,7 +55,7 @@ Erstellen Sie zu der User-Story ein geeignetes Sequenzdiagramm.
 
 === Aufgabe 2
 
-Fertigen Sie zu der User-Story zwei Objektdiagramme an, die jeweils
+Fertigen Sie zu der User-Story _zwei_ Objektdiagramme an, die jeweils
 den Zustand der in der User-Story vorkommenden Objekte und Personen
 zu unterschiedlichen Zeitpunkten wiedergeben.
 
