@@ -21,16 +21,16 @@ include::../../templates/ovm-head-table.adoc[]
 
 == {short-title}
 
-Die Hometech GmbH entwickelt Hard- und Software für des SmartHome.
+Die Hometech GmbH entwickelt Hard- und Software für days SmartHome.
 Zur Zeit werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
 entwickelt.
-Steuerungskomponenten wie Schalter, Taster, Dimmer, Zeitschalter,
+Steuerungskomponenten wie Schalter, Taster, Dimmer, Zeitschalter
 sowie Bewegungs- und Geräuschsensoren
 sollen zukünftig nicht mehr
-direkt mit den Lampen verbunden werden. Statt dessen soll eine
+direkt mit den Lampen verbunden werden. Stattdessen soll eine
 programmierbare Steuerungseinheit diese Aufgabe übernehmen.
 
-Die Hometech GmbH hat nun Sie
+Die Hometech GmbH hat Sie
 beauftragt, eine Software für die
 kundenspezifische Programmierung der Komponenten zu entwickeln.
 Die Komponenten sollen als objektorientierte

@@ -119,7 +119,7 @@ schalter2 -> lampe4 : schaltet
 
 === Aufgabe 6
 
-Programmieren Sie auch eine Ausgabe für den Schalter,
+Programmieren Sie wie bei der Lampe auch eine Ausgabe für den Schalter,
 die nach jedem Umschalten den aktuellen Zustand des Schalters
 wiedergibt.
 
