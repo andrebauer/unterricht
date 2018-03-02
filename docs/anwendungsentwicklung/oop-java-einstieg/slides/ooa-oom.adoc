@@ -1,0 +1,316 @@
+include::../../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-MO-VF-1.1
+:kind: Vortragsfolien
+:short-title: Objektorientiere Analyse und Modellierung
+:prefix: ooa
+:backend: revealjs
+:deckjs_transition: fade
+:navigation:
+:custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
+:revealjs_theme: simple
+:!notitle:
+= {short-title}
+André Bauer
+v1.0, 2. März 2018
+
+== Objektorientiere Analyse
+
+[.lead]
+vom Problem zu einem objektorientieren Modell
+
+[[user-story-1]]
+== User-Story 1
+
+****
+Cem drückt den Schalter neben der Tür seines Zimmers,
+daraufhin beginnen seine beiden Deckenlampe zu leuchten.
+****
+
+== Sequenzdiagramm <<user-story-1>>
+
+[[sequenzdiagramm-1]]
+[plantuml, {prefix}-sequenzdiagramm-1, svg]
+....
+actor Benutzer
+
+Cem -> "<u>schalter1: Schalter</u>" as schalter1: drücken()
+
+schalter1 -> "<u>lampe1: Lampe</u>" as lampe1: einschalten()
+lampe1 --> schalter1
+
+schalter1 -> "<u>lampe2: Lampe</u>" as lampe2: einschalten()
+lampe2 --> schalter1
+
+schalter1 --> Cem
+....
+
+== Objektdiagramme <<user-story-1>>
+
+[[objektdiagramm-1]]
+[plantuml, {prefix}-objektdiagramm-1, svg]
+....
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = AUS
+} 
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = AUS
+} 
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = AUS
+} 
+
+lampe1 <- schalter1 : schaltet
+
+schalter1 -> lampe2 : schaltet
+....
+
+[[objektdiagramm-2]]
+[plantuml, {prefix}-objektdiagramm-2, svg]
+....
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = EIN
+} 
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = AUS
+} 
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = AUS
+} 
+
+lampe1 <- schalter1 : schaltet
+
+schalter1 -> lampe2 : schaltet
+....
+
+[[objektdiagramm-3]]
+[plantuml, {prefix}-objektdiagramm-3, svg]
+....
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = EIN
+} 
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = EIN
+} 
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = AUS
+} 
+
+lampe1 <- schalter1 : schaltet
+
+schalter1 -> lampe2 : schaltet
+....
+
+[[objektdiagramm-4]]
+[plantuml, {prefix}-objektdiagramm-4, svg]
+....
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = EIN
+} 
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = EIN
+} 
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = EIN
+} 
+
+lampe1 <- schalter1 : schaltet
+
+schalter1 -> lampe2 : schaltet
+....
+
+== Klassendiagramm
+
+[[klassendiagramm-1.1]]
+.Klassendiagramm
+[plantuml, {prefix}-klassendiagramm-1.1, svg]
+....
+class "Schalter" as schalter1 {
+  zustand: Zustand = AUS
+  drücken()
+} 
+
+class "Lampe" as lampe1 {
+  zustand: Zustand = AUS
+  einschalten()
+}
+
+schalter1 "1" --> "*" lampe1 : schaltet
+....
+
+[[user-story-2]]
+=== User-Story 2
+
+****
+Cem drückt den Schalter neben der Tür seines Zimmers,
+daraufhin hören seine beiden Deckenlampe auf zu leuchten.
+****
+
+=== Sequenzdiagramm <<user-story-2>>
+
+[[sequenzdiagramm-2]]
+[plantuml, {prefix}-sequenzdiagramm-2, svg]
+....
+actor Benutzer
+
+Cem -> "<u>schalter1: Schalter</u>" as schalter1: drücken()
+
+schalter1 -> "<u>lampe1: Lampe</u>" as lampe1: ausschalten()
+lampe1 --> schalter1
+
+schalter1 -> "<u>lampe2: Lampe</u>" as lampe2: ausschalten()
+lampe2 --> schalter1
+
+schalter1 --> Cem
+....
+
+=== Klassendiagramm
+
+[[klassendiagramm-1.2]]
+.Klassendiagramm
+[plantuml, {prefix}-klassendiagramm-1.2, svg]
+....
+class "Schalter" as schalter1 {
+  zustand: Zustand = AUS
+  drücken()
+} 
+
+class "Lampe" as lampe1 {
+  zustand: Zustand = AUS
+  einschalten()
+  ausschalten()
+}
+
+schalter1 "1" --> "*" lampe1 : schaltet
+....
+
+== Objektorientiere Modellierung
+
+[[klassendiagramm-2.1]]
+[plantuml, {prefix}-klassendiagramm-2.1, svg]
+....
+class "Switch" as switch1 {
+  state: State = OFF
+  press()
+} 
+
+class "Lamp" as lamp1 {
+  state: State = OFF
+  turnOn()
+  turnOff()
+}
+
+switch1 "1  " --> "*" lamp1 : controls
+....
+
+englischsprachige Begriffe
+
+=== Lampen und Schalter erstellen 
+
+[[klassendiagramm-2.2]]
+[plantuml, {prefix}-klassendiagramm-2.2, svg]
+....
+class "Switch" as switch1 {
+  state: State = OFF
+  Switch()
+  press()
+} 
+
+class "Lamp" as lamp1 {
+  state: State = OFF
+  Lamp()
+  turnOn()
+  turnOff()
+}
+
+switch1 "1  " --> "*" lamp1 : controls
+....
+
+Konstruktoren `Switch()` und `Lamp()`
+
+=== Lampen und Schalter verbinden
+
+[[klassendiagramm-2.3]]
+[plantuml, {prefix}-klassendiagramm-2.3, svg]
+....
+class "Switch" as switch1 {
+  state: State = OFF
+  Switch()
+  press()
+  connect(Lamp)
+  disconnect(Lamp)
+} 
+
+class "Lamp" as lamp1 {
+  state: State = OFF
+  Lamp()
+  turnOn()
+  turnOff()
+}
+
+switch1 "1  " --> "*" lamp1 : controls
+....
+
+Methoden `connect(Lamp)` und `disconnect(Lamp)`
+
+=== Enumeration
+
+[plantuml, {prefix}-klassendiagramm-enum, svg]
+....
+class "State" << enum >> {
+  ON
+  OFF
+}
+....
+
+Datentyp mit den Werten `ON` und `OFF`
+
+[[listing-enum-state]]
+[source,java]
+----
+enum State {
+  ON,
+  OFF
+}
+----
+
+=== Erweitertes Klassendiagramm
+
+[[klassendiagramm-2.4]]
+[plantuml, {prefix}-klassendiagramm-2.4, svg]
+....
+class "Switch" as switch1 {
+  state: State = OFF
+  Switch()
+  press()
+  connect(Lamp)
+  disconnect(Lamp)
+} 
+
+class "Lamp" as lamp1 {
+  state: State = OFF
+  Lamp()
+  turnOn()
+  turnOff()
+}
+
+class "State" << enum >> {
+  ON
+  OFF
+}
+
+switch1 "1  " --> "*" lamp1 : controls
+switch1 -> State
+lamp1 -> State
+....
+
+== Demo BlueJ
+ 
+
