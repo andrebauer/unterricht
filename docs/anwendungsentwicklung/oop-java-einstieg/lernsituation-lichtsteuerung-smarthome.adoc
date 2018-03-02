@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LS-5.1
+:ovm-code: IT-AE-UML-LS-3.1
 :kind: Lernsituation
 :short-title: Lichtsteuerung für das SmartHome
 = {ovm-code} {kind} zu Linux Essentials
@@ -21,10 +21,10 @@ http://plantuml.com/[PlantUML] an, dieses kann in u.{nbsp}a. in
 https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse und Word als Plugin verwendet werden].
 
 | *Verwandte Literatur*
-a|
+| IT-AE-UML-INFO-3.1 bis 3.3 
 
-* Informationsblätter IT-AE-JA-INFO-5.1-5 
-* Lernjobs IT-AE-JA-LJ-5.1-6 
+| *Lernjobs*
+| IT-AE-UML-LJ-3.1 bis 3.4
 
 | *Lizenz*
 | {cc-by-sa}
@@ -35,8 +35,8 @@ a|
 Die Hometech GmbH entwickelt Hard- und Software für das SmartHome.
 Zur Zeit werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
 entwickelt.
-Steuerungskomponenten wie Schalter, Taster, Dimmer, Zeitschalter
-sowie Bewegungs- und Geräuschsensoren
+Steuerungskomponenten wie _Schalter_, _Taster_, _Dimmer_, _Zeitschalter_
+sowie _Bewegungs- und Geräuschsensoren_
 sollen zukünftig nicht mehr
 direkt mit den Lampen verbunden werden. Stattdessen soll eine
 programmierbare Steuerungseinheit diese Aufgabe übernehmen.
@@ -74,6 +74,6 @@ waren, zum Beispiel:
 Wählen Sie Steuerungskomponenten und passende Beleuchtungskörper aus und
 erstellen Sie ein oder mehrere Anwendungsfälle.
 Führen Sie die
-Schritte der objektorientierten Analyse, objektorientierten Modellierung
-und der objektorientierten Programmierung durch.
+Schritte der objektorientierten Analyse und objektorientierten Modellierung
+durch.
 Erstellen Sie jeweils geeignete Dokumentationen.

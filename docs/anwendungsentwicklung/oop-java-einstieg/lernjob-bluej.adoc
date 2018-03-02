@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.1
+:ovm-code: IT-AE-UML-LJ-3.1
 :kind: Lernjob
 :short-title: Mit BlueJ arbeiten
 :prefix: bluej
@@ -14,9 +14,10 @@ a|
 
 * https://www.bluej.org[BlueJ]
 * https://www.bluej.org/tutorial/blueJ-tutorial-deutsch.pdf[Das BlueJ Tutorial]
+* https://ovm-my.sharepoint.com/:u:/g/personal/a_bauer_ovm-kassel_de/EaYNd49uwX5JkBs8BYaw9vEB1LIQ-IrvR5XZxh03ZZXuDg?e=JfcXBc[BlueJ-Projekt Lampe-und-Schalter]
 
 | *Verwandte Literatur*
-| {empty}
+| IT-AE-UML-INFO-3.1
 
 | *Lizenz*
 | {cc-by-sa}
@@ -27,21 +28,27 @@ a|
 === Aufgabe 1
 
 Installieren Sie die Java-Entwicklungsumgebung https://www.bluej.org[BlueJ].
+In dem https://www.bluej.org/tutorial/blueJ-tutorial-deutsch.pdf[BlueJ-Tutorial]
+finden Sie grundlegende Informationen zu BlueJ.
 
 === Aufgabe 2
 
-Entpacken Sie das Projekt ??? und öffnen Sie es mit BlueJ.
+Entpacken Sie das BleuJ-Projekt
+https://ovm-my.sharepoint.com/:u:/g/personal/a_bauer_ovm-kassel_de/EaYNd49uwX5JkBs8BYaw9vEB1LIQ-IrvR5XZxh03ZZXuDg?e=JfcXBc[Lampe-und-Schalter]
+und öffnen Sie es mit BlueJ.
 Erkunden Sie BlueJ anhand dieses Projektes.
 
 === Aufgabe 3
 
-Erzeugen Sie mit BlueJ Lampen und Schalter, verbinden Sie diese und
+Erzeugen Sie mit BlueJ über die graphische Oberfläche
+Lampen und Schalter, verbinden Sie diese mit `connect` und
 prüfen Sie, ob die Lampen ihre Zustände ändern, wenn sie die
 angeschlossenen Schalter mit der Methode `press` betätigen.
 
 === Aufgabe 4
 
-Führen Sie mit BlueJ die Java-Anweisung {ldquo}per Hand{rdquo} durch und
+Führen Sie mit BlueJ die Java-Anweisung {ldquo}per Hand{rdquo},
+d.{nbsp}h. über die graphische Oberfläche oder im Codepad, durch und
 notieren Sie, welchen Zustand am Ende die verwendeten Objekte haben
 sowie welche Lampe mit welchem Schalter verbunden ist.
 

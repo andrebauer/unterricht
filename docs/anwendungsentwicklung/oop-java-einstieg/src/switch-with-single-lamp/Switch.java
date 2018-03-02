@@ -10,10 +10,12 @@ public class Switch {
     if (lamp != null) { // <3>
       switch (state) {
         case OFF:
+	  this.state = State.ON;
           lamp.turnOn();
           break;
         
        case ON:
+	 this.state = State.OFF;  
          lamp.turnOff();
        }
     }

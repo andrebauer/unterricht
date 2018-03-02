@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.4
+:ovm-code: IT-AE-UML-LJ-3.4
 :kind: Lernjob
 :short-title: UML-Diagramme auf der Basis einer User-Story erstellen
 = {kind} {ovm-code} {short-title}
@@ -22,8 +22,10 @@ https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse un
 | *Verwandte Literatur*
 a|
 
-* IT-AE-JA-INFO-5.1
-* IT-AE-JA-INFO-5.2
+* IT-AE-UML-INFO-3.1
+* IT-AE-UML-INFO-3.2
+* IT-AE-UML-INFO-3.3
+
 
 | *Lizenz*
 | {cc-by-sa}
@@ -63,6 +65,8 @@ zu unterschiedlichen Zeitpunkten wiedergeben.
 
 Erstellen Sie zu der User-Story ein Klassendiagramm auf der Grundlage
 Ihres Ergebnisses aus Aufgabe 2.
+Ergänzen Sie sinnvolle Methoden und, falls benötigt, zusätzliche Klassen wie
+z.{nbsp}B. eine Enumeration. 
 
 // === Aufgabe 4
 

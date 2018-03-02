@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-INFO-5.2
+:ovm-code: IT-AE-UML-INFO-3.2
 :kind: Information
 :short-title: Das Verfahren nach Abbott
 :prefix: abbott
@@ -24,7 +24,10 @@ a|
 | {empty}
 
 | *Verwandte Literatur*
-| {empty}
+| IT-AE-UML-INFO-3.1
+
+| *Lernjobs*
+| IT-AE-UML-LJ-3.1 bis 3.4
 
 | *Lizenz*
 | {cc-by-nc-sa}

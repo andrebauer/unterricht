@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.3
+:ovm-code: IT-AE-UML-LJ-3.3
 :kind: Lernjob
 :short-title: Objekt- und Klassendiagramme auf der Basis einer Situationsbeschreibung erstellen
 = {kind} {ovm-code} {short-title}
@@ -22,8 +22,10 @@ https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse un
 | *Verwandte Literatur*
 a|
 
-* IT-AE-JA-INFO-5.1
-* IT-AE-JA-INFO-5.2
+* IT-AE-UML-INFO-3.1
+* IT-AE-UML-INFO-3.2
+* IT-AE-UML-INFO-3.3
+
 
 | *Lizenz*
 | {cc-by-sa}
@@ -70,5 +72,6 @@ Erstellen Sie anhand der Situationsbeschreibung ein Objektdiagramm.
 
 === Aufgabe 2
 
-Erstellen Sie auf der Grundlage Ihres Objektdiagramms ein Klassendiagramm
-und ergänzen Sie sinnvolle Methoden.
+Erstellen Sie auf der Grundlage Ihres Objektdiagramms ein Klassendiagramm.
+Ergänzen Sie sinnvolle Methoden und ggf. Klassen, die für die
+objektorientiere Modellierung benötigt werden.

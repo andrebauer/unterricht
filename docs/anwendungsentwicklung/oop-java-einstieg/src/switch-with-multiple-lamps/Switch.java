@@ -10,7 +10,7 @@ public class Switch {
   /**
    * The current state of the switch.
    */
-  private State state;
+  private State state = State.OFF;
 
   /**
    * The list of connected lamps.
@@ -22,7 +22,6 @@ public class Switch {
    * and an empty list of connected lamps.
    */
   public Switch() {
-    state = State.OFF;
     lamps = new ArrayList<Lamp>();
   }      
 
@@ -32,15 +31,19 @@ public class Switch {
    * its state to the state of the switch.
    */
   public void press() {
-    for (Lamp lamp: lamps) {
-      switch (state) {
-        case OFF:
+    switch (state) {
+      case OFF:
+	this.state = State.ON;
+	for (Lamp lamp: lamps) {
           lamp.turnOn();
-          break;
+	}
+	break;
         
-        case ON:
+      case ON:
+	this.state = State.OFF;
+	for (Lamp lamp: lamps) {
           lamp.turnOff();
-        }
+	}
      }
   }
 

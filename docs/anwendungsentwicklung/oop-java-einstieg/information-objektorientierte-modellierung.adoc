@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-INFO-5.3
+:ovm-code: IT-AE-UML-INFO-3.3
 :kind: Information
 :short-title: Objektorientierte Modellierung (OOM)
 :prefix: oom
@@ -15,10 +15,10 @@ include::../../templates/ovm-head-table.adoc[]
 | https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design[Wikipedia: Objektorientierte Analyse und Design]
 
 | *Verwandte Literatur*
-| IT-AE-JA-INFO-5.2
+| IT-AE-UML-INFO-3.1
 
 | *Lernjobs*
-| IT-AE-JA-LJ-5.*
+| IT-AE-UML-LJ-3.1 bis 3.4
 
 | *Lizenz*
 | {cc-by-sa}

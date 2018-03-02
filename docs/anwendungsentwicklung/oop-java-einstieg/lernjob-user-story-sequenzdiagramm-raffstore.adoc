@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.2
+:ovm-code: IT-AE-UML-LJ-3.2
 :kind: Lernjob
 :short-title: User-Stories und Sequenzdiagramme erstellen
 = {kind} {ovm-code} {short-title}
@@ -22,8 +22,8 @@ https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse un
 | *Verwandte Literatur*
 a|
 
-* IT-AE-JA-INFO-5.1
-* IT-AE-JA-INFO-5.2
+* IT-AE-UML-INFO-3.1
+* IT-AE-UML-INFO-3.2
 
 | *Lizenz*
 | {cc-by-sa}

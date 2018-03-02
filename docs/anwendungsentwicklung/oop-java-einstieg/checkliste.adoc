@@ -22,7 +22,7 @@ include::../../templates/ovm-head-table.adoc[]
 == {short-title}
 
 |===
-| Bereich | Kompetenzen
+| Nr | Fachliche FähigkeitenBereich | Kompetenzen
 
 | *objektorientierte Analyse*
 | Ein Problem mit den Methoden der objektorientierten Analyse

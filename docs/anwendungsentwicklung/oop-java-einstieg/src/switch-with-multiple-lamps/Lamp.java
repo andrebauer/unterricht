@@ -8,7 +8,7 @@ public class Lamp {
   /**
    * The current state of the lamp.
    */
-  private State state;
+  private State state = State.OFF;
 
   /** 
    * Creates a new lamp, with the initial state OFF.
