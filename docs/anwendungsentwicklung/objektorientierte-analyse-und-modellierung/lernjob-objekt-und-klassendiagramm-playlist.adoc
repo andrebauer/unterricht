@@ -20,12 +20,7 @@ http://plantuml.com/[PlantUML] an, dieses kann in u.{nbsp}a. in
 https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse und Word als Plugin verwendet werden].
 
 | *Verwandte Literatur*
-a|
-
-* IT-AE-UML-INFO-3.1
-* IT-AE-UML-INFO-3.2
-* IT-AE-UML-INFO-3.3
-
+| IT-AE-UML-INFO-3.1 bis 3.3
 
 | *Lizenz*
 | {cc-by-sa}
@@ -74,4 +69,4 @@ Erstellen Sie anhand der Situationsbeschreibung ein Objektdiagramm.
 
 Erstellen Sie auf der Grundlage Ihres Objektdiagramms ein Klassendiagramm.
 Ergänzen Sie sinnvolle Methoden und ggf. Klassen, die für die
-objektorientiere Modellierung benötigt werden.
+objektorientierte Modellierung benötigt werden.

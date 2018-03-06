@@ -34,7 +34,7 @@ include::../../templates/ovm-head-table.adoc[]
   Modellierung durchführen und mit geeigneten Mitteln, einschließlich
   der UML-Diagramme, dokumentieren.
 
-| objektorientiere Programmierung
+| objektorientierte Programmierung
 | Eine objektorientierte Modellierung in einer objektorientierten
   Programmiersprache (z.{nbsp}.B Java), implementieren, testen und
   dokumentieren (z.{nbsp}B. mit Javadoc).

@@ -1,7 +1,7 @@
 include::../../../templates/ovm-header.adoc[]
 :ovm-code: IT-AE-MO-VF-1.1
 :kind: Vortragsfolien
-:short-title: Objektorientiere Analyse und Modellierung
+:short-title: Objektorientierte Analyse und Modellierung
 :prefix: ooa
 :backend: revealjs
 :deckjs_transition: fade
@@ -13,17 +13,17 @@ include::../../../templates/ovm-header.adoc[]
 André Bauer
 v1.0, 2. März 2018
 
-== Objektorientiere Analyse
+== Objektorientierte Analyse
 
 [.lead]
-vom Problem zu einem objektorientieren Modell
+Vom Problem zu einem objektorientieren Modell
 
 [[user-story-1]]
 == User-Story 1
 
 ****
 Cem drückt den Schalter neben der Tür seines Zimmers,
-daraufhin beginnen seine beiden Deckenlampe zu leuchten.
+daraufhin beginnen seine beiden Deckenlampen zu leuchten.
 ****
 
 == Sequenzdiagramm <<user-story-1>>
@@ -44,7 +44,7 @@ lampe2 --> schalter1
 schalter1 --> Cem
 ....
 
-== Objektdiagramme <<user-story-1>>
+== Objektdiagramme <<user-story-1>> 
 
 [[objektdiagramm-1]]
 [plantuml, {prefix}-objektdiagramm-1, svg]
@@ -66,6 +66,10 @@ lampe1 <- schalter1 : schaltet
 schalter1 -> lampe2 : schaltet
 ....
 
+=== Objektdiagramme <<user-story-1>> 
+
+image::{prefix}-objektdiagramm-1.svg[]
+
 [[objektdiagramm-2]]
 [plantuml, {prefix}-objektdiagramm-2, svg]
 ....
@@ -86,6 +90,13 @@ lampe1 <- schalter1 : schaltet
 schalter1 -> lampe2 : schaltet
 ....
 
+=== Objektdiagramme <<user-story-1>> 
+
+image::{prefix}-objektdiagramm-1.svg[]
+
+image::{prefix}-objektdiagramm-2.svg[]
+
+
 [[objektdiagramm-3]]
 [plantuml, {prefix}-objektdiagramm-3, svg]
 ....
@@ -105,6 +116,15 @@ lampe1 <- schalter1 : schaltet
 
 schalter1 -> lampe2 : schaltet
 ....
+
+
+=== Objektdiagramme <<user-story-1>> 
+
+image::{prefix}-objektdiagramm-1.svg[]
+
+image::{prefix}-objektdiagramm-2.svg[]
+
+image::{prefix}-objektdiagramm-3.svg[]
 
 [[objektdiagramm-4]]
 [plantuml, {prefix}-objektdiagramm-4, svg]
@@ -150,7 +170,7 @@ schalter1 "1" --> "*" lampe1 : schaltet
 
 ****
 Cem drückt den Schalter neben der Tür seines Zimmers,
-daraufhin hören seine beiden Deckenlampe auf zu leuchten.
+daraufhin hören seine beiden Deckenlampen auf zu leuchten.
 ****
 
 === Sequenzdiagramm <<user-story-2>>
