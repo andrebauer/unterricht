@@ -5,7 +5,7 @@ include::../../templates/ovm-header.adoc[]
 :prefix: ooa
 = {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 25. Februar 2018
+v1.1, 10. März 2018
 //:toc: macro
 //:toclevels: 4
 

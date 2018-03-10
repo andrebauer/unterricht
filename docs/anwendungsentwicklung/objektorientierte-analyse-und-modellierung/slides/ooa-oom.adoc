@@ -11,7 +11,7 @@ include::../../../templates/ovm-header.adoc[]
 :!notitle:
 = {short-title}
 André Bauer
-v1.0, 2. März 2018
+v1.1, 10. März 2018
 
 == Objektorientierte Analyse
 
