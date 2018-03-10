@@ -34,14 +34,22 @@ daraufhin beginnen seine beiden Deckenlampen zu leuchten.
 actor Benutzer
 
 Cem -> "<u>schalter1: Schalter</u>" as schalter1: drücken()
+activate schalter1
 
 schalter1 -> "<u>lampe1: Lampe</u>" as lampe1: einschalten()
-lampe1 --> schalter1
+activate lampe1
+
+lampe1 -->> schalter1
+deactivate lampe1
 
 schalter1 -> "<u>lampe2: Lampe</u>" as lampe2: einschalten()
-lampe2 --> schalter1
+activate lampe2
 
-schalter1 --> Cem
+lampe2 -->> schalter1
+deactivate lampe2
+
+schalter1 -->> Cem
+deactivate schalter1
 ....
 
 == Objektdiagramme <<user-story-1>> 
@@ -181,14 +189,22 @@ daraufhin hören seine beiden Deckenlampen auf zu leuchten.
 actor Benutzer
 
 Cem -> "<u>schalter1: Schalter</u>" as schalter1: drücken()
+activate schalter1
 
 schalter1 -> "<u>lampe1: Lampe</u>" as lampe1: ausschalten()
-lampe1 --> schalter1
+activate lampe1
+
+lampe1 -->> schalter1
+deactivate lampe1
 
 schalter1 -> "<u>lampe2: Lampe</u>" as lampe2: ausschalten()
-lampe2 --> schalter1
+activate lampe2
 
-schalter1 --> Cem
+lampe2 -->> schalter1
+deactivate lampe2
+
+schalter1 -->> Cem
+deactivate schalter1
 ....
 
 === Klassendiagramm

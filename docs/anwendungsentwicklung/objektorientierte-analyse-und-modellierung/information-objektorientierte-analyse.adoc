@@ -87,17 +87,28 @@ fort und sendet lampe2 die Nachricht _einschalten()_ usw.
 actor Benutzer
 
 Benutzer -> "<u>schalter1: Schalter</u>" as schalter1: drücken()
+activate schalter1
 
 schalter1 -> "<u>lampe1: Lampe</u>" as lampe1: einschalten()
-lampe1 --> schalter1
+activate lampe1
+
+lampe1 -->> schalter1
+deactivate lampe1
 
 schalter1 -> "<u>lampe2: Lampe</u>" as lampe2: einschalten()
-lampe2 --> schalter1
+activate lampe2
+
+lampe2 -->> schalter1
+deactivate lampe2
 
 schalter1 -> "<u>lampe3: Lampe</u>" as lampe3: einschalten()
-lampe3 --> schalter1
+activate lampe3
 
-schalter1 --> Benutzer
+lampe3 -->> schalter1
+deactivate lampe3
+
+schalter1 -->> Benutzer
+deactivate schalter1
 ....
 
 Eine zweite User-Story vervollständigt die möglichen Anwendungsfälle
@@ -121,17 +132,28 @@ Daraus ergibt sich das folgende Sequenzdiagramm:
 actor Benutzer
 
 Benutzer -> "<u>schalter1: Schalter</u>" as schalter1: drücken()
+activate schalter1
 
 schalter1 -> "<u>lampe1: Lampe</u>" as lampe1: ausschalten()
-lampe1 --> schalter1
+activate lampe1
+
+lampe1 -->> schalter1
+deactivate lampe1
 
 schalter1 -> "<u>lampe2: Lampe</u>" as lampe2: ausschalten()
-lampe2 --> schalter1
+activate lampe2
+
+lampe2 -->> schalter1
+deactivate lampe2
 
 schalter1 -> "<u>lampe3: Lampe</u>" as lampe3: ausschalten()
-lampe3 --> schalter1
+activate lampe3
 
-schalter1 --> Benutzer
+lampe3 -->> schalter1
+deactivate lampe3
+
+schalter1 -->> Benutzer
+deactivate schalter1
 ....
 
 === Objektdiagramme
