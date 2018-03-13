@@ -1,0 +1,186 @@
+include::../../../templates/ovm-header.adoc[]
+:ovm-code: IT-BS-LE-VF-2.1
+:kind: Vortragsfolien
+:short-title: LPI Linux Essentials: 2. Themenwoche 
+:prefix: le-slides-2
+:backend: revealjs
+:deckjs_transition: fade
+:navigation:
+:custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
+:revealjs_theme: simple
+:!notitle:
+= {short-title}
+André Bauer
+v1.0, 13. März 2018
+
+== Linux-Distributionen
+
+https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg[]
+
+
+== Server-Anwendungen (1)
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| Webserver | Apache, Nginx
+
+| Mail Transfer Agent (MTA) | sendmail, Postfix
+
+| Mail Delivery Agent (MDA) | procmail, maildrop
+
+| POP/IMAP server | Dovecot, Cyrus IMAP
+
+| File Sharing | Samba, Netatalk, NFS
+|===
+
+=== Server-Anwendungen (2)
+
+[cols="2*"]
+|===
+
+| Domain Name System | bind
+
+| LDAP | OpenLDAP
+
+| DHCP | ISC DHCP server
+
+| Relationale Datenbank | MySQL, PostgreSQL
+
+|===
+
+== Command Line Interface (CLI)
+
+Prompt
+
+----
+user@linuxhost:~$
+----
+
+----
+command [options] [arguments]
+----
+
+----
+$ ls -l /usr/bin/perl
+-rwxr-xr-x 1 root root 10024  5. Jan 03:53 /usr/bin/perl
+----
+
+== Kommandos (1)
+
+* date
+* cal
+* history
+* echo
+* env
+* grep
+* which
+
+=== Kommandos (2)
+
+* type
+* alias
+
+== Globbing (1)
+
+Asterisk (`*`)
+----
+$ $ echo /etc/t*
+/etc/texmf /etc/tmpfiles.d /etc/trusted-key.key /etc/ts.conf
+----
+
+----
+$ echo /etc/*d.d
+/etc/depmod.d /etc/modules-load.d /etc/xinetd.d
+----
+
+----
+$ echo /etc/r*.conf
+/etc/request-key.conf /etc/resolv.conf /etc/resolvconf.conf /etc/rsyncd.conf
+----
+
+Question Mark (`?`)
+----
+$ echo /etc/t??????
+/etc/ts.conf
+----
+
+=== Globbing (2)
+
+Brackets (`[]`)
+----
+$ echo /etc/[wy]*
+/etc/wgetrc /etc/yaourtrc
+----
+
+----
+$ echo /etc/[x-z]*
+/etc/X11 /etc/xdg /etc/xinetd.d /etc/xml /etc/xrdb /etc/yaourtrc
+----
+
+----
+$ echo /etc/*[6-9]
+/etc/ImageMagick-6 /etc/ImageMagick-7 /etc/java-jdk9
+----
+
+Exclamation Point (`!`)
+----
+$ echo /etc/[!a-w]*
+/etc/X11 /etc/xdg /etc/xinetd.d /etc/xml /etc/xrdb /etc/yaourtrc
+----
+
+== Quoting (1)
+
+Double Quotes
+----
+$ echo "/etc/[!a-w]*"
+/etc/[!a-w]*
+----
+
+----
+$ echo "The Shell is $SHELL"
+The Shell is /bin/bash
+----
+
+Single Quotes
+----
+$ echo 'The Shell is $SHELL'
+The Shell is $SHELL
+----
+
+== Quoting (2)
+
+Backslash Character (`\`)
+----
+$ echo "The Shell is \$SHELL"
+The Shell is $SHELL
+----
+
+Back Quotes
+----
+$ echo "You are here: `pwd`"
+You are here: /home/user
+----
+
+== Control Statements
+
+
+
+
+
+== Test
+
+[blockdiag, follow, svg]
+....
+blockdiag {
+  default_shape = roundedbox
+  A [label  = Unix]
+
+  A -> B -> C
+  A -> D
+  A -> E
+  A -> F
+  A -> G
+}
+....
