@@ -9,6 +9,7 @@ include::../../../templates/ovm-header.adoc[]
 :custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
 :revealjs_theme: simple
 :!notitle:
+:pygments-linenums-mode: inline
 = {short-title}
 André Bauer
 v1.0, 13. März 2018
@@ -56,127 +57,255 @@ v1.0, 13. März 2018
 
 Prompt
 
+[source,sh]
 ----
 user@linuxhost:~$
 ----
 
+Kommando-Syntax
+
+[source,sh]
 ----
 command [options] [arguments]
 ----
 
+Beipsiel
+[source,sh]
 ----
 $ ls -l /usr/bin/perl
 -rwxr-xr-x 1 root root 10024  5. Jan 03:53 /usr/bin/perl
 ----
 
-== Kommandos (1)
+// == Kommandos (1)
 
-* date
-* cal
-* history
-* echo
-* env
-* grep
-* which
+// * date
+// * cal
+// * history
+// * echo
+// * env
+// * grep
+// * which
 
-=== Kommandos (2)
+// === Kommandos (2)
 
-* type
-* alias
+// * type
+// * alias
 
 == Globbing: Asterisk (`*`)
+
+[source,sh]
 ----
 $ $ echo /etc/t*
 /etc/texmf /etc/tmpfiles.d /etc/trusted-key.key /etc/ts.conf
 ----
 
+[source,sh]
 ----
 $ echo /etc/*d.d
 /etc/depmod.d /etc/modules-load.d /etc/xinetd.d
 ----
 
+[source,sh]
 ----
 $ echo /etc/r*.conf
 /etc/request-key.conf /etc/resolv.conf /etc/resolvconf.conf /etc/rsyncd.conf
 ----
 
 === Globbing: Question Mark (`?`)
+
+[source,sh]
 ----
 $ echo /etc/t??????
 /etc/ts.conf
 ----
 
 === Globbing: Brackets (`[]`)
+
+[source,sh]
 ----
 $ echo /etc/[wy]*
 /etc/wgetrc /etc/yaourtrc
 ----
 
+[source,sh]
 ----
 $ echo /etc/[x-z]*
 /etc/X11 /etc/xdg /etc/xinetd.d /etc/xml /etc/xrdb /etc/yaourtrc
 ----
 
+[source,sh]
 ----
 $ echo /etc/*[6-9]
 /etc/ImageMagick-6 /etc/ImageMagick-7 /etc/java-jdk9
 ----
 
 === Globbing: Exclamation Point (`!`)
+
+[source,sh]
 ----
 $ echo /etc/[!a-w]*
 /etc/X11 /etc/xdg /etc/xinetd.d /etc/xml /etc/xrdb /etc/yaourtrc
 ----
 
 == Quoting: Double Quotes
+
+[source,sh]
 ----
 $ echo "/etc/[!a-w]*"
 /etc/[!a-w]*
 ----
 
+[source,sh]
 ----
 $ echo "The Shell is $SHELL"
 The Shell is /bin/bash
 ----
 
 === Quoting: Single Quotes
+
+[source,sh]
 ----
 $ echo 'The Shell is $SHELL'
 The Shell is $SHELL
 ----
 
 === Quoting: Backslash (`\`)
+
+[source,sh]
 ----
 $ echo "The Shell is \$SHELL"
 The Shell is $SHELL
 ----
 
 === Quoting: Back Quotes
+
+[source,sh]
 ----
 $ echo "You are here: `pwd`"
 You are here: /home/user
 ----
 
-== Control Statements
+// == Control Statements
 
 
-== Reguläre Ausdrücke
+== Hilfe-Systeme
 
+* `man`-Pages
+* `info`-Dokumentation
+* `--help`-Option
+* `apropos`
+* `whatis`
 
-== Pipes & Filters
+// == Dateien und Verzeichnisse
 
-== Test
+// * absolute Pfade
+// * relative Pfade
 
-[blockdiag, follow, svg]
-....
-blockdiag {
-  default_shape = roundedbox
-  A [label  = Unix]
+== Erweiterte Reguläre Ausdrücke
 
-  A -> B -> C
-  A -> D
-  A -> E
-  A -> F
-  A -> G
-}
-....
+[cols="15,85"]
+|===
+
+| `.` | Ein beliebiges einzelnes Zeichen
+
+| `?` | Das vorherige Zeichen kann, muss aber nicht, einmal erscheinen
+
+| `*` | Das vorherige Zeichen kann, muss aber nicht, mehrfach wiederholt werden.
+
+| `+` | Das vorherige Zeichen muss mindestens einmal wiederholt werden.
+
+|===
+
+=== Erweiterte Reguläre Ausdrücke
+
+[cols="15,85"]
+|===
+
+| `[ ]` | Eine Liste oder ein Bereich von Zeichen, +
+     	  `^` negiert die Liste
+
+| `^` | Der folgende Text muss am Anfang einer Zeile stehen
+
+| `$` |	Der vorgehende Text muss am Ende einer Zeile stehen
+
+|===
+
+=== Erweiterte Reguläre Ausdrücke
+
+[cols="15,85"]
+|===
+
+| `( )` | Gruppieren von Ausdrücken
+
+| `\|` | Logische ODER-Verknüpfung von Ausdrücken
+
+| `^` | Der folgende Text muss am Anfang einer Zeile stehen
+
+| `$` |	Der vorgehende Text muss am Ende einer Zeile stehen
+
+|===
+
+=== Beispiel {counter:bspre}
+
+example.txt
+[source,sh]
+----
+include::example.txt[]
+----
+
+[source,sh]
+----
+$ egrep -n --color '^xyz' example.txt 
+2:xyzabc
+----
+
+=== Beispiel {counter:bspre}
+
+example.txt
+[source,sh]
+----
+include::example.txt[]
+----
+
+[source,sh]
+----
+$ egrep -n --color '^[a-c]+xyz' example.txt 
+3:aaaxyz
+4:aaxyzdd
+----
+
+=== Beispiel {counter:bspre}
+
+example.txt
+[source,sh]
+----
+include::example.txt[]
+----
+
+[source,sh]
+----
+$ egrep -n --color '^[a-c]*xyz' example.txt 
+2:xyzabc
+3:aaaxyz
+4:aaxyzdd
+----
+
+=== Beispiel {counter:bspre}
+
+example.txt
+[source,sh]
+----
+include::example.txt[]
+----
+
+[source,sh]
+----
+$ egrep -n --color '^[a-c]*xyz$|^xyz' example.txt 
+2:xyzabc
+3:aaaxyz
+----
+
+== Organisatorisches
+
+* Dokumentation im E-Portfolio
+* Test am Ende dieser Themenwoche über die NDG-Linux-Essentials-Module 1-12
