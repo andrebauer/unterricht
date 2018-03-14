@@ -15,7 +15,9 @@ v1.0, 13. März 2018
 
 == Linux-Distributionen
 
-https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg[]
+* https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg[Linux Distribution Timeline]
+
+* https://distrowatch.com/[]
 
 
 == Server-Anwendungen (1)
@@ -82,9 +84,7 @@ $ ls -l /usr/bin/perl
 * type
 * alias
 
-== Globbing (1)
-
-Asterisk (`*`)
+== Globbing: Asterisk (`*`)
 ----
 $ $ echo /etc/t*
 /etc/texmf /etc/tmpfiles.d /etc/trusted-key.key /etc/ts.conf
@@ -100,15 +100,13 @@ $ echo /etc/r*.conf
 /etc/request-key.conf /etc/resolv.conf /etc/resolvconf.conf /etc/rsyncd.conf
 ----
 
-Question Mark (`?`)
+=== Globbing: Question Mark (`?`)
 ----
 $ echo /etc/t??????
 /etc/ts.conf
 ----
 
-=== Globbing (2)
-
-Brackets (`[]`)
+=== Globbing: Brackets (`[]`)
 ----
 $ echo /etc/[wy]*
 /etc/wgetrc /etc/yaourtrc
@@ -124,15 +122,13 @@ $ echo /etc/*[6-9]
 /etc/ImageMagick-6 /etc/ImageMagick-7 /etc/java-jdk9
 ----
 
-Exclamation Point (`!`)
+=== Globbing: Exclamation Point (`!`)
 ----
 $ echo /etc/[!a-w]*
 /etc/X11 /etc/xdg /etc/xinetd.d /etc/xml /etc/xrdb /etc/yaourtrc
 ----
 
-== Quoting (1)
-
-Double Quotes
+== Quoting: Double Quotes
 ----
 $ echo "/etc/[!a-w]*"
 /etc/[!a-w]*
@@ -143,21 +139,19 @@ $ echo "The Shell is $SHELL"
 The Shell is /bin/bash
 ----
 
-Single Quotes
+=== Quoting: Single Quotes
 ----
 $ echo 'The Shell is $SHELL'
 The Shell is $SHELL
 ----
 
-== Quoting (2)
-
-Backslash Character (`\`)
+=== Quoting: Backslash (`\`)
 ----
 $ echo "The Shell is \$SHELL"
 The Shell is $SHELL
 ----
 
-Back Quotes
+=== Quoting: Back Quotes
 ----
 $ echo "You are here: `pwd`"
 You are here: /home/user
@@ -166,8 +160,10 @@ You are here: /home/user
 == Control Statements
 
 
+== Reguläre Ausdrücke
 
 
+== Pipes & Filters
 
 == Test
 
