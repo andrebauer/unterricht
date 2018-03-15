@@ -208,13 +208,46 @@ You are here: /home/user
 
 | `.` | Ein beliebiges einzelnes Zeichen
 
-| `?` | Das vorherige Zeichen kann, muss aber nicht, einmal erscheinen
+| `?` | Der vorherige Ausdruck kann, muss aber nicht, einmal vorkommen
 
-| `*` | Das vorherige Zeichen kann, muss aber nicht, mehrfach wiederholt werden.
+| `*` | Der vorherige Ausdruck kann, muss aber nicht,
+      	mehrfach wiederholt werden.
 
-| `+` | Das vorherige Zeichen muss mindestens einmal wiederholt werden.
+| `+` | Der vorherige Ausdruck muss mindestens einmal wiederholt werden.
 
 |===
+
+
+=== Beispiele
+
+[source,sh]
+----
+$ cat example.txt
+include::example.txt[]
+----
+
+[source,sh]
+----
+$ egrep -n --color '.aa?' example.txt 
+2:xyzabc
+3:aaaxyz
+4:aaxyzdd
+----
+
+[source,sh]
+----
+$ egrep -n --color 'a+x' example.txt 
+3:aaaxyz
+4:aaxyzdd
+----
+
+[source,sh]
+----
+$ egrep -n --color 'aaa*xyz' example.txt 
+3:aaaxyz
+4:aaxyzdd
+----
+
 
 === Erweiterte Reguläre Ausdrücke
 
@@ -224,11 +257,44 @@ You are here: /home/user
 | `[ ]` | Eine Liste oder ein Bereich von Zeichen, +
      	  `^` negiert die Liste
 
-| `^` | Der folgende Text muss am Anfang einer Zeile stehen
+| `^` | Der folgende Ausdruck muss am Anfang einer Zeile vorkommen
 
-| `$` |	Der vorgehende Text muss am Ende einer Zeile stehen
+| `$` |	Der vorgehende Ausdruck muss an Ende einer Zeile vorkommen
 
 |===
+
+=== Beispiele
+
+[source,sh]
+----
+$ cat example.txt
+include::example.txt[]
+----
+
+[source,sh]
+----
+$ egrep -n --color '^xyz' example.txt 
+2:xyzabc
+----
+
+[source,sh]
+----
+$ egrep -n --color 'xyz$' example.txt 
+3:aaaxyz
+----
+
+[source,sh]
+----
+$ egrep -n --color '^[a-c]+xyz' example.txt 
+3:aaaxyz
+4:aaxyzdd
+----
+
+[source,sh]
+----
+$ egrep -n --color '^[^a-c]+xyz' example.txt 
+5:eexyzf
+----
 
 === Erweiterte Reguläre Ausdrücke
 
@@ -239,70 +305,46 @@ You are here: /home/user
 
 | `\|` | Logische ODER-Verknüpfung von Ausdrücken
 
-| `^` | Der folgende Text muss am Anfang einer Zeile stehen
+| `{n}` | Der vorgehende Ausdruck muss genau `n`-mal vorkommen
 
-| `$` |	Der vorgehende Text muss am Ende einer Zeile stehen
+| `{n,m}` | Der vorgehende Ausdruck darf mindestens `n`-mal,
+  	    höchstens `m`-mal vorkommen
 
 |===
 
-=== Beispiel {counter:bspre}
+=== Beispiele
 
-example.txt
 [source,sh]
 ----
+$ cat example.txt
 include::example.txt[]
 ----
 
 [source,sh]
 ----
-$ egrep -n --color '^xyz' example.txt 
+$ egrep -n --color '^[abc]*xyz$|^xyz' example.txt 
 2:xyzabc
-----
-
-=== Beispiel {counter:bspre}
-
-example.txt
-[source,sh]
-----
-include::example.txt[]
-----
-
-[source,sh]
-----
-$ egrep -n --color '^[a-c]+xyz' example.txt 
 3:aaaxyz
+----
+
+[source,sh]
+----
+$ egrep -n --color '(^[abc]*xyz$)|(^xyz)' example.txt
+2:xyzabc
+3:aaaxyz
+----
+
+[source,sh]
+----
+$ egrep -n --color '^[^cd]{4}[zd]{3}' example.txt
 4:aaxyzdd
 ----
 
-=== Beispiel {counter:bspre}
-
-example.txt
 [source,sh]
 ----
-include::example.txt[]
-----
-
-[source,sh]
-----
-$ egrep -n --color '^[a-c]*xyz' example.txt 
-2:xyzabc
+$ egrep -n --color '^[^cd]{4}[yzd]{2,3}' example.txt
 3:aaaxyz
 4:aaxyzdd
-----
-
-=== Beispiel {counter:bspre}
-
-example.txt
-[source,sh]
-----
-include::example.txt[]
-----
-
-[source,sh]
-----
-$ egrep -n --color '^[a-c]*xyz$|^xyz' example.txt 
-2:xyzabc
-3:aaaxyz
 ----
 
 == Organisatorisches
