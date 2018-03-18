@@ -2,7 +2,7 @@ include::../../templates/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LS-3.1
 :kind: Lernsituation
 :short-title: Lichtsteuerung für das SmartHome
-= {ovm-code} {kind} zu Linux Essentials
+= {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de>
 v1.0, 20. Februar 2018
 
