@@ -1,0 +1,31 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-BS-LE-LS-2.1
+:kind: Lernsituation
+:short-title: Linux Essentials: Themenwoche 2
+=  {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 18. März 2018
+
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+| Kurs https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]
+
+| *Verwandte Literatur*
+| https://www.lpice.eu/de/unsere-zertifizierungen/linux-essentials-ueberblick/lernziele-010/#c6080[Lerniele der Linux Essentials Prüfung 010]
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+. Bearbeite den Lehrgang
+https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]
+der Cisco Networking Academy bis zum Modul 12 bis zum Ende der Woche.
+
+. Dokumentiere täglich in deinem E-Portfolio, was du inhaltlich
+bearbeitet hast,
+z.{nbsp}B. {ldquo}ich habe über reguläre Ausdrücke gelernt, dass ...{rdquo}. +
+Notiere auch, welches zusätzliche Material du verwendet hast.
