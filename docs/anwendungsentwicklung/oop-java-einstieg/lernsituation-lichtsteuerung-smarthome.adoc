@@ -1,0 +1,88 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: IT-AE-UML-LS-3.1
+:kind: Lernsituation
+:short-title: Lichtsteuerung für das SmartHome
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 17. April 2018
+
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+Zum Erstellen von UML-Diagrammen bieten sich die Programme
+https://wiki.gnome.org/Apps/Dia/[Dia],
+https://www.draw.io/[draw.io],
+http://www.yworks.com/products/yed[yEd] bzw.
+https://www.yworks.com/yed-live/[yEd Live] und
+http://plantuml.com/[PlantUML] an, dieses kann in u.{nbsp}a. in
+https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse und Word als Plugin verwendet werden].
+
+| *Verwandte Literatur*
+a|
+
+* IT-AE-UML-INFO-3.1 bis 3.4
+* http://moodle2013.ovm-kassel.de/mod/url/view.php?id=8428[Infoblatt I-AE-MO-5 "Sequenzdiagramm"]
+* https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf[Vortragsfolien "Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"]
+* http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf[Skript "Objektorientierte Programmierung mit Java und UML"]
+
+| *Lernjobs*
+a|
+
+* IT-AE-UML-LJ-3.1 bis 3.6
+* http://moodle2013.ovm-kassel.de/mod/url/view.php?id=10065[Lernjob LJ-AE-UML-2.5.1 "Seqenzdiagramm-"Bestellvorgang" mit Musterlösung]
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+Die Hometech GmbH entwickelt Hard- und Software für das SmartHome.
+Zur Zeit werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
+entwickelt.
+Steuerungskomponenten wie _Schalter_, _Taster_, _Dimmer_, _Zeitschalter_
+sowie _Bewegungs- und Geräuschsensoren_
+sollen zukünftig nicht mehr
+direkt mit den Lampen verbunden werden. Stattdessen soll eine
+programmierbare Steuerungseinheit diese Aufgabe übernehmen.
+
+Die Hometech GmbH hat Sie
+beauftragt, eine Software für diese Steuerungseinheit zu entwickeln.
+// für die
+// kundenspezifische Programmierung der Komponenten zu entwickeln.
+// Die Komponenten sollen als objektorientierte
+// Software-Module mit Java entwickelt werden, so dass diese
+// flexibel miteinander verbunden werden können.
+Als Vorgabe wurde festgelegt, dass die Software objektorientiert mit
+Java entwickelt werden soll, da die Hometech GmbH auch intern damit
+arbeitet.
+Zudem soll die Software gut dokumentiert werden, damit zu
+einem späteren Zeitpunkt ggf. interne Entwickler
+das Projekt übernehmen können.
+
+Damit das Produkt möglichst interessant für die Kunden wird,
+sollen mit der Software auch Funktionen ermöglicht werden,
+die mit der bisherigen Haustechnik nur sehr aufwändig oder nicht möglich
+waren, zum Beispiel:
+
+* ein Taster, der alle Beleuchtungskörper ausschaltet.
+
+* Taster, die jeweils mehrere, sich überschneidende Gruppen
+  vom Beleuchtungskörpern schalten.
+
+* Dimmer, die bei einer Gruppe von Beleuchtungskörpern je nach
+  eingestellter Stufe mehr oder weniger (nicht dimmbare) Lampen
+  leuchten lassen.
+
+=== Aufgabe
+
+Wählen Sie Steuerungskomponenten und passende Beleuchtungskörper aus und
+erstellen Sie ein oder mehrere Anwendungsfälle.
+Führen Sie die
+Schritte der objektorientierten Analyse, objektorientierten Modellierung
+und objektorientiertn Programmierung mit Java 
+durch. 
+Erstellen Sie jeweils geeignete Dokumentationen.

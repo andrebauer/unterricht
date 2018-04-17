@@ -1,11 +1,11 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LJ-5.6
+:ovm-code: IT-AE-UML-LJ-3.6
 :kind: Lernjob
 :short-title: Klassendiagramm und Quellcode auf der Grundlage eines Objektdiagramms erstellen
 :prefix: ljkdqc
 = {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 28. Februar 2018
+v1.0, 17. April 2018
 
 include::../../templates/ovm-head-table.adoc[]
 
@@ -23,8 +23,10 @@ https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse un
 | *Verwandte Literatur*
 a|
 
-* IT-AE-JA-INFO-5.3
-* IT-AE-JA-INFO-5.4
+* IT-AE-UML-INFO-3.3
+* IT-AE-UML-INFO-3.4
+* https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf[Vortragsfolien "Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"]
+* http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf[Skript "Objektorientierte Programmierung mit Java und UML"]
 
 | *Lizenz*
 | {cc-by-sa}
@@ -120,11 +122,16 @@ digraph G {
 
 === Aufgabe 1
 
-Erstellen Sie zu dem Objektdiagramm ein Klassendiagramm.
+Erstellen Sie zu dem Objektdiagramm ein Klassendiagramm. +
+Als Hilfen können Sie neben den Informationsblättern
+IT-AE-UML-INFO-3.3 und IT-AE-UML-INFO-3.4 die Vortragsfolien
+https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf["Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"] verwenden.
 
 === Aufgabe 2
 
-Geben Sie den Java-Quellcode zu Ihrem Klassendiagramm aus Aufgabe 1 an.
+Geben Sie den Java-Quellcode zu Ihrem Klassendiagramm aus Aufgabe 1 an. +
+Als Hilfen bietet sich neben dem Informationsblatt IT-AE-UML-INFO-3.4 das
+http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf[Skript "Objektorientierte Programmierung mit Java und UML"] (insbesondere die Seiten 77 bis 81) an.
 
 === Aufgabe 3
 

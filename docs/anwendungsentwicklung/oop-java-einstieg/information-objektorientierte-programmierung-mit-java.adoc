@@ -1,11 +1,11 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-INFO-5.4
+:ovm-code: IT-AE-UML-INFO-3.4
 :kind: Information
 :short-title: Objektorientierte Programmierung (OOP) mit Java
 :prefix: oop
 = {kind} {ovm-code} {short-title}
 André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 25. Februar 2018
+v1.0, 17. April 2018
 //:toc: macro
 //:toclevels: 4
 
@@ -15,10 +15,14 @@ include::../../templates/ovm-head-table.adoc[]
 | https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design[Wikipedia: Objektorientierte Analyse und Design]
 
 | *Verwandte Literatur*
-| 
+a|
+
+* IT-AE-UML-INFO-3.1-3.3
+* https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf[Vortragsfolien "Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"]
+* http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf[Skript "Objektorientierte Programmierung mit Java und UML"]
 
 | *Lernjobs*
-| IT-AE-JA-LJ-5.*
+| IT-AE-UML-LJ-3.*
 
 | *Lizenz*
 | {cc-by-sa}
