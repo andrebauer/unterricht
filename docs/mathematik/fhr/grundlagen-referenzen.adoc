@@ -1,0 +1,225 @@
+include::../../templates/ovm-header.adoc[]
+:ovm-code: MA-FHR-LINKS-1.1
+:kind: Information
+:short-title: Mathematik FHR: Grundlagen
+= {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 24. Februar 2018
+
+include::../../templates/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+* http://arbeitsplattform.bildung.hessen.de/fach/beruf/archiv/sz4-forum-mathematik/allgemeine_Unterlagen/index.html[AfL Module - Fördermaterialien: Matheförderkonzept im Anschluss an die Diagnose mit dem RTBS]
+
+| *Verwandte Literatur*
+| 
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+== {short-title}
+
+|====
+| Nr | Gruppe | Aufgaben | Fördermaterialien
+
+|
+| Grundrechenarten
+|
+|
+
+| 1
+| Punkt vor Strich
+| 1
+| 
+
+| 2
+| Dezimalsystem
+| 2 - 4
+|
+
+| 3
+| negative Zahlen
+| 5 - 8
+|
+
+| 4
+| Rechnen mit Buchstaben
+| 9 - 11
+a|
+
+* https://123mathe.de/terme-zusammenfassen-aufgaben[]
+
+|
+| Wurzeln und Potenzen
+|
+a|
+
+* https://123mathe.de/potenzen-wurzeln-und-ihre-rechengesetze[Potenzen, Wurzeln und ihre Rechengesetze]
+
+| 5
+| Potenzen
+| 12 - 18
+a|
+
+* https://123mathe.de/aufgaben-zu-potenzen-i-potenzen-vereinfachen[Aufgaben zu Potenzen I Potenzen vereinfachen]
+
+| 6
+| Wurzeln
+| 19 - 25
+a|
+
+* https://www.brinkmann-du.de/mathe/aufgabenportal/p0_pot_wurz_01/p0_pot_wurz_01.htm
+
+|
+| Klammerrechnung
+|
+|
+
+| 7
+| Klammern Addition + Subtraktion
+| 26 - 28
+|
+
+| 8
+| Klammern Multiplikation
+| 29 - 32
+|
+
+| 9
+| Ausklammern
+| 33 - 36
+|
+
+|
+| Binome
+|
+|
+
+| 10
+| Binom. Formeln
+| 37 - 42
+|
+
+| 11
+| Binom. Formeln umkehren
+| 43 - 44
+|
+
+| 12
+| Binom. Formeln ergänzen
+| 45 - 47
+|
+
+|
+| Bruchrechnen I
+|
+|
+
+| 13
+| Brüche Basisvorstellung
+| 48 - 50
+|
+
+| 14
+| Brüche addieren
+| 51 - 52
+|
+
+| 15
+| Brüche multiplizieren + dividieren
+| 53 - 57
+|
+
+|
+| Bruchrechnen II
+|
+|
+
+| 16
+| Brüche kürzen
+| 58 - 60
+|
+
+| 17
+| Brüche erweitern
+| 61 - 62
+|
+
+| 18
+| Rechnen mit Bruchtermen
+| 63 - 68
+|
+
+|
+| Dreisatz + Protentrechnen
+|
+|
+
+| 19
+| Dreisatz proportional
+| 84
+|
+
+| 20
+| Dreisatz antiproportional
+| 83
+|
+
+
+| 21
+| Prozentwert
+| 87
+|
+
+| 22
+| Prozentsatz
+| 85
+|
+
+| 23
+| Grundwert
+| 86
+
+|
+|	Maße
+|
+|
+
+| 24
+| Zeitmaße
+| 88 - 90
+|
+
+| 25
+| Längenmaße
+| 91 + 94
+|
+
+| 26
+| Flächenmaße
+| 95
+|
+
+27	Volumenmaße	92,93,96
+28	Gewichtsmaße	97
+	Koordinatensystem	
+29	Koordinaten eintragen	69
+30	Koordinaten ablesen	71
+31	spiegeln	70
+32	verschieben	72
+	lineare Gleichungen	
+33	Gleichung mit 1 Unbekannten	73 + 74
+34	Lösungsverfahren für LGS	75
+35	LGS mit 2 Unbekannten	76
+	lineare Funktionen	
+36	Zuordnung Graph  Term	77
+37	Geradengleichung aus 2 Punkten	78
+	quadratische Funktionen	
+38	Lösungsmengen bestimmen	79 - 81
+39	Zuordnung Graph  Term	82
+
+
+|====
