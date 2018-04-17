@@ -12,7 +12,7 @@ include::../../../templates/ovm-header.adoc[]
 :pygments-linenums-mode: inline
 = {short-title}
 André Bauer
-v1.0, 13. März 2018
+v1.0, 18. März 2018
 
 == Linux-Distributionen
 
@@ -349,5 +349,5 @@ $ egrep -n --color '^[^cd]{4}[yzd]{2,3}' example.txt
 
 == Organisatorisches
 
-* Dokumentation im E-Portfolio
+* Dokumentation im E-Portfolio, siehe Lernsituation IT-BS-LE-LS-2.1
 * Test am Ende dieser Themenwoche über die NDG-Linux-Essentials-Module 1-12
