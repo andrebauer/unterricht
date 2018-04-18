@@ -86,3 +86,7 @@ Schritte der objektorientierten Analyse, objektorientierten Modellierung
 und objektorientiertn Programmierung mit Java 
 durch. 
 Erstellen Sie jeweils geeignete Dokumentationen.
+
+IMPORTANT: Stellen sie die Quelltexte Ihrer Lösungen als
+	   Archiv-Dateien (`zip-` oder `tar.gz-` Format) zur Verfügung. +
+	   Diese sollten keine (`javac`-)Compiler-Fehler mehr enthalten.

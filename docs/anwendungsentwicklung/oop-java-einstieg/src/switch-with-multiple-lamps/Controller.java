@@ -7,9 +7,9 @@
 public class Controller {
   public static void main(String args[]) {
     // User-Story 1
-    Lamp lamp1 = new Lamp();
-    Lamp lamp2 = new Lamp(); 
-    Lamp lamp3 = new Lamp(); 
+    Lamp lamp1 = new Lamp(Color.BLUE);
+    Lamp lamp2 = new Lamp(Color.RED); 
+    Lamp lamp3 = new Lamp(Color.YELLOW); 
     Switch switch1 = new Switch(); 
     switch1.connect(lamp1);
     switch1.connect(lamp2); 

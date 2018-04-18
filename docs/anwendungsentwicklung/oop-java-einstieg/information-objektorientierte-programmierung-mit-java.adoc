@@ -47,9 +47,17 @@ class "Switch" as switch1 {
   disconnect(Lamp)
 } 
 
+class "Color" << enum >> {
+  RED
+  BLUE
+  GREEN
+  WHITE
+  YELLOW
+}
+
 class "Lamp" as lamp1 {
   state: State = OFF
-  Lamp()
+  Lamp(Color)
   turnOn()
   turnOff()
 }
@@ -62,6 +70,7 @@ class "State" << enum >> {
 switch1 "1  " --> "*" lamp1 : controls
 switch1 -> State
 lamp1 -> State
+Color <- lamp1 
 ....
 
 Dem Klassendiagramm in <<klassendiagramm-1>>
@@ -72,6 +81,9 @@ entspricht das folgende Java-Programm:
 ----
 // Datei State.java
 include::src/switch-with-lamps-skeleton/State.java[]
+
+// Datei Color.java
+include::src/switch-with-lamps-skeleton/Color.java[]
 
 // Datei Lamp.java
 include::src/switch-with-lamps-skeleton/Lamp.java[] 
@@ -84,7 +96,7 @@ In Java muss jede Klasse mit dem
 https://de.wikipedia.org/wiki/Zugriffsmodifikator[Zugriffsmodifikator]
 `public` in einer eigenen `java`-Datei mit dem Namen der
 Klasse gespeichert werden, so dass das
-Programm nun aus drei Dateien besteht.
+Programm nun aus vier Dateien besteht.
 
 Ist damit die Entwicklung der Software abgeschlossen?
 Nein, noch nicht, wir haben bislang erst eine objektorientierte Struktur
@@ -126,11 +138,19 @@ class "Switch" as switch1 {
   press()
   connect(Lamp)
   disconnect(Lamp)
-} 
+}
+
+class "Color" << enum >> {
+  RED
+  BLUE
+  GREEN
+  WHITE
+  YELLOW
+}
 
 class "Lamp" as lamp1 {
   state: State = OFF
-  Lamp()
+  Lamp(Color)
   turnOn()
   turnOff()
 }
@@ -144,6 +164,8 @@ note right on link
   noch eine Lampe verwenden,
   eine 1-zu-1-Beziehung.
 end note
+
+Color <- lamp1
 ....
 
 .Java-Programm
@@ -151,6 +173,9 @@ end note
 ----
 // State.java
 include::src/switch-with-single-lamp/State.java[]
+
+// Datei Color.java
+include::src/switch-with-single-lamp/Color.java[]
 
 // Datei Lamp.java
 include::src/switch-with-single-lamp/Lamp.java[]
@@ -184,13 +209,15 @@ und die Lampe `lamp1` mit dem Schalter `switch1` verbunden werden.
 .Java-Anweisungen, um Objekte zu erzeugen und zu verbinden
 [source,java]
 ----
-Lamp lamp1 = new Lamp(); <1>
+Lamp lamp1 = new Lamp(Color.RED); <1>
 Switch switch1 = new Switch(); <2>
 switch1.connect(lamp1); <3>
 switch1.press(); <4>
 ----
-<1> Eine neues Objekt der Klasse Lamp mit dem Bezeichner `lamp1` wird erzeugt.
-<2> Eine neues Objekt der Klasse Switch mit dem Bezeichner `switch1` wird erzeugt.
+<1> Eine neues Objekt der Klasse `Lamp` mit dem Bezeichner `lamp1` wird erzeugt.
+    Beim Aufruf des Konstruktors `Lamp(Color)` wird die Farbe der Lampe mit
+    `Color.RED` als Parameter übergeben.
+<2> Eine neues Objekt der Klasse `Switch` mit dem Bezeichner `switch1` wird erzeugt.
 <3> Die Lampe `lamp1` wird mit dem Schalter `switch1` verbunden.
 <4> {ldquo}Betätigen{rdquo} des Schalters.
 
@@ -243,6 +270,9 @@ entspricht:
 ----
 // State.java
 include::src/switch-with-multiple-lamps/State.java[]
+
+// Color.java
+include::src/switch-with-multiple-lamps/Color.java[]
 
 // Lamp.java
 include::src/switch-with-multiple-lamps/Lamp.java[]

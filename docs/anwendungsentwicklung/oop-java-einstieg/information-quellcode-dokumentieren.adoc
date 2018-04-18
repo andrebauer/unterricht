@@ -1,5 +1,5 @@
 include::../../templates/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-INFO-5.5
+:ovm-code: IT-AE-JA-INFO-3.5
 :kind: Information
 :short-title: Quellcode dokumentieren
 :prefix: qcd

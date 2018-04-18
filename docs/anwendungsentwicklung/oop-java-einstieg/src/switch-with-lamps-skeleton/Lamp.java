@@ -1,7 +1,9 @@
 public class Lamp {
   private State state;
 
-  public Lamp() {
+  private Color color;
+    
+  public Lamp(Color color) {
   }
 
   public void turnOn() {

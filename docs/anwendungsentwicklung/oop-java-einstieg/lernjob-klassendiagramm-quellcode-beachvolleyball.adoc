@@ -138,3 +138,7 @@ http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf
 Erzeugen Sie in Java die Objekte, die mit dem Objekt `spielAB`
 verbunden sind und stellen Sie auch diese Verbindungen in Ihrem
 Java-Programm her.
+
+IMPORTANT: Stellen sie die Quelltexte Ihrer Lösungen der Aufgaben 2 und 3 als
+	   Archiv-Dateien (`zip-` oder `tar.gz-` Format) zur Verfügung. +
+	   Diese sollten keine (`javac`-)Compiler-Fehler mehr enthalten.
