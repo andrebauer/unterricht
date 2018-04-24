@@ -1,0 +1,140 @@
+include::../../../templates/ovm-header.adoc[]
+:ovm-code: IT-BS-LE-VF-3.1
+:kind: Vortragsfolien
+:short-title: LPI Linux Essentials: 3. Themenwoche 
+:prefix: le-slides-3
+:backend: revealjs
+:deckjs_transition: fade
+:navigation:
+:custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
+:revealjs_theme: simple
+:!notitle:
+:pygments-linenums-mode: inline
+= {short-title}
+André Bauer
+v1.0, 24. April 2018
+
+== Organisatorisches
+
+* LPI Prüfung oder Klausur (über alle Inhalte)
+* Lernziele
+
+== Neue Inhalte
+
+== https://en.wikipedia.org/wiki/Everything_is_a_file["Everything is a file"]
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| /etc/passwd | Benutzeraccouts
+
+| /etc/shadow | Passwörter
+
+| /etc/group | Benutzergruppen
+
+| /etc/default/useradd | Voreinstellungen für neue Benutzer 
+
+|===
+
+== Rechte
+
+[source,sh]
+----
+$ ls -l example.txt 
+-rw-r--r-- 1 andre users 36 18. Mär 20:22 example.txt
+----
+
+== 
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| id |
+| getent |
+|===
+
+== Gruppen
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| groupadd | Gruppe erstellen
+
+| groupmod | Gruppennamen oder -id ändern
+
+| groupdel | Gruppe löschen
+
+| groups | Gruppeninformation
+
+|===
+
+== Benutzer
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| useradd | Benutzer erstellen
+
+| passwd | Passwort ändern
+
+| chage | Passwort aging
+
+| who, w | Informationen über eingeloggte Benutzer
+
+| usermod | Bestehend Benutzer ändern
+
+| userdel | Benutzer löschen
+
+| id | Benutzer- und Gruppeniformationen
+
+|===
+
+
+== Datei-Besitz und Zugriffsrechte
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| stat | Dateiinformationen über eine Datei oder ein Verzeichnis
+
+| chgrp | Gruppenzugehörigkeit einer Datei oder eines Verzeichnisses ändern
+
+| chwon | Benutzerzugehörigkeit einer Datei oder eines Verzeichnisses ändern
+
+| chmod | Zugriffsrechte einer Datei oder eines Verzeichnisses ändern
+
+| umask | Standardzugriffsrechte 
+
+|===
+
+=== Zugriffsrechte
+
+* drei Stufen:
+** User owner,
+** Group owner,
+** Other or world
+
+* Rechte
+** r -- read
+** w -- write
+** x -- execute / excess
+
+== Special Permissions
+
+* setuid
+* setgid
+* Sticky Bit Permission
+
+
+== Links
+
+* Hard Links `ln`
+* Symbolic Links `ln -s`
+
+== Filesystem Hierarchy Standard (FHS)
+
