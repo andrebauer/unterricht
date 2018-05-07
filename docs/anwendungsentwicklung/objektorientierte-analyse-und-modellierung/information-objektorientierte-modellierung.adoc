@@ -23,6 +23,8 @@ include::docs/templates/ovm-head-table.adoc[]
 
 = {short-title}
 
+{empty}
+
 In der objektorientierten Modellierung werden u.{nbsp}a. die
 bereits vorgenommenen Modellierungen in den Klassendiagrammen
 verfeinert und z.{nbsp}B. Datentypen, initiale Werte und weitere

@@ -28,7 +28,7 @@ a|
 
 = {short-title}
 
-//toc::[]
+{empty}
 
 Wenn eine Software mehr als etwa hundert Zeilen Quellcode umfasst,
 spätestens ab mehreren hundert,

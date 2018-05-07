@@ -20,17 +20,7 @@ include::docs/templates/ovm-head-table.adoc[]
 
 = {short-title}
 
-:includedir: outdir/
-:sourcedir: {outdir}/
-
-:docdir: hello
-
-* {indir}
-* {docdir}
-* {docfile}
-* {outdir}
-* {includedir}
-* {sourcedir}
+{empty}
 
 Wenn eine Software mehr als etwa hundert Zeilen Quellcode umfasst,
 spätestens ab mehreren hundert,
