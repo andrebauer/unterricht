@@ -1,13 +1,13 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LJ-3.1
 :kind: Lernjob
 :short-title: Mit BlueJ arbeiten
 :prefix: bluej
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 27. Februar 2018
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 27. Februar 2018
+:!sectnums:
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 a|
@@ -23,29 +23,29 @@ a|
 | {cc-by-sa}
 |===
 
-== {short-title}
+= {short-title}
 
-=== Aufgabe 1
+== Aufgabe 1
 
 Installieren Sie die Java-Entwicklungsumgebung https://www.bluej.org[BlueJ].
 In dem https://www.bluej.org/tutorial/blueJ-tutorial-deutsch.pdf[BlueJ-Tutorial]
 finden Sie grundlegende Informationen zu BlueJ.
 
-=== Aufgabe 2
+== Aufgabe 2
 
 Entpacken Sie das BleuJ-Projekt
 https://ovm-my.sharepoint.com/:u:/g/personal/a_bauer_ovm-kassel_de/EaYNd49uwX5JkBs8BYaw9vEB1LIQ-IrvR5XZxh03ZZXuDg?e=JfcXBc[Lampe-und-Schalter]
 und öffnen Sie es mit BlueJ.
 Erkunden Sie BlueJ anhand dieses Projektes.
 
-=== Aufgabe 3
+== Aufgabe 3
 
 Erzeugen Sie mit BlueJ über die graphische Oberfläche
 Lampen und Schalter, verbinden Sie diese mit `connect` und
 prüfen Sie, ob die Lampen ihre Zustände ändern, wenn sie die
 angeschlossenen Schalter mit der Methode `press` betätigen.
 
-=== Aufgabe 4
+== Aufgabe 4
 
 Führen Sie mit BlueJ die Java-Anweisung {ldquo}per Hand{rdquo},
 d.{nbsp}h. über die graphische Oberfläche oder im Codepad, durch und
@@ -77,7 +77,7 @@ switch2.press();
 switch1.press();
 ----
 
-=== Aufgabe 5
+== Aufgabe 5
 
 Betrachten Sie den in dem Objektdiagramm gegebenen Systemzustand.
 Führen Sie diesen {ldquo}per Hand{rdquo} mit BlueJ herbei und dokumentierten
@@ -111,26 +111,26 @@ object "<u>lampe4: Lampe</u>" as lampe4 {
   zustand = OFF
 }
 
-lampe1 <- schalter1 : schaltet
+lampe1 <-down- schalter1 : schaltet
 
-schalter1 -> "schaltet       " lampe2
+schalter1 -down-> "schaltet       " lampe2
 
-schalter1 -> lampe3 : schaltet
+schalter1 -down-> lampe3 : schaltet
 
-lampe2 <- schalter2 : schaltet
+lampe2 <-down- schalter2 : schaltet
 
-lampe3 <- schalter2 : schaltet
+lampe3 <-down- schalter2 : schaltet
 
-schalter2 -> lampe4 : schaltet
+schalter2 -down-> lampe4 : schaltet
 ....
 
-=== Aufgabe 6
+== Aufgabe 6
 
 Programmieren Sie wie bei der Lampe auch eine Ausgabe für den Schalter,
 die nach jedem Umschalten den aktuellen Zustand des Schalters
 wiedergibt.
 
-=== Aufgabe 7
+== Aufgabe 7
 
 Verbessern Sie die Zustand-Ausgabe für die Lampen, indem Sie
 ein Attribut `name` hinzufügen, das mithilfe eines

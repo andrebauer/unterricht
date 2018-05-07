@@ -14,18 +14,24 @@
       "sync2": "browser-sync start _build/docs/*/*/*.html",
       "watch": "onchange docs/*/*/*.adoc docs/*/*/*/*.adoc docs/*/*.adoc docs/*.adoc stylesheets/pdf/*.yml -- gulp build",
       "serve": "ruby -run -e httpd _build/docs -p 5000 -b 127.0.0.1",
-       "clean": "gulp clean",
-       "build:slides:pdf": "decktape reveal _build/docs/betriebssysteme/linux-essentials/slides/einstieg.html _build/docs/betriebssysteme/linux-essentials/slides/einstieg-dt.pdf --no-sandbox"
+      "clean": "gulp clean",
+      "build:slides:pdf": "decktape reveal _build/docs/betriebssysteme/linux-essentials/slides/einstieg.html _build/docs/betriebssysteme/linux-essentials/slides/einstieg-dt.pdf --no-sandbox"
    },
    "author": "André Bauer",
    "license": "CC-BY-SA",
-   "dependencies": {},
+   "dependencies": {
+      "npm-check-updates": "^2.14.2",
+      "vega": "^3.3.1"
+   },
    "devDependencies": {
-      "browser-sync": "^2.23.6",
-      "decktape": "^2.8.0",
+      "browser-sync": "^2.23.7",
+      "decktape": "^2.8.2",
       "del": "^3.0.0",
       "gulp": "^3.9.1",
       "gulp-copy": "^1.1.0",
       "onchange": "^3.3.0"
+   },
+   "resolutions": {
+      "natives": "1.1.3"
    }
 }

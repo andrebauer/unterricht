@@ -1,12 +1,12 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-BS-LE-LS-1.1
 :kind: Lernsituation
-:short-title: Linux Essentials 1
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 19. Februar 2018
+:short-title: Linux Essentials: Themenwoche 1
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 19. Februar 2018
+:!sectnums:
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 | Kurs https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]
@@ -18,6 +18,8 @@ include::../../templates/ovm-head-table.adoc[]
 | *Lizenz*
 | {cc-by-sa}
 |===
+
+= {short-title}
 
 == Vorbereitung
 

@@ -69,7 +69,8 @@ horizontal_rhythm: $base_line_height_length
 # QUESTION should vertical_spacing be block_spacing instead?
 vertical_spacing: $vertical_rhythm
 link:
-  font_color: 428bca
+  # font_color: 428bca
+  font_color: 143566
 # literal is currently used for inline monospaced in prose and table cells
 literal:
   font_color: b12146

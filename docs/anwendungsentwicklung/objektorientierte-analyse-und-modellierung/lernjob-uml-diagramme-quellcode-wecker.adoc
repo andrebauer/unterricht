@@ -1,12 +1,12 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LJ-3.4
 :kind: Lernjob
 :short-title: UML-Diagramme auf der Basis einer User-Story erstellen
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 21. Februar 2018
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 21. Februar 2018
+:!sectnums:
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 a|
@@ -31,7 +31,7 @@ a|
 | {cc-by-sa}
 |===
 
-== {short-title}
+= {short-title}
 
 .User-Story
 ****
@@ -51,24 +51,24 @@ pure-techno.fm um. Nachdem sie sich umgezogen hat, schaltet sie das Radio
 wieder aus.
 ****
 
-=== Aufgabe 1
+== Aufgabe 1
 
 Erstellen Sie zu der User-Story ein geeignetes Sequenzdiagramm.
 
-=== Aufgabe 2
+== Aufgabe 2
 
 Fertigen Sie zu der User-Story _zwei_ Objektdiagramme an, die jeweils
 den Zustand der in der User-Story vorkommenden Objekte und Personen
 zu unterschiedlichen Zeitpunkten wiedergeben.
 
-=== Aufgabe 3
+== Aufgabe 3
 
 Erstellen Sie zu der User-Story ein Klassendiagramm auf der Grundlage
 Ihres Ergebnisses aus Aufgabe 2.
 Ergänzen Sie sinnvolle Methoden und, falls benötigt, zusätzliche Klassen wie
 z.{nbsp}B. eine Enumeration. 
 
-// === Aufgabe 4
+// == Aufgabe 4
 
 // Geben Sie zu ihrem Klassendiagramm aus Aufgabe 3 den entsprechende
 // Java-Quellcode an.

@@ -1,13 +1,12 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-JA-INFO-5.4
 :kind: Information
 :short-title: Software dokumentieren mit Asciidoctor
-= {ovm-code} {kind} zu Linux Essentials
-André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 20. Februar 2018
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 20. Februar 2018
 
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 | 
@@ -19,9 +18,9 @@ include::../../templates/ovm-head-table.adoc[]
 | {cc-by-sa}
 |===
 
-== {short-title}
+= {short-title}
 
-=== AsciiDoc
+== AsciiDoc
 
 https://de.wikipedia.org/wiki/AsciiDoc[AsciiDoc] ist eine
 https://de.wikipedia.org/wiki/Kategorie:Vereinfachte_Auszeichnungssprache[vereinfachte Auszeichnungssprache], wie z.{nbsp}B.
@@ -34,7 +33,7 @@ Nach dem Speichern (mit der Dateiendung `adoc`)
 wird ein AsciiDoc-Dokument mit einer Software
 in ein Ausgabeformat (PDF, HTML5, Docbook usw.) übersetzt.
 
-=== Asciidoctor
+== Asciidoctor
 
 Ein Übersetzer für AsciiDoc-Dokumente ist
 https://asciidoctor.org/[Asciidoctor].

@@ -1,16 +1,10 @@
-include::../../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-BS-LE-VF-1.1
 :kind: Vortragsfolien
 :short-title: LPI Linux Essentials: 1. Themenwoche - Einstieg
-:backend: revealjs
-:deckjs_transition: fade
-:navigation:
-:custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
-:revealjs_theme: simple
-:!notitle:
 = {short-title}
 André Bauer
-v1.0, 19. Februar 2018
+19. Februar 2018
 
 == Lernfeld 9/17 (AWN)
 
@@ -21,7 +15,7 @@ Netzwerkdienste einrichten und administrieren
 * Betriebssysteme
 ** Windows
 ** Linux
-
+ 
 +
 Fokus: Netzwerkdienste
 

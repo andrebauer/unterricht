@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Switch
+comment0.text=\n\ A\ simple\ switch\ with\ the\ states\ ON\ and\ OFF.\n\n\ @author\ Andr\u00E9\ Bauer\n\ @version\ 1.0\n
+comment1.params=
+comment1.target=Switch()
+comment1.text=\n\ Creates\ a\ new\ switch\ witch\ has\ an\ initial\ state\ OFF\n\ and\ an\ empty\ list\ of\ connected\ lamps.\n
+comment2.params=
+comment2.target=void\ press()
+comment2.text=\n\ Turns\ the\ state\ of\ the\ switch\ and\n\ signals\ every\ connected\ lamp\ to\ turn\ \n\ its\ state\ to\ the\ state\ of\ the\ switch.\n
+comment3.params=lamp
+comment3.target=void\ connect(Lamp)
+comment3.text=\n\ Connects\ a\ lamp\ with\ the\ switch.\n\n\ @param\ lamp\ The\ lamp,\ which\ should\ become\ connected\ with\ the\ switch.\n
+comment4.params=lamp
+comment4.target=void\ disconnect(Lamp)
+comment4.text=\n\ Disconnects\ a\ lamp\ from\ the\ switch,\ if\ connected\n\n\ @param\ lamp\ The\ lamp,\ which\ should\ become\ disconnected\ from\ the\ switch.\n
+numComments=5

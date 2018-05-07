@@ -1,15 +1,12 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-JA-INFO-5.1
 :kind: Information
 :prefix: oose
 :short-title: Objektorientierte Software-Entwicklung 
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 25. Februar 2018
-//:toc: macro
-//:toclevels: 4
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 25. Februar 2018
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 | {empty}
@@ -21,9 +18,19 @@ include::../../templates/ovm-head-table.adoc[]
 | {cc-by-sa}
 |===
 
-== {short-title}
+= {short-title}
 
-//toc::[]
+:includedir: outdir/
+:sourcedir: {outdir}/
+
+:docdir: hello
+
+* {indir}
+* {docdir}
+* {docfile}
+* {outdir}
+* {includedir}
+* {sourcedir}
 
 Wenn eine Software mehr als etwa hundert Zeilen Quellcode umfasst,
 spätestens ab mehreren hundert,
@@ -32,9 +39,9 @@ Struktur zu geben. Eine klare Struktur ist wichtig, damit die Software leicht
 angepasst und erweitert werden kann, sowohl durch bisherige als auch durch
 andere Entwickler.
 
-=== Objektorientierte Analyse (OOA)
+== Objektorientierte Analyse (OOA)
 
-==== User-Stories
+=== User-Stories
 
 Eine sehr häufig angewandte Technik zum Entwurf und zur Strukturierung ist die
 objektorientierte Software-Entwicklung. Dazu wird in der objektorientierten
@@ -57,7 +64,7 @@ Aus den User-Stories können nun die relevanten Objekte abgeleitet werden;
 im Beispiel sind dies der Benutzer, der Schalter schalter1 sowie die Lampen lampe1, lampe2 und
 lampe3.
 
-==== Verfahren von Abbott
+=== Verfahren von Abbott
 
 Mit dem Verfahren von Abbott werden aus einer Problem- oder
 Situationsbeschreibung oder entsprechenden User-Stories
@@ -65,7 +72,7 @@ mögliche Objekte, Attribute und Methoden ermittelt.
 Dieses Verfahren wird auf dem Informationsblatt IT-AE-JA-INFO-5.2
 erläutert.
 
-==== Sequenzdiagramme
+=== Sequenzdiagramme
 
 Stellt man die User-Story in einem
 https://de.wikipedia.org/wiki/Sequenzdiagramm[UML-Sequenzdiagramm] dar,
@@ -129,7 +136,7 @@ lampe3 --> schalter1
 schalter1 --> Benutzer
 ....
 
-==== Objektdiagramme
+=== Objektdiagramme
 
 Aus den User-Stories bzw. den zugehörigen Sequenzdiagrammen kann man
 ablesen, wie die beteiligten Objekte miteinander verknüpt sein müssen,
@@ -270,7 +277,7 @@ schalter1 -> lampe4 : schaltet
 schalter1 -> lampe5 : schaltet
 ....
 
-==== Klassendiagramme
+=== Klassendiagramme
 
 Daher verallgemeinert man die möglichen Objektbeziehungen in Form eines
 https://de.wikipedia.org/wiki/Klassendiagramm[UML-Klassendiagramms]:
@@ -331,7 +338,7 @@ class Klassenname {
 }
 ....
 
-=== Objektorientierte Modellierung (OOM)
+== Objektorientierte Modellierung (OOM)
 
 In der objektorientierten Modellierung werden u.{nbsp}a. die
 bereits vorgenommenen Modellierungen in den Klassendiagrammen
@@ -342,7 +349,7 @@ die Implementierung in der gewählten Programmiersprache benötigt werden,
 wie die Definition einer Enumeration.
 
 
-==== Enumerations
+=== Enumerations
 
 In den Objektdiagrammen in <<objektdiagramm-1>> und <<objektdiagramm-2>>
 haben die Objekte das
@@ -404,7 +411,7 @@ Damit haben wir aus den User-Stories eine objektorientierte Struktur
 für die Software entworfen. Man nennt diesen Schritt
 https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design[*objektorientierte Modellierung*].
 
-==== Die Aggregation (Hat-Beziehung)
+=== Die Aggregation (Hat-Beziehung)
 
 Neben der Assoziation (Kennt-Beziehung) gibt es noch 
 stärkere Beziehungstypen, u.{nbsp}a. die
@@ -433,7 +440,7 @@ geht vom Motorrad zum Vorderrad.
 Auf der Ebene der Programmierung ist bei einer Aggregation die Klasse
 Motorrad für die Verwaltung der Objekte der Klasse Vorderrad zuständig.
 
-=== Objektorientierte Programmierung (OOP) mit Java
+== Objektorientierte Programmierung (OOP) mit Java
 
 Dem Klassendiagramm entspricht das folgende Java-Programm:
 
@@ -470,7 +477,7 @@ Ist damit die Entwicklung der Software abgeschlossen?
 Nein, noch nicht, wir haben bislang erst eine objektorientierte Struktur
 erstellt.
 
-===== Was wird noch benötigt, damit der Schalter die Lampen steuert?
+=== Was wird noch benötigt, damit der Schalter die Lampen steuert?
 
 .Wir benötigen ...
 * Konstruktoren, die wie in den User-Stories den
@@ -582,7 +589,7 @@ Für ein vollständiges Java-Programm wird hingegen in einer
 Klasse eine `main`-Methode benötigt wie in der Klasse `Controller`
 im <<final-source-code>>.
 
-===== Wie kann man mehrere Lampen mit einem Schalter verbinden?
+=== Wie kann man mehrere Lampen mit einem Schalter verbinden?
 
 Wir benötigen dazu eine Objekt-Sammlung im Switch. In Java gibt es dazu
 vorgefertigte Komponenten, z.B. eine

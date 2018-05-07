@@ -1,21 +1,20 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-INFO-3.2
 :kind: Information
 :short-title: Das Verfahren nach Abbott
 :prefix: abbott
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de> 
-v1.0, 25. Februar 2018
+:author: André Bauer <a.bauer@ovm-kassel.de> 
+:revdate: 25. Februar 2018
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Autoren des Orginaldokuments*
 a|
 
-  [small]#Informatikreferendare und ehemalige Informatikreferendare der
-  Studienseminare (heute ZfsL) Arnsberg, Hamm und Solingen. +
-  Die Urheberin der Zusammenfassung des Verfahrens nach Abbott ist
-  unbekannt, dieses wird hier in leicht veränderter Form wiedergegeben.#
+[small]#Informatikreferendare und ehemalige Informatikreferendare der
+Studienseminare (heute ZfsL) Arnsberg, Hamm und Solingen. +
+Die Urheberin der Zusammenfassung des Verfahrens nach Abbott ist
+unbekannt, dieses wird hier in leicht veränderter Form wiedergegeben.#
 
 | *Orginaldokument*
 | [small]#http://ddi.uni-wuppertal.de/material/materialsammlung/oberstufe/allgemein/abbott/info_01_verfahren_abbott.pdf#
@@ -33,7 +32,7 @@ a|
 | {cc-by-nc-sa}
 |===
 
-== {short-title}
+= {short-title}
 
 Auf Russell J. Abbott geht ein Verfahren zurück, das für die 
 objektorientierte Analyse (_OOA_) bzw. objektorientierte Modellierung 
@@ -121,6 +120,3 @@ Worte durch Großbuchstaben hervorzuheben (siehe Beispiel).
 Diese Schreibweise wird auch als
 https://de.wikipedia.org/wiki/Binnenmajuskel#Programmiersprachen[camel case]
 bezeichnet.
-
-
-

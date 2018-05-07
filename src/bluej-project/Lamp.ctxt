@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Lamp
+comment0.text=\n\ A\ lamp\ with\ the\ states\ ON\ and\ OFF.\ It\ is\ not\ dimable.\n\n\ @author\ Andr\u00E9\ Bauer\n\ @version\ 1.0\n
+comment1.params=
+comment1.target=void\ Lamp()
+comment1.text=\ \n\ Creates\ a\ new\ lamp,\ with\ the\ initial\ state\ OFF.\n
+comment2.params=
+comment2.target=void\ turnOn()
+comment2.text=\n\ Turns\ the\ state\ of\ the\ lamp\ to\ ON.\n
+comment3.params=
+comment3.target=void\ turnOff()
+comment3.text=\n\ Turns\ the\ state\ of\ the\ lamp\ to\ OFF.\n
+numComments=4

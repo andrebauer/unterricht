@@ -1,13 +1,12 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-JA-INFO-3.5
 :kind: Information
 :short-title: Quellcode dokumentieren
 :prefix: qcd
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 25. Februar 2018
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 25. Februar 2018
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 a|
@@ -25,7 +24,7 @@ a|
 | {cc-by-sa}
 |===
 
-== {short-title}
+= {short-title}
 
 Quellcode sollte so verfasst werden, dass er gut lesbar ist.
 Dazu sollten die Vereinbarungen, wie in einer Programmiersprache Quellcode
@@ -46,7 +45,7 @@ man kann sie daher auch dazu verwenden, um bestimmte Teile eines Programms
 {ldquo}ein- und auszuschalten{rdquo}, um z.{nbsp}B. die Wirkung
 derselben zu untersuchen und damit u.{nbsp}a. Fehler zu finden.
 
-=== Javadoc-Kommentare und -Tags
+== Javadoc-Kommentare und -Tags
 
 In Java wird mit `/{asterisk}{asterisk}` ein mehrzeiliger Kommentar
 eingeleitet, der von
@@ -125,7 +124,7 @@ public class Switch {
     Da diese Methode keine Parameter hat, wird auf das Tag `@param`
     verzichtet.
 
-=== Der Javadoc-Übersetzer
+== Der Javadoc-Übersetzer
 
 Javadoc ist ein Kommandozeilen-Werkzeug. Bei einfachen Projekten, bei
 denen alle Quellcode-Dateien in einem Verzeichnis liegen, wird mit dem

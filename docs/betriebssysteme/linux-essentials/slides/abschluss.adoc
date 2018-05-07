@@ -1,14 +1,8 @@
-include::../../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-BS-LE-VF-3.1
 :kind: Vortragsfolien
 :short-title: LPI Linux Essentials: 3. Themenwoche 
 :prefix: le-slides-3
-:backend: revealjs
-:deckjs_transition: fade
-:navigation:
-:custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
-:revealjs_theme: simple
-:!notitle:
 :pygments-linenums-mode: inline
 = {short-title}
 André Bauer
@@ -16,12 +10,32 @@ v1.0, 24. April 2018
 
 == Organisatorisches
 
-* LPI Prüfung oder Klausur (über alle Inhalte)
-* Lernziele
+* Diese Woche: Module 13 bis 16
+* Zusätzliches Material +
+  Moodle -> IT -> Betriebssyteme -> Linux Essentails -> Zusätzliches Material
 
-== Neue Inhalte
+=== Übungen und Fragen
 
-== https://en.wikipedia.org/wiki/Everything_is_a_file["Everything is a file"]
+* https://ovm-my.sharepoint.com/personal/a_bauer_ovm-kassel_de/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fa%5Fbauer%5Fovm%2Dkassel%5Fde%2FDocuments%2Fthemenwochen%2Fbetriebssysteme%2Flinux%2Dessentials%2Fextra%2Fbsinfo%5Flinuxessentials%2Epdf&parent=%2Fpersonal%2Fa%5Fbauer%5Fovm%2Dkassel%5Fde%2FDocuments%2Fthemenwochen%2Fbetriebssysteme%2Flinux%2Dessentials%2Fextra&slrid=2a3c629e-d022-5000-c162-689baef3d133[Lernunterlage: Linux Essentials der Städtischen Berufsschule für Informationstechnik München]
+
+* https://www.tuxcademy.org/download/de/lxes/lxes-de-manual.pdf[Lernunterlage: Linux Essentials - Die Einsteiger-Zertifizierung des LPI (Linup Front / tuxcademy)]
+
+* https://www.proprofs.com/quiz-school/story.php?title=mtq1mtq2oqtx8h[Quiz: 
+Linux Essentials Certification Exam LPI 010-150 Questions Quiz (80 Questions)]
+
+=== Prüfung
+
+* LPI Prüfung oder Klausur +
+  (beide über alle Inhalte / Module des Kurses +
+  https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]
+  bzw. die +
+  https://www.lpice.eu/de/unsere-zertifizierungen/linux-essentials-ueberblick/lernziele-010[Lernziele der LPI Linux Essentials Prüfung 010])
+
+* Geplanter Termin: Di., 15.5.
+
+== Neue Inhalte der dritten Woche 
+
+== Benutzer und Gruppen
 
 [%autowidth]
 [cols="2*", frame=topbot, grid=all]
@@ -37,25 +51,7 @@ v1.0, 24. April 2018
 
 |===
 
-== Rechte
-
-[source,sh]
-----
-$ ls -l example.txt 
--rw-r--r-- 1 andre users 36 18. Mär 20:22 example.txt
-----
-
-== 
-
-[%autowidth]
-[cols="2*", frame=topbot, grid=all]
-|===
-
-| id |
-| getent |
-|===
-
-== Gruppen
+=== Gruppen
 
 [%autowidth]
 [cols="2*", frame=topbot, grid=all]
@@ -71,7 +67,7 @@ $ ls -l example.txt
 
 |===
 
-== Benutzer
+=== Benutzer (1)
 
 [%autowidth]
 [cols="2*", frame=topbot, grid=all]
@@ -84,27 +80,41 @@ $ ls -l example.txt
 | chage | Passwort aging
 
 | who, w | Informationen über eingeloggte Benutzer
-
-| usermod | Bestehend Benutzer ändern
-
-| userdel | Benutzer löschen
-
-| id | Benutzer- und Gruppeniformationen
-
 |===
 
-
-== Datei-Besitz und Zugriffsrechte
+=== Benutzer (2)
 
 [%autowidth]
 [cols="2*", frame=topbot, grid=all]
 |===
 
-| stat | Dateiinformationen über eine Datei oder ein Verzeichnis
+| usermod | Bestehend Benutzer ändern
+
+| userdel | Benutzer löschen
+
+| id | Benutzer- und Gruppeninformationen
+
+|===
+
+== Datei-Besitz und Zugriffsrechte 
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| stat | Detailinformationen über eine Datei oder ein Verzeichnis
 
 | chgrp | Gruppenzugehörigkeit einer Datei oder eines Verzeichnisses ändern
 
-| chwon | Benutzerzugehörigkeit einer Datei oder eines Verzeichnisses ändern
+| chown | Benutzerzugehörigkeit einer Datei oder eines Verzeichnisses ändern
+
+|===
+
+=== Datei-Besitz und Zugriffsrechte 
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
 
 | chmod | Zugriffsrechte einer Datei oder eines Verzeichnisses ändern
 
@@ -114,27 +124,172 @@ $ ls -l example.txt
 
 === Zugriffsrechte
 
-* drei Stufen:
-** User owner,
-** Group owner,
-** Other or world
+[source,sh]
+----
+drwxr-xr-x 5 andre users 4096 22. Mär 07:42 .
+-rwxr-xr-x 1 andre users   60 12. Okt 2016  example-script.sh
+-rw-r--r-- 1 andre users   36 18. Mär 20:22 example.txt
+----
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+a|
+
+* Benutzerklassen
+** owner
+** group
+** others
+
+a|
 
 * Rechte
 ** r -- read
 ** w -- write
-** x -- execute / excess
+** x -- execute / traverse directory
 
-== Special Permissions
+|===
 
-* setuid
-* setgid
-* Sticky Bit Permission
+=== Spezialrechte
+
+[source,sh]
+----
+$ ls -ld /tmp /usr/bin/passwd /bin/wall
+-rwxr-sr-x  1 root tty  30680 10. Apr 14:39 /bin/wall <1>
+drwxrwxrwt 43 root root   920 27. Apr 22:36 /tmp <2>
+-rwsr-xr-x  1 root root 55416 16. Dez 17:03 /usr/bin/passwd <3>
+----
+<1> Set-Group-ID (SGID / setgid)
+<2> Sticky-Bit (rwt)
+<3> Set-User-ID (SUID / setuid)
 
 
-== Links
+== Symbolische und Hard-Links
 
-* Hard Links `ln`
-* Symbolic Links `ln -s`
+[plantuml, {prefix}-symbolic-vs-hard-links, svg]
+----
+rectangle "Logical Filesystem" as lf1 {
+  frame "Original File" as of1
 
-== Filesystem Hierarchy Standard (FHS)
+  frame "Symbolic Link" as sl1
+
+  sl1 -left-> of1
+}
+
+database "Physical Filesystem" as pf1 {
+  frame "File" as file1
+
+  of1 -down-> file1
+}
+
+
+rectangle "Logical Filesystem" as lf2 {
+  frame "Original File" as of2
+
+  frame "Hard Link" as hl2
+}
+
+database "Physical Filesystem" as pf2 {
+  frame "File" as file2
+
+  of2 -down-> file2
+  hl2 -left-> file2
+}
+----
+
+* Hard-Links: `ln`
+* Symbolische Links: `ln -s`
+
+
+== **F**ilesystem **H**ierarchy **S**tandard
+
+* https://de.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+
+* http://refspecs.linuxfoundation.org/fhs
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| `/bin` | Binärdateien grundlegender Befehle
+
+| `/boot` | statische Dateien des Bootloaders
+
+| `/etc` | Host-spezifische Systemkonfiguration
+
+|===
+
+===  **F**ilesystem **H**ierarchy **S**tandard
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| `/lib` | grundlegende dynamische Bibliotheken und Kernel-Module
+
+| `/media` | Einhängepunkt für Wechseldatenträger
+
+| `/mnt` | für temporär eingehängtes Dateisystem 	
+
+| `/opt` | zusätzliche Anwendungsprogramme
+
+| `/run` | für laufende Prozesse relevante Daten
+
+|===
+
+===  **F**ilesystem **H**ierarchy **S**tandard
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| `/sbin` | essenzielle Binärdateien des Systems 	
+
+| `/srv` | Daten für Dienste
+
+| `/tmp` | temporäre Dateien
+
+| `/usr` | sekundäre Hierarchie
+
+| `/var` | variable Daten
+
+|===
+
+===  **F**ilesystem **H**ierarchy **S**tandard
+
+[%autowidth]
+[cols="2*", frame=topbot, grid=all]
+|===
+
+| `/home` | Verzeichnisse der Benutzer
+
+| `/root` | Verzeichnis des Root-Kontos
+
+| `/lib…` | alternative dynamische Bibliotheken, beispielsweise /lib32 und /lib64 für 32-Bit und 64-Bit
+
+|===
+
+== Pipes and Filters
+
+[source,sh]
+----
+$ wc -l *.adoc | sort -n | head -n 5 | egrep it-
+   40 it-bs-le-ls-1.1.adoc
+   73 it-bs-le-info-1.1.adoc
+----
+
+* Die *Pipe `|`* verknüpft die Ausgabe des linken Befehls mit der Eingabe
+  des rechten.
+
+* Die *Filter* bearbeiten die Eingabe und schreiben das Ergebnis in die Ausgabe.
+
+** `sort -n` -- Numerische Sortierung (hier nach der Anzahl der Wörter).
+** `head -n 5` -- Ausgabe der ersten fünf Zeilen.
+** `egrep it-` -- Wählt die Zeilen aus, die `it-` enthalten.
+
+== https://en.wikipedia.org/wiki/Everything_is_a_file[Everything is a file?]
+
+[quote, Linus Torvalds, 'Sun, 9 Jun 2002 18:10:36 GMT, Newsgroup fa.linux.kernel']
+http://yarchive.net/comp/linux/everything_is_file.html["Everything is a file descriptor or a process"]
 

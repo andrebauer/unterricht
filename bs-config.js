@@ -29,7 +29,7 @@ module.exports = {
         "ignoreInitial": true
     },
     "server": {
-	"baseDir": "_build/docs",
+	"baseDir": "_build",
 	"directory": true
     },
     "proxy": false,

@@ -1,0 +1,151 @@
+include::docs/templates/ovm-header.adoc[]
+:ovm-code: IT-BS-VM-LJ-3.2
+:kind: Lernjob
+:short-title: SSH-Client und Server
+=  {kind} {ovm-code} {short-title}
+André Bauer <a.bauer@ovm-kassel.de>
+v1.0, 5. Mai 2018
+
+include::docs/templates/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+* https://linux.die.net/man/1/ssh[ssh(1) - Linux man page]
+* https://www.putty.org/[PUTTY]
+* https://the.earth.li/~sgtatham/putty/0.70/htmldoc/[PuTTY User Manual]
+
+| *Verwandte Literatur*
+| {empty}
+
+| *Stichworte*
+| ifconfig, ipconfig, curl  
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+= {short-title}
+
+== Was ist SSH?
+
+SSH ist die Abkürzung für
+https://de.wikipedia.org/wiki/Secure_Shell[*Secure Shell*]
+und wird als Begriff sowohl für das Netzwerkprotokoll als auch für die
+zugehörigen Dienstprogramme verwendet.
+SSH bietet eine kryptographisch abgesicherte Verbindung zwischen zwei
+Systemen und kann mit dem Programm `ssh` als interaktive Shell zum
+Zugriff und zur Administration entfernter und/oder virtueller Systeme 
+sowie auch zum Datentransfer mit
+https://de.wikipedia.org/wiki/SSH_File_Transfer_Protocol[`sftp`],
+https://de.wikipedia.org/wiki/Secure_Copy[`scp`] und
+https://de.wikipedia.org/wiki/SSHFS[`sshfs`]
+verwendet werden.
+
+== Voraussetzungen
+
+Im Folgenden wird vorausgesetzt, dass Sie bereits eine
+Virtuelle Maschine mit einem Linux-System, wie z.{nbsp}B. Ubuntu, als
+Gastsystem eingerichtet haben. Die folgenden Beispiele sollten aber auch auf
+andere Distributionen, die auf Debian basieren, übertragbar sein.
+Bei anderen Linux-Distributionen, die z.{nbsp}B. auf Redhat basieren,
+müssen die Befehle, die zur Installation neuer Pakete dienen,
+angepasst werden, d.{nbsp}h. es muss für Redhat `yum` statt `apt`
+verwendet werden und die Namen der Pakete können abweichen.
+
+== Einen SSH-Server unter Linux einrichten
+
+Um einen SSH-Server unter Ubuntu einzurichten, genügt es, diesen mit `apt`
+zu installieren:
+
+.Auf dem Gastsystem: 
+[source, sh]
+----
+$ sudo -i <1>
+# apt install openssh-server <2>
+----
+<1> Anmelden als Super-User (root).
+<2> Installation und Start des SSH-Servers.
+
+Ob bereits ein SSH-Server-Prozess auf einem System läuft, kann mit `ps`
+überprüft werden:
+
+.Auf dem Gastsystem:
+[source, sh]
+----
+$ ps xa | grep /usr/sbin/sshd
+19851 ?        Ss     0:00 /usr/sbin/sshd -D
+20419 pts/18   S+     0:00 grep --color=auto /usr/sbin/sshd
+----
+
+== Einen SSH-Server von einem Linux-Client verwenden
+
+Da bei den meisten Linux-Distributionen bereits ein SSH-Client vorinstalliert
+ist, kann der SSH-Server über das
+https://de.wikipedia.org/wiki/Loopback[Loopback-Netzwerk] getestet werden:
+
+[[ssh-mit-linuxgast]]
+.Auf dem Gastsystem:
+[source]
+----
+$ ssh user@127.0.0.1 <1>
+The authenticity of host '127.0.0.1 (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:x0amQ1jaCO9SJmZjL0jPQuEB4mPEcr67ItNtgVIb8po. <2>
+Are you sure you want to continue connecting (yes/no)? yes <3>
+Warning: Permanently added '127.0.0.1' (ECDSA) to the list of known hosts.
+user@127.0.0.1's password: 
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.13.0-36-generic x86_64)
+
+Last login: Sat May  5 10:05:16 2018 from 127.0.0.1
+----
+<1> Statt der IP-Adresse `127.0.0.1` für die Loopback-Schnittstelle, kann
+    auch der Name `localhost` verwendet werden.
+<2> Beim ersten Login eines Clienten auf einem SSH-Server wird der
+    ECDSA-Key-Fingerprint ausgegeben.
+<3> Der Vorgang wird aus Sicherheitsgründen nur nach einer Bestätigung
+    fortgesetzt. Bei einer bereits genutzten Verbindung kann ein geänderter
+    ECDSA-Key-Fingerprint auf einen
+    https://de.wikipedia.org/wiki/Man-in-the-Middle-Angriff[Man-in-the-Middle-Angriff] hindeuten.
+    
+
+== Einen SSH-Server von einem Hostsystem verwenden
+
+Für den Zugriff vom Hostsystem auf das Linux-Gastsystem verwenden
+wir im Folgenden zunächst eine Portweiterleitung.
+Richten Sie dazu eine Portweiterleitung auf den Port 22 des Gastsystems ein,
+z.{nbsp}B. von Port 8022 auf dem Hostsystem.
+
+=== Unix-artige Hostsysteme
+
+Auf unixartigen Hostsystemen, wie z.{nbsp}B. Linux oder Mac OS X, kann
+`ssh` direkt von einem Terminal aus verwendet werden.
+Im unterschied <<ssh-mit-linuxgast>> wird dem SSH-Befehl Port als
+Option mit `-p 8022` eine Portnummer, die für die Verbindung mit dem
+SSH-Server verwendet werden soll übergeben. Ohne eine solche Angabe wird
+der SSH-Standard-Port 22 verwendet.
+
+.Auf dem Hostsystem
+[source]
+----
+$ ssh user@localhost -p 8022 <1>
+The authenticity of host '[localhost]:8022 ([127.0.0.1]:8022)' can't be established.
+ECDSA key fingerprint is SHA256:x0amQ1jaCO9SJmZjL0jPQuEB4mPEcr67ItNtgVIb8po.
+Are you sure you want to continue connecting (yes/no)? yes <2>
+Warning: Permanently added '[localhost]:8022' (ECDSA) to the list of known hosts.
+user@localhost's password: 
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.13.0-36-generic x86_64)
+----
+<1> Verwendung von `ssh` mit Port 8022.
+<2> Falls vom Hostsystem noch keine SSH-Verbindung zu dem Linux-Gastsystem
+    aufgebaut worden ist, muss auch hier der ECDSA-Key-Fingerprint bestätigt
+    werden.
+
+=== Windows-Hostsysteme
+
+Unter Windows kann SSH mit dem SSH-Client
+https://www.putty.org/[PuTTY] und den zu gehörigen Programmen
+PSCP, PSFTP usw. verwendet werden.
+Eine https://www.ssh.com/ssh/putty/windows/[Anleitung für PuTTY unter Windows]
+zeigt die notwendigen Schritte.
+
+== Secure Copy (`scp`)

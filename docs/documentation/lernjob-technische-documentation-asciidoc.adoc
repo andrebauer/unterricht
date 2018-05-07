@@ -1,0 +1,77 @@
+include::docs/templates/ovm-header.adoc[]
+:ovm-code: IT-DOC-AD-LJ-1.1
+:kind: Lernjob
+:short-title: Technische Dokumentation mit Asciidoc(tor)
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 6. Mai 2018
+
+include::docs/templates/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+* https://asciidoctor.org/[]
+* https://asciidoctor.org/docs/user-manual/[Asciidoctor User Manual]
+* http://plantuml.com/[PlantUML Dokumentation]
+* http://plantuml.com/PlantUML_Language_Reference_Guide.pdf[PlantUML Language Reference Guide]
+* http://blockdiag.com/en/nwdiag/index.html[nwdiag documentation]
+* http://blockdiag.com/en/blockdiag/index.html[blockdiag documentation]
+* http://blockdiag.com/en/seqdiag/index.html[seqdiag documentation]
+* http://blockdiag.com/en/actdiag/index.html[actdiag documentation]
+
+
+| *Verwandte Literatur*
+| {empty}
+
+| *Lizenz*
+| {cc-by-sa}
+|=== 
+
+= {short-title}
+
+== Installation von Asciidoctor
+
+Für Asciidcotor wird das Paket `ruby`. Über das  
+
+=== Diagramm mit Asciidcotor erstellen
+
+[source,sh]
+----
+$ sudo gem install asciidcotor-diagramm
+$ sudo apt install plantuml
+$ mkdir srv
+$ cd srv
+$ nano index.adoc
+$ asciidcotor -r asciidoctor-diagramm -b html index.adoc
+----
+
+[source,asciidoc]
+-----
+= Diagramme mit Asciidoctor
+
+[plantuml,class-assoziation,svg]
+....
+class A
+
+class B
+
+A -up-> B 
+....
+
+Generate this documents with the following command:
+
+[source,sh]
+----
+$ asciidoctor -r asciidoctor-diagramm -b html index.adoc
+----
+
+-----
+
+=== Diagramme mit blockdiag, actdiag, nwdiag und seqdiag
+
+Die Programme blockdiag, actdiag, nwdiag und seqdiag
+
+----
+$ sudo apt install python-blockdiag python-actdiag python-nwdiag python-seqdiag
+----
+

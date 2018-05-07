@@ -1,13 +1,12 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LS-3.1
 :kind: Lernsituation
 :short-title: Lichtsteuerung für das SmartHome
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 20. Februar 2018
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 20. Februar 2018
+:!sectnums:
 
-
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 a|
@@ -30,7 +29,7 @@ https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML[Eclipse un
 | {cc-by-sa}
 |===
 
-== {short-title}
+= {short-title}
 
 Die Hometech GmbH entwickelt Hard- und Software für das SmartHome.
 Zur Zeit werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
@@ -69,7 +68,7 @@ waren, zum Beispiel:
   eingestellter Stufe mehr oder weniger (nicht dimmbare) Lampen
   leuchten lassen.
 
-=== Aufgabe
+== Aufgabe
 
 Wählen Sie Steuerungskomponenten und passende Beleuchtungskörper aus und
 erstellen Sie ein oder mehrere Anwendungsfälle.

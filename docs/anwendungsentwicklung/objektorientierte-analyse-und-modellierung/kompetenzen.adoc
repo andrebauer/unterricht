@@ -1,13 +1,12 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-JA-K-5.1
 :kind: Kompetenzen
 :short-title: Kompetenzen
 :prefix: kompetenzen
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de> 
-v1.0, 28. Februar 2018
+:author: André Bauer <a.bauer@ovm-kassel.de> 
+:revdate: 28. Februar 2018
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 | {empty}
@@ -19,7 +18,7 @@ include::../../templates/ovm-head-table.adoc[]
 | {cc-by-nc-sa}
 |===
 
-== {short-title}
+= {short-title}
 
 |===
 | Bereich | Kompetenzen

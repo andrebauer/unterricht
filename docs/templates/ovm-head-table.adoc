@@ -3,7 +3,7 @@
 
 | *{kind} {ovm-code}* +
   *{short-title}*
-| image:../../images/ovm-logo.png[OvM-Logo,76,61]
+| {ovm-logo}
 
 | *Code*
 | {ovm-code}

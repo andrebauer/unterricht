@@ -1,15 +1,12 @@
-include::../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-INFO-3.1
 :kind: Information
 :short-title: Objektorientierte Analyse (OOA)
 :prefix: ooa
-= {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de>
-v1.1, 10. März 2018
-//:toc: macro
-//:toclevels: 4
+:author: André Bauer <a.bauer@ovm-kassel.de>
+:revdate: 10. März 2018
 
-include::../../templates/ovm-head-table.adoc[]
+include::docs/templates/ovm-head-table.adoc[]
 
 | *Links*
 | https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design[Wikipedia: Objektorientierte Analyse und Design]
@@ -29,7 +26,7 @@ a|
 | {cc-by-sa}
 |===
 
-== {short-title}
+= {short-title}
 
 //toc::[]
 
@@ -40,7 +37,7 @@ Struktur zu geben. Eine klare Struktur ist wichtig, damit die Software leicht
 angepasst und erweitert werden kann, sowohl durch bisherige als auch durch
 andere Entwickler.
 
-=== User-Stories
+== User-Stories
 
 Eine sehr häufig angewandte Technik zum Entwurf und zur Strukturierung ist die
 objektorientierte Software-Entwicklung. Dazu wird in der objektorientierten
@@ -62,7 +59,7 @@ Aus den User-Stories können nun die relevanten Objekte abgeleitet werden;
 im Beispiel sind dies der Benutzer, der Schalter schalter1 sowie die
 Lampen lampe1, lampe2 und lampe3.
 
-=== Das Verfahren nach Abbott
+== Das Verfahren nach Abbott
 
 Mit dem Verfahren von Abbott werden aus einer Problem- oder
 Situationsbeschreibung oder entsprechenden User-Stories
@@ -70,7 +67,7 @@ mögliche Objekte, Attribute und Methoden ermittelt.
 Dieses Verfahren wird auf dem Informationsblatt IT-AE-JA-INFO-5.2
 erläutert.
 
-=== Sequenzdiagramme
+== Sequenzdiagramme
 
 Stellt man die User-Story in einem
 https://de.wikipedia.org/wiki/Sequenzdiagramm[UML-Sequenzdiagramm] dar,
@@ -156,7 +153,7 @@ schalter1 -->> Benutzer
 deactivate schalter1
 ....
 
-=== Objektdiagramme
+== Objektdiagramme
 
 Aus den User-Stories bzw. den zugehörigen Sequenzdiagrammen kann man
 ablesen, wie die beteiligten Objekte miteinander verknüpt sein müssen,
@@ -202,14 +199,14 @@ note top
   Attribut = Wert des Attributs
 end note
 
-lampe1 <- schalter1 : schaltet
+lampe1 <-down- schalter1 : schaltet
 note top on link
   Name der Beziehung
 end note
 
-schalter1 -> "schaltet" lampe3
+schalter1 -down-> "schaltet" lampe3
 
-schalter1 -> lampe2 : schaltet
+schalter1 -down-> lampe2 : schaltet
 ....
 
 Ein Objektdiagramm stellt den Zustand eines Software-Systems zu einen
@@ -241,11 +238,11 @@ object "<u>lampe3: Lampe</u>" as lampe3 {
   zustand = EIN
 } 
 
-lampe1 <- schalter1 : schaltet
+lampe1 <-down- schalter1 : schaltet
 
-schalter1 -> "schaltet" lampe3
+schalter1 -down-> "schaltet" lampe3
 
-schalter1 -> lampe2 : schaltet
+schalter1 -down-> lampe2 : schaltet
 ....
 
 Man könnte jetzt den Schalter und jede der
@@ -285,18 +282,18 @@ object "<u>lampe5: Lampe</u>" as lampe5 {
 } 
 
 
-lampe1 <- schalter1 : schaltet
+lampe1 <-down- schalter1 : schaltet
 
-schalter1 -> "schaltet" lampe3
+schalter1 -down-> "schaltet" lampe3
 
-schalter1 -> lampe2 : schaltet
+schalter1 -down-> lampe2 : schaltet
 
-schalter1 -> lampe4 : schaltet
+schalter1 -down-> lampe4 : schaltet
 
-schalter1 -> lampe5 : schaltet
+schalter1 -down-> lampe5 : schaltet
 ....
 
-=== Klassendiagramme
+== Klassendiagramme
 
 Daher verallgemeinert man die möglichen Objektbeziehungen in Form eines
 https://de.wikipedia.org/wiki/Klassendiagramm[UML-Klassendiagramms]:

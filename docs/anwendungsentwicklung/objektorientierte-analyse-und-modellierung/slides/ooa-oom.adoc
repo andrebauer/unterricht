@@ -1,14 +1,8 @@
-include::../../../templates/ovm-header.adoc[]
+include::docs/templates/ovm-header.adoc[]
 :ovm-code: IT-AE-MO-VF-1.1
 :kind: Vortragsfolien
 :short-title: Objektorientierte Analyse und Modellierung
 :prefix: ooa
-:backend: revealjs
-:deckjs_transition: fade
-:navigation:
-:custumjs: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML
-:revealjs_theme: simple
-:!notitle:
 = {short-title}
 André Bauer
 v1.1, 10. März 2018
