@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-BS-LE-LS-2.1
 :kind: Lernsituation
 :short-title: Linux Essentials: Themenwoche 2
@@ -6,7 +6,7 @@ include::docs/templates/ovm-header.adoc[]
 :revdate: v1.0, 18. März 2018
 
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 | Kurs https://www.netacad.com/courses/ndg-linux-essentials/[NDG Linux Essentials]

@@ -1,11 +1,11 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: MA-FHR-SCRIPT-1.1
 :kind: Script
 :short-title: Mathematik FHR
 :author: André Bauer <a.bauer@ovm-kassel.de>
 :revdate: 24. Februar 2018
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 | siehe unten

@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-BS-VM-LJ-3.1
 :kind: Lernjob
 :short-title: Netzwerke mit Virtualbox
@@ -6,7 +6,7 @@ include::docs/templates/ovm-header.adoc[]
 :author: André Bauer <a.bauer@ovm-kassel.de>
 :revdate: 6. Mai 2018
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 a|

@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-BS-LE-VF-2.1
 :kind: Vortragsfolien
 :short-title: LPI Linux Essentials: 2. Themenwoche 

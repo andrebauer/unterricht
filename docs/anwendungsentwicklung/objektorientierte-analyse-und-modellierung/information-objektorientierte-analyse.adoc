@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-INFO-3.1
 :kind: Information
 :short-title: Objektorientierte Analyse (OOA)
@@ -6,7 +6,7 @@ include::docs/templates/ovm-header.adoc[]
 :author: André Bauer <a.bauer@ovm-kassel.de>
 :revdate: 10. März 2018
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 | https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design[Wikipedia: Objektorientierte Analyse und Design]

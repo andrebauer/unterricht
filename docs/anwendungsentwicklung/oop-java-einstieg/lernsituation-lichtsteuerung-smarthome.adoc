@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LS-3.1
 :kind: Lernsituation
 :short-title: Lichtsteuerung für das SmartHome
@@ -6,7 +6,7 @@ include::docs/templates/ovm-header.adoc[]
 :revdate: 17. April 2018
 
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 a|

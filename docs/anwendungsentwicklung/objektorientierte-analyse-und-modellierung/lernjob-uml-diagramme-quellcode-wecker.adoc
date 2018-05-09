@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LJ-3.4
 :kind: Lernjob
 :short-title: UML-Diagramme auf der Basis einer User-Story erstellen
@@ -6,7 +6,7 @@ include::docs/templates/ovm-header.adoc[]
 :revdate: 21. Februar 2018
 :!sectnums:
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 a|

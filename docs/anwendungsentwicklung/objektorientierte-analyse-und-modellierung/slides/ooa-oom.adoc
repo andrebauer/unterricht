@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-MO-VF-1.1
 :kind: Vortragsfolien
 :short-title: Objektorientierte Analyse und Modellierung

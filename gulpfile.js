@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 var del = require('del')
 var gulpCopy = require('gulp-copy');
 
-var sourcefiles = [ 'docs/**/*', 'stylesheets/**/*', 'src/**/*', 'images/**/*' ];
+var sourcefiles = [ 'docs/**/*', 'stylesheets/**/*', 'src/**/*', 'images/**/*', 'partials/**/*' ];
 
 var buildDir = '_build/'
 

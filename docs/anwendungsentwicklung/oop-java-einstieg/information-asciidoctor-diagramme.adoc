@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-JA-INFO-5.4
 :kind: Information
 :short-title: Software dokumentieren mit Asciidoctor
@@ -6,7 +6,7 @@ include::docs/templates/ovm-header.adoc[]
 :revdate: 20. Februar 2018
 
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 | 

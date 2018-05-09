@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-JA-CK-5.1
 :kind: checkliste
 :short-title: Checkliste
@@ -6,7 +6,7 @@ include::docs/templates/ovm-header.adoc[]
 :author: André Bauer <a.bauer@ovm-kassel.de> 
 :revdate: 28. Februar 2018
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 | {empty}

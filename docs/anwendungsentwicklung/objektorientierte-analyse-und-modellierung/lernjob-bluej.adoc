@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LJ-3.1
 :kind: Lernjob
 :short-title: Mit BlueJ arbeiten
@@ -7,7 +7,7 @@ include::docs/templates/ovm-header.adoc[]
 :revdate: 27. Februar 2018
 :!sectnums:
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 a|

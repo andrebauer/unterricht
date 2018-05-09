@@ -1,4 +1,4 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LJ-3.3
 :kind: Lernjob
 :short-title: Objekt- und Klassendiagramme auf der Basis einer Situationsbeschreibung erstellen
@@ -6,7 +6,7 @@ include::docs/templates/ovm-header.adoc[]
 :revdate: 25. Februar 2018
 :!sectnums:
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 a|

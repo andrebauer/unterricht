@@ -1,11 +1,11 @@
-include::docs/templates/ovm-header.adoc[]
+include::partials/ovm-header.adoc[]
 :ovm-code: IT-BS-VM-LJ-3.3
 :kind: Lernjob
 :short-title: Mit einem Webserver eine statische Webseite bereitstellen 
 :author: André Bauer <a.bauer@ovm-kassel.de>
 :revdate: 6. Mai 2018
 
-include::docs/templates/ovm-head-table.adoc[]
+include::partials/ovm-head-table.adoc[]
 
 | *Links*
 a|
