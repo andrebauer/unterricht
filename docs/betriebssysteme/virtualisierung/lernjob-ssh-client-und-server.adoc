@@ -2,9 +2,8 @@ include::partials/ovm-header.adoc[]
 :ovm-code: IT-BS-VM-LJ-3.2
 :kind: Lernjob
 :short-title: SSH-Client und Server
-=  {kind} {ovm-code} {short-title}
-André Bauer <a.bauer@ovm-kassel.de>
-v1.0, 5. Mai 2018
+include::partials/author.adoc[]
+:revdate: v1.0, 5. Mai 2018
 
 include::partials/ovm-head-table.adoc[]
 

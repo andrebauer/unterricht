@@ -4,7 +4,7 @@ include::partials/ovm-header.adoc[]
 :short-title: Objektorientierte Analyse und Modellierung
 :prefix: ooa
 = {short-title}
-André Bauer
+include::partials/author.adoc[]
 v1.1, 10. März 2018
 
 == Objektorientierte Analyse
