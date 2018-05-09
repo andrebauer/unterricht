@@ -2,7 +2,7 @@ include::partials/ovm-header.adoc[]
 :ovm-code: MA-FHR-LINKS-1.1
 :kind: Information
 :short-title: Mathematik FHR: Grundlagen
-:author: André Bauer <a.bauer@ovm-kassel.de>
+include::partials/author.adoc[]
 :revdate: 24. Februar 2018
 
 include::partials/ovm-head-table.adoc[]

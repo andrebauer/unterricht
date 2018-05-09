@@ -2,7 +2,7 @@ include::partials/ovm-header.adoc[]
 :ovm-code: IT-DOC-AD-LJ-1.1
 :kind: Lernjob
 :short-title: Technische Dokumentation mit Asciidoc(tor)
-:author: André Bauer <a.bauer@ovm-kassel.de>
+include::partials/author.adoc[]
 :revdate: 6. Mai 2018
 
 include::partials/ovm-head-table.adoc[]

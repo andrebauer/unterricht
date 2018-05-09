@@ -2,7 +2,7 @@ include::partials/ovm-header.adoc[]
 :ovm-code: IT-AE-UML-LS-3.1
 :kind: Lernsituation
 :short-title: Lichtsteuerung für das SmartHome
-:author: André Bauer <a.bauer@ovm-kassel.de>
+include::partials/author.adoc[]
 :revdate: 17. April 2018
 
 
