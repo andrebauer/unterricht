@@ -4,7 +4,8 @@ include::partials/ovm-header.adoc[]
 :short-title: Netzwerke mit Virtualbox
 :experimental:
 include::partials/author.adoc[]
-:revdate: 6. Mai 2018
+:revdate: 10. Mai 2018
+:!sectnums:
 
 include::partials/ovm-head-table.adoc[]
 
@@ -21,7 +22,10 @@ a|
 * http://linux-ip.net/html/tools-ip-route.html[IP Route Management]
 
 | *Verwandte Literatur*
-| {empty}
+a|
+
+* IT-BS-VM-INFO-3.1
+* IT-BS-VM-INFO-3.2
 
 | *Lizenz*
 | {cc-by-sa}
@@ -33,6 +37,23 @@ a|
 
 
 == Aufgaben
+
+. Vernetzen Sie unter Virtualbox Linux-VMs mit den Netzwerk-Modi:
+
+.. NAT mit Port-Weiterleitung,
+.. Internes Netzwerk,
+.. NAT-Netzwerk,
+.. Netzwerkbrücke und
+.. Host-only Adapter
+
+
++
+Testen Sie die Netzwerke mit `ping`, `ssh`, `scp` und der Kombination aus einem
+WEBrick-HTTP-Server und `curl`. +
+
+IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
+	   verschiedenen Netzwerk-Modi und den Einsatz der Test-Werkzeuge
+	   vorführen können.
 
 . Erstellen Sie ein Host-only Netzwerk mit zwei Linux-VMs als Gästen.
   Überprüfen Sie mit `ping` und `ssh`, ob die Gäste und das Hostsystem

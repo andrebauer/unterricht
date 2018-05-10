@@ -1,6 +1,6 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-BS-VM-LJ-3.2
-:kind: Lernjob
+:ovm-code: IT-BS-VM-INFO-3.2
+:kind: Information
 :short-title: SSH-Client und Server
 include::partials/author.adoc[]
 :revdate: v1.0, 5. Mai 2018
@@ -16,9 +16,6 @@ a|
 
 | *Verwandte Literatur*
 | {empty}
-
-| *Stichworte*
-| ifconfig, ipconfig, curl  
 
 | *Lizenz*
 | {cc-by-sa}
@@ -50,7 +47,7 @@ andere Distributionen, die auf Debian basieren, übertragbar sein.
 Bei anderen Linux-Distributionen, die z.{nbsp}B. auf Redhat basieren,
 müssen die Befehle, die zur Installation neuer Pakete dienen,
 angepasst werden, d.{nbsp}h. es muss für Redhat `yum` statt `apt`
-verwendet werden und die Namen der Pakete können abweichen.
+verwendet werden. Die Namen der Pakete können ggf. abweichen.
 
 == Einen SSH-Server unter Linux einrichten
 
@@ -60,11 +57,9 @@ zu installieren:
 .Auf dem Gastsystem: 
 [source, sh]
 ----
-$ sudo -i <1>
-# apt install openssh-server <2>
+$ sudo apt install openssh-server <1>
 ----
-<1> Anmelden als Super-User (root).
-<2> Installation und Start des SSH-Servers.
+<1> Installation und Start des SSH-Servers.
 
 Ob bereits ein SSH-Server-Prozess auf einem System läuft, kann mit `ps`
 überprüft werden:
@@ -105,7 +100,26 @@ Last login: Sat May  5 10:05:16 2018 from 127.0.0.1
     fortgesetzt. Bei einer bereits genutzten Verbindung kann ein geänderter
     ECDSA-Key-Fingerprint auf einen
     https://de.wikipedia.org/wiki/Man-in-the-Middle-Angriff[Man-in-the-Middle-Angriff] hindeuten.
-    
+
+Anstatt sich über die Loopback-Schnittstelle auf demselben System
+per `ssh` anzumelden, ist natürlich auf möglich sich remote über ein
+Netzwerk auf einem anderen System anzumelden.
+
+Für das folgenden Beispiel müssen zwei VMs miteinander
+vernetzt (siehe Information IT-BS-VM-INFO-3.1) und auf dem
+Systen mit der IP `10.0.3.10` ein SSH-Server eingerichtet sein.
+
+[source]
+----
+$ ssh user@10.0.3.10 
+user@10.0.3.10's password: 
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.13.0-39-generic x86_64)
+
+...
+
+Last login: Thu May 10 22:55:06 2018 from 10.0.3.11
+user@Linux-VirtualBox:~$
+----
 
 == Einen SSH-Server von einem Hostsystem verwenden
 
@@ -148,3 +162,17 @@ Eine https://www.ssh.com/ssh/putty/windows/[Anleitung für PuTTY unter Windows]
 zeigt die notwendigen Schritte.
 
 == Secure Copy (`scp`)
+
+Mit Secure Copy (`scp`) können Dateien über ein Netzwerk verschlüsselt
+kopiert werden. Für das folgenden Beispiel müssen zwei VMs miteinander
+vernetzt (siehe Information IT-BS-VM-INFO-3.1) und auf dem
+Systen mit der IP `10.0.3.10` ein SSH-Server eingerichtet sein.
+
+[source]
+----
+$ scp srv/index.adoc user@10.0.3.10:srv/ <1>
+user@10.0.3.10's password: 
+index.adoc                                    100%   95     0.1KB/s   00:00 
+----
+<1> Kopiert die Datei `srv/index.html` in den Ordner `~/srv` auf dem
+    System mit der IP `10.0.3.10`.
