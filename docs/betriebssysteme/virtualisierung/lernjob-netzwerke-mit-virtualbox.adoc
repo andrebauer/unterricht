@@ -141,37 +141,6 @@ $ ip addr
 3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff <2>
 ----
-
-.Auf Gast 1
-[source]
-----
-$ ifconfig
-enp0s3    Link encap:Ethernet  Hardware Adresse 08:00:27:07:74:c5  
-          inet Adresse:10.0.2.15  Bcast:10.0.2.255  Maske:255.255.255.0 <1>
-          inet6-Adresse: fe80::e751:3bf8:3a97:742b/64 Gültigkeitsbereich:Verbindung
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metrik:1
-          RX-Pakete:36958 Fehler:0 Verloren:0 Überläufe:0 Fenster:0
-          TX-Pakete:15419 Fehler:0 Verloren:0 Überläufe:0 Träger:0
-          Kollisionen:0 Sendewarteschlangenlänge:1000 
-          RX-Bytes:32494628 (32.4 MB)  TX-Bytes:947311 (947.3 KB)
-
-enp0s8    Link encap:Ethernet  Hardware Adresse 08:00:27:f3:87:36  <2>
-          inet6-Adresse: fe80::16f1:8af8:9e1f:2ac1/64 Gültigkeitsbereich:Verbindung
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metrik:1
-          RX-Pakete:18 Fehler:0 Verloren:0 Überläufe:0 Fenster:0
-          TX-Pakete:31 Fehler:0 Verloren:0 Überläufe:0 Träger:0
-          Kollisionen:0 Sendewarteschlangenlänge:1000 
-          RX-Bytes:4582 (4.5 KB)  TX-Bytes:4993 (4.9 KB)
-
-lo        Link encap:Lokale Schleife  
-          inet Adresse:127.0.0.1  Maske:255.0.0.0
-          inet6-Adresse: ::1/128 Gültigkeitsbereich:Maschine
-          UP LOOPBACK RUNNING  MTU:65536  Metrik:1
-          RX-Pakete:422 Fehler:0 Verloren:0 Überläufe:0 Fenster:0
-          TX-Pakete:422 Fehler:0 Verloren:0 Überläufe:0 Träger:0
-          Kollisionen:0 Sendewarteschlangenlänge:1000 
-          RX-Bytes:34628 (34.6 KB)  TX-Bytes:34628 (34.6 KB)
-----
 <1> Der Schnittstelle `enp0s3` ist die IP-Adresse `10.0.2.15` zugeordnet.
 <2> Der Schnittstelle `enp0s8` ist bislang keine IP-Adresse zugeordnet.
 
@@ -185,67 +154,50 @@ Netzwerk gewählt, dass noch frei ist.
 .Auf Gast 1
 [source,sh]
 ----
-$ sudo ip a add 10.0.3.10/24 dev enp0s8
-$ ip a show enp0s8
+$ sudo ip addr add 10.0.3.10/24 dev enp0s8 <1>
+$ ip addr show enp0s8 <2>
 3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff
-    inet 10.0.3.10/24 scope global enp0s8
+    inet 10.0.3.10/24 scope global enp0s8 <3>
        valid_lft forever preferred_lft forever
     inet6 fe80::a00:27ff:fef3:8736/64 scope link 
        valid_lft forever preferred_lft forever
-----
 
-.Auf Gast 1
-[source,sh]
+$ ip route <4>
+default via 10.0.2.2 dev enp0s3  proto static  metric 100 
+10.0.2.0/24 dev enp0s3  proto kernel  scope link  src 10.0.2.15  metric 100 
+10.0.3.0/24 dev enp0s8  proto kernel  scope link  src 10.0.3.10 <5>
+169.254.0.0/16 dev enp0s3  scope link  metric 1000  
 ----
-$ sudo ifconfig enp0s8 10.0.3.10 netmask 255.255.255.0 <1>
-$ ifconfig enp0s8 <2>
-enp0s8    Link encap:Ethernet  Hardware Adresse 08:00:27:f3:87:36  
-          inet Adresse:10.0.3.10  Bcast:10.0.3.255  Maske:255.255.255.0 <3>
-          inet6-Adresse: fe80::a00:27ff:fef3:8736/64 Gültigkeitsbereich:Verbindung
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metrik:1
-          RX-Pakete:185 Fehler:0 Verloren:0 Überläufe:0 Fenster:0
-          TX-Pakete:317 Fehler:0 Verloren:0 Überläufe:0 Träger:0
-          Kollisionen:0 Sendewarteschlangenlänge:1000 
-          RX-Bytes:22345 (22.3 KB)  TX-Bytes:46734 (46.7 KB)
-
-$ route <4>
-Kernel-IP-Routentabelle
-Ziel            Router          Genmask         Flags Metric Ref    Use Iface
-default         10.0.2.2        0.0.0.0         UG    100    0        0 enp0s3
-10.0.2.0        *               255.255.255.0   U     100    0        0 enp0s3
-10.0.3.0        *               255.255.255.0   U     0      0        0 enp0s8 <5>
-link-local      *               255.255.0.0     U     1000   0        0 enp0s3
-----
-<1> Der Schnittstelle `enp0s8` wird die IP-Adresse `10.0.3.10` mit
-    der https://de.wikipedia.org/wiki/Netzmaske[Subnetzmakse]
-    `255.255.255.0` zugeordnet.
-<2> Durch Angabe des Schnittstellennamens gibt `ifconfig` nur die Informationen
+<1> Der Schnittstelle `enp0s8` wird die IP-Adresse `10.0.3.10` in
+    dem Subnetz `10.0.3.0/24` (https://de.wikipedia.org/wiki/Classless_Inter-Domain_Routing[CIDR-Notation]) zugeordnet.
+<2> Durch Angabe des Schnittstellennamens gibt `ip addr` nur die Informationen
     für `enp0s8` aus.
 <3> In der Ausgabe kann man nachvollziehen, dass die Netzwerkschnittstelle
     `enp0s8` nun die IP-Adresse `10.0.3.10` erhalten hat.
-<4> Der Befehl `route` gibt die
+<4> Der Befehl `ip route` gibt die
     https://de.wikipedia.org/wiki/Routingtabelle[Routingtabelle]
     des Systems aus.
-<5> Diese Zeile legt fest, dass alle Ziele aus dem Subnetz `10.0.3.0/24`
-    (https://de.wikipedia.org/wiki/Classless_Inter-Domain_Routing[CIDR-Notation])
+<5> Diese Zeile legt fest, dass alle Ziele aus dem Subnetz `10.0.3.0/24`  
     über die Schnittstelle `enp0s8` weitergeleitet werden.
 
-Der 
+Die zweite VM erhält die IP `10.0.3.11`. Mit dem Befehl `ping` kann schließlich
+überprüft werden, ob die erste VM unter der IP `10.0.3.10` erreichbar ist.
 
 .Auf Gast 2
 [source,sh]
 ----
-$ sudo ifconfig enp0s8 10.0.3.11 netmask 255.255.255.0 <1>
-$ ping 10.0.3.10  <2>
+$ sudo ip addr add 10.0.3.11/24 dev enp0s8 <1>
+$ ping 10.0.3.10 <2>
 PING 10.0.3.10 (10.0.3.10) 56(84) bytes of data.
-64 bytes from 10.0.3.10: icmp_seq=1 ttl=64 time=1.57 ms
-64 bytes from 10.0.3.10: icmp_seq=2 ttl=64 time=0.572 ms
-64 bytes from 10.0.3.10: icmp_seq=3 ttl=64 time=0.507 ms
+64 bytes from 10.0.3.10: icmp_seq=1 ttl=64 time=0.972 ms
+64 bytes from 10.0.3.10: icmp_seq=2 ttl=64 time=0.649 ms
+64 bytes from 10.0.3.10: icmp_seq=3 ttl=64 time=0.584 ms
+64 bytes from 10.0.3.10: icmp_seq=4 ttl=64 time=0.630 ms
 ^C <3>
 --- 10.0.3.10 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2028ms
-rtt min/avg/max/mdev = 0.507/0.884/1.574/0.488 ms
+4 packets transmitted, 4 received, 0% packet loss, time 3052ms
+rtt min/avg/max/mdev = 0.584/0.708/0.972/0.157 ms
 ----
 <1> Das zweite System erhält mit `10.0.3.11` auch eine IP-Adresse aus dem
     Subnetz `10.0.3.0/24`.
