@@ -1,0 +1,300 @@
+include::partials/ovm-header.adoc[]
+:ovm-code: IT-BS-VM-INFO-3.1
+:kind: Information
+:short-title: Netzwerke mit Virtualbox
+:experimental:
+include::partials/author.adoc[]
+:revdate: 10. Mai 2018
+
+include::partials/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+* https://www.thomas-krenn.com/de/wiki/Netzwerkkonfiguration_in_VirtualBox[Netzwerkkonfiguration in VirtualBox]
+* https://www.virtualbox.org/manual/[Oracle VM VirtualBox User Manual]
+* https://www.virtualbox.org/manual/ch06.html[Oracle VM VirtualBox User Manual -- Chapter 6. Virtual Networking]
+* https://nocksoft.de/tutorials/virtualbox-netzwerkkonfiguration/[VirtualBox: Netzwerkkonfiguration]
+* https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[ip command cheat sheet]
+* https://ec.haxx.se/cmdline-options.html[Buch: Everything curl]
+* https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/[Deprecated Linux networking commands and their replacements]
+* http://linux-ip.net/html/tools-ip-route.html[IP Route Management]
+
+| *Verwandte Literatur*
+| {empty}
+
+| *Lizenz*
+| {cc-by-sa}
+|=== 
+
+= {short-title}
+
+{empty}
+
+Wie können virtuelle Netzwerke zwischen Virtuellen Maschinen
+(VMs) aufgebaut und mithilfe von Shell-Befehlen getestet werden?
+
+Virtualbox bietet sechs verschiedene Modi an, wie ein Netzwerkadapter
+verbunden werden kann, die im folgenden vorgestellt und beispielhaft
+verwendet werden:
+
+. NAT mit Port-Weiterleitung
+. Internes Netzwerk
+. NAT-Netzwerk
+. Netzwerkbrücke
+. Host-only Adapter
+. Nicht angeschlossen
+
+== NAT mit Port-Weiterleitung
+
+In den VM-Einstellungen richten Sie unter Netzwerk bei einem Adapter
+mit der Einstellung NAT
+--{nbsp}https://de.wikipedia.org/wiki/Netzwerkadress%C3%BCbersetzung[NAT]
+steht für Network Address Translation{nbsp}--
+unter {ldquo}Erweitert{rdquo} eine Portweiterleitung ein.
+Zum Beispiel eine Weiterleitung des Host-Ports 8080
+auf den Gast-Port 8000.
+
+Mit Ruby kann man ohne vorherige Konfiguration einen Webserver
+(WEBrick-HTTP-Server) in einer Virtuelle Maschine (VM) betreiben:
+Falls Ruby noch nicht installiert sein sollte, kann dies unter
+debian-basierten Systemen wie Ubuntu mit den folgenden beiden
+Befehlen eingerichtet werden:
+
+.Auf dem Gastsystem:
+[source, sh]
+----
+$ sudo apt update
+$ sudo apt install ruby
+----
+
+Nun kann ein Verzeichnis `srv` mit einer Datei `index.html` angelegt
+werden und mit `ruby` ein Webserver gestartet werden.
+
+.Auf dem Gastsystem:
+[source, sh]
+----
+$ mkdir srv
+$ echo "Hello from an Ubuntu Linux VM box." > srv/index.html <1>
+$ ruby -run -e httpd srv -p 8000 <2>
+----
+<1> Erstellt eine einfache Textdatei im Ordner `srv`.
+<2> Startet WEBrick auf Port 8000 mit `srv` als Wurzelverzeichnis
+    (Documentroot). 
+
+Die Portweiterleitung kann mit https://curl.haxx.se/download.html[cURL]
+auf dem Host-System getestet werden.
+In dem Buch https://ec.haxx.se/[{ldquo}Everything curl{rdquo}] ist
+eine umfassende Dokumentation des Befehls
+https://ec.haxx.se/cmdline-options.html[`curl`]
+enthalten.
+Unter debian-basierten Systemen kann `curl` mit
+[source, sh]
+----
+$ sudo apt install curl
+----
+installiert werden.
+
+.Auf dem Hostsystem:
+[source, sh]
+----
+$ curl localhost:8080
+Hello from an Ubuntu Linux VM box.
+----
+
+Eine zweite Möglichkeit ist, die Adresse http://localhost:8080[]
+in einem Browser auf dem Hostsystem aufzurufen.
+
+== Internes Netzwerk
+
+Ein internes Netzwerk ist ein virtuelles Netzwerk, an dem ausschließlich
+Virtuelle Maschinen angebunden werden können. Im VirtualBox Manager
+wird dazu zwei oder mehreren _ausgeschalteten_ VMs ein zusätzlicher
+Netzwerk-Adapter mit demselben internen Netzwerknamen hinzugefügt.
+Im Gegensatz zu dem Standardoption `NAT` erhalten die Schnittstellen
+zunächst keine IP-Adressen, so dass diese entweder manuell vergeben werden
+müssen (siehe unten) oder ein
+https://de.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[DHCP-Server]
+für dieses interne Netz eingerichtet werden muss.
+Insofern eignet sich dieser Modus besonders,
+um z.{nbsp}B. die Einrichtung eines DHCP-Servers
+in einem virtuellen Netzwerk auszuprobieren und zu testen.
+
+Im folgenden benötigen Sie zwei Linux-VMs, Sie können dazu eine bestehende,
+ausgeschaltete VM im Virtualbox Manager klonen.
+
+Die Systeme haben nun eine zusätzliche Netzwerkschnittstelle,
+der noch keine IPv4-Adresse zugeordnet wurde.
+Um Informationen über Netzwerkschnittstellen zu erhalten und diese
+zu konfigurieren, gibt unter unix-artigen Systeme u.{nbsp}a. den Befehl
+http://www.faqs.org/docs/linux_network/x-087-2-iface.interface.html[`ifconfig`].
+Unter Windows gibt es den Befehl
+https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490921(v=technet.10)[`ipconfig`], der eine 
+ähnliche Funktionalität hat.
+Im Beispiel hat die neue Schnittstelle den Namen `enp0s8`.
+
+.Auf Gast 1
+[source]
+----
+$ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:07:74:c5 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3 <1>
+       valid_lft 86186sec preferred_lft 86186sec
+    inet6 fe80::3bbb:2d8e:1e5:dea6/64 scope link 
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff <2>
+----
+<1> Der Schnittstelle `enp0s3` ist die IP-Adresse `10.0.2.15` zugeordnet.
+<2> Der Schnittstelle `enp0s8` ist bislang keine IP-Adresse zugeordnet.
+
+Nun wird auf beiden Gästen den Schnittstellen, die am internen
+Netzwerk angeschlossen sind, jeweils mit `ipconfig` eine
+IP-Adresse zugeordnet. Das verwendete Netzwerk darf noch nicht
+vergeben sind. Da die Schnittstelle `enp0s3` per NAT bereits mit dem
+Netzwerk `10.0.2.0/24` verbunden ist, wird mit der IP `10.0.3.10/24` eine
+Netzwerk gewählt, dass noch frei ist.
+
+.Auf Gast 1
+[source,sh]
+----
+$ sudo ip addr add 10.0.3.10/24 dev enp0s8 <1>
+$ ip addr show enp0s8 <2>
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.3.10/24 scope global enp0s8 <3>
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fef3:8736/64 scope link 
+       valid_lft forever preferred_lft forever
+
+$ ip route <4>
+default via 10.0.2.2 dev enp0s3  proto static  metric 100 
+10.0.2.0/24 dev enp0s3  proto kernel  scope link  src 10.0.2.15  metric 100 
+10.0.3.0/24 dev enp0s8  proto kernel  scope link  src 10.0.3.10 <5>
+169.254.0.0/16 dev enp0s3  scope link  metric 1000  
+----
+<1> Der Schnittstelle `enp0s8` wird die IP-Adresse `10.0.3.10` in
+    dem Subnetz `10.0.3.0/24` (https://de.wikipedia.org/wiki/Classless_Inter-Domain_Routing[CIDR-Notation]) zugeordnet.
+<2> Durch Angabe des Schnittstellennamens gibt `ip addr` nur die Informationen
+    für `enp0s8` aus.
+<3> In der Ausgabe kann man nachvollziehen, dass die Netzwerkschnittstelle
+    `enp0s8` nun die IP-Adresse `10.0.3.10` erhalten hat.
+<4> Der Befehl `ip route` gibt die
+    https://de.wikipedia.org/wiki/Routingtabelle[Routingtabelle]
+    des Systems aus.
+<5> Diese Zeile legt fest, dass alle Ziele aus dem Subnetz `10.0.3.0/24`  
+    über die Schnittstelle `enp0s8` weitergeleitet werden.
+
+Die zweite VM erhält die IP `10.0.3.11`. Mit dem Befehl `ping` kann schließlich
+überprüft werden, ob die erste VM unter der IP `10.0.3.10` erreichbar ist.
+
+.Auf Gast 2
+[source,sh]
+----
+$ sudo ip addr add 10.0.3.11/24 dev enp0s8 <1>
+$ ping 10.0.3.10 <2>
+PING 10.0.3.10 (10.0.3.10) 56(84) bytes of data.
+64 bytes from 10.0.3.10: icmp_seq=1 ttl=64 time=0.972 ms
+64 bytes from 10.0.3.10: icmp_seq=2 ttl=64 time=0.649 ms
+64 bytes from 10.0.3.10: icmp_seq=3 ttl=64 time=0.584 ms
+64 bytes from 10.0.3.10: icmp_seq=4 ttl=64 time=0.630 ms
+^C <3>
+--- 10.0.3.10 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3052ms
+rtt min/avg/max/mdev = 0.584/0.708/0.972/0.157 ms
+----
+<1> Das zweite System erhält mit `10.0.3.11` auch eine IP-Adresse aus dem
+    Subnetz `10.0.3.0/24`.
+<2> Mit https://de.wikipedia.org/wiki/Ping_(Daten%C3%BCbertragung)[Ping]
+    wird auf der Ebene des TCP-Protokolls, dem
+    https://de.wikipedia.org/wiki/Internet_Control_Message_Protocol[Internet Control Message Protocol (ICMP)],
+    geprüft, ob das System mit der angegebenen IP-Adresse erreichbar ist.
+<3> Mit der Tastenkombination kbd:[Strg+C] wird `ping` abgebrochen.	 
+
+== NAT-Netzwerk
+
+Zunächst wird im VirtualBox Manager unter Datei -> Einstellungen -> Netzwerk
+ein NAT-Netzwerk eingerichtet, z.{nbsp}B. mit dem Subnetz `10.0.5.0/24`
+und DHCP. Bei den VMs muss nun an einem Netzwerk-Adapter die
+Einstellung NAT-Netzwerk gesetzt werden.
+Aufgrund der DHCP-Unterstützung werden
+den Schnittstellen automatisch IP-Adressen zugeordnet.
+Die angeschlossenen Gäste können über das NAT-Netzwerk untereinander
+kommunizieren und über das NAT-Netzwerk auch Systeme außerhalb des
+Netzwerkes erreichen, sind aber umgekehrt von außen nicht erreichbar.
+
+.Auf Gast 1
+[source,sh]
+----
+$ ip -4 addr <1>
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
+       valid_lft 86116sec preferred_lft 86116sec
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    inet 10.0.5.4/24 brd 10.0.5.255 scope global dynamic enp0s8
+       valid_lft 916sec preferred_lft 916sec
+----
+<1> Mit der Option `-4` zeigt `ip addr` nur IPv4-Adressen an.
+
+.Auf Gast 2
+[source,sh]
+----
+$ ip -4 addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
+       valid_lft 85808sec preferred_lft 85808sec
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    inet 10.0.5.5/24 brd 10.0.5.255 scope global dynamic enp0s8
+       valid_lft 1196sec preferred_lft 1196sec
+
+$ ping 10.0.5.4
+PING 10.0.5.4 (10.0.5.4) 56(84) bytes of data.
+64 bytes from 10.0.5.4: icmp_seq=1 ttl=64 time=0.272 ms
+64 bytes from 10.0.5.4: icmp_seq=2 ttl=64 time=0.322 ms
+64 bytes from 10.0.5.4: icmp_seq=3 ttl=64 time=0.647 ms
+^C
+--- 10.0.5.4 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2044ms
+rtt min/avg/max/mdev = 0.272/0.413/0.647/0.167 ms
+----
+
+== Netzwerkbrücke
+
+Bei der Netzwerkbrücke erhält der Gast direkten Zugriff 
+auf das Host-Netzwerk, so als wäre er dort direkt angeschlossen.
+Falls auf dem Host-Netzwerk ein DHCP-Server die IP-Adressen verwaltet,
+so erhält der Gast auch eine eigenständige IP-Adresse, die vom Host-System
+abweicht.
+Aufgrund der direkten Anbindung an das Host-Netzwerk ist die
+Netzwerkbrücke für Experimente, insbesondere mit mit DHCP, _nicht_ geeignet.
+
+== Host-only Adapter
+
+Ähnlich wie beim internen Netzwerk muss hier unter Globale Tools zunächst ein
+Host-only Netzwerk (mit DHCP-Server) erstellt werden.
+Dann kann in den Einstellungen der _abgeschalteten_ VMs jeweils ein
+Adapter als Host-only Adapter konfiguriert werden.
+
+Auch das Hostsystem erhält eine virtuelle Netzwerk-Schnittstelle und,
+falls der DHCP-Server für das Host-only-Netzwerk aktiviert ist, auch
+automatisch eine IP-Adresse für diese Schnittstelle.
+
+Die angeschlossenen Gäste und das Host-System haben nun ein gemeinsames
+internes Netzwerk, das mit anderen Netzen nicht verbunden ist.
+Dieser Modus eignet sich wie auch das intere Netzwerk oder das
+NAT-Netzwerk sehr gut für Experimente. Das Host-only-Netzwerk ermöglicht es,
+dass man das auch Host-System ohne Port-Weiterleitung
+zum Testen und zur Diagnose einsetzen kann.
