@@ -81,8 +81,18 @@ $ ruby -run -e httpd srv -p 8000 <2>
 <2> Startet WEBrick auf Port 8000 mit `srv` als Wurzelverzeichnis
     (Documentroot). 
 
-Die Portweiterleitung kann mit https://ec.haxx.se/cmdline-options.html[`curl`]
+Die Portweiterleitung kann mit https://curl.haxx.se/download.html[cURL]
 auf dem Host-System getestet werden.
+In dem Buch https://ec.haxx.se/[{ldquo}Everything curl{rdquo}] ist
+eine umfassende Dokumentation des Befehls
+https://ec.haxx.se/cmdline-options.html[`curl`]
+enthalten.
+Unter debian-basierten Systemen kann `curl` mit
+[source, sh]
+----
+$ sudo apt install curl
+----
+installiert werden.
 
 .Auf dem Hostsystem:
 [source, sh]
@@ -222,7 +232,7 @@ Netzwerkes erreichen, sind aber umgekehrt von außen nicht erreichbar.
 .Auf Gast 1
 [source,sh]
 ----
-$ ip -4 a <1>
+$ ip -4 addr <1>
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
@@ -233,13 +243,12 @@ $ ip -4 a <1>
     inet 10.0.5.4/24 brd 10.0.5.255 scope global dynamic enp0s8
        valid_lft 916sec preferred_lft 916sec
 ----
-<1> `ip` ist ein zu `ifconfig` ähnliches Programm mit einem noch größeren
-    Funktionsumfang.
+<1> Mit der Option `-4` zeigt `ip addr` nur IPv4-Adressen an.
 
 .Auf Gast 2
 [source,sh]
 ----
-$ ip -4 a
+$ ip -4 addr
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
