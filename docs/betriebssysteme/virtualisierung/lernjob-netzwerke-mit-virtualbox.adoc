@@ -66,7 +66,8 @@ IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
 == Vertiefende Aufgaben
 
 [start=2]
-. Erstellen Sie ein VM mit zwei Adaptern, die beide eine Zugang zum Internet haben
+. Erstellen Sie ein VM mit zwei Adaptern, die beide einen Zugang zum
+  Internet haben
   (z.{nbsp}B. NAT, NAT-Netzwerk, Netzwerkbrücke).
   Mit `ip route` können Sie feststellen, dass zwei Default-Routen in der
   Routingtabelle eingetragen sind.
@@ -81,11 +82,15 @@ IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
   Sie mit dieser Windows-VM und einer Linux-WM wie in Aufgabe 1.
 +
 --
-NOTE: Das benötigten ISO-Images stehen im Intranet über das Netzlaufwerk \\ovm-nas\bfi_19 bereit. Diese dürfen Sie nur für schulische Zwecke verwenden.
+NOTE: Das benötigte ISO-Image stehen im Intranet über das Netzlaufwerk
+      `\\ovm-nas\bfi_19` bereit.
+      Diese dürfen Sie nur vorübergehend für Schulungszwecke verwenden.
+      Verwenden Sie aufgrund des großen Datenvolumens
+      LAN statt WLAN zum Download des Images.      
 --
 
-. Erstellen Sie auf einer Linux-VM ein Schlüsselpaar und richten Sie
-  `ssh-agent` ein, so dass Sie sich
+. Erstellen Sie auf einer Linux-VM ein Schlüsselpaar für SSH und richten Sie
+  den `ssh-agent` ein, sodass Sie sich
   auf anderen Linux-VMs mit der Secure Shell ohne Passwort-Eingabe
   einloggen können. Anleitungen finden sie auf den folgenden
   Seiten:
@@ -101,7 +106,7 @@ NOTE: Das benötigten ISO-Images stehen im Intranet über das Netzlaufwerk \\ovm
   Bearbeiten Sie auf den VMs
   die Datei https://wiki.archlinux.de/title/Hosts[`/etc/hosts`] so,
   dass Sie für die Netzwerkkommunikation wie in Aufgabe 1 nun
-  die Namen statt der IP-Adresse verwenden können.
+  die Namen statt der IP-Adressen verwenden können.
 +
 Auch unter Windows und Mac OS X kann die
 https://en.wikipedia.org/wiki/Hosts_(file)[Hosts-Datei]
@@ -115,8 +120,4 @@ bearbeitet werden:
 . Verfahren Sie wie in Aufgabe 1, aber verwenden Sie IPv6 statt IPv4.
   Umfassende Informationen finden Sie im
   http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/index.html[Linux IPv6 HOWTO].
-
-. Erstellen Sie ein Host-only Netzwerk mit zwei Linux-VMs als Gästen.
-  Überprüfen Sie mit `ping` und `ssh`, ob die Gäste und das Hostsystem
-  gegenseitig erreichbar sind.
 
