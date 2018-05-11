@@ -1,0 +1,72 @@
+include::partials/ovm-header.adoc[]
+:ovm-code: IT-BS-VM-INFO-3.3
+:kind: Information
+:short-title: Dokumentieren mit Script und Asciidcotor
+:experimental:
+include::partials/author.adoc[]
+:revdate: 11. Mai 2018
+
+include::partials/ovm-head-table.adoc[]
+
+| *Lizenz*
+| {cc-by-sa}
+|=== 
+
+= {short-title}
+
+{empty}
+
+== Shell-Sessions mit Script documentieren
+
+[source, sh]
+----
+$ script session1.log
+Skript gestartet, die Datei ist session1.log
+$ ssh andre@192.168.178.28
+andre@192.168.178.28's password: 
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.10.0-28-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+410 Software-Pakete können aktualisiert werden.
+232 Aktualisierungen sind Sicherheitsaktualisierungen.
+
+Last login: Thu May 10 18:58:28 2018 from 192.168.178.21
+andre@andre-VirtualBox:~$ ls
+Bilder     Downloads  Öffentlich    srv     Vorlagen
+Dokumente  Musik      Schreibtisch  Videos
+andre@andre-VirtualBox:~$ Abgemeldet
+Connection to 192.168.178.28 closed.
+[andre@triton themenwochen]$ exit
+exit
+Skript wurde beendet, die Datei ist session1.log
+----
+
+[souce, sh]
+----
+$ cat session1.log 
+Script started on 2018-05-11 08:03:35+02:00
+[andre@triton themenwochen]$ ssh andre@192.168.178.28
+andre@192.168.178.28's password: 
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.10.0-28-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+410 Software-Pakete können aktualisiert werden.
+232 Aktualisierungen sind Sicherheitsaktualisierungen.
+
+Last login: Thu May 10 18:58:28 2018 from 192.168.178.21
+andre@andre-VirtualBox:~$ ls
+Bilder     Downloads  Öffentlich    srv     Vorlagen
+Dokumente  Musik      Schreibtisch  Videos
+andre@andre-VirtualBox:~$ Abgemeldet
+Connection to 192.168.178.28 closed.
+[andre@triton themenwochen]$ exit
+exit
+
+Script done on 2018-05-11 08:04:13+02:00
+----

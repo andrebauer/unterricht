@@ -74,12 +74,14 @@ werden und mit `ruby` ein Webserver gestartet werden.
 .Auf dem Gastsystem:
 [source, sh]
 ----
+$ sudo hostname saturn <1>
 $ mkdir srv
-$ echo "Hello from an Ubuntu Linux VM box." > srv/index.html <1>
-$ ruby -run -e httpd srv -p 8000 <2>
+$ echo "Hello from `hostname`." > srv/index.html <2>
+$ ruby -run -e httpd srv -p 8000 <3>
 ----
-<1> Erstellt eine einfache Textdatei im Ordner `srv`.
-<2> Startet WEBrick auf Port 8000 mit `srv` als Wurzelverzeichnis
+<1> Setzt den Hostnamen auf `saturn`
+<2> Erstellt eine einfache Textdatei im Ordner `srv`.
+<3> Startet WEBrick auf Port 8000 mit `srv` als Wurzelverzeichnis
     (Documentroot). 
 
 Die Portweiterleitung kann mit https://curl.haxx.se/download.html[cURL]
@@ -99,7 +101,7 @@ installiert werden.
 [source, sh]
 ----
 $ curl localhost:8080
-Hello from an Ubuntu Linux VM box.
+Hello from saturn.
 ----
 
 Eine zweite Möglichkeit ist, die Adresse http://localhost:8080[]
@@ -165,7 +167,7 @@ Netzwerk gewählt, dass noch frei ist.
 .Auf Gast 1
 [source,sh]
 ----
-$ sudo ip addr add 10.0.3.10/24 dev enp0s8 <1>
+$ sudo ip addr add 10.0.3.10/24 dev enp0s8 valid_lft forever <1>
 $ ip addr show enp0s8 <2>
 3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff
@@ -182,6 +184,12 @@ default via 10.0.2.2 dev enp0s3  proto static  metric 100
 ----
 <1> Der Schnittstelle `enp0s8` wird die IP-Adresse `10.0.3.10` in
     dem Subnetz `10.0.3.0/24` (https://de.wikipedia.org/wiki/Classless_Inter-Domain_Routing[CIDR-Notation]) zugeordnet.
+    Die Gültigkeit der IP-Adresse wird mit `valid_lft forever` als unbegrenzt
+    gesetzt. Ohne diese Angabe wird die IP-Adresse nach einiger Zeit
+    automatisch wieder verworfen, was in diesem Zusammenhang ein
+    unerwünschtes Systemverhalten ist. Statt dessen kann
+    mit `sudo ip addr del 10.0.3.10/24 dev enp0s8` die Zuordnung der IP-Adresse
+    manuell entfernt werden.
 <2> Durch Angabe des Schnittstellennamens gibt `ip addr` nur die Informationen
     für `enp0s8` aus.
 <3> In der Ausgabe kann man nachvollziehen, dass die Netzwerkschnittstelle
@@ -198,7 +206,7 @@ Die zweite VM erhält die IP `10.0.3.11`. Mit dem Befehl `ping` kann schließlic
 .Auf Gast 2
 [source,sh]
 ----
-$ sudo ip addr add 10.0.3.11/24 dev enp0s8 <1>
+$ sudo ip addr add 10.0.3.11/24 dev enp0s8 valid_lft forever <1>
 $ ping 10.0.3.10 <2>
 PING 10.0.3.10 (10.0.3.10) 56(84) bytes of data.
 64 bytes from 10.0.3.10: icmp_seq=1 ttl=64 time=0.972 ms
