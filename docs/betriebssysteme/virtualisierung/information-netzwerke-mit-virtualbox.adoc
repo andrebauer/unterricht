@@ -79,7 +79,7 @@ $ mkdir srv
 $ echo "Hello from `hostname`." > srv/index.html <2>
 $ ruby -run -e httpd srv -p 8000 <3>
 ----
-<1> Setzt den Hostnamen auf `saturn`
+<1> Setzt den Hostnamen auf `saturn`.
 <2> Erstellt eine einfache Textdatei im Ordner `srv`.
 <3> Startet WEBrick auf Port 8000 mit `srv` als Wurzelverzeichnis
     (Documentroot). 

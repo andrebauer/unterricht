@@ -8,6 +8,14 @@ include::partials/author.adoc[]
 
 include::partials/ovm-head-table.adoc[]
 
+| *Links*
+a|
+
+* https://asciidoctor.org/docs/asciidoc-writers-guide/[AsciiDoc Writer’s Guide]
+* https://asciidoctor.org/docs/user-manual/[Asciidoctor User Manual]
+* https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
+* https://asciidoctor.org/docs/asciidoctor-pdf/[Asciidoctor PDF]
+
 | *Lizenz*
 | {cc-by-sa}
 |=== 
@@ -18,11 +26,13 @@ include::partials/ovm-head-table.adoc[]
 
 == Shell-Sessions mit Script documentieren
 
+Shell-Sessions können mit `script` aufgezeichnet werden.
+
 [source, sh]
 ----
-$ script session1.log
+$ script session1.log <1>
 Skript gestartet, die Datei ist session1.log
-$ ssh andre@192.168.178.28
+$ ssh andre@192.168.178.28 
 andre@192.168.178.28's password: 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.10.0-28-generic x86_64)
 
@@ -39,10 +49,18 @@ Bilder     Downloads  Öffentlich    srv     Vorlagen
 Dokumente  Musik      Schreibtisch  Videos
 andre@andre-VirtualBox:~$ Abgemeldet
 Connection to 192.168.178.28 closed.
-[andre@triton themenwochen]$ exit
+[andre@triton themenwochen]$ exit <2>
 exit
-Skript wurde beendet, die Datei ist session1.log
+Skript wurde beendet, die Datei ist session1.log 
 ----
+<1> Startet `script` und speichert die Aufzeichnung in der
+    Datei `session1.log`.
+<2> Script wird mit `exit` beendet.    
+
+Das Ergebnis kann mit `cat` angezeigt werden oder mit
+einem Texteditor wie z.{nbsp}B. GNU nano, gedit,
+emacs, vim, atom usw. bearbeitet und z.{nbsp}B. Teil eines
+AsciiDoc-Dokuments werden (s.{nbsp}u.). 
 
 [souce, sh]
 ----
@@ -70,3 +88,113 @@ exit
 
 Script done on 2018-05-11 08:04:13+02:00
 ----
+
+
+
+== Asciidoctor
+
+https://de.wikipedia.org/wiki/AsciiDoc[AsciiDoc] ist eine
+leichtgewichtige Markup-Sprache, wie z.{nbsp}B. auch
+https://de.wikipedia.org/wiki/Markdown[Markdown]. +
+http://asciidoctor.org[Asciidcotor] ist eine Ruby-Anwendung,
+die AsciiDoc-Dokumente in HTML5, PDF oder andere Formate
+umwandelt.
+
+Ein AsciiDoc-Dokument wir mit einem Texteditor wie GNU nano, gedit,
+emacs, vim, atom usw. verfasst -- Textverarbeitungsprogramme wie Word oder
+Writer sind nicht geeignet. Anschließen werden die AsciiDoc-Dateien in
+ein Ausgabeformat übersetzt (PDF, HTML5, Docbook usw.).
+
+=== Installation von Asciidoctor
+
+Für Asciidcotor wird das Paket `ruby` benötigt:
+
+[source, sh]
+----
+$ sudo apt update
+$ sudo apt install ruby
+----
+
+Mit dem Paket `ruby` wird auch
+https://de.wikipedia.org/wiki/RubyGems[RubyGems],
+das Paketsystem für Ruby installiert, dass zur Installation von
+`asciidoctor` verwendet wird.
+
+=== Diagramm mit Asciidcotor erstellen
+
+[source,sh]
+----
+$ sudo gem install asciidoctor asciidcotor-diagram
+$ sudo apt install plantuml
+$ mkdir srv
+$ cd srv
+$ nano index.adoc
+$ asciidcotor -r asciidoctor-diagram -b html index.adoc <1>
+----
+<1> Mit `-r asciidoctor-diagram` wir die Erweiterung
+    https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
+    verwendet.							  
+
+.Beispiel für ein AsciiDoc-Dokument
+[source,asciidoc]
+-----
+= Diagramme mit Asciidoctor <1>
+
+[plantuml,class-assoziation,svg] <2>
+.... <3>
+class A
+
+class B
+
+A -up-> B 
+....
+
+Generate this documents with the following command:
+
+[source,sh] <4>
+----  <5>
+$ asciidoctor -r asciidoctor-diagram -b html index.adoc
+----
+-----
+<1> Überschriften werden mit einem oder mehrere `=`-Zeichen eingeleitet.
+<2> In den eckigen Klammern wird das Diagrammwerkzeug, der Dateiname und
+    das Zielformat festgelegt. Hier wird das Diagramm mit PlantUML
+    gezeichnet und in der Datei `class-assoziation.svg` als
+    SVG-Grafik gespeichert.
+<3> Diagramme werden mit mit vier Punkten `....` eingegrenzt. 
+<4> In den eckigen Klammern kann nach der Angabe `souce`
+    die verwendete Sprache wie z.{nbsp}B. `java` oder `sh` für Shell
+    eingetragen werden. Fadurch wir die Syntax farblich hervorgehoben.
+<5> Source-Code wird mit mit vier Strichen `----` eingegrenzt.
+
+=== Diagramme mit plantuml
+
+http://plantuml.com/[PlantUML] ist eine Werkzeug, um (UML-)Diagramme zu
+erstellen. Über die Erweiterung `asciidoctor-diagram` kann man
+PlantUML-Diagramme direkt in AsciiDoc-Dokumenten beschreiben.
+Diese werden in
+https://de.wikipedia.org/wiki/Portable_Network_Graphics[PNG-Grafiken] uder
+https://de.wikipedia.org/wiki/Scalable_Vector_Graphics[SVG-Grafiken]
+übersetzt.
+
+=== Diagramme mit blockdiag, actdiag, nwdiag und seqdiag
+
+Die Programme blockdiag, actdiag, nwdiag und seqdiag
+
+----
+$ sudo apt install python-blockdiag python-actdiag python-nwdiag python-seqdiag
+----
+
+== PDF
+
+PDF-Dokumente werden aus Asciidoc-Dokumenten durch Angabge der Erweiterung
+mit `-r asciidoctor-pdf` und des Ausgabeformats mit `-b pdf`
+generiert.
+
+[source, sh]
+----
+asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b pdf -a allow-uri-read index.adoc
+----
+
+Für PDF-Dokumente gibt es unter Linux verschiedenen Viewer wie `evince`
+oder `atril`, die die Dokumente nach Änderungen automatisch neu laden.

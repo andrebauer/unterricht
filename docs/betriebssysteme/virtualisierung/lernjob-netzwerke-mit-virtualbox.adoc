@@ -1,6 +1,6 @@
 include::partials/ovm-header.adoc[]
 :ovm-code: IT-BS-VM-LJ-3.1
-:kind: Lernjob
+:kind: Lernsituation
 :short-title: Netzwerke mit Virtualbox
 :experimental:
 include::partials/author.adoc[]
