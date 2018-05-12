@@ -26,6 +26,7 @@ a|
 
 * IT-BS-VM-INFO-3.1
 * IT-BS-VM-INFO-3.2
+* IT-BS-VM-INFO-3.3
 
 | *Lizenz*
 | {cc-by-sa}
@@ -36,9 +37,11 @@ a|
 {empty}
 
 NOTE: Lesen Sie zuerst die Information, wie Sie die Aufgaben dokumentieren
-      sollen unter IT-BS-VM-INFO-3.3.
+      sollen unter IT-BS-VM-INFO-3.1.
 
-== Basis-Aufgaben
+== Basis-Aufgabe
+
+Die Bearbeitung der Basis-Aufgabe ist verpflichtend.
 
 . Vernetzen Sie unter Virtualbox Linux-VMs mit den Netzwerk-Modi:
 +
@@ -52,9 +55,10 @@ NOTE: Lesen Sie zuerst die Information, wie Sie die Aufgaben dokumentieren
 +
 Wählen Sie individuelle Hostnamen, IP-Adressen und Ports, die von den Beispielen und
 anderen Quellen abweichen und dokumentieren Sie ihr Vorgehen mit Script
-und Asciidoctor (siehe Information IT-BS-VM-INFO-3.3).
+und Asciidoctor (siehe Information IT-BS-VM-INFO-3.1).
 +
-Testen Sie die Netzwerke mit `ping`, `ssh`, `scp` und der Kombination aus einem
+Testen Sie dazu die Netzwerke mit den Werkzeugen `ping`, `ssh`, `scp`
+und der Kombination aus einem
 WEBrick-HTTP-Server (mit Ruby) und `curl`.
 +
 --
@@ -65,14 +69,33 @@ IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
 
 == Vertiefende Aufgaben
 
+Bearbeiten Sie eine oder mehrere vertiefende Aufgaben. Die Reihenfolge können
+Sie selbst wählen.
+
 [start=2]
-. Erstellen Sie ein VM mit zwei Adaptern, die beide einen Zugang zum
+. Erstellen Sie mehrere VMs und vergeben Sie die
+  http://seriss.com/people/erco/unixtools/hostnames.html[Hostnamen nach einem Schema].
+  Bearbeiten Sie auf den VMs
+  die Datei https://wiki.archlinux.de/title/Hosts[`/etc/hosts`] so,
+  dass Sie für die Netzwerkkommunikation wie in Aufgabe 1 nun
+  die Namen statt der IP-Adressen verwenden können.
++
+Auch unter Windows und Mac OS X kann die
+https://en.wikipedia.org/wiki/Hosts_(file)[Hosts-Datei]
+bearbeitet werden:
++
+--
+* https://www.imore.com/how-edit-your-macs-hosts-file-and-why-you-would-want[How to edit your Mac's Hosts file and why you would want to]
+* https://www.lifewire.com/how-to-edit-the-hosts-file-153661[How to Edit the HOSTS File in Windows]
+--
+
+. Erstellen Sie eine Linux-VM mit zwei Adaptern, die beide einen Zugang zum
   Internet haben
   (z.{nbsp}B. NAT, NAT-Netzwerk, Netzwerkbrücke).
   Mit `ip route` können Sie feststellen, dass zwei Default-Routen in der
   Routingtabelle eingetragen sind.
   Verfolgen Sie die Route zum Google Public DNS (IP-Adresse `8.8.8.8`)
-  mit `traceroute 8.8.8.8`, verändern Sie anschließend die Einträge
+  per `traceroute 8.8.8.8`, verändern Sie anschließend die Einträge
   der Default-Routen (Löschen, Hinzufügen, Ändern der Reihenfolge)
   mit `ip route del` bzw. `ip route add` und überprüfen Sie die Routen
   wieder mit `traceroute`. Als Hilfe zu `ip route` verwenden Sie das
@@ -82,7 +105,7 @@ IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
   Sie mit dieser Windows-VM und einer Linux-WM wie in Aufgabe 1.
 +
 --
-NOTE: Das benötigte ISO-Image stehen im Intranet über das Netzlaufwerk
+NOTE: Das benötigte ISO-Image steht im Intranet über das Netzlaufwerk
       `\\ovm-nas\bfi_19` bereit.
       Diese dürfen Sie nur vorübergehend für Schulungszwecke verwenden.
       Verwenden Sie aufgrund des großen Datenvolumens
@@ -101,21 +124,7 @@ NOTE: Das benötigte ISO-Image stehen im Intranet über das Netzlaufwerk
 * http://rabexc.org/posts/using-ssh-agent[Using an ssh-agent, or how to type your ssh password once, safely.]
 --
 
-. Erstellen Sie mehrere VMs und vergeben Sie die
-  http://seriss.com/people/erco/unixtools/hostnames.html[Hostnamen nach einem Schema].
-  Bearbeiten Sie auf den VMs
-  die Datei https://wiki.archlinux.de/title/Hosts[`/etc/hosts`] so,
-  dass Sie für die Netzwerkkommunikation wie in Aufgabe 1 nun
-  die Namen statt der IP-Adressen verwenden können.
-+
-Auch unter Windows und Mac OS X kann die
-https://en.wikipedia.org/wiki/Hosts_(file)[Hosts-Datei]
-bearbeitet werden:
-+
---
-* https://www.imore.com/how-edit-your-macs-hosts-file-and-why-you-would-want[How to edit your Mac's Hosts file and why you would want to]
-* https://www.lifewire.com/how-to-edit-the-hosts-file-153661[How to Edit the HOSTS File in Windows]
---
+
 
 . Verfahren Sie wie in Aufgabe 1, aber verwenden Sie IPv6 statt IPv4.
   Umfassende Informationen finden Sie im

@@ -1,5 +1,5 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-BS-VM-INFO-3.2
+:ovm-code: IT-BS-VM-INFO-3.3
 :kind: Information
 :short-title: SSH-Client und Server
 include::partials/author.adoc[]
@@ -44,9 +44,9 @@ Im Folgenden wird vorausgesetzt, dass Sie bereits eine
 Virtuelle Maschine mit einem Linux-System, wie z.{nbsp}B. Ubuntu, als
 Gastsystem eingerichtet haben. Die folgenden Beispiele sollten aber auch auf
 andere Distributionen, die auf Debian basieren, übertragbar sein.
-Bei anderen Linux-Distributionen, die z.{nbsp}B. auf Redhat basieren,
+Bei Linux-Distributionen, die z.{nbsp}B. auf Redhat basieren,
 müssen die Befehle, die zur Installation neuer Pakete dienen,
-angepasst werden, d.{nbsp}h. es muss für Redhat `yum` statt `apt`
+angepasst werden, so muss unter Redhat `yum` statt `apt`
 verwendet werden. Die Namen der Pakete können ggf. abweichen.
 
 == Einen SSH-Server unter Linux einrichten
@@ -57,6 +57,7 @@ zu installieren:
 .Auf dem Gastsystem: 
 [source, sh]
 ----
+$ sudo apt update
 $ sudo apt install openssh-server <1>
 ----
 <1> Installation und Start des SSH-Servers.
@@ -94,20 +95,20 @@ Last login: Sat May  5 10:05:16 2018 from 127.0.0.1
 ----
 <1> Statt der IP-Adresse `127.0.0.1` für die Loopback-Schnittstelle, kann
     auch der Name `localhost` verwendet werden.
-<2> Beim ersten Login eines Clienten auf einem SSH-Server wird der
-    ECDSA-Key-Fingerprint ausgegeben.
+<2> Beim ersten Login eines Clienten auf einem unbekannten SSH-Server wird
+    zur Kontolle der ECDSA-Key-Fingerprint ausgegeben.
 <3> Der Vorgang wird aus Sicherheitsgründen nur nach einer Bestätigung
     fortgesetzt. Bei einer bereits genutzten Verbindung kann ein geänderter
     ECDSA-Key-Fingerprint auf einen
     https://de.wikipedia.org/wiki/Man-in-the-Middle-Angriff[Man-in-the-Middle-Angriff] hindeuten.
 
 Anstatt sich über die Loopback-Schnittstelle auf demselben System
-per `ssh` anzumelden, ist natürlich auf möglich sich remote über ein
+per `ssh` anzumelden, ist es natürlich auch möglich, sich remote über ein
 Netzwerk auf einem anderen System anzumelden.
 
 Für das folgenden Beispiel müssen zwei VMs miteinander
-vernetzt (siehe Information IT-BS-VM-INFO-3.1) und auf dem
-Systen mit der IP `10.0.3.10` ein SSH-Server eingerichtet sein.
+vernetzt (siehe Information IT-BS-VM-INFO-3.2) und auf dem
+Systen mit der IP-Adresse `10.0.3.10/24` ein SSH-Server eingerichtet sein.
 
 [source]
 ----
@@ -132,9 +133,9 @@ z.{nbsp}B. von Port 8022 auf dem Hostsystem.
 
 Auf unixartigen Hostsystemen, wie z.{nbsp}B. Linux oder Mac OS X, kann
 `ssh` direkt von einem Terminal aus verwendet werden.
-Im unterschied <<ssh-mit-linuxgast>> wird dem SSH-Befehl Port als
-Option mit `-p 8022` eine Portnummer, die für die Verbindung mit dem
-SSH-Server verwendet werden soll übergeben. Ohne eine solche Angabe wird
+Im Unterschied zu <<ssh-mit-linuxgast>> wird dem SSH-Befehl mit
+der Option mit `-p 8022` eine Portnummer, die für die Verbindung mit dem
+SSH-Server verwendet werden soll, übergeben. Ohne eine solche Angabe wird
 der SSH-Standard-Port 22 verwendet.
 
 .Auf dem Hostsystem
@@ -165,7 +166,7 @@ zeigt die notwendigen Schritte.
 
 Mit Secure Copy (`scp`) können Dateien über ein Netzwerk verschlüsselt
 kopiert werden. Für das folgenden Beispiel müssen zwei VMs miteinander
-vernetzt (siehe Information IT-BS-VM-INFO-3.1) und auf dem
+vernetzt (siehe Information IT-BS-VM-INFO-3.2) und auf dem
 Systen mit der IP `10.0.3.10` ein SSH-Server eingerichtet sein.
 
 [source]

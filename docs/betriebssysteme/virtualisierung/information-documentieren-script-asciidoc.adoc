@@ -1,7 +1,7 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-BS-VM-INFO-3.3
+:ovm-code: IT-BS-VM-INFO-3.1
 :kind: Information
-:short-title: Dokumentieren mit Script und Asciidcotor
+:short-title: Dokumentieren mit Script und Asciidoctor
 :experimental:
 include::partials/author.adoc[]
 :revdate: 11. Mai 2018
@@ -15,6 +15,8 @@ a|
 * https://asciidoctor.org/docs/user-manual/[Asciidoctor User Manual]
 * https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
 * https://asciidoctor.org/docs/asciidoctor-pdf/[Asciidoctor PDF]
+* http://plantuml.com/[PlantUML]
+* http://blockdiag.com/en/[blockdiag, seqdiag, actdiag, nwdiag]
 
 | *Lizenz*
 | {cc-by-sa}
@@ -28,7 +30,7 @@ a|
 
 Shell-Sessions können mit `script` aufgezeichnet werden.
 
-[source, sh]
+[source]
 ----
 $ script session1.log <1>
 Skript gestartet, die Datei ist session1.log
@@ -40,26 +42,24 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.10.0-28-generic x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-410 Software-Pakete können aktualisiert werden.
-232 Aktualisierungen sind Sicherheitsaktualisierungen.
-
 Last login: Thu May 10 18:58:28 2018 from 192.168.178.21
 andre@andre-VirtualBox:~$ ls
 Bilder     Downloads  Öffentlich    srv     Vorlagen
 Dokumente  Musik      Schreibtisch  Videos
-andre@andre-VirtualBox:~$ Abgemeldet
+andre@andre-VirtualBox:~$ Abgemeldet <2>
 Connection to 192.168.178.28 closed.
-[andre@triton themenwochen]$ exit <2>
+[andre@triton themenwochen]$ exit <3>
 exit
 Skript wurde beendet, die Datei ist session1.log 
 ----
 <1> Startet `script` und speichert die Aufzeichnung in der
     Datei `session1.log`.
-<2> Script wird mit `exit` beendet.    
+<2> Die SSH-Session wir mit kbd:[Strg+D] oder `exit` beendet.   
+<3> Script wird mit `exit` beendet.    
 
 Das Ergebnis kann mit `cat` angezeigt werden oder mit
 einem Texteditor wie z.{nbsp}B. GNU nano, gedit,
-emacs, vim, atom usw. bearbeitet und z.{nbsp}B. Teil eines
+emacs, vim, atom usw. bearbeitet, kommentiert und z.{nbsp}B. Teil eines
 AsciiDoc-Dokuments werden (s.{nbsp}u.). 
 
 [souce, sh]
@@ -74,9 +74,6 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.10.0-28-generic x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-410 Software-Pakete können aktualisiert werden.
-232 Aktualisierungen sind Sicherheitsaktualisierungen.
-
 Last login: Thu May 10 18:58:28 2018 from 192.168.178.21
 andre@andre-VirtualBox:~$ ls
 Bilder     Downloads  Öffentlich    srv     Vorlagen
@@ -89,8 +86,6 @@ exit
 Script done on 2018-05-11 08:04:13+02:00
 ----
 
-
-
 == Asciidoctor
 
 https://de.wikipedia.org/wiki/AsciiDoc[AsciiDoc] ist eine
@@ -100,9 +95,9 @@ http://asciidoctor.org[Asciidcotor] ist eine Ruby-Anwendung,
 die AsciiDoc-Dokumente in HTML5, PDF oder andere Formate
 umwandelt.
 
-Ein AsciiDoc-Dokument wir mit einem Texteditor wie GNU nano, gedit,
+Ein AsciiDoc-Dokument wird mit einem Texteditor wie GNU nano, gedit,
 emacs, vim, atom usw. verfasst -- Textverarbeitungsprogramme wie Word oder
-Writer sind nicht geeignet. Anschließen werden die AsciiDoc-Dateien in
+Writer sind nicht geeignet. Anschließend werden die AsciiDoc-Dateien in
 ein Ausgabeformat übersetzt (PDF, HTML5, Docbook usw.).
 
 === Installation von Asciidoctor
@@ -120,18 +115,20 @@ https://de.wikipedia.org/wiki/RubyGems[RubyGems],
 das Paketsystem für Ruby installiert, dass zur Installation von
 `asciidoctor` verwendet wird.
 
-=== Diagramm mit Asciidcotor erstellen
+=== Diagramme mit Asciidcotor erstellen
 
 [source,sh]
 ----
-$ sudo gem install asciidoctor asciidcotor-diagram
+$ sudo gem install asciidoctor asciidcotor-diagram <1>
+$ sudo apt update
 $ sudo apt install plantuml
 $ mkdir srv
 $ cd srv
 $ nano index.adoc
-$ asciidcotor -r asciidoctor-diagram -b html index.adoc <1>
+$ asciidcotor -r asciidoctor-diagram -b html index.adoc <2>
 ----
-<1> Mit `-r asciidoctor-diagram` wir die Erweiterung
+<1> Installation von Asciidoctor und Asciidcotor Diagramm mit RubyGems.
+<2> Mit `-r asciidoctor-diagram` wir die Erweiterung
     https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
     verwendet.							  
 
@@ -158,14 +155,15 @@ $ asciidoctor -r asciidoctor-diagram -b html index.adoc
 -----
 <1> Überschriften werden mit einem oder mehrere `=`-Zeichen eingeleitet.
 <2> In den eckigen Klammern wird das Diagrammwerkzeug, der Dateiname und
-    das Zielformat festgelegt. Hier wird das Diagramm mit PlantUML
-    gezeichnet und in der Datei `class-assoziation.svg` als
-    SVG-Grafik gespeichert.
-<3> Diagramme werden mit mit vier Punkten `....` eingegrenzt. 
-<4> In den eckigen Klammern kann nach der Angabe `souce`
-    die verwendete Sprache wie z.{nbsp}B. `java` oder `sh` für Shell
-    eingetragen werden. Fadurch wir die Syntax farblich hervorgehoben.
-<5> Source-Code wird mit mit vier Strichen `----` eingegrenzt.
+    das Zielformat festgelegt. Hier wird die Diagramm-Beschreibung mit PlantUML
+    in eine SVG-Grafik übersetzt und in der Datei `class-assoziation.svg` 
+    gespeichert.     
+<3> Diagramm-Beschreibungen werden mit mit vier Punkten eingegrenzt. 
+<4> In den eckigen Klammern kann nach der Angabe `source`
+    die verwendete Sprache, wie z.{nbsp}B. `java` oder `sh` für Shell,
+    eingetragen werden. Dadurch wir die
+    https://de.wikipedia.org/wiki/Syntaxhervorhebung[Syntax farblich hervorgehoben].
+<5> Source-Code wird mit mit vier Strichen eingegrenzt.
 
 === Diagramme mit plantuml
 
@@ -177,15 +175,25 @@ https://de.wikipedia.org/wiki/Portable_Network_Graphics[PNG-Grafiken] uder
 https://de.wikipedia.org/wiki/Scalable_Vector_Graphics[SVG-Grafiken]
 übersetzt.
 
+Für PlantUML gibt es u.{nbsp}B. Plug-Ins für
+http://plantuml.com/eclipse[Eclispe] und
+https://plugins.jetbrains.com/plugin/7017-plantuml-integration[Jet Brains Programme wie IntelliJ IDEA].
+
 === Diagramme mit blockdiag, actdiag, nwdiag und seqdiag
 
-Die Programme blockdiag, actdiag, nwdiag und seqdiag
+Die Programme
+http://blockdiag.com/en/[blockdiag, seqdiag, actdiag und nwdiag]
+übersetzen --{nbsp}ähnlich wie PlantUML{nbsp}-- Diagramm-Beschreibungen
+in Grafiken.
+
+Sie können unter Ubuntu über das Paktemanagment-System installiert werden:
 
 ----
+$ sudo apt update
 $ sudo apt install python-blockdiag python-actdiag python-nwdiag python-seqdiag
 ----
 
-== PDF
+=== PDF-Dokumente generieren
 
 PDF-Dokumente werden aus Asciidoc-Dokumenten durch Angabge der Erweiterung
 mit `-r asciidoctor-pdf` und des Ausgabeformats mit `-b pdf`

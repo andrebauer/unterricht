@@ -129,17 +129,19 @@ müssen (siehe unten) oder ein
 https://de.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[DHCP-Server]
 für dieses interne Netz eingerichtet werden muss.
 Insofern eignet sich dieser Modus besonders,
-um z.{nbsp}B. die Einrichtung eines DHCP-Servers
+um z.{nbsp}B. die Einrichtung eines DHCP-Servers oder eines
+Domänencontrollers
 in einem virtuellen Netzwerk auszuprobieren und zu testen.
 
-Im folgenden benötigen Sie zwei Linux-VMs, Sie können dazu eine bestehende,
+Im folgenden benötigen Sie zwei Linux-VMs, Sie können dazu
+z.{nbsp}B. eine bestehende,
 ausgeschaltete VM im Virtualbox Manager klonen.
 
 Die Systeme haben nun eine zusätzliche Netzwerkschnittstelle,
 der noch keine IPv4-Adresse zugeordnet wurde.
 Um Informationen über Netzwerkschnittstellen zu erhalten und diese
 zu konfigurieren, gibt unter unix-artigen Systeme u.{nbsp}a. den Befehl
-http://www.faqs.org/docs/linux_network/x-087-2-iface.interface.html[`ifconfig`].
+https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[`ip`].
 Unter Windows gibt es den Befehl
 https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490921(v=technet.10)[`ipconfig`], der eine 
 ähnliche Funktionalität hat.
@@ -151,26 +153,28 @@ Im Beispiel hat die neue Schnittstelle den Namen `enp0s8`.
 $ ip addr
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
+    inet 127.0.0.1/8 scope host lo <1>
        valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host 
        valid_lft forever preferred_lft forever
 2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:07:74:c5 brd ff:ff:ff:ff:ff:ff
-    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3 <1>
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3 <2>
        valid_lft 86186sec preferred_lft 86186sec
     inet6 fe80::3bbb:2d8e:1e5:dea6/64 scope link 
        valid_lft forever preferred_lft forever
 3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 08:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff <2>
+    link/ether 08:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff <3>
 ----
-<1> Der Schnittstelle `enp0s3` ist die IP-Adresse `10.0.2.15` zugeordnet.
-<2> Der Schnittstelle `enp0s8` ist bislang keine IP-Adresse zugeordnet.
+<1> Die Loopback-Schnittstelle erhält per Konvention die IPv4-Adresse
+    `127.0.0.1/8` sowie die IPv6-Adresse `::1/128`.
+<2> Der Schnittstelle `enp0s3` ist die IP-Adresse `10.0.2.15` zugeordnet.
+<3> Der Schnittstelle `enp0s8` ist bislang keine IP-Adresse zugeordnet.
 
 Nun wird auf beiden Gästen den Schnittstellen, die am internen
-Netzwerk angeschlossen sind, jeweils mit `ipconfig` eine
+Netzwerk angeschlossen sind, jeweils mit `ip` eine
 IP-Adresse zugeordnet. Das verwendete Netzwerk darf noch nicht
-vergeben sind. Da die Schnittstelle `enp0s3` per NAT bereits mit dem
+vergeben sein. Da die Schnittstelle `enp0s3` per NAT bereits mit dem
 Netzwerk `10.0.2.0/24` verbunden ist, wird mit der IP `10.0.3.10/24` eine
 Netzwerk gewählt, dass noch frei ist.
 
@@ -197,13 +201,13 @@ default via 10.0.2.2 dev enp0s3  proto static  metric 100
     Die Gültigkeit der IP-Adresse wird mit `valid_lft forever` als unbegrenzt
     gesetzt. Ohne diese Angabe wird die IP-Adresse nach einiger Zeit
     automatisch wieder verworfen, was in diesem Zusammenhang ein
-    unerwünschtes Systemverhalten ist. Statt dessen kann
+    unerwünschtes Systemverhalten wäre. Falls nötig, kann
     mit `sudo ip addr del 10.0.3.10/24 dev enp0s8` die Zuordnung der IP-Adresse
-    manuell entfernt werden.
+    wieder entfernt werden.
 <2> Durch Angabe des Schnittstellennamens gibt `ip addr` nur die Informationen
     für `enp0s8` aus.
 <3> In der Ausgabe kann man nachvollziehen, dass die Netzwerkschnittstelle
-    `enp0s8` nun die IP-Adresse `10.0.3.10` erhalten hat.
+    `enp0s8` nun die IP-Adresse `10.0.3.10/24` erhalten hat.
 <4> Der Befehl `ip route` gibt die
     https://de.wikipedia.org/wiki/Routingtabelle[Routingtabelle]
     des Systems aus.
@@ -228,7 +232,7 @@ PING 10.0.3.10 (10.0.3.10) 56(84) bytes of data.
 4 packets transmitted, 4 received, 0% packet loss, time 3052ms
 rtt min/avg/max/mdev = 0.584/0.708/0.972/0.157 ms
 ----
-<1> Das zweite System erhält mit `10.0.3.11` auch eine IP-Adresse aus dem
+<1> Das zweite System erhält mit `10.0.3.11/24` auch eine IP-Adresse aus dem
     Subnetz `10.0.3.0/24`.
 <2> Mit https://de.wikipedia.org/wiki/Ping_(Daten%C3%BCbertragung)[Ping]
     wird auf der Ebene des TCP-Protokolls, dem
@@ -244,9 +248,10 @@ und DHCP. Bei den VMs muss nun an einem Netzwerk-Adapter die
 Einstellung NAT-Netzwerk gesetzt werden.
 Aufgrund der DHCP-Unterstützung werden
 den Schnittstellen automatisch IP-Adressen zugeordnet.
-Die angeschlossenen Gäste können über das NAT-Netzwerk untereinander
-kommunizieren und über das NAT-Netzwerk auch Systeme außerhalb des
-Netzwerkes erreichen, sind aber umgekehrt von außen nicht erreichbar.
+Die angeschlossenen Gäste können über das NAT-Netzwerk sowohl untereinander
+kommunizieren als auch Systeme außerhalb des
+Netzwerkes erreichen, die über die Netzwerkadapter des Hosts-Systems erreichbar
+sind. Die Gäste sind aber umgekehrt von außen nicht erreichbar.
 
 .Auf Gast 1
 [source,sh]
@@ -259,10 +264,12 @@ $ ip -4 addr <1>
     inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
        valid_lft 86116sec preferred_lft 86116sec
 3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    inet 10.0.5.4/24 brd 10.0.5.255 scope global dynamic enp0s8
+    inet 10.0.5.4/24 brd 10.0.5.255 scope global dynamic enp0s8 <2>
        valid_lft 916sec preferred_lft 916sec
 ----
 <1> Mit der Option `-4` zeigt `ip addr` nur IPv4-Adressen an.
+<2> Die am NAT-Netzwerk angeschlossene Schnittstelle `enp0s8` hat per
+    DHCP die IP-Adresse `10.0.5.4/24` erhalten.
 
 .Auf Gast 2
 [source,sh]
@@ -275,12 +282,12 @@ $ ip -4 addr
     inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
        valid_lft 85808sec preferred_lft 85808sec
 3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    inet 10.0.5.5/24 brd 10.0.5.255 scope global dynamic enp0s8
+    inet 10.0.5.5/24 brd 10.0.5.255 scope global dynamic enp0s8 <1>
        valid_lft 1196sec preferred_lft 1196sec
 
-$ ping 10.0.5.4
+$ ping 10.0.5.4 <2>
 PING 10.0.5.4 (10.0.5.4) 56(84) bytes of data.
-64 bytes from 10.0.5.4: icmp_seq=1 ttl=64 time=0.272 ms
+64 bytes from 10.0.5.4: icmp_seq=1 ttl=64 time=0.272 ms <3>
 64 bytes from 10.0.5.4: icmp_seq=2 ttl=64 time=0.322 ms
 64 bytes from 10.0.5.4: icmp_seq=3 ttl=64 time=0.647 ms
 ^C
@@ -288,6 +295,10 @@ PING 10.0.5.4 (10.0.5.4) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2044ms
 rtt min/avg/max/mdev = 0.272/0.413/0.647/0.167 ms
 ----
+<1> Die Schnittstelle `enp0s8` hat per DHCP die IP-Adresse `10.0.5.5/24`
+    erhalten und befindet sich im Gleich Subnetz wie `enp0s8` von Gast 1.
+<2> Gast 1 erhält ICMP-Anfragen mit `ping`.
+<3> Antworten von Gast 1 auf ICMP-Anfragen werden fotlaufend ausgegeben.
 
 == Netzwerkbrücke
 
@@ -297,12 +308,13 @@ Falls auf dem Host-Netzwerk ein DHCP-Server die IP-Adressen verwaltet,
 so erhält der Gast auch eine eigenständige IP-Adresse, die vom Host-System
 abweicht.
 Aufgrund der direkten Anbindung an das Host-Netzwerk ist die
-Netzwerkbrücke für Experimente, insbesondere mit mit DHCP, _nicht_ geeignet.
+Netzwerkbrücke für einige Experimente, insbesondere mit mit DHCP,
+_nicht_ geeignet.
 
 == Host-only Adapter
 
 Ähnlich wie beim internen Netzwerk muss hier unter Globale Tools zunächst ein
-Host-only Netzwerk (mit DHCP-Server) erstellt werden.
+Host-only Netzwerk (optional mit DHCP-Server) erstellt werden.
 Dann kann in den Einstellungen der _abgeschalteten_ VMs jeweils ein
 Adapter als Host-only Adapter konfiguriert werden.
 
@@ -312,7 +324,7 @@ automatisch eine IP-Adresse für diese Schnittstelle.
 
 Die angeschlossenen Gäste und das Host-System haben nun ein gemeinsames
 internes Netzwerk, das mit anderen Netzen nicht verbunden ist.
-Dieser Modus eignet sich wie auch das intere Netzwerk oder das
+Dieser Modus eignet sich wie auch das interne Netzwerk oder das
 NAT-Netzwerk sehr gut für Experimente. Das Host-only-Netzwerk ermöglicht es,
 dass man das auch Host-System ohne Port-Weiterleitung
 zum Testen und zur Diagnose einsetzen kann.
