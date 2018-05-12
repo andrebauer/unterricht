@@ -1,5 +1,5 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-BS-VM-INFO-3.1
+:ovm-code: IT-BS-VM-INFO-3.2
 :kind: Information
 :short-title: Netzwerke mit Virtualbox
 :experimental:
@@ -21,7 +21,11 @@ a|
 * http://linux-ip.net/html/tools-ip-route.html[IP Route Management]
 
 | *Verwandte Literatur*
-| {empty}
+a|
+
+* IT-BS-VM-LS-3.1
+* IT-BS-VM-INFO-3.1
+* IT-BS-VM-INFO-3.3
 
 | *Lizenz*
 | {cc-by-sa}
@@ -38,7 +42,7 @@ Virtualbox bietet sechs verschiedene Modi an, wie ein Netzwerkadapter
 verbunden werden kann, die im folgenden vorgestellt und beispielhaft
 verwendet werden:
 
-. NAT mit Port-Weiterleitung
+. NAT 
 . Internes Netzwerk
 . NAT-Netzwerk
 . Netzwerkbrücke
@@ -47,10 +51,14 @@ verwendet werden:
 
 == NAT mit Port-Weiterleitung
 
-In den VM-Einstellungen richten Sie unter Netzwerk bei einem Adapter
-mit der Einstellung NAT
+Bei der Einstellung NAT erhält der Adapter des Gasts per NAT
 --{nbsp}https://de.wikipedia.org/wiki/Netzwerkadress%C3%BCbersetzung[NAT]
 steht für Network Address Translation{nbsp}--
+Zugirff auf das Netzwerk, an das der Host angeschlossen ist,
+das Gast kann aber umgekerht nicht erreicht werden.
+
+In den VM-Einstellungen richten Sie unter Netzwerk bei einem Adapter
+mit der Einstellung NAT
 unter {ldquo}Erweitert{rdquo} eine Portweiterleitung ein.
 Zum Beispiel eine Weiterleitung des Host-Ports 8080
 auf den Gast-Port 8000.
@@ -84,8 +92,9 @@ $ ruby -run -e httpd srv -p 8000 <3>
 <3> Startet WEBrick auf Port 8000 mit `srv` als Wurzelverzeichnis
     (Documentroot). 
 
-Die Portweiterleitung kann mit https://curl.haxx.se/download.html[cURL]
-auf dem Host-System getestet werden.
+Die Portweiterleitung kann mit https://curl.haxx.se/[cURL]
+auf dem Host-System getestet werden. Das Programm ist für
+https://curl.haxx.se/download.html[alle gängigen Betriebssysteme verfügbar].
 In dem Buch https://ec.haxx.se/[{ldquo}Everything curl{rdquo}] ist
 eine umfassende Dokumentation des Befehls
 https://ec.haxx.se/cmdline-options.html[`curl`]
@@ -93,6 +102,7 @@ enthalten.
 Unter debian-basierten Systemen kann `curl` mit
 [source, sh]
 ----
+$ sudo apt update
 $ sudo apt install curl
 ----
 installiert werden.
