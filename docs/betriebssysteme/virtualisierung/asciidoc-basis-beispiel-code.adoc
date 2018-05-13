@@ -15,20 +15,21 @@ Sprache angegeben werden. Hier ein Beispiel:
 user@ubuntu-vb:~$ cd srv/
 user@ubuntu-vb:~/srv$ ls
 index.adoc  index.html  index.pdf  inheritance.svg
-user@ubuntu-vb:~/srv$ touch diagramme.adoc
+user@ubuntu-vb:~/srv$ touch diagramme.adoc `<1>` <8>
 user@ubuntu-vb:~/srv$ echo "= Diagramme mit Asciidoctor" >> diagramme.adoc 
 user@ubuntu-vb:~/srv$ cat diagramme.adoc 
-= Diagramme mit Asciidoctor
+= Diagramme mit Asciidoctor 
 ----
+<1> Erzeugt die Datei `diagramme.adoc`. <9>
 
-== Generieren einer HTML5-Datei <8>
+== Generieren einer HTML5-Datei <10>
 
 Ein AsciiDoc-Dokument wird dann mit dem folgenden Befehl in eine
 HTML-Datei umgewandelt.
 
 [source,sh] 
 ---- 
-$ asciidoctor -r asciidoctor-diagram -b html index.adoc
+$ asciidoctor -r asciidoctor-diagram -b html index.adoc  
 ----
 
 == Anzeigen mit Firefox

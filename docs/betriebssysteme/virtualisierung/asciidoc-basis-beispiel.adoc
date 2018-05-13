@@ -17,11 +17,12 @@ Sprache angegeben werden. Hier ein Beispiel:
 user@ubuntu-vb:~$ cd srv/
 user@ubuntu-vb:~/srv$ ls
 index.adoc  index.html  index.pdf  inheritance.svg
-user@ubuntu-vb:~/srv$ touch diagramme.adoc
+user@ubuntu-vb:~/srv$ touch diagramme.adoc   <1>
 user@ubuntu-vb:~/srv$ echo "= Diagramme mit Asciidoctor" >> diagramme.adoc 
 user@ubuntu-vb:~/srv$ cat diagramme.adoc 
 = Diagramme mit Asciidoctor
 ----
+<1> Erzeugt die Datei `diagramme.adoc`.
 
 == Generieren einer HTML5-Datei 
 

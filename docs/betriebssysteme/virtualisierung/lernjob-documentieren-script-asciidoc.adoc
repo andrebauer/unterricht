@@ -166,19 +166,38 @@ $ asciidoctor -r asciidoctor-diagram -b html index.adoc <2>
 -----
 include::docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel-code.adoc[] 
 -----
-<1> Dokumentitel
-<1> Überschriften werden mit zwei oder mehrere `=`-Zeichen eingeleitet.
-<4> In den eckigen Klammern kann nach der Angabe `source`
+<1> Der Dokumententitel wird zu Beginn des Dokuments mit einem `=`-Zeichen angegeben.
+<2> Die Angabe des Autors folgt in der Zeile auf den Dokumententitel.
+<3> Das Datum wird nach dem Autor angegeben.
+<4> Abschnitte werden durch Leerzeilen getrennt.
+<5> Mit Akzentzeichen (backticks) wird der Text in
+    https://de.wikipedia.org/wiki/Nichtproportionale_Schriftart[Festbreitenschrift]
+    gesetzt.
+<6> In den eckigen Klammern kann nach der Angabe `source`
     die verwendete Sprache, wie z.{nbsp}B. `java` oder `sh` für Shell,
     eingetragen werden. Dadurch wir die
     https://de.wikipedia.org/wiki/Syntaxhervorhebung[Syntax farblich hervorgehoben].
-<5> Source-Code wird mit mit vier Strichen eingegrenzt.
+<7> Shell-Befehle bzw. Source-Code-Blöcke werden mit mit vier Minuszeichen
+    (dash) als vorformatierter Text gekennzeichnet bzw. eingerahmt.
+<8> Callout-Nummern werden im Source-Code mit eckigen Klammern am Ende der
+    Zeile eingetragen: `<1>` usw. 
+<9> Callouts werden direkt nach dem Source-Code-Block erläutert. 
+<10> Überschriften werden mit zwei oder mehrere `=`-Zeichen eingeleitet.
 ====
 
 .Beispiel eines mit Asciidoctor generieten HTML5-Dokumentes
 ====
 image::/docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel.svg[]
 ====
+
+****
+*Aufgabe {counter:a}*
+
+Erstellen Sie aus der aufgezeichnete Shell-Session aus Aufgabe 1 ein
+AsciiDoc-Dokument, indem Sie Titelangaben und Erläuterungen hinzufügen
+und die Befehle als Sourcecode-Blöcke kennzeichen.
+Generieren Sie aus der AsciiDoc-Datei eine HTML-Datei mit `asciidoctor`.
+****
 
 === Diagramme mit Asciidoctor erstellen
 
@@ -202,7 +221,7 @@ https://plugins.jetbrains.com/plugin/7017-plantuml-integration[Jet Brains Progra
 -----
 == Assoziation zwischen den Klassen A und B
 
-[plantuml,class-assoziation,svg] <1>
+[plantuml,class-association,svg] <1>
 .... <2>
 class A
 
@@ -214,10 +233,23 @@ A -up-> B
 -----
 <1> In den eckigen Klammern wird das Diagrammwerkzeug, der Dateiname und
     das Zielformat festgelegt. Hier wird die Diagramm-Beschreibung mit PlantUML
-    in eine SVG-Grafik übersetzt und in der Datei `class-assoziation.svg` 
+    in eine SVG-Grafik übersetzt und in der Datei `class-association.svg` 
     gespeichert.     
-<2> Diagramm-Beschreibungen werden mit mit vier Punkten eingegrenzt. 
+<2> Diagramm-Beschreibungen werden als Block mit vier Punkten eingerahmt. 
 ====
+
+.Ausgabe 
+====
+[plantuml,class-association,svg]
+.... 
+class A
+
+class B
+
+A -up-> B 
+....
+====
+
 
 ==== blockdiag, actdiag, nwdiag und seqdiag
 
