@@ -30,6 +30,8 @@ a|
 
 Shell-Sessions können mit `script` aufgezeichnet werden.
 
+.Aufzeichnung einer Shell-Session mit `script`
+====
 [source]
 ----
 $ script session1.log <1>
@@ -56,6 +58,7 @@ Skript wurde beendet, die Datei ist session1.log
     Datei `session1.log`.
 <2> Die SSH-Session wir mit kbd:[Strg+D] oder `exit` beendet.   
 <3> Script wird mit `exit` beendet.    
+====
 
 Das Ergebnis kann mit `cat` angezeigt werden oder mit
 einem Texteditor wie z.{nbsp}B. GNU nano, gedit,
@@ -86,12 +89,19 @@ exit
 Script done on 2018-05-11 08:04:13+02:00
 ----
 
+****
+*Aufgabe {counter:a}*
+
+Starten Sie die Aufzeichnung einer Shell-Session in einer Linux-VM und
+führen Sie die folgenden Arbeitschritte durch.
+****
+
 == Asciidoctor
 
 https://de.wikipedia.org/wiki/AsciiDoc[AsciiDoc] ist eine
 leichtgewichtige Markup-Sprache, wie z.{nbsp}B. auch
 https://de.wikipedia.org/wiki/Markdown[Markdown]. +
-http://asciidoctor.org[Asciidcotor] ist eine Ruby-Anwendung,
+http://asciidoctor.org[Asciidoctor] ist eine Ruby-Anwendung,
 die AsciiDoc-Dokumente in HTML5, PDF oder andere Formate
 umwandelt.
 
@@ -102,7 +112,7 @@ ein Ausgabeformat übersetzt (PDF, HTML5, Docbook usw.).
 
 === Installation von Asciidoctor
 
-Für Asciidcotor wird das Paket `ruby` benötigt:
+Für Asciidoctor wird das Paket `ruby` benötigt:
 
 [source, sh]
 ----
@@ -115,19 +125,19 @@ https://de.wikipedia.org/wiki/RubyGems[RubyGems],
 das Paketsystem für Ruby installiert, dass zur Installation von
 `asciidoctor` verwendet wird.
 
-=== Diagramme mit Asciidcotor erstellen
+=== Diagramme mit Asciidoctor erstellen
 
 [source,sh]
 ----
-$ sudo gem install asciidoctor asciidcotor-diagram <1>
+$ sudo gem install asciidoctor asciidoctor-diagram <1>
 $ sudo apt update
 $ sudo apt install plantuml
 $ mkdir srv
 $ cd srv
 $ nano index.adoc
-$ asciidcotor -r asciidoctor-diagram -b html index.adoc <2>
+$ asciidoctor -r asciidoctor-diagram -b html index.adoc <2>
 ----
-<1> Installation von Asciidoctor und Asciidcotor Diagramm mit RubyGems.
+<1> Installation von Asciidoctor und Asciidoctor Diagramm mit RubyGems.
 <2> Mit `-r asciidoctor-diagram` wir die Erweiterung
     https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
     verwendet.							  

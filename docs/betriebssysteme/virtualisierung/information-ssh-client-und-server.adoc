@@ -3,7 +3,7 @@ include::partials/ovm-header.adoc[]
 :kind: Information
 :short-title: SSH-Client und Server
 include::partials/author.adoc[]
-:revdate: v1.0, 5. Mai 2018
+:revdate: 13. Mai 2018
 
 include::partials/ovm-head-table.adoc[]
 
