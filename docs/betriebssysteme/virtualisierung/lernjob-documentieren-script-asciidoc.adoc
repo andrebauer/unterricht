@@ -1,10 +1,10 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-BS-VM-INFO-3.1
-:kind: Information
+:ovm-code: IT-BS-VM-LJ-3.1
+:kind: Lernjob
 :short-title: Dokumentieren mit Script und Asciidoctor
 :experimental:
 include::partials/author.adoc[]
-:revdate: 11. Mai 2018
+:revdate: 13. Mai 2018
 
 include::partials/ovm-head-table.adoc[]
 
@@ -28,7 +28,8 @@ a|
 
 == Shell-Sessions mit Script documentieren
 
-Shell-Sessions können mit `script` aufgezeichnet werden.
+Shell-Sessions können unter Linux mit
+dem Programm `script` aufgezeichnet werden.
 
 .Aufzeichnung einer Shell-Session mit `script`
 ====
@@ -56,15 +57,17 @@ Skript wurde beendet, die Datei ist session1.log
 ----
 <1> Startet `script` und speichert die Aufzeichnung in der
     Datei `session1.log`.
-<2> Die SSH-Session wir mit kbd:[Strg+D] oder `exit` beendet.   
-<3> Script wird mit `exit` beendet.    
+<2> Die SSH-Session wird mit kbd:[Strg+D] oder `exit` beendet.   
+<3> `script` wird mit `exit` beendet.    
 ====
 
 Das Ergebnis kann mit `cat` angezeigt werden oder mit
 einem Texteditor wie z.{nbsp}B. GNU nano, gedit,
-emacs, vim, atom usw. bearbeitet, kommentiert und z.{nbsp}B. Teil eines
-AsciiDoc-Dokuments werden (s.{nbsp}u.). 
+emacs, vim, atom oder anderen bearbeitet, kommentiert
+und z.{nbsp}B. Teil eines AsciiDoc-Dokuments werden (s.{nbsp}u.). 
 
+.Ausgabe der mit Script gespeicherten Shell-Session
+====
 [souce, sh]
 ----
 $ cat session1.log 
@@ -88,12 +91,24 @@ exit
 
 Script done on 2018-05-11 08:04:13+02:00
 ----
+====
 
 ****
 *Aufgabe {counter:a}*
 
 Starten Sie die Aufzeichnung einer Shell-Session in einer Linux-VM und
-führen Sie die folgenden Arbeitschritte durch.
+führen Sie die folgenden Arbeitschritte durch:
+
+. Erstellen Sie den Ordner `script-docs` mit `mkdir`.
+. Legen Sie in diesem Ordner die Dateien `hello.adoc` und `ad.adoc`
+  mit `touch` an.
+. Fügen Sie `"Hallo Script"` der Datei `hello.adoc` mit
+  `echo "Hallo Script" >> script-docs/hello.adoc` an.
+. Fügen Sie der Datei `ad.adoc` die Zeile `"Asciidoctor"` an.
+. Lassen Sie mit `ls -l` den Inhalt des Ordners `script-docs` ausgeben
+  und beenden Sie Script.
+
+Überprüfen Sie anschließend mit `cat`, ob die Aufzeichnung erfolgreich war.
 ****
 
 == Asciidoctor
@@ -102,15 +117,16 @@ https://de.wikipedia.org/wiki/AsciiDoc[AsciiDoc] ist eine
 leichtgewichtige Markup-Sprache, wie z.{nbsp}B. auch
 https://de.wikipedia.org/wiki/Markdown[Markdown]. +
 http://asciidoctor.org[Asciidoctor] ist eine Ruby-Anwendung,
-die AsciiDoc-Dokumente in HTML5, PDF oder andere Formate
+die AsciiDoc-Dokumente in HTML5, PDF und andere Formate
 umwandelt.
 
 Ein AsciiDoc-Dokument wird mit einem Texteditor wie GNU nano, gedit,
-emacs, vim, atom usw. verfasst -- Textverarbeitungsprogramme wie Word oder
-Writer sind nicht geeignet. Anschließend werden die AsciiDoc-Dateien in
-ein Ausgabeformat übersetzt (PDF, HTML5, Docbook usw.).
+emacs, vim, atom oder anderen verfasst bzw. bearbeitet
+-- Textverarbeitungsprogramme wie Word oder Writer sind nicht geeignet.
+Anschließend werden die AsciiDoc-Dateien in
+ein Ausgabeformat übersetzt wie PDF, HTML5, Docbook oder andere.
 
-=== Installation von Asciidoctor
+=== Installation 
 
 Für Asciidoctor wird das Paket `ruby` benötigt:
 
@@ -125,7 +141,6 @@ https://de.wikipedia.org/wiki/RubyGems[RubyGems],
 das Paketsystem für Ruby installiert, dass zur Installation von
 `asciidoctor` verwendet wird.
 
-=== Diagramme mit Asciidoctor erstellen
 
 [source,sh]
 ----
@@ -137,45 +152,37 @@ $ cd srv
 $ nano index.adoc
 $ asciidoctor -r asciidoctor-diagram -b html index.adoc <2>
 ----
-<1> Installation von Asciidoctor und Asciidoctor Diagramm mit RubyGems.
+<1> Installation von Asciidoctor und Asciidoctor Diagram mit RubyGems.
 <2> Mit `-r asciidoctor-diagram` wir die Erweiterung
     https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
     verwendet.							  
 
+=== Erste Schritte
+
 .Beispiel für ein AsciiDoc-Dokument
+====
+
 [source,asciidoc]
 -----
-= Diagramme mit Asciidoctor <1>
-
-[plantuml,class-assoziation,svg] <2>
-.... <3>
-class A
-
-class B
-
-A -up-> B 
-....
-
-Generate this documents with the following command:
-
-[source,sh] <4>
-----  <5>
-$ asciidoctor -r asciidoctor-diagram -b html index.adoc
-----
+include::docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel-code.adoc[] 
 -----
-<1> Überschriften werden mit einem oder mehrere `=`-Zeichen eingeleitet.
-<2> In den eckigen Klammern wird das Diagrammwerkzeug, der Dateiname und
-    das Zielformat festgelegt. Hier wird die Diagramm-Beschreibung mit PlantUML
-    in eine SVG-Grafik übersetzt und in der Datei `class-assoziation.svg` 
-    gespeichert.     
-<3> Diagramm-Beschreibungen werden mit mit vier Punkten eingegrenzt. 
+<1> Dokumentitel
+<1> Überschriften werden mit zwei oder mehrere `=`-Zeichen eingeleitet.
 <4> In den eckigen Klammern kann nach der Angabe `source`
     die verwendete Sprache, wie z.{nbsp}B. `java` oder `sh` für Shell,
     eingetragen werden. Dadurch wir die
     https://de.wikipedia.org/wiki/Syntaxhervorhebung[Syntax farblich hervorgehoben].
 <5> Source-Code wird mit mit vier Strichen eingegrenzt.
+====
 
-=== Diagramme mit plantuml
+.Beispiel eines mit Asciidoctor generieten HTML5-Dokumentes
+====
+image::/docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel.svg[]
+====
+
+=== Diagramme mit Asciidoctor erstellen
+
+==== PlantUML
 
 http://plantuml.com/[PlantUML] ist eine Werkzeug, um (UML-)Diagramme zu
 erstellen. Über die Erweiterung `asciidoctor-diagram` kann man
@@ -189,7 +196,30 @@ Für PlantUML gibt es u.{nbsp}B. Plug-Ins für
 http://plantuml.com/eclipse[Eclispe] und
 https://plugins.jetbrains.com/plugin/7017-plantuml-integration[Jet Brains Programme wie IntelliJ IDEA].
 
-=== Diagramme mit blockdiag, actdiag, nwdiag und seqdiag
+.Beispiel für die Verwendung von PlantUML in einem AsciiDoc-Dokument
+====
+[source,asciidoc]
+-----
+== Assoziation zwischen den Klassen A und B
+
+[plantuml,class-assoziation,svg] <1>
+.... <2>
+class A
+
+class B
+
+A -up-> B 
+....
+
+-----
+<1> In den eckigen Klammern wird das Diagrammwerkzeug, der Dateiname und
+    das Zielformat festgelegt. Hier wird die Diagramm-Beschreibung mit PlantUML
+    in eine SVG-Grafik übersetzt und in der Datei `class-assoziation.svg` 
+    gespeichert.     
+<2> Diagramm-Beschreibungen werden mit mit vier Punkten eingegrenzt. 
+====
+
+==== blockdiag, actdiag, nwdiag und seqdiag
 
 Die Programme
 http://blockdiag.com/en/[blockdiag, seqdiag, actdiag und nwdiag]
@@ -209,10 +239,24 @@ PDF-Dokumente werden aus Asciidoc-Dokumenten durch Angabge der Erweiterung
 mit `-r asciidoctor-pdf` und des Ausgabeformats mit `-b pdf`
 generiert.
 
+==== Installation
+
 [source, sh]
 ----
-asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b pdf -a allow-uri-read index.adoc
+$ sudo gem install asciidoctor-pdf --pre
+----
+
+==== Anwendung
+
+[source, sh]
+----
+$ asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -b pdf -a allow-uri-read index.adoc
 ----
 
 Für PDF-Dokumente gibt es unter Linux verschiedenen Viewer wie `evince`
 oder `atril`, die die Dokumente nach Änderungen automatisch neu laden.
+
+[source, sh]
+----
+$ evince index.pdf
+----

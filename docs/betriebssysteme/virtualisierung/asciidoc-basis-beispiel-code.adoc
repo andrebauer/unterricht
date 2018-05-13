@@ -1,0 +1,36 @@
+= Shell-Sessions mit Asciidoctor dokumentieren <1>
+André Bauer <2>
+13. Mai 2018 <3>
+
+Shell-Sessions, die mit Script aufgezeichnet wurden, 
+werden mit vier Strichen (Minuszeichen bzw. "dash")
+als Sourcecode-Block mit vorformatierten Text
+eingerahmt.
+<4>
+Zusätzlich kann mit der Angabe `[source, sh]` die <5>
+Sprache angegeben werden. Hier ein Beispiel:
+
+[source,sh] <6>
+---- // <7>
+user@ubuntu-vb:~$ cd srv/
+user@ubuntu-vb:~/srv$ ls
+index.adoc  index.html  index.pdf  inheritance.svg
+user@ubuntu-vb:~/srv$ touch diagramme.adoc
+user@ubuntu-vb:~/srv$ echo "= Diagramme mit Asciidoctor" >> diagramme.adoc 
+user@ubuntu-vb:~/srv$ cat diagramme.adoc 
+= Diagramme mit Asciidoctor
+----
+
+== Generieren einer HTML5-Datei <8>
+
+Ein AsciiDoc-Dokument wird dann mit dem folgenden Befehl in eine
+HTML-Datei umgewandelt.
+
+[source,sh] 
+---- 
+$ asciidoctor -r asciidoctor-diagram -b html index.adoc
+----
+
+== Anzeigen mit Firefox
+
+Mit `firefox index.html` wird diese im Browser angezeigt.
