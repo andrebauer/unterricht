@@ -1,0 +1,132 @@
+include::partials/ovm-header.adoc[]
+:ovm-code: IT-BS-VM-LJ-3.1
+:kind: Lernsituation
+:short-title: Netzwerke mit Virtualbox
+:experimental:
+include::partials/author.adoc[]
+:revdate: 10. Mai 2018
+:!sectnums:
+
+include::partials/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+* https://www.thomas-krenn.com/de/wiki/Netzwerkkonfiguration_in_VirtualBox[Netzwerkkonfiguration in VirtualBox]
+* https://www.virtualbox.org/manual/[Oracle VM VirtualBox User Manual]
+* https://www.virtualbox.org/manual/ch06.html[Oracle VM VirtualBox User Manual -- Chapter 6. Virtual Networking]
+* https://nocksoft.de/tutorials/virtualbox-netzwerkkonfiguration/[VirtualBox: Netzwerkkonfiguration]
+* https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[ip command cheat sheet]
+* https://ec.haxx.se/cmdline-options.html[Buch: Everything curl]
+* https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/[Deprecated Linux networking commands and their replacements]
+* http://linux-ip.net/html/tools-ip-route.html[IP Route Management]
+
+| *Verwandte Literatur*
+a|
+
+* IT-BS-VM-INFO-3.1
+* IT-BS-VM-INFO-3.2
+* IT-BS-VM-INFO-3.3
+
+| *Lizenz*
+| {cc-by-sa}
+|=== 
+
+= {short-title}
+
+{empty}
+
+NOTE: Lesen Sie zuerst die Information, wie Sie die Aufgaben dokumentieren
+      sollen unter IT-BS-VM-INFO-3.1.
+
+== Basis-Aufgabe
+
+Die Bearbeitung der Basis-Aufgabe ist verpflichtend.
+
+. Vernetzen Sie unter Virtualbox Linux-VMs mit den Netzwerk-Modi:
++
+--
+.. NAT mit Port-Weiterleitung,
+.. Internes Netzwerk,
+.. NAT-Netzwerk,
+.. Netzwerkbrücke und
+.. Host-only Adapter
+--
++
+Wählen Sie individuelle Hostnamen, IP-Adressen und Ports, die von den Beispielen und
+anderen Quellen abweichen und dokumentieren Sie ihr Vorgehen mit Script
+und Asciidoctor (siehe Information IT-BS-VM-INFO-3.1).
++
+Testen Sie dazu die Netzwerke mit den Werkzeugen `ping`, `ssh`, `scp`
+und der Kombination aus einem
+WEBrick-HTTP-Server (mit Ruby) und `curl`.
++
+--
+IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
+	   verschiedenen Netzwerk-Modi und den Einsatz der Test-Werkzeuge
+	   vorführen können.
+--
+
+== Vertiefende Aufgaben
+
+Bearbeiten Sie eine oder mehrere vertiefende Aufgaben. Die Reihenfolge können
+Sie selbst wählen.
+
+[start=2]
+. Erstellen Sie mehrere VMs und vergeben Sie die
+  http://seriss.com/people/erco/unixtools/hostnames.html[Hostnamen nach einem Schema].
+  Bearbeiten Sie auf den VMs
+  die Datei https://wiki.archlinux.de/title/Hosts[`/etc/hosts`] so,
+  dass Sie für die Netzwerkkommunikation wie in Aufgabe 1 nun
+  die Namen statt der IP-Adressen verwenden können.
++
+Auch unter Windows und Mac OS X kann die
+https://en.wikipedia.org/wiki/Hosts_(file)[Hosts-Datei]
+bearbeitet werden:
++
+--
+* https://www.imore.com/how-edit-your-macs-hosts-file-and-why-you-would-want[How to edit your Mac's Hosts file and why you would want to]
+* https://www.lifewire.com/how-to-edit-the-hosts-file-153661[How to Edit the HOSTS File in Windows]
+--
+
+. Erstellen Sie eine Linux-VM mit zwei Adaptern, die beide einen Zugang zum
+  Internet haben
+  (z.{nbsp}B. NAT, NAT-Netzwerk, Netzwerkbrücke).
+  Mit `ip route` können Sie feststellen, dass zwei Default-Routen in der
+  Routingtabelle eingetragen sind.
+  Verfolgen Sie die Route zum Google Public DNS (IP-Adresse `8.8.8.8`)
+  per `traceroute 8.8.8.8`, verändern Sie anschließend die Einträge
+  der Default-Routen (Löschen, Hinzufügen, Ändern der Reihenfolge)
+  mit `ip route del` bzw. `ip route add` und überprüfen Sie die Routen
+  wieder mit `traceroute`. Als Hilfe zu `ip route` verwenden Sie das
+  https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[ip command cheat sheet].
+  
+. Richten Sie eine VM mit Windows 10 ein. Verfahren 
+  Sie mit dieser Windows-VM und einer Linux-WM wie in Aufgabe 1.
++
+--
+NOTE: Das benötigte ISO-Image steht im Intranet über das Netzlaufwerk
+      `\\ovm-nas\bfi_19` bereit.
+      Diese dürfen Sie nur vorübergehend für Schulungszwecke verwenden.
+      Verwenden Sie aufgrund des großen Datenvolumens
+      LAN statt WLAN zum Download des Images.      
+--
+
+. Erstellen Sie auf einer Linux-VM ein Schlüsselpaar für SSH und richten Sie
+  den `ssh-agent` ein, sodass Sie sich
+  auf anderen Linux-VMs mit der Secure Shell ohne Passwort-Eingabe
+  einloggen können. Anleitungen finden sie auf den folgenden
+  Seiten:
++
+--
+* https://www.ssh.com/ssh/keygen/[ssh-keygen - Generate a New SSH Key]
+* https://www.ssh.com/ssh/agent[ssh-agent - Single Sign-On using SSH]
+* http://rabexc.org/posts/using-ssh-agent[Using an ssh-agent, or how to type your ssh password once, safely.]
+--
+
+
+
+. Verfahren Sie wie in Aufgabe 1, aber verwenden Sie IPv6 statt IPv4.
+  Umfassende Informationen finden Sie im
+  http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/index.html[Linux IPv6 HOWTO].
+
