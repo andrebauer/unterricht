@@ -9,7 +9,8 @@
 | {ovm-code}
 
 | *Autor*
-| {author}
+| {author} +
+  {email}
 
 | *Datum*
 | {revdate}
