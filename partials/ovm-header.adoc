@@ -21,6 +21,7 @@ ifdef::backend-pdf[]
 :graphviz-format: png
 :doctype: article
 :notitle:
+:toclevels: 4
 endif::[]
 ifdef::backend-revealjs[]
 :backend: revealjs
