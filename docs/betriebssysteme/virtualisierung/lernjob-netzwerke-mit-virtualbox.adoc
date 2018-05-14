@@ -1,10 +1,11 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-BS-VM-INFO-3.2
-:kind: Information
+:ovm-code: IT-BS-VM-LJ-3.2
+:kind: Lernjob
 :short-title: Netzwerke mit Virtualbox
 :experimental:
 include::partials/author.adoc[]
 :revdate: 10. Mai 2018
+:sectnumlevels: 1
 
 include::partials/ovm-head-table.adoc[]
 
@@ -39,8 +40,8 @@ Wie können virtuelle Netzwerke zwischen Virtuellen Maschinen
 (VMs) aufgebaut und mithilfe von Shell-Befehlen getestet werden?
 
 Virtualbox bietet sechs verschiedene Modi an, wie ein Netzwerkadapter
-verbunden werden kann, die im folgenden vorgestellt und beispielhaft
-verwendet werden:
+verbunden werden kann, die bis auf den sechsten
+im Folgenden vorgestellt und beispielhaft verwendet werden:
 
 . NAT 
 . Internes Netzwerk
@@ -49,15 +50,19 @@ verwendet werden:
 . Host-only Adapter
 . Nicht angeschlossen
 
+IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
+	   Konfiguration der verschiedenen Netzwerk-Modi und den Einsatz
+	   der Test-Werkzeuge vorführen können.
+
 == NAT mit Port-Weiterleitung
 
 Bei der Einstellung NAT erhält der Adapter des Gasts per NAT
---{nbsp}https://de.wikipedia.org/wiki/Netzwerkadress%C3%BCbersetzung[NAT]
-steht für Network Address Translation{nbsp}--
-Zugirff auf das Netzwerk, an das der Host angeschlossen ist,
-das Gast kann aber umgekerht nicht erreicht werden.
+(https://de.wikipedia.org/wiki/Netzwerkadress%C3%BCbersetzung[NAT]
+steht für Network Address Translation)
+Zugriff auf das Netzwerk, an das der Host angeschlossen ist,
+der Gast kann aber umgekehrt von außen nicht erreicht werden.
 
-In den VM-Einstellungen richten Sie unter Netzwerk bei einem Adapter
+In den VM-Einstellungen richtet man unter Netzwerk bei einem Adapter
 mit der Einstellung NAT
 unter {ldquo}Erweitert{rdquo} eine Portweiterleitung ein.
 Zum Beispiel eine Weiterleitung des Host-Ports 8080
@@ -79,6 +84,7 @@ $ sudo apt install ruby
 Nun kann ein Verzeichnis `srv` mit einer Datei `index.html` angelegt
 werden und mit `ruby` ein Webserver gestartet werden.
 
+[[start-webserver]]
 .Auf dem Gastsystem:
 [source, sh]
 ----
@@ -92,7 +98,7 @@ $ ruby -run -e httpd srv -p 8000 <3>
 <3> Startet WEBrick auf Port 8000 mit `srv` als Wurzelverzeichnis
     (Documentroot). 
 
-Die Portweiterleitung kann mit https://curl.haxx.se/[cURL]
+Die Portweiterleitung kann mit https://curl.haxx.se/[curl]
 auf dem Host-System getestet werden. Das Programm ist für
 https://curl.haxx.se/download.html[alle gängigen Betriebssysteme verfügbar].
 In dem Buch https://ec.haxx.se/[{ldquo}Everything curl{rdquo}] ist
@@ -117,13 +123,59 @@ Hello from saturn.
 Eine zweite Möglichkeit ist, die Adresse http://localhost:8080[]
 in einem Browser auf dem Hostsystem aufzurufen.
 
+Die Portweiterleitung ist aber nicht nur lokal über die
+Loopback-Schnittstelle gültig, sondern
+auch über die Netzwerkschnittstelle des Hosts, die mit dem
+pysischen Netzwerkadapter verknüpft ist.
+Diese kann mit `ipconfig` (Windows), `ifconfig` (Max OS X) oder
+`ip -4 addr` (Linux) ermittelt werden.
+
+.Auf dem Hostsystem:
+[source, sh]
+----
+$ ip -4 addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: enp0s25: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    inet 192.168.178.21/24 brd 192.168.178.255 scope global enp0s25
+       valid_lft forever preferred_lft forever
+       
+$ curl 192.168.178.21:8080
+Hello from saturn.
+----
+
+.Auf einer zweiten Linux-VM:
+[source, sh]
+----
+$ curl 192.168.178.21:8080
+Hello from saturn.
+----
+
+=== Aufgabe {counter:a} [[aufgabe-nat]]
+
+****
+IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung.
+	   
+
+[loweralpha]
+. Richten Sie bei einer Linux-VM NAT mit einer Port-Weiterleitung ein
+  und erstellen Sie wie in <<start-webserver>> eine Datei, die sie mit
+  WeBrick zugänglich machen. Wählen Sie Port-Nummern, die von den
+  Beispiel und anderen Quellen abweichen.
+. Testen Sie mit curl die Port-Weiterleitung von Ihrem Hostsystem und
+  einer zweiten Linux-VM.
+****
+
 == Internes Netzwerk
 
 Ein internes Netzwerk ist ein virtuelles Netzwerk, an dem ausschließlich
 Virtuelle Maschinen angebunden werden können. Im VirtualBox Manager
 wird dazu zwei oder mehreren _ausgeschalteten_ VMs ein zusätzlicher
 Netzwerk-Adapter mit demselben internen Netzwerknamen hinzugefügt.
-Im Gegensatz zu dem Standardoption `NAT` erhalten die Schnittstellen
+Im Gegensatz zu der Standardoption `NAT` erhalten die Schnittstellen
 zunächst keine IP-Adressen, so dass diese entweder manuell vergeben werden
 müssen (siehe unten) oder ein
 https://de.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[DHCP-Server]
@@ -133,14 +185,14 @@ um z.{nbsp}B. die Einrichtung eines DHCP-Servers oder eines
 Domänencontrollers
 in einem virtuellen Netzwerk auszuprobieren und zu testen.
 
-Im folgenden benötigen Sie zwei Linux-VMs, Sie können dazu
+Im folgenden werden zwei Linux-VMs benötigt, dazu kann 
 z.{nbsp}B. eine bestehende,
-ausgeschaltete VM im Virtualbox Manager klonen.
+ausgeschaltete VM im Virtualbox Manager geklont werden.
 
 Die Systeme haben nun eine zusätzliche Netzwerkschnittstelle,
 der noch keine IPv4-Adresse zugeordnet wurde.
 Um Informationen über Netzwerkschnittstellen zu erhalten und diese
-zu konfigurieren, gibt unter unix-artigen Systeme u.{nbsp}a. den Befehl
+zu konfigurieren, gibt es unter unix-artigen Systeme u.{nbsp}a. den Befehl
 https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[`ip`].
 Unter Windows gibt es den Befehl
 https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490921(v=technet.10)[`ipconfig`], der eine 
@@ -148,6 +200,7 @@ https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb4
 Im Beispiel hat die neue Schnittstelle den Namen `enp0s8`.
 
 .Auf Gast 1
+====
 [source]
 ----
 $ ip addr
@@ -170,15 +223,18 @@ $ ip addr
     `127.0.0.1/8` sowie die IPv6-Adresse `::1/128`.
 <2> Der Schnittstelle `enp0s3` ist die IP-Adresse `10.0.2.15` zugeordnet.
 <3> Der Schnittstelle `enp0s8` ist bislang keine IP-Adresse zugeordnet.
+====
 
-Nun wird auf beiden Gästen den Schnittstellen, die am internen
+Nun wird beiden Gästen den Schnittstellen, die am internen
 Netzwerk angeschlossen sind, jeweils mit `ip` eine
 IP-Adresse zugeordnet. Das verwendete Netzwerk darf noch nicht
 vergeben sein. Da die Schnittstelle `enp0s3` per NAT bereits mit dem
-Netzwerk `10.0.2.0/24` verbunden ist, wird mit der IP `10.0.3.10/24` eine
-Netzwerk gewählt, dass noch frei ist.
+Netzwerk `10.0.2.0/24` verbunden ist, wird mit der IP-Adresse `10.0.3.10/24`
+ein Netzwerk gewählt, dass noch frei ist.
+
 
 .Auf Gast 1
+====
 [source,sh]
 ----
 $ sudo ip addr add 10.0.3.10/24 dev enp0s8 valid_lft forever <1>
@@ -213,11 +269,15 @@ default via 10.0.2.2 dev enp0s3  proto static  metric 100
     des Systems aus.
 <5> Diese Zeile legt fest, dass alle Ziele aus dem Subnetz `10.0.3.0/24`  
     über die Schnittstelle `enp0s8` weitergeleitet werden.
+====
 
-Die zweite VM erhält die IP `10.0.3.11`. Mit dem Befehl `ping` kann schließlich
-überprüft werden, ob die erste VM unter der IP `10.0.3.10` erreichbar ist.
+Die zweite VM erhält die IP-Adresse `10.0.3.11/24`.
+Mit dem Befehl `ping` kann schließlich
+überprüft werden, ob die erste VM unter der IP-Adresse `10.0.3.10/24`
+erreichbar ist.
 
 .Auf Gast 2
+====
 [source,sh]
 ----
 $ sudo ip addr add 10.0.3.11/24 dev enp0s8 valid_lft forever <1>
@@ -238,7 +298,25 @@ rtt min/avg/max/mdev = 0.584/0.708/0.972/0.157 ms
     wird auf der Ebene des TCP-Protokolls, dem
     https://de.wikipedia.org/wiki/Internet_Control_Message_Protocol[Internet Control Message Protocol (ICMP)],
     geprüft, ob das System mit der angegebenen IP-Adresse erreichbar ist.
-<3> Mit der Tastenkombination kbd:[Strg+C] wird `ping` abgebrochen.	 
+<3> Mit der Tastenkombination kbd:[Strg+C] wird `ping` abgebrochen.
+====
+
+=== Aufgabe {counter:a} [[aufgabe-internes-netzwerk]]
+
+****
+IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung. 
+	   
+
+[loweralpha]
+. Erstellen Sie ein internes Netzwerk mit zwei Linux-VMs.
+  Wählen Sie dazu IP-Adressen, die von den
+  Beispielen und anderen Quellen abweichen.
+. Testen Sie mit ping und der Kombination aus curl und WeBrick
+  wie in <<aufgabe-nat,Aufgabe 1>> die Netzwerk-Verbindung zwischen
+  den Linux-VMs.
+****
 
 == NAT-Netzwerk
 
@@ -254,6 +332,7 @@ Netzwerkes erreichen, die über die Netzwerkadapter des Hosts-Systems erreichbar
 sind. Die Gäste sind aber umgekehrt von außen nicht erreichbar.
 
 .Auf Gast 1
+====
 [source,sh]
 ----
 $ ip -4 addr <1>
@@ -270,8 +349,10 @@ $ ip -4 addr <1>
 <1> Mit der Option `-4` zeigt `ip addr` nur IPv4-Adressen an.
 <2> Die am NAT-Netzwerk angeschlossene Schnittstelle `enp0s8` hat per
     DHCP die IP-Adresse `10.0.5.4/24` erhalten.
+====
 
 .Auf Gast 2
+====
 [source,sh]
 ----
 $ ip -4 addr
@@ -299,6 +380,25 @@ rtt min/avg/max/mdev = 0.272/0.413/0.647/0.167 ms
     erhalten und befindet sich im Gleich Subnetz wie `enp0s8` von Gast 1.
 <2> Gast 1 erhält ICMP-Anfragen mit `ping`.
 <3> Antworten von Gast 1 auf ICMP-Anfragen werden fotlaufend ausgegeben.
+====
+
+=== Aufgabe {counter:a} [[aufgabe-nat-netzwerk]]
+
+****
+IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung. 
+	   
+
+[loweralpha]
+. Erstellen Sie ein NAT-Netzwerk mit zwei Linux-VMs.
+  Wählen Sie dazu IP-Adressen, die von den
+  Beispielen und anderen Quellen abweichen.
+. Testen Sie mit ping und der Kombination aus curl und WeBrick
+  wie in den <<aufgabe-nat,Aufgaben 1>> und <<aufgabe-internes-netzwerk,2>>
+  die Netzwerk-Verbindungen zwischen den beiden Linux-VMs sowie
+  dem Hostsystem und einer Linux-VM.
+****
 
 == Netzwerkbrücke
 
@@ -310,6 +410,21 @@ abweicht.
 Aufgrund der direkten Anbindung an das Host-Netzwerk ist die
 Netzwerkbrücke für einige Experimente, insbesondere mit mit DHCP,
 _nicht_ geeignet.
+
+=== Aufgabe {counter:a} [[aufgabe-bridge]]
+
+****
+IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung. 
+	   
+
+[loweralpha]
+. Erstellen Sie eine Netzwerkbrücke mit einer Linux-VM.
+. Testen Sie mit ping und der Kombination aus curl und WeBrick
+  wie in den vorherigen Aufgaben
+  die Netzwerk-Verbindung zwischen dem Hostsystem und der Linux-VM.
+****
 
 == Host-only Adapter
 
@@ -326,5 +441,22 @@ Die angeschlossenen Gäste und das Host-System haben nun ein gemeinsames
 internes Netzwerk, das mit anderen Netzen nicht verbunden ist.
 Dieser Modus eignet sich wie auch das interne Netzwerk oder das
 NAT-Netzwerk sehr gut für Experimente. Das Host-only-Netzwerk ermöglicht es,
-dass man das auch Host-System ohne Port-Weiterleitung
+dass man auch das Host-System ohne Port-Weiterleitung
 zum Testen und zur Diagnose einsetzen kann.
+
+=== Aufgabe {counter:a} [[aufgabe-host-only]]
+
+****
+IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung. 
+	   
+[loweralpha]
+. Erstellen Sie ein Host-only Adapter mit zwei Linux-VM.
+  Wählen Sie dazu IP-Adressen, die von den  
+  Beispielen und anderen Quellen abweichen.
+. Testen Sie mit ping und der Kombination aus curl und WeBrick
+  wie in <<aufgabe-nat-netzwerk,Aufgabe 3>>
+  die Netzwerk-Verbindung zwischen den beiden Linux-VMs sowie
+  dem Hostsystem und einer Linux-VM.
+****

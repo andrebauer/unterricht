@@ -1,6 +1,7 @@
 = Shell-Sessions mit Asciidoctor dokumentieren
 André Bauer
 13. Mai 2018
+:nofooter:
 
 {empty}
 

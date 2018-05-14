@@ -1,9 +1,10 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-BS-VM-INFO-3.3
-:kind: Information
+:ovm-code: IT-BS-VM-LJ-3.3
+:kind: Lernjob
 :short-title: SSH-Client und Server
 include::partials/author.adoc[]
 :revdate: 13. Mai 2018
+:sectnumlevels: 1
 
 include::partials/ovm-head-table.adoc[]
 
@@ -54,7 +55,7 @@ verwendet werden. Die Namen der Pakete können ggf. abweichen.
 Um einen SSH-Server unter Ubuntu einzurichten, genügt es, diesen mit `apt`
 zu installieren:
 
-.Auf dem Gastsystem: 
+.Auf dem Gastsystem
 [source, sh]
 ----
 $ sudo apt update
@@ -65,7 +66,7 @@ $ sudo apt install openssh-server <1>
 Ob bereits ein SSH-Server-Prozess auf einem System läuft, kann mit `ps`
 überprüft werden:
 
-.Auf dem Gastsystem:
+.Auf dem Gastsystem
 [source, sh]
 ----
 $ ps xa | grep /usr/sbin/sshd
@@ -79,8 +80,9 @@ Da bei den meisten Linux-Distributionen bereits ein SSH-Client vorinstalliert
 ist, kann der SSH-Server über das
 https://de.wikipedia.org/wiki/Loopback[Loopback-Netzwerk] getestet werden:
 
-[[ssh-mit-linuxgast]]
-.Auf dem Gastsystem:
+[[ssh-loopback]]
+.Auf dem Gastsystem
+====
 [source]
 ----
 $ ssh user@127.0.0.1 <1>
@@ -101,15 +103,19 @@ Last login: Sat May  5 10:05:16 2018 from 127.0.0.1
     fortgesetzt. Bei einer bereits genutzten Verbindung kann ein geänderter
     ECDSA-Key-Fingerprint auf einen
     https://de.wikipedia.org/wiki/Man-in-the-Middle-Angriff[Man-in-the-Middle-Angriff] hindeuten.
+====
 
 Anstatt sich über die Loopback-Schnittstelle auf demselben System
 per `ssh` anzumelden, ist es natürlich auch möglich, sich remote über ein
 Netzwerk auf einem anderen System anzumelden.
 
-Für das folgenden Beispiel müssen zwei VMs miteinander
+Für das folgende Beispiel müssen zwei VMs miteinander
 vernetzt (siehe Information IT-BS-VM-INFO-3.2) und auf dem
 Systen mit der IP-Adresse `10.0.3.10/24` ein SSH-Server eingerichtet sein.
 
+[[ssh-linux-vms]]
+.SSH-Verbindung zwischen Linux-VMs
+====
 [source]
 ----
 $ ssh user@10.0.3.10 
@@ -121,6 +127,25 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.13.0-39-generic x86_64)
 Last login: Thu May 10 22:55:06 2018 from 10.0.3.11
 user@Linux-VirtualBox:~$
 ----
+====
+
+=== Aufgabe {counter:a} [[aufgabe-ssh-gast]]
+****
+IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung. 
+	   
+
+[loweralpha]
+. Richten Sie zwei Linux-VMs in einem NAT-Netzwerk ein und installieren und
+  starten Sie in einer VM einen SSH-Server.
+  Wählen Sie dazu IP-Adressen, die von den  
+  Beispielen und anderen Quellen abweichen.
+. Testen Sie wie in <<ssh-loopback>> den SSH-Server über die
+  Loopback-Schnittstelle.
+. Testen Sie wie in <<ssh-linux-vms>> den SSH-Server von der zweiten VM.
+
+****
 
 == Einen SSH-Server von einem Hostsystem verwenden
 
@@ -138,7 +163,9 @@ der Option mit `-p 8022` eine Portnummer, die für die Verbindung mit dem
 SSH-Server verwendet werden soll, übergeben. Ohne eine solche Angabe wird
 der SSH-Standard-Port 22 verwendet.
 
+[[ssh-port-forwarding]]
 .Auf dem Hostsystem
+====
 [source]
 ----
 $ ssh user@localhost -p 8022 <1>
@@ -153,6 +180,7 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.13.0-36-generic x86_64)
 <2> Falls vom Hostsystem noch keine SSH-Verbindung zu dem Linux-Gastsystem
     aufgebaut worden ist, muss auch hier der ECDSA-Key-Fingerprint bestätigt
     werden.
+====
 
 === Windows-Hostsysteme
 
@@ -162,6 +190,31 @@ PSCP, PSFTP usw. verwendet werden.
 Eine https://www.ssh.com/ssh/putty/windows/[Anleitung für PuTTY unter Windows]
 zeigt die notwendigen Schritte.
 
+=== Aufgabe {counter:a} [[aufgabe-ssh-host]]
+****
+IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung. 
+	   
+
+[loweralpha]
+. Richten Sie eine Linux-VM mit SSH-Server, NAT
+  und einer Port-Weiterleitung ein
+  Wählen Sie dazu eine Port-Nummer, die von dem
+  Beispiel und anderen Quellen abweicht.
+  Testen Sie wie in <<ssh-port-forwarding>> den SSH-Server über die
+  Port-Weiterleitung.
+. Richten Sie eine Linux-VM mit SSH-Server und einem Host-only Adapter
+  ein. Wählen Sie dazu IP-Adressen, die von den  
+  Beispielen und anderen Quellen abweichen.
+  Testen Sie wie in <<aufgabe-ssh-gast, Aufgabe 1>> den SSH-Server
+  vom Host-System sowie von einer zweiten Linux-VM.
+. Richten Sie eine Linux-VM mit SSH-Server und einer Netzwerkbrücke
+  ein.
+  Testen Sie wie zuvor den SSH-Server
+  vom Host-System sowie von einer zweiten Linux-VM.
+****
+
 == Secure Copy (`scp`)
 
 Mit Secure Copy (`scp`) können Dateien über ein Netzwerk verschlüsselt
@@ -169,6 +222,8 @@ kopiert werden. Für das folgenden Beispiel müssen zwei VMs miteinander
 vernetzt (siehe Information IT-BS-VM-INFO-3.2) und auf dem
 Systen mit der IP `10.0.3.10` ein SSH-Server eingerichtet sein.
 
+.Von einer zweiten Linux-VM
+====
 [source]
 ----
 $ scp srv/index.adoc user@10.0.3.10:srv/ <1>
@@ -177,3 +232,20 @@ index.adoc                                    100%   95     0.1KB/s   00:00
 ----
 <1> Kopiert die Datei `srv/index.html` in den Ordner `~/srv` auf dem
     System mit der IP `10.0.3.10`.
+====
+
+=== Aufgabe {counter:a} [[aufgabe-scp]]
+****
+IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung. 
+	   
+
+[loweralpha]
+. Richten Sie eine Linux-VM mit SSH-Server, NAT-Netzwerk und Port-Weiterleitung
+  ein. Wählen Sie dazu eine Port-Nummer und IP-Adressen, die von den
+  Beispielen und anderen Quellen abweichen.
+. Kopieren Sie Dateien zwischen einer zwei Linux-VM sowie einer Linux-VM und
+  dem Host über die Port-Weiterleitung. Kopieren Sie Dateien sowohl zum als
+  auch vom SSH-Server.
+****

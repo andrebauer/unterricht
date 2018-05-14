@@ -1,0 +1,24 @@
+include::partials/ovm-header.adoc[]
+:prefix: dsa
+
+[plantuml, {prefix}-class-association, svg]
+.... 
+class A
+
+class B
+
+A -up-> B 
+....
+
+[plantuml, {prefix}-plantuml-deployment, svg]
+....
+folder "script_docs" 
+
+file "hello.adoc" as h
+
+file "ad.adoc" as ad
+
+script_docs -down-> h
+
+script_docs -down-> ad
+....
