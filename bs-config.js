@@ -13,6 +13,7 @@
  |
  */
 module.exports = {
+    "online" : false,
     "ui": {
         "port": 3001
     },
