@@ -3,21 +3,49 @@ var exec = require('child_process').exec;
 var del = require('del')
 var gulpCopy = require('gulp-copy');
 
-var sourcefiles = [ 'docs/**/*', 'stylesheets/**/*', 'src/**/*', 'images/**/*', 'partials/**/*' ];
+var sourcefiles = [ 'docs/**/*',
+		    'stylesheets/**/*',
+		    'src/**/*',
+		    'images/**/*',
+		    'partials/**/*' ];
 
-var buildDir = '_build/'
+// var buildDir = '_build/'
 
-var htmldocs =
-    buildDir + 'docs/*/*/*.adoc ' +
-    buildDir + 'docs/*/*.adoc ' +
-    buildDir + 'docs/*.adoc '
+// var htmldocs_ =
+//     buildDir + 'docs/*/*/*.adoc ' +
+//     buildDir + 'docs/*/*.adoc ' +
+//     buildDir + 'docs/*.adoc '
 
-var pdfdocs =
-    buildDir + 'docs/*/*/*.adoc ' +
-    buildDir + 'docs/*/*.adoc '
-    
-var slides =
-    buildDir + 'docs/*/*/slides/*.adoc '
+// var pdfdocs_ =
+//     buildDir + 'docs/*/*/*.adoc ' +
+//     buildDir + 'docs/*/*.adoc '
+
+// var slides_ =
+//     buildDir + 'docs/*/*/slides/*.adoc '
+
+let build_dir = '_build/'
+
+let pdf_paths = ['docs/*/*/*.adoc',
+		 'docs/*/*.adoc']
+
+let html_paths = pdf_paths.concat('docs/*.adoc');
+
+let slide_paths = ['docs/*/*/slides/*.adoc']
+
+let map_prefix = (prefix) => (arr) =>
+    arr.map((x) => prefix + x);
+
+let map_suffix = (suffix) => (arr) =>
+    arr.map((x) => x + suffix);
+
+let map_build = (arr) => 
+    (map_suffix (' ') (map_prefix (build_dir) (arr))).join(' ');
+
+let html_docs = map_build (html_paths);
+
+let pdf_docs = map_build (pdf_paths);
+
+let slide_docs = map_build (slide_paths);
 
 var stylesheetHtml5Dir =
     'stylesheets/html5/ '
@@ -28,30 +56,60 @@ var stylesheetHtml5 =
     
 var verbose = ''
 
+if (!String.format) {
+  String.format = function(format) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    return format.replace(/{(\d+)}/g, function(match, number) { 
+      return typeof args[number] != 'undefined'
+        ? args[number] 
+        : match
+      ;
+    });
+  };
+}
+
 // copies source files to _build
 gulp.task('prebuild', function() {
     return gulp
 	.src(sourcefiles)
-	.pipe(gulpCopy(buildDir))
+	.pipe(gulpCopy(build_dir))
 });
 
 // copies source files to _build
 gulp.task('cp_stylesheet', function() {
     return gulp
 	.src(stylesheetHtml5Dir + stylesheetHtml5)
-	.pipe(gulpCopy(buildDir))
+	.pipe(gulpCopy(build_dir))
 });
 
 // builds html docs
 gulp.task('build:html', function(cb) {
+    exec(String.format(
+	"asciidoctor -r asciidoctor-diagram {0} \
+         --base-dir={1} -b html5 --safe-mode=safe {2}",
+	verbose, build_dir, html_docs),
+	 function(err, stdout, stderr) {
+	     console.log(stdout);
+	     console.log(stderr);
+	     cb(err);
+	 });
+})
+
+//'-a stylesdir=/ ' + // stylesheetHtml5Dir +
+//'-a stylesheet' + stylesheetHtml5 +
+/* -a data-uri -a allow-uri-read ' + */
+
+
+// builds html docs
+gulp.task('build:html:old', function(cb) {
     exec('asciidoctor -r asciidoctor-diagram ' + verbose +
-	 '--base-dir=' + buildDir + ' ' +
+	 '--base-dir=' + build_dir + ' ' +
 	 '-b html5 ' +
 	 '--safe-mode=safe ' +
 	 //'-a stylesdir=/ ' + // stylesheetHtml5Dir +
 	 //'-a stylesheet' + stylesheetHtml5 +
 	 /* -a data-uri -a allow-uri-read ' + */
-	 htmldocs,
+	 html_docs,
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);
@@ -68,13 +126,29 @@ $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 
 // builds pdf docs
 gulp.task('build:pdf', function(cb) {
+    exec(String.format(
+  	 "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf {0} \
+          --base-dir={1} -b pdf --safe-mode=safe \
+          -a pdf-style={2} -a allow-uri-read {3} {4}",
+	 verbose, build_dir, 'stylesheets/pdf/default-theme.yml',
+	 html_docs, slide_docs),
+	 function(err, stdout, stderr) {
+	     console.log(stdout);
+	     console.log(stderr);
+	     cb(err);
+	 });
+})
+
+
+// builds pdf docs
+gulp.task('build:pdf:old', function(cb) {
     exec('asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf ' + verbose +
-	 '--base-dir=' + buildDir + ' ' +
+	 '--base-dir=' + build_dir + ' ' +
 	 '-b pdf ' +
 	 '--safe-mode=safe ' +
 	 '-a pdf-style=' + 'stylesheets/pdf/default-theme.yml ' +
 	 /* -a data-uri */
-	 '-a allow-uri-read ' + pdfdocs + slides,
+	 '-a allow-uri-read ' + pdf_docs + slide_docs,
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);
@@ -111,13 +185,28 @@ As usual, you can also use build tools like Maven and Gradle to build a themed P
 
 // builds slides
 gulp.task('build:slides', function(cb) {
+    exec(String.format(
+  	 "asciidoctor-revealjs -a {0} \
+         -r asciidoctor-diagram {1} \
+         --base-dir={2} --safe-mode=safe -a notitle! {3}",
+	 'revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0',
+	 verbose, build_dir, slide_docs),
+	 function(err, stdout, stderr) {
+	     console.log(stdout);
+	     console.log(stderr);
+	     cb(err);
+	 });
+})
+
+// builds slides
+gulp.task('build:slides:old', function(cb) {
     exec('asciidoctor-revealjs -a ' +
 	 'revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 ' +
 	 '-r asciidoctor-diagram ' + verbose +
-	 '--base-dir=' + buildDir + ' ' +
+	 '--base-dir=' + build_dir + ' ' +
 	 '--safe-mode=safe ' +
 	 /* '-a data-uri -a allow-uri-read */
-	 '-a notitle! ' + slides,
+	 '-a notitle! ' + slide_docs,
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);
