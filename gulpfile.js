@@ -41,6 +41,11 @@ var stylesheet_html5 =
   
 var verbose = ''
 
+
+/* 
+Taken from
+https://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format 
+*/
 if (!String.format) {
   String.format = function(format) {
     var args = Array.prototype.slice.call(arguments, 1);
