@@ -28,17 +28,17 @@ dem Programm Script aufgezeichnet werden.
 ----
 $ script session1.log <1>
 Skript gestartet, die Datei ist session1.log
-$ ssh andre@192.168.178.28 
-andre@192.168.178.28's password: 
+$ ssh user@192.168.178.28 
+user@192.168.178.28's password: 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.10.0-28-generic x86_64)
 
 Last login: Thu May 10 18:58:28 2018 from 192.168.178.21
-andre@andre-VirtualBox:~$ ls
+user@ubuntu-vm:~$ ls
 Bilder     Downloads  Öffentlich    srv     Vorlagen
 Dokumente  Musik      Schreibtisch  Videos
-andre@andre-VirtualBox:~$ Abgemeldet <2>
+user@ubuntu-vm:~$ Abgemeldet <2>
 Connection to 192.168.178.28 closed.
-[andre@triton themenwochen]$ exit <3>
+[user@hostsystem ~]$ exit <3>
 exit
 Skript wurde beendet, die Datei ist session1.log 
 ----
@@ -59,17 +59,17 @@ und z.{nbsp}B. Teil eines AsciiDoc-Dokuments werden (s.{nbsp}u.).
 ----
 $ cat session1.log 
 Script started on 2018-05-11 08:03:35+02:00
-[andre@triton themenwochen]$ ssh andre@192.168.178.28
-andre@192.168.178.28's password: 
+[user@hostsystem ~]$ ssh user@192.168.178.28
+user@192.168.178.28's password: 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.10.0-28-generic x86_64)
 
 Last login: Thu May 10 18:58:28 2018 from 192.168.178.21
-andre@andre-VirtualBox:~$ ls
+user@ubuntu-vm:~$ ls
 Bilder     Downloads  Öffentlich    srv     Vorlagen
 Dokumente  Musik      Schreibtisch  Videos
-andre@andre-VirtualBox:~$ Abgemeldet
+user@ubuntu-vm:~$ Abgemeldet
 Connection to 192.168.178.28 closed.
-[andre@triton themenwochen]$ exit
+[user@hostsystem ~]$ exit
 exit
 
 Script done on 2018-05-11 08:04:13+02:00
@@ -134,11 +134,12 @@ $ sudo apt update
 $ sudo apt install plantuml
 $ mkdir srv
 $ cd srv
-$ nano index.adoc
-$ asciidoctor -r asciidoctor-diagram -b html index.adoc <2>
+$ nano index.adoc <2>
+$ asciidoctor -r asciidoctor-diagram -b html index.adoc <3>
 ----
 <1> Installation von Asciidoctor und Asciidoctor Diagram mit RubyGems.
-<2> Mit `-r asciidoctor-diagram` wir die Erweiterung
+<2> Erstellen eines AsciiDoc-Dokuments.
+<3> Mit `-r asciidoctor-diagram` wir die Erweiterung
     https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
     verwendet.							  
 

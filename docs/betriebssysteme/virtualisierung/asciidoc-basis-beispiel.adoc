@@ -7,7 +7,7 @@ André Bauer
 
 Shell-Sessions, die mit Script aufgezeichnet wurden, 
 werden mit vier Strichen (Minuszeichen bzw. "dash")
-als Sourcecode-Block mit vorformatierten Text
+als Sourcecode-Block mit vorformatiertem Text
 eingerahmt.
 
 Zusätzlich kann mit der Angabe `[source, sh]` die
