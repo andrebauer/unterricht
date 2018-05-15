@@ -159,7 +159,8 @@ include::docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel-code.adoc[
 <2> Die Angabe des Autors folgt in der Zeile nach dem Dokumententitel.
 <3> Das Datum wird direkt in der Zeile nach dem Autor angegeben.
 <4> Abschnitte werden durch Leerzeilen getrennt.
-<5> Mit Akzentzeichen (backticks) wird der Text in
+<5> Mit Akzentzeichen (backticks) wird der Text für Kommandos oder
+    Sourcecode-Ausschnitte in
     https://de.wikipedia.org/wiki/Nichtproportionale_Schriftart[Festbreitenschrift]
     gesetzt.
 <6> In den eckigen Klammern kann nach der Angabe `source`
@@ -171,7 +172,7 @@ include::docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel-code.adoc[
 <8> Callout-Nummern werden im Source-Code-Block mit eckigen Klammern am Ende der
     Zeile eingetragen, d.{nbsp}h. `<1>, <2>` usw. 
 <9> Callouts werden direkt nach dem Source-Code-Block erläutert. 
-<10> Überschriften werden mit zwei oder mehrere `=`-Zeichen eingeleitet.
+<10> Überschriften werden mit zwei oder mehreren `=`-Zeichen eingeleitet.
 ====
 
 Das AsciiDoc-Dokument wird anschließend mit dem im Beispiel angegebenen
@@ -182,7 +183,7 @@ Kommando übersetzt und kann dann im Browser angezeigt werden.
 image::/docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel.svg[]
 ====
 
-Nähere Informationen, wie man ein AsciiDoc-Dokument gestalten kann,
+Weitere Informationen, wie man ein AsciiDoc-Dokument gestalten kann,
 stehen im
 https://asciidoctor.org/docs/asciidoc-writers-guide/[AsciiDoc Writer’s Guide]
 und im
@@ -198,7 +199,8 @@ Erstellen Sie aus der aufgezeichneten Shell-Session aus Aufgabe 1 ein
 AsciiDoc-Dokument, indem Sie Titelangaben und Erläuterungen hinzufügen
 sowie die Shell-Kommandos als Sourcecode-Blöcke kennzeichen und
 Callouts einfügen.
-Generieren Sie mit Asciidoctor aus der AsciiDoc-Datei eine HTML5-Datei.
+Generieren Sie mit Asciidoctor aus der AsciiDoc-Datei eine HTML5-Datei
+und überprüfen Sie das Ergebnis im Browser.
 ****
 
 === Diagramme mit Asciidoctor erstellen
@@ -282,7 +284,7 @@ http://blockdiag.com/en/[blockdiag, seqdiag, actdiag und nwdiag]
 übersetzen --{nbsp}ähnlich wie PlantUML{nbsp}-- Diagramm-Beschreibungen
 in Grafiken.
 
-Sie können unter Ubuntu über das Paktemanagment-System installiert werden:
+Sie können unter Ubuntu über das Paketmanagment-System installiert werden:
 
 ----
 $ sudo apt update
@@ -300,8 +302,8 @@ a|
 
 Fügen Sie Ihrem AsciiDoc-Dokument aus den Aufgaben 1 und 2 eine
 Diagramm-Beschreibung für die nebenstehende Grafik
-mit PlantUML hinzu und lassen
-Asciidoctor daraus ein HTML-Dokument mit SVG-Grafik erstellen.
+mit PlantUML hinzu und lassen Sie
+Asciidoctor daraus ein HTML5-Dokument mit SVG-Grafik erstellen.
 
 Hilfe zum Erstellen einer solchen
 Grafik finden Sie unter http://plantuml.com/deployment-diagram[].
@@ -314,9 +316,9 @@ image::{prefix}-plantuml-deployment.svg[]
 
 === PDF-Dokumente generieren
 
-PDF-Dokumente werden aus Asciidoc-Dokumenten durch Angabe der Erweiterung
+PDF-Dokumente werden aus Asciidoc-Dokumenten mit der Erweiterung
 https://asciidoctor.org/docs/asciidoctor-pdf/[Asciidoctor PDF]
-mit `-r asciidoctor-pdf` und des Ausgabeformats mit `-b pdf`
+durch Angabe von `-r asciidoctor-pdf` und des Ausgabeformats mit `-b pdf`
 generiert.
 
 ==== Installation
@@ -338,7 +340,7 @@ oder `atril`, die die Dokumente nach Änderungen automatisch neu laden.
 
 [source, sh]
 ----
-$ evince index.pdf
+$ evince index.pdf &
 ----
 
 :!sectnums:
