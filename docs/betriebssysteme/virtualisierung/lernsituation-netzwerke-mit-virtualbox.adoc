@@ -17,9 +17,7 @@ a|
 * https://www.virtualbox.org/manual/ch06.html[Oracle VM VirtualBox User Manual -- Chapter 6. Virtual Networking]
 * https://nocksoft.de/tutorials/virtualbox-netzwerkkonfiguration/[VirtualBox: Netzwerkkonfiguration]
 * https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[ip command cheat sheet]
-* https://ec.haxx.se/cmdline-options.html[Buch: Everything curl]
-* https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/[Deprecated Linux networking commands and their replacements]
-* http://linux-ip.net/html/tools-ip-route.html[IP Route Management]
+* http://linux-ip.net/html/tools-ip-routing.html[IP Route Management]
 
 | *Verwandte Literatur*
 a|
@@ -34,99 +32,134 @@ a|
 
 = {short-title}
 
-{empty}
-
-NOTE: Lesen Sie zuerst die Information, wie Sie die Aufgaben dokumentieren
-      sollen unter IT-BS-VM-INFO-3.1.
-
-== Basis-Aufgabe
-
-Die Bearbeitung der Basis-Aufgabe ist verpflichtend.
-
-. Vernetzen Sie unter Virtualbox Linux-VMs mit den Netzwerk-Modi:
-+
---
-.. NAT mit Port-Weiterleitung,
-.. Internes Netzwerk,
-.. NAT-Netzwerk,
-.. Netzwerkbrücke und
-.. Host-only Adapter
---
-+
-Wählen Sie individuelle Hostnamen, IP-Adressen und Ports, die von den Beispielen und
-anderen Quellen abweichen und dokumentieren Sie ihr Vorgehen mit Script
-und Asciidoctor (siehe Information IT-BS-VM-INFO-3.1).
-+
-Testen Sie dazu die Netzwerke mit den Werkzeugen `ping`, `ssh`, `scp`
-und der Kombination aus einem
-WEBrick-HTTP-Server (mit Ruby) und `curl`.
-+
---
-IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
-	   verschiedenen Netzwerk-Modi und den Einsatz der Test-Werkzeuge
-	   vorführen können.
---
-
-== Vertiefende Aufgaben
-
-Bearbeiten Sie eine oder mehrere vertiefende Aufgaben. Die Reihenfolge können
+Bearbeiten Sie eine oder mehrere Aufgaben. Die Reihenfolge können
 Sie selbst wählen.
 
-[start=2]
-. Erstellen Sie mehrere VMs und vergeben Sie die
-  http://seriss.com/people/erco/unixtools/hostnames.html[Hostnamen nach einem Schema].
-  Bearbeiten Sie auf den VMs
-  die Datei https://wiki.archlinux.de/title/Hosts[`/etc/hosts`] so,
-  dass Sie für die Netzwerkkommunikation wie in Aufgabe 1 nun
-  die Namen statt der IP-Adressen verwenden können.
+[IMPORTANT]
+====
+* Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+  und stellen Sie Ihre Ergbnisse als PDF-Datei in Ihrem
+  E-Portfolio zur Verfügung (siehe Lernjob IT-BS-VM-LJ-3.1). 
+* Wählen Sie individuelle Hostnamen, IP-Adressen und Ports,
+  die von den Beispielen und anderen Quellen abweichen.
+* Im Fachgespräch wird von Ihnen erwartet, dass Sie das
+  Erarbeitete auch vorführen können.
+====
+
+// Testen Sie dazu die Netzwerke mit den Werkzeugen `ping`, `ssh`, `scp`
+// und der Kombination aus einem
+// WEBrick-HTTP-Server (mit Ruby) und `curl`.
+
+
+== Aufgabe {counter:a}
+
+. Erstellen Sie mehrere Linux-VMs und vergeben Sie für die VMs 
+https://de.wikipedia.org/wiki/Hostname[Hostnamen] nach einem
+http://seriss.com/people/erco/unixtools/hostnames.html[Schema].
+Verbinden Sie wie in Lernjob IT-BS-VM-LJ-3.2
+die VMs und den Host über
+
 +
+--
+[loweralpha]
+.. NAT mit Port-Weiterleitung
+.. Internes Netzwerk
+.. NAT-Netzwerk
+.. Netzwerkbrücke
+.. Host-only Adapter
+--
+
++
+Tragen Sie jeweils auf den VMs in der Datei
+https://wiki.archlinux.de/title/Hosts[`/etc/hosts`]
+die Hostnamen und die zugehörigen IP-Adressen ein.
+
++
+[TIP]
+====
 Auch unter Windows und Mac OS X kann die
 https://en.wikipedia.org/wiki/Hosts_(file)[Hosts-Datei]
-bearbeitet werden:
-+
+bearbeitet werden, so dass Sie auch 
+auf Ihrem Hostsystem Hostnamen für die VMs verwenden können:
+
 --
 * https://www.imore.com/how-edit-your-macs-hosts-file-and-why-you-would-want[How to edit your Mac's Hosts file and why you would want to]
 * https://www.lifewire.com/how-to-edit-the-hosts-file-153661[How to Edit the HOSTS File in Windows]
 --
+====
 
-. Erstellen Sie eine Linux-VM mit zwei Adaptern, die beide einen Zugang zum
-  Internet haben
-  (z.{nbsp}B. NAT, NAT-Netzwerk, Netzwerkbrücke).
-  Mit `ip route` können Sie feststellen, dass zwei Default-Routen in der
-  Routingtabelle eingetragen sind.
-  Verfolgen Sie die Route zum Google Public DNS (IP-Adresse `8.8.8.8`)
-  per `traceroute 8.8.8.8`, verändern Sie anschließend die Einträge
-  der Default-Routen (Löschen, Hinzufügen, Ändern der Reihenfolge)
-  mit `ip route del` bzw. `ip route add` und überprüfen Sie die Routen
-  wieder mit `traceroute`. Als Hilfe zu `ip route` verwenden Sie das
-  https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[ip command cheat sheet].
-  
-. Richten Sie eine VM mit Windows 10 ein. Verfahren 
-  Sie mit dieser Windows-VM und einer Linux-WM wie in Aufgabe 1.
-+
---
-NOTE: Das benötigte ISO-Image steht im Intranet über das Netzlaufwerk
-      `\\ovm-nas\bfi_19` bereit.
-      Diese dürfen Sie nur vorübergehend für Schulungszwecke verwenden.
-      Verwenden Sie aufgrund des großen Datenvolumens
-      LAN statt WLAN zum Download des Images.      
---
+. Testen Sie jeweils mit ping, ssh, scp und der Kombination aus curl und WEBrick
+die Netzwerk-Verbindungen wie in den Lernjobs IT-BS-VM-LJ-3.2 und
+IT-BS-VM-LJ-3.3.
+Verwenden Sie dabei aber die Hostnamen statt der IP-Adressen.
 
-. Erstellen Sie auf einer Linux-VM ein Schlüsselpaar für SSH und richten Sie
-  den `ssh-agent` ein, sodass Sie sich
-  auf anderen Linux-VMs mit der Secure Shell ohne Passwort-Eingabe
-  einloggen können. Anleitungen finden sie auf den folgenden
-  Seiten:
-+
---
+== Aufgabe {counter:a}
+
+1. Erstellen Sie eine Linux-VM mit zwei Adaptern, die beide einen Zugang zum
+   Internet haben
+   (z.{nbsp}B. NAT, NAT-Netzwerk oder Netzwerkbrücke).
+
+2. Mit `ip route` können Sie feststellen, dass zwei Default-Routen in der
+   Routingtabelle eingetragen sind.
+   Verfolgen Sie die Route zum Google Public DNS (IP-Adresse `8.8.8.8`)
+   per `traceroute 8.8.8.8`.
+
+3. Verändern Sie anschließend die Einträge
+   der Default-Routen (Löschen, Hinzufügen, Ändern)
+   mit `ip route` und verfolgen Sie die Routen
+   wieder mit `traceroute`.
+
+TIP: Hilfen zu `ip route` finden Sie im
+https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[ip command cheat sheet]
+sowie im Abschnitt
+http://linux-ip.net/html/tools-ip-routing.html[IP Route Management]
+des
+http://linux-ip.net/html/index.html[Guide to IP Layer Network Administration with Linux].
+
+== Aufgabe {counter:a}
+
+Richten Sie eine VM mit Windows 10 ein. Verbinden 
+Sie diese Windows-VM mit einer Linux-WM über
+
+[loweralpha]
+. NAT mit Port-Weiterleitung
+. Internes Netzwerk
+. NAT-Netzwerk
+. Netzwerkbrücke
+. Host-only Adapter
+
+Testen Sie jeweils mit ping, ssh, scp und der Kombination aus curl und WEBrick
+die Netzwerk-Verbindungen wie in den Lernjobs
+IT-BS-VM-LJ-3.2 und IT-BS-VM-LJ-3.3
+zwischen den beiden VMs und Ihrem Hostsystem.
+
+[NOTE]
+====
+* Das benötigte ISO-Image steht im Intranet über das Netzlaufwerk
+  `\\ovm-nas\bfi_19` bereit.
+* Dieses dürfen Sie nur vorübergehend für Schulungszwecke verwenden.
+* Laden Sie das Image aufgrund des großen Datenvolumens
+  über LAN statt WLAN.      
+====
+
+== Aufgabe {counter:a}
+
+Erstellen ein virtuelles Netzwerk mit mindestens zwei Linux-VMs.
+Generieren Sie auf einer Linux-VM ein Schlüsselpaar für SSH und richten Sie
+den `ssh-agent` ein, sodass Sie sich
+auf den anderen Linux-VMs mit der Secure Shell ohne Passwort-Eingabe
+einloggen können.
+
+Anleitungen finden sie auf den folgenden Seiten:
+
 * https://www.ssh.com/ssh/keygen/[ssh-keygen - Generate a New SSH Key]
 * https://www.ssh.com/ssh/agent[ssh-agent - Single Sign-On using SSH]
 * http://rabexc.org/posts/using-ssh-agent[Using an ssh-agent, or how to type your ssh password once, safely.]
---
 
+== Aufgabe {counter:a}
 
-
-. Verfahren Sie wie in Aufgabe 1, aber verwenden Sie IPv6 statt IPv4.
-  Umfassende Informationen finden Sie im
-  http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/index.html[Linux IPv6 HOWTO].
+Verfahren Sie wie im Lernjob IT-BS-VM-LJ-3.2, aber verwenden Sie IPv6
+statt IPv4.
+Umfassende Informationen zu IPv6 finden Sie im
+http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/index.html[Linux IPv6 HOWTO].
 

@@ -19,7 +19,7 @@ a|
 * https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf[ip command cheat sheet]
 * https://ec.haxx.se/cmdline-options.html[Buch: Everything curl]
 * https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/[Deprecated Linux networking commands and their replacements]
-* http://linux-ip.net/html/tools-ip-route.html[IP Route Management]
+* http://linux-ip.net/html/tools-ip-routing.html[IP Route Management]
 
 | *Verwandte Literatur*
 a|
@@ -52,7 +52,7 @@ im Folgenden vorgestellt und beispielhaft verwendet werden:
 
 IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
 	   Konfiguration der verschiedenen Netzwerk-Modi und den Einsatz
-	   der Test-Werkzeuge vorführen können.
+	   der Test-Werkzeuge auch vorführen können.
 
 == NAT mit Port-Weiterleitung
 
@@ -163,7 +163,7 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 [loweralpha]
 . Richten Sie bei einer Linux-VM NAT mit einer Port-Weiterleitung ein
   und erstellen Sie wie in <<start-webserver>> eine Datei, die sie mit
-  WeBrick zugänglich machen. Wählen Sie Port-Nummern, die von den
+  WEBrick zugänglich machen. Wählen Sie Port-Nummern, die von den
   Beispiel und anderen Quellen abweichen.
 . Testen Sie mit curl die Port-Weiterleitung von Ihrem Hostsystem und
   einer zweiten Linux-VM.
@@ -313,7 +313,7 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 . Erstellen Sie ein internes Netzwerk mit zwei Linux-VMs.
   Wählen Sie dazu IP-Adressen, die von den
   Beispielen und anderen Quellen abweichen.
-. Testen Sie mit ping und der Kombination aus curl und WeBrick
+. Testen Sie mit ping und der Kombination aus curl und WEBrick
   wie in <<aufgabe-nat,Aufgabe 1>> die Netzwerk-Verbindung zwischen
   den Linux-VMs.
 ****
@@ -394,7 +394,7 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 . Erstellen Sie ein NAT-Netzwerk mit zwei Linux-VMs.
   Wählen Sie dazu IP-Adressen, die von den
   Beispielen und anderen Quellen abweichen.
-. Testen Sie mit ping und der Kombination aus curl und WeBrick
+. Testen Sie mit ping und der Kombination aus curl und WEBrick
   wie in den <<aufgabe-nat,Aufgaben 1>> und <<aufgabe-internes-netzwerk,2>>
   die Netzwerk-Verbindungen zwischen den beiden Linux-VMs sowie
   dem Hostsystem und einer Linux-VM.
@@ -421,7 +421,7 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 
 [loweralpha]
 . Erstellen Sie eine Netzwerkbrücke mit einer Linux-VM.
-. Testen Sie mit ping und der Kombination aus curl und WeBrick
+. Testen Sie mit ping und der Kombination aus curl und WEBrick
   wie in den vorherigen Aufgaben
   die Netzwerk-Verbindung zwischen dem Hostsystem und der Linux-VM.
 ****
@@ -455,7 +455,7 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 . Erstellen Sie ein Host-only Adapter mit zwei Linux-VM.
   Wählen Sie dazu IP-Adressen, die von den  
   Beispielen und anderen Quellen abweichen.
-. Testen Sie mit ping und der Kombination aus curl und WeBrick
+. Testen Sie mit ping und der Kombination aus curl und WEBrick
   wie in <<aufgabe-nat-netzwerk,Aufgabe 3>>
   die Netzwerk-Verbindung zwischen den beiden Linux-VMs sowie
   dem Hostsystem und einer Linux-VM.
