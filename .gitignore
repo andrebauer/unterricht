@@ -2,7 +2,6 @@
 #*#
 node_modules/
 package-lock.json
-index.htmliso-images
 Gemfile.lock
 *.html
 *.pdf
@@ -13,5 +12,4 @@ docs/anwendungsentwicklung/oop-java-einstieg/lampe-schalter/
 vendor/
 _build/
 *.class
-docs/anwendungsentwicklung/oop-java-einstieg/src/bluej-project/
-docs/anwendungsentwicklung/objektorientierte-analyse-und-modellierung/src/bluej-project/
+

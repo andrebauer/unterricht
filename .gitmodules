@@ -1,3 +1,0 @@
-[submodule "stylesheets/html5"]
-	path = stylesheets/html5
-	url = https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git
