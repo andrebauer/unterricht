@@ -9,20 +9,6 @@ var sourcefiles = [ 'docs/**/*',
 		    'images/**/*',
 		    'partials/**/*' ];
 
-// var buildDir = '_build/'
-
-// var htmldocs_ =
-//     buildDir + 'docs/*/*/*.adoc ' +
-//     buildDir + 'docs/*/*.adoc ' +
-//     buildDir + 'docs/*.adoc '
-
-// var pdfdocs_ =
-//     buildDir + 'docs/*/*/*.adoc ' +
-//     buildDir + 'docs/*/*.adoc '
-
-// var slides_ =
-//     buildDir + 'docs/*/*/slides/*.adoc '
-
 let build_dir = '_build/'
 
 let pdf_paths = ['docs/*/*/*.adoc',
@@ -35,11 +21,8 @@ let slide_paths = ['docs/*/*/slides/*.adoc']
 let map_prefix = (prefix) => (arr) =>
     arr.map((x) => prefix + x);
 
-let map_suffix = (suffix) => (arr) =>
-    arr.map((x) => x + suffix);
-
 let map_build = (arr) => 
-    (map_suffix (' ') (map_prefix (build_dir) (arr))).join(' ');
+    (map_prefix (build_dir) (arr)).join(' ');
 
 let html_docs = map_build (html_paths);
 
@@ -47,13 +30,15 @@ let pdf_docs = map_build (pdf_paths);
 
 let slide_docs = map_build (slide_paths);
 
-var stylesheetHtml5Dir =
-    'stylesheets/html5/ '
+/*
+var stylesheet_html5_dir =
+    'stylesheets/html5/'
 
-var stylesheetHtml5 =
-    // 'asciidoctor.css '
-    'ovm.css '
-    
+var stylesheet_html5 =
+    // 'asciidoctor.css'
+    'ovm.css'
+*/  
+  
 var verbose = ''
 
 if (!String.format) {
@@ -75,13 +60,6 @@ gulp.task('prebuild', function() {
 	.pipe(gulpCopy(build_dir))
 });
 
-// copies source files to _build
-gulp.task('cp_stylesheet', function() {
-    return gulp
-	.src(stylesheetHtml5Dir + stylesheetHtml5)
-	.pipe(gulpCopy(build_dir))
-});
-
 // builds html docs
 gulp.task('build:html', function(cb) {
     exec(String.format(
@@ -94,35 +72,7 @@ gulp.task('build:html', function(cb) {
 	     cb(err);
 	 });
 })
-
-//'-a stylesdir=/ ' + // stylesheetHtml5Dir +
-//'-a stylesheet' + stylesheetHtml5 +
-/* -a data-uri -a allow-uri-read ' + */
-
-
-// builds html docs
-gulp.task('build:html:old', function(cb) {
-    exec('asciidoctor -r asciidoctor-diagram ' + verbose +
-	 '--base-dir=' + build_dir + ' ' +
-	 '-b html5 ' +
-	 '--safe-mode=safe ' +
-	 //'-a stylesdir=/ ' + // stylesheetHtml5Dir +
-	 //'-a stylesheet' + stylesheetHtml5 +
-	 /* -a data-uri -a allow-uri-read ' + */
-	 html_docs,
-	 function(err, stdout, stderr) {
-	     console.log(stdout);
-	     console.log(stderr);
-	     cb(err);
-	 });
-})
-
-/*
-http://asciidoctor.org/docs/user-manual/#applying-a-stylesheet
-
-$ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
-*/
-
+/* -a allow-uri-read */
 
 // builds pdf docs
 gulp.task('build:pdf', function(cb) {
@@ -140,46 +90,11 @@ gulp.task('build:pdf', function(cb) {
 })
 
 
-// builds pdf docs
-gulp.task('build:pdf:old', function(cb) {
-    exec('asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf ' + verbose +
-	 '--base-dir=' + build_dir + ' ' +
-	 '-b pdf ' +
-	 '--safe-mode=safe ' +
-	 '-a pdf-style=' + 'stylesheets/pdf/default-theme.yml ' +
-	 /* -a data-uri */
-	 '-a allow-uri-read ' + pdf_docs + slide_docs,
-	 function(err, stdout, stderr) {
-	     console.log(stdout);
-	     console.log(stderr);
-	     cb(err);
-	 });
-})
+/* 
+-a pdf-fontsdir=/path/to/resources/fonts
 
-/*
-
-
-
-Here’s how you’d load your theme when calling Asciidoctor PDF:
-
-$ asciidoctor-pdf -a pdf-stylesdir=resources/themes -a pdf-style=basic -a pdf-fontsdir=resources/fonts
-
-If all goes well, Asciidoctor PDF should run without an error or warning.
-paperclip
-	You only need to specify the pdf-fontsdir if you are using custom fonts in your theme.
-
-You can skip setting the pdf-stylesdir attribute and just pass the absolute path of your theme file to the pdf-style attribute.
-
-$ asciidoctor-pdf -a pdf-style=resources/themes/basic-theme.yml -a pdf-fontsdir=resources/fonts
-
-However, in this case, image paths in your theme won’t be resolved properly.
-
-Paths are resolved relative to the current directory. However, in the future, this may change so that paths are resolved relative to the base directory (typically the document’s directory). Therefore, it’s recommend that you specify absolute paths for now to future-proof your configuration.
-
-$ asciidoctor-pdf -a pdf-stylesdir=/path/to/resources/themes -a pdf-style=basic -a pdf-fontsdir=/path/to/resources/fonts
-
-As usual, you can also use build tools like Maven and Gradle to build a themed PDF. The only thing you need to add to an existing build is the attributes mentioned above.
-
+For more informations about calling asciidoctor-pdf with theming see
+https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc
 
 */
 
@@ -198,29 +113,12 @@ gulp.task('build:slides', function(cb) {
 	 });
 })
 
-// builds slides
-gulp.task('build:slides:old', function(cb) {
-    exec('asciidoctor-revealjs -a ' +
-	 'revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0 ' +
-	 '-r asciidoctor-diagram ' + verbose +
-	 '--base-dir=' + build_dir + ' ' +
-	 '--safe-mode=safe ' +
-	 /* '-a data-uri -a allow-uri-read */
-	 '-a notitle! ' + slide_docs,
-	 function(err, stdout, stderr) {
-	     console.log(stdout);
-	     console.log(stderr);
-	     cb(err);
-	 });
-})
+// the main build task
+gulp.task('build', ['prebuild', 'build:html', 'build:pdf', 'build:slides']);
 
-gulp.task('build', ['prebuild', /* 'cp_stylesheet', */ 'build:html', 'build:pdf', 'build:slides']);
-
-/* Clean builded files
-============================== */
+// remove generated files 
 gulp.task('clean', function(cb) {
     del(['_build/**/*', '_build'], cb)
 });
 	
-    //return gulp.src('_build/**/*.adoc')
     
