@@ -65,6 +65,8 @@ gulp.task('prebuild', function() {
 	.pipe(gulpCopy(build_dir))
 });
 
+
+
 // builds html docs
 gulp.task('build:html', function(cb) {
     exec(String.format(
@@ -78,6 +80,19 @@ gulp.task('build:html', function(cb) {
 	 });
 })
 /* -a allow-uri-read */
+
+gulp.task('build:ad-basis-bsp-svg', function(cb) {
+    exec(String.format(
+	"wkhtmltoimage -f svg {0}{1} {0}{2}",
+	'_build/docs/betriebssysteme/virtualisierung/',
+	'asciidoc-basis-beispiel.html',
+	'asciidoc-basis-beispiel.svg'),
+	 function(err, stdout, stderr) {
+	     console.log(stdout);
+	     console.log(stderr);
+	     cb(err);
+	 });
+})
 
 // builds pdf docs
 gulp.task('build:pdf', function(cb) {
@@ -119,7 +134,11 @@ gulp.task('build:slides', function(cb) {
 })
 
 // the main build task
-gulp.task('build', ['prebuild', 'build:html', 'build:pdf', 'build:slides']);
+gulp.task('build', ['prebuild',
+		    'build:html',
+		    'build:ad-basis-bsp-svg',
+		    'build:pdf',
+		    'build:slides']);
 
 // remove generated files 
 gulp.task('clean', function(cb) {
