@@ -25,8 +25,8 @@ a|
 a|
 
 * IT-BS-VM-LS-3.1
-* IT-BS-VM-INFO-3.1
-* IT-BS-VM-INFO-3.3
+* IT-BS-VM-LJ-3.1
+* IT-BS-VM-LJ-3.3
 
 | *Lizenz*
 | {cc-by-sa}
@@ -47,7 +47,7 @@ im Folgenden vorgestellt und beispielhaft verwendet werden:
 . Internes Netzwerk
 . NAT-Netzwerk
 . Netzwerkbrücke
-. Host-only Adapter
+. Host-only-Adapter
 . Nicht angeschlossen
 
 IMPORTANT: Im Fachgespräch wird von Ihnen erwartet, dass Sie die
@@ -60,21 +60,22 @@ Bei der Einstellung NAT erhält der Adapter des Gasts per NAT
 (https://de.wikipedia.org/wiki/Netzwerkadress%C3%BCbersetzung[NAT]
 steht für Network Address Translation)
 Zugriff auf das Netzwerk, an das der Host angeschlossen ist,
-der Gast kann aber umgekehrt von außen nicht erreicht werden.
+der Gast kann aber umgekehrt von außen oder vom Hostsystem
+nicht erreicht werden.
 
 In den VM-Einstellungen richtet man unter Netzwerk bei einem Adapter
 mit der Einstellung NAT
 unter {ldquo}Erweitert{rdquo} eine Portweiterleitung ein.
 Zum Beispiel eine Weiterleitung des Host-Ports 8080
-auf den Gast-Port 8000.
+auf den Gast-Port 8000, womit der Gast auf diesem Port erreichbar wird.
 
 Mit Ruby kann man ohne vorherige Konfiguration einen Webserver
-(WEBrick-HTTP-Server) in einer Virtuelle Maschine (VM) betreiben:
+(WEBrick-HTTP-Server) in einer Virtuelle Maschine (VM) betreiben.
 Falls Ruby noch nicht installiert sein sollte, kann dies unter
 debian-basierten Systemen wie Ubuntu mit den folgenden beiden
 Befehlen eingerichtet werden:
 
-.Auf dem Gastsystem:
+.Auf dem Gastsystem
 [source, sh]
 ----
 $ sudo apt update
@@ -82,11 +83,11 @@ $ sudo apt install ruby
 ----
 
 Nun kann ein Verzeichnis `srv` mit einer Datei `index.html` angelegt
-werden und mit `ruby` ein Webserver gestartet werden.
+werden und mit Ruby ein Webserver gestartet werden.
 
 [[start-webserver]]
-.Auf dem Gastsystem:
-[source, sh]
+.Auf dem Gastsystem
+[source, bash]
 ----
 $ sudo hostname saturn <1>
 $ mkdir srv
@@ -99,13 +100,13 @@ $ ruby -run -e httpd srv -p 8000 <3>
     (Documentroot). 
 
 Die Portweiterleitung kann mit https://curl.haxx.se/[curl]
-auf dem Host-System getestet werden. Das Programm ist für
+auf dem Hostsystem getestet werden. Das Programm ist für
 https://curl.haxx.se/download.html[alle gängigen Betriebssysteme verfügbar].
 In dem Buch https://ec.haxx.se/[{ldquo}Everything curl{rdquo}] ist
 eine umfassende Dokumentation des Befehls
 https://ec.haxx.se/cmdline-options.html[`curl`]
 enthalten.
-Unter debian-basierten Systemen kann `curl` mit
+Unter debian-basierten Systemen kann curl mit
 [source, sh]
 ----
 $ sudo apt update
@@ -113,8 +114,8 @@ $ sudo apt install curl
 ----
 installiert werden.
 
-.Auf dem Hostsystem:
-[source, sh]
+.Auf dem Hostsystem
+[source, bash]
 ----
 $ curl localhost:8080
 Hello from saturn.
@@ -130,8 +131,8 @@ pysischen Netzwerkadapter verknüpft ist.
 Diese kann mit `ipconfig` (Windows), `ifconfig` (Max OS X) oder
 `ip -4 addr` (Linux) ermittelt werden.
 
-.Auf dem Hostsystem:
-[source, sh]
+.Auf dem Hostsystem
+[source, bash]
 ----
 $ ip -4 addr
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -145,12 +146,14 @@ $ curl 192.168.178.21:8080
 Hello from saturn.
 ----
 
-.Auf einer zweiten Linux-VM:
-[source, sh]
+.Auf einer zweiten Linux-VM oder dem Hostsystem
+[source, bash]
 ----
 $ curl 192.168.178.21:8080
 Hello from saturn.
 ----
+
+<<<
 
 === Aufgabe {counter:a} [[aufgabe-nat]]
 
@@ -163,10 +166,11 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 [loweralpha]
 . Richten Sie bei einer Linux-VM NAT mit einer Port-Weiterleitung ein
   und erstellen Sie wie in <<start-webserver>> eine Datei, die sie mit
-  WEBrick zugänglich machen. Wählen Sie Port-Nummern, die von den
+  WEBrick zugänglich machen. Wählen Sie Port-Nummern, die von dem
   Beispiel und anderen Quellen abweichen.
-. Testen Sie mit curl die Port-Weiterleitung von Ihrem Hostsystem und
-  einer zweiten Linux-VM.
+. Testen Sie mit curl die Port-Weiterleitung von
+** Ihrem Hostsystem und
+** einer zweiten Linux-VM.
 ****
 
 == Internes Netzwerk
@@ -175,7 +179,7 @@ Ein internes Netzwerk ist ein virtuelles Netzwerk, an dem ausschließlich
 Virtuelle Maschinen angebunden werden können. Im VirtualBox Manager
 wird dazu zwei oder mehreren _ausgeschalteten_ VMs ein zusätzlicher
 Netzwerk-Adapter mit demselben internen Netzwerknamen hinzugefügt.
-Im Gegensatz zu der Standardoption `NAT` erhalten die Schnittstellen
+Im Gegensatz zu der Standardoption NAT erhalten die Schnittstellen
 zunächst keine IP-Adressen, so dass diese entweder manuell vergeben werden
 müssen (siehe unten) oder ein
 https://de.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[DHCP-Server]
@@ -322,14 +326,15 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 
 Zunächst wird im VirtualBox Manager unter Datei -> Einstellungen -> Netzwerk
 ein NAT-Netzwerk eingerichtet, z.{nbsp}B. mit dem Subnetz `10.0.5.0/24`
-und DHCP. Bei den VMs muss nun an einem Netzwerk-Adapter die
+und DHCP. Bei den VMs muss nun jeweils an einem Netzwerk-Adapter die
 Einstellung NAT-Netzwerk gesetzt werden.
 Aufgrund der DHCP-Unterstützung werden
 den Schnittstellen automatisch IP-Adressen zugeordnet.
 Die angeschlossenen Gäste können über das NAT-Netzwerk sowohl untereinander
 kommunizieren als auch Systeme außerhalb des
 Netzwerkes erreichen, die über die Netzwerkadapter des Hosts-Systems erreichbar
-sind. Die Gäste sind aber umgekehrt von außen nicht erreichbar.
+sind. Die Gäste sind aber umgekehrt von außen oder dem Hostsystem
+ohne Port-Weiterleitung nicht erreichbar.
 
 .Auf Gast 1
 ====
@@ -377,8 +382,8 @@ PING 10.0.5.4 (10.0.5.4) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.272/0.413/0.647/0.167 ms
 ----
 <1> Die Schnittstelle `enp0s8` hat per DHCP die IP-Adresse `10.0.5.5/24`
-    erhalten und befindet sich im Gleich Subnetz wie `enp0s8` von Gast 1.
-<2> Gast 1 erhält ICMP-Anfragen mit `ping`.
+    erhalten und befindet sich im gleichen Subnetz wie `enp0s8` von Gast 1.
+<2> Gast 1 erhält ICMP-Anfragen mit ping.
 <3> Antworten von Gast 1 auf ICMP-Anfragen werden fotlaufend ausgegeben.
 ====
 
@@ -396,8 +401,9 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
   Beispielen und anderen Quellen abweichen.
 . Testen Sie mit ping und der Kombination aus curl und WEBrick
   wie in den <<aufgabe-nat,Aufgaben 1>> und <<aufgabe-internes-netzwerk,2>>
-  die Netzwerk-Verbindungen zwischen den beiden Linux-VMs sowie
-  dem Hostsystem und einer Linux-VM.
+  die Netzwerk-Verbindungen zwischen
+** den beiden Linux-VMs sowie
+** dem Hostsystem und einer Linux-VM.
 ****
 
 == Netzwerkbrücke
@@ -405,10 +411,10 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 Bei der Netzwerkbrücke erhält der Gast direkten Zugriff 
 auf das Host-Netzwerk, so als wäre er dort direkt angeschlossen.
 Falls auf dem Host-Netzwerk ein DHCP-Server die IP-Adressen verwaltet,
-so erhält der Gast auch eine eigenständige IP-Adresse, die vom Host-System
+so erhält der Gast auch eine eigenständige IP-Adresse, die vom Hostsystem
 abweicht.
 Aufgrund der direkten Anbindung an das Host-Netzwerk ist die
-Netzwerkbrücke für einige Experimente, insbesondere mit mit DHCP,
+Netzwerkbrücke für einige Experimente, insbesondere mit DHCP,
 _nicht_ geeignet.
 
 === Aufgabe {counter:a} [[aufgabe-bridge]]
@@ -423,25 +429,29 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 . Erstellen Sie eine Netzwerkbrücke mit einer Linux-VM.
 . Testen Sie mit ping und der Kombination aus curl und WEBrick
   wie in den vorherigen Aufgaben
-  die Netzwerk-Verbindung zwischen dem Hostsystem und der Linux-VM.
+  die Netzwerk-Verbindung zwischen
+** dem Hostsystem und der Linux-VM sowie
+** der Linux-VM und einer zweiten VM.
 ****
 
-== Host-only Adapter
+== Host-only-Adapter
 
-Ähnlich wie beim internen Netzwerk muss hier unter Globale Tools zunächst ein
-Host-only Netzwerk (optional mit DHCP-Server) erstellt werden.
+Ähnlich wie beim internen Netzwerk muss im Virtualbox Manager unter
+{ldquo}Globale Tools{rdquo} zunächst ein
+Host-only-Netzwerk (optional mit DHCP-Server) erstellt werden.
 Dann kann in den Einstellungen der _abgeschalteten_ VMs jeweils ein
-Adapter als Host-only Adapter konfiguriert werden.
+Adapter als Host-only-Adapter konfiguriert werden.
 
-Auch das Hostsystem erhält eine virtuelle Netzwerk-Schnittstelle und,
+Auch das Hostsystem erhält automatisch
+eine virtuelle Netzwerk-Schnittstelle und,
 falls der DHCP-Server für das Host-only-Netzwerk aktiviert ist, auch
 automatisch eine IP-Adresse für diese Schnittstelle.
 
-Die angeschlossenen Gäste und das Host-System haben nun ein gemeinsames
+Die angeschlossenen Gäste und das Hostsystem haben nun ein gemeinsames
 internes Netzwerk, das mit anderen Netzen nicht verbunden ist.
 Dieser Modus eignet sich wie auch das interne Netzwerk oder das
 NAT-Netzwerk sehr gut für Experimente. Das Host-only-Netzwerk ermöglicht es,
-dass man auch das Host-System ohne Port-Weiterleitung
+dass man auch das Hostsystem ohne Port-Weiterleitung
 zum Testen und zur Diagnose einsetzen kann.
 
 === Aufgabe {counter:a} [[aufgabe-host-only]]
@@ -452,11 +462,12 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 	   E-Portfolio zur Verfügung. 
 	   
 [loweralpha]
-. Erstellen Sie ein Host-only Adapter mit zwei Linux-VM.
+. Erstellen Sie ein Host-only-Adapter mit zwei Linux-VM.
   Wählen Sie dazu IP-Adressen, die von den  
   Beispielen und anderen Quellen abweichen.
 . Testen Sie mit ping und der Kombination aus curl und WEBrick
   wie in <<aufgabe-nat-netzwerk,Aufgabe 3>>
-  die Netzwerk-Verbindung zwischen den beiden Linux-VMs sowie
-  dem Hostsystem und einer Linux-VM.
+  die Netzwerk-Verbindung zwischen
+** den beiden Linux-VMs sowie
+** dem Hostsystem und einer Linux-VM.
 ****

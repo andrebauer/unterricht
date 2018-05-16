@@ -16,7 +16,10 @@ a|
 * https://the.earth.li/~sgtatham/putty/0.70/htmldoc/[PuTTY User Manual]
 
 | *Verwandte Literatur*
-| {empty}
+a|
+
+* IT-BS-VM-LJ-3.1
+* IT-BS-VM-LJ-3.2
 
 | *Lizenz*
 | {cc-by-sa}
@@ -70,9 +73,10 @@ Ob bereits ein SSH-Server-Prozess auf einem System läuft, kann mit `ps`
 [source, sh]
 ----
 $ ps xa | grep /usr/sbin/sshd
-19851 ?        Ss     0:00 /usr/sbin/sshd -D
+19851 ?        Ss     0:00 /usr/sbin/sshd -D <1>
 20419 pts/18   S+     0:00 grep --color=auto /usr/sbin/sshd
 ----
+<1> Der SSH-Server ist in Betrieb.
 
 == Einen SSH-Server von einem Linux-Client verwenden
 
@@ -97,7 +101,7 @@ Last login: Sat May  5 10:05:16 2018 from 127.0.0.1
 ----
 <1> Statt der IP-Adresse `127.0.0.1` für die Loopback-Schnittstelle, kann
     auch der Name `localhost` verwendet werden.
-<2> Beim ersten Login eines Clienten auf einem unbekannten SSH-Server wird
+<2> Beim ersten Login eines Clients auf einem unbekannten SSH-Server wird
     zur Kontolle der ECDSA-Key-Fingerprint ausgegeben.
 <3> Der Vorgang wird aus Sicherheitsgründen nur nach einer Bestätigung
     fortgesetzt. Bei einer bereits genutzten Verbindung kann ein geänderter
@@ -110,7 +114,7 @@ per `ssh` anzumelden, ist es natürlich auch möglich, sich remote über ein
 Netzwerk auf einem anderen System anzumelden.
 
 Für das folgende Beispiel müssen zwei VMs miteinander
-vernetzt (siehe Information IT-BS-VM-INFO-3.2) und auf dem
+vernetzt (siehe Lernjob IT-BS-VM-LJ-3.2) und auf dem
 Systen mit der IP-Adresse `10.0.3.10/24` ein SSH-Server eingerichtet sein.
 
 [[ssh-linux-vms]]
@@ -151,15 +155,15 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 
 Für den Zugriff vom Hostsystem auf das Linux-Gastsystem verwenden
 wir im Folgenden zunächst eine Portweiterleitung.
-Richten Sie dazu eine Portweiterleitung auf den Port 22 des Gastsystems ein,
+Dazu richten wir eine Portweiterleitung auf den Port 22 des Gastsystems ein,
 z.{nbsp}B. von Port 8022 auf dem Hostsystem.
 
 === Unix-artige Hostsysteme
 
 Auf unixartigen Hostsystemen, wie z.{nbsp}B. Linux oder Mac OS X, kann
 `ssh` direkt von einem Terminal aus verwendet werden.
-Im Unterschied zu <<ssh-mit-linuxgast>> wird dem SSH-Befehl mit
-der Option mit `-p 8022` eine Portnummer, die für die Verbindung mit dem
+Im Unterschied zu <<ssh-linux-vms>> wird dem SSH-Befehl mit
+der Option `-p 8022` eine Portnummer, die für die Verbindung mit dem
 SSH-Server verwendet werden soll, übergeben. Ohne eine solche Angabe wird
 der SSH-Standard-Port 22 verwendet.
 
@@ -204,24 +208,28 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
   Beispiel und anderen Quellen abweicht.
   Testen Sie wie in <<ssh-port-forwarding>> den SSH-Server über die
   Port-Weiterleitung.
-. Richten Sie eine Linux-VM mit SSH-Server und einem Host-only Adapter
+. Richten Sie eine Linux-VM mit SSH-Server und einem Host-only-Adapter
   ein. Wählen Sie dazu IP-Adressen, die von den  
   Beispielen und anderen Quellen abweichen.
-  Testen Sie wie in <<aufgabe-ssh-gast, Aufgabe 1>> den SSH-Server
-  vom Host-System sowie von einer zweiten Linux-VM.
+  Testen Sie wie in <<ssh-linux-vms>>
+  den SSH-Server
+** vom Hostsystem sowie
+** von einer zweiten Linux-VM.
 . Richten Sie eine Linux-VM mit SSH-Server und einer Netzwerkbrücke
   ein.
   Testen Sie wie zuvor den SSH-Server
-  vom Host-System sowie von einer zweiten Linux-VM.
+** vom Hostsystem sowie
+** von einer zweiten Linux-VM.
 ****
 
 == Secure Copy (`scp`)
 
 Mit Secure Copy (`scp`) können Dateien über ein Netzwerk verschlüsselt
 kopiert werden. Für das folgenden Beispiel müssen zwei VMs miteinander
-vernetzt (siehe Information IT-BS-VM-INFO-3.2) und auf dem
-Systen mit der IP `10.0.3.10` ein SSH-Server eingerichtet sein.
+vernetzt (siehe Information IT-BS-VM-LJ-3.2) und auf dem
+Systen mit der IP-Adresse `10.0.3.10` ein SSH-Server eingerichtet sein.
 
+[[scp-to-server]]
 .Von einer zweiten Linux-VM
 ====
 [source]
@@ -230,8 +238,21 @@ $ scp srv/index.adoc user@10.0.3.10:srv/ <1>
 user@10.0.3.10's password: 
 index.adoc                                    100%   95     0.1KB/s   00:00 
 ----
-<1> Kopiert die Datei `srv/index.html` in den Ordner `~/srv` auf dem
-    System mit der IP `10.0.3.10`.
+<1> Kopiert die Datei `srv/index.adoc` in den Ordner `~/srv` auf den
+    SSH-Server mit der IP-Adresse `10.0.3.10`.
+====
+
+[[scp-from-server]]
+.Von einer zweiten Linux-VM
+====
+[source]
+----
+$ scp user@10.0.3.10:srv/index.adoc srv/ <1>
+user@10.0.3.10's password: 
+index.adoc                                    100%   95     0.1KB/s   00:00 
+----
+<1> Kopiert die Datei `~/srv/index.adoc` vom
+    SSH-Server mit der IP-Adresse `10.0.3.10` in den Ordner `srv/`.
 ====
 
 === Aufgabe {counter:a} [[aufgabe-scp]]
@@ -245,7 +266,11 @@ IMPORTANT: Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
 . Richten Sie eine Linux-VM mit SSH-Server, NAT-Netzwerk und Port-Weiterleitung
   ein. Wählen Sie dazu eine Port-Nummer und IP-Adressen, die von den
   Beispielen und anderen Quellen abweichen.
-. Kopieren Sie Dateien zwischen einer zwei Linux-VM sowie einer Linux-VM und
-  dem Host über die Port-Weiterleitung. Kopieren Sie Dateien sowohl zum als
-  auch vom SSH-Server.
+. Kopieren Sie Dateien zwischen
+** zwei Linux-VM sowie
+** einer Linux-VM und dem Host über die Port-Weiterleitung.
+
++
+Kopieren Sie Dateien sowohl zum als auch vom SSH-Server
+wie in <<scp-to-server>> und <<scp-from-server>>.
 ****

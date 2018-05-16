@@ -1,5 +1,5 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-BS-VM-LJ-3.1
+:ovm-code: IT-BS-VM-LS-3.1
 :kind: Lernsituation
 :short-title: Netzwerke mit Virtualbox
 :experimental:
@@ -22,9 +22,9 @@ a|
 | *Verwandte Literatur*
 a|
 
-* IT-BS-VM-INFO-3.1
-* IT-BS-VM-INFO-3.2
-* IT-BS-VM-INFO-3.3
+* IT-BS-VM-LJ-3.1
+* IT-BS-VM-LJ-3.2
+* IT-BS-VM-LJ-3.3
 
 | *Lizenz*
 | {cc-by-sa}
@@ -38,10 +38,10 @@ Sie selbst wählen.
 [IMPORTANT]
 ====
 * Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
-  und stellen Sie Ihre Ergbnisse als PDF-Datei in Ihrem
+  und stellen Sie Ihre Ergbnisse als PDF-Dateien in Ihrem
   E-Portfolio zur Verfügung (siehe Lernjob IT-BS-VM-LJ-3.1). 
 * Wählen Sie individuelle Hostnamen, IP-Adressen und Ports,
-  die von den Beispielen und anderen Quellen abweichen.
+  die von den Beispielen in den Lernjobs und anderen Quellen abweichen.
 * Im Fachgespräch wird von Ihnen erwartet, dass Sie das
   Erarbeitete auch vorführen können.
 ====
@@ -102,7 +102,8 @@ Verwenden Sie dabei aber die Hostnamen statt der IP-Adressen.
 2. Mit `ip route` können Sie feststellen, dass zwei Default-Routen in der
    Routingtabelle eingetragen sind.
    Verfolgen Sie die Route zum Google Public DNS (IP-Adresse `8.8.8.8`)
-   per `traceroute 8.8.8.8`.
+   per `traceroute 8.8.8.8`, um zu sehen, welche der beiden Routen
+   gewählt wird.
 
 3. Verändern Sie anschließend die Einträge
    der Default-Routen (Löschen, Hinzufügen, Ändern)
@@ -144,8 +145,10 @@ zwischen den beiden VMs und Ihrem Hostsystem.
 
 == Aufgabe {counter:a}
 
-Erstellen ein virtuelles Netzwerk mit mindestens zwei Linux-VMs.
-Generieren Sie auf einer Linux-VM ein Schlüsselpaar für SSH und richten Sie
+Erstellen Sie ein virtuelles Netzwerk mit mindestens zwei Linux-VMs.
+Generieren Sie mit `ssh-keygen` auf einer Linux-VM ein Schlüsselpaar für SSH,
+übertragen Sie den öffentlichen Schlüssel mit `ssh-copy-id` auf
+die anderen Systeme und richten Sie
 den `ssh-agent` ein, sodass Sie sich
 auf den anderen Linux-VMs mit der Secure Shell ohne Passwort-Eingabe
 einloggen können.
