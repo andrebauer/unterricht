@@ -109,7 +109,7 @@ gulp.task('build:html', function(cb) {
 gulp.task('build:ad-basis-bsp-svg', function(cb) {
     exec(String.format(
 	"wkhtmltoimage -f svg {0}{1} {0}{2}",
-	pub_dir + 'betriebssysteme/virtualisierung/',
+	pub_dir + 'betriebssysteme/netzwerke-mit-virtualbox/',
 	'asciidoc-basis-beispiel.html',
 	'asciidoc-basis-beispiel.svg'),
 	 function(err, stdout, stderr) {
@@ -121,7 +121,7 @@ gulp.task('build:ad-basis-bsp-svg', function(cb) {
 
 gulp.task('copy:ad-basis-bsp-svg', function() {
     return gulp
-	.src(pub_dir + 'betriebssysteme/virtualisierung/' +
+	.src(pub_dir + 'betriebssysteme/netzwerke-mit-virtualbox/' +
 	     'asciidoc-basis-beispiel.svg')
 	.pipe(gulpCopy(build_dir + 'images/',{ prefix: 4 } ))
 })
