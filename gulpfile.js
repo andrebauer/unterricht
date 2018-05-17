@@ -3,26 +3,33 @@ var exec = require('child_process').exec;
 var del = require('del')
 var gulpCopy = require('gulp-copy');
 
-var sourcefiles = [ 'docs/**/*',
-		    'stylesheets/**/*',
-		    'src/**/*',
-		    'images/**/*',
-		    'partials/**/*' ];
+let docs = [ 'docs/**/*' ]
+
+let stylesheets = [ 'stylesheets/**/*' ]
+
+let images = [ 'images/**/*' ]
+
+let resources = [ 'src/**/*',
+		  'partials/**/*' ].concat(images);
+
+let html_resources = stylesheets.concat(images);
 
 let build_dir = '_build/'
 
-let pdf_paths = ['docs/*/*/*.adoc',
-		 'docs/*/*.adoc']
+let pub_dir = build_dir + 'ovm-themenwochen/'
 
-let html_paths = pdf_paths.concat('docs/*.adoc');
+let pdf_paths = ['*/*/*.adoc',
+		 '*/*.adoc']
 
-let slide_paths = ['docs/*/*/slides/*.adoc']
+let html_paths = pdf_paths.concat('*.adoc');
+
+let slide_paths = ['*/*/slides/*.adoc']
 
 let map_prefix = (prefix) => (arr) =>
     arr.map((x) => prefix + x);
 
 let map_build = (arr) => 
-    (map_prefix (build_dir) (arr)).join(' ');
+    (map_prefix (pub_dir) (arr)).join(' ');
 
 let html_docs = map_build (html_paths);
 
@@ -58,13 +65,31 @@ if (!String.format) {
   };
 }
 
-// copies source files to _build
-gulp.task('prebuild', function() {
+// copy doc files, strip docs/
+gulp.task('copy:docs', function() {
     return gulp
-	.src(sourcefiles)
+	.src(docs)
+	.pipe(gulpCopy(pub_dir, { prefix: 1} ))
+});
+
+// copy doc files, strip docs/
+gulp.task('copy:html_resources', function() {
+    return gulp
+	.src(html_resources)
+	.pipe(gulpCopy(pub_dir))
+});
+
+
+// copies source files to _build
+gulp.task('copy:resources', function() {
+    return gulp
+	.src(resources)
 	.pipe(gulpCopy(build_dir))
 });
 
+gulp.task('prebuild',[ 'copy:docs',
+		       'copy:html_resources',
+		       'copy:resources' ]);
 
 
 // builds html docs
@@ -84,7 +109,7 @@ gulp.task('build:html', function(cb) {
 gulp.task('build:ad-basis-bsp-svg', function(cb) {
     exec(String.format(
 	"wkhtmltoimage -f svg {0}{1} {0}{2}",
-	'_build/docs/betriebssysteme/virtualisierung/',
+	pub_dir + 'betriebssysteme/virtualisierung/',
 	'asciidoc-basis-beispiel.html',
 	'asciidoc-basis-beispiel.svg'),
 	 function(err, stdout, stderr) {
@@ -92,6 +117,13 @@ gulp.task('build:ad-basis-bsp-svg', function(cb) {
 	     console.log(stderr);
 	     cb(err);
 	 });
+})
+
+gulp.task('copy:ad-basis-bsp-svg', function() {
+    return gulp
+	.src(pub_dir + 'betriebssysteme/virtualisierung/' +
+	     'asciidoc-basis-beispiel.svg')
+	.pipe(gulpCopy(build_dir + 'images/',{ prefix: 4 } ))
 })
 
 // builds pdf docs
@@ -137,6 +169,7 @@ gulp.task('build:slides', function(cb) {
 gulp.task('build', ['prebuild',
 		    'build:html',
 		    'build:ad-basis-bsp-svg',
+		    'copy:ad-basis-bsp-svg',
 		    'build:pdf',
 		    'build:slides']);
 

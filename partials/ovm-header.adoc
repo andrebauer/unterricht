@@ -1,12 +1,13 @@
 ifdef::backend-html5[]
+:pub_dir: /ovm-themenwochen
 :img-cc-by-sa-remote: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
 :img-cc-by-nc-sa-remote: https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png
-:img-cc-by-sa: /images/cc-by-sa-88x31.png
-:img-cc-by-nc-sa: /images/cc-by-nc-sa-88x31.png
-:img-ovm-logo: /images/Logo-RSBS-SVG_mini-blau.svg
+:img-cc-by-sa: {pub_dir}/images/cc-by-sa-88x31.png
+:img-cc-by-nc-sa: {pub_dir}/images/cc-by-nc-sa-88x31.png
+:img-ovm-logo: {pub_dir}/images/Logo-RSBS-SVG_mini-blau.svg
 //:iconfont-remote!:
 :iconfont-name: font-awesome.min
-:stylesdir: /stylesheets/html5/
+:stylesdir: {pub_dir}/stylesheets/html5/
 :stylesheet: ovm.css
 :graphviz-format: svg
 :toc: left
