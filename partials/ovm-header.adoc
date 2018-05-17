@@ -1,5 +1,5 @@
-ifdef::backend-html5[]
 :pub_dir: /ovm-themenwochen
+ifdef::backend-html5[]
 :img-cc-by-sa-remote: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
 :img-cc-by-nc-sa-remote: https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png
 :img-cc-by-sa: {pub_dir}/images/cc-by-sa-88x31.png
