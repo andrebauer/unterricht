@@ -1,4 +1,7 @@
-= Themenwochen
+//include::partials/ovm-header.adoc[]
+:short-title: Fachräume
+
+= {short-title}
 
 * link:betriebssysteme/[Betriebssysteme]
 

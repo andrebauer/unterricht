@@ -1,3 +1,5 @@
 = Betriebssysteme
 
 * link:linux-essentials/[Linux Essentials]
+
+* link:netzwerke-mit-virtualbox/[Netzwerke mit Virtualbox]
