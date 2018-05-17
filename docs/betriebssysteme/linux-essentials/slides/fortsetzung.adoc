@@ -4,7 +4,7 @@ include::partials/ovm-header.adoc[]
 :short-title: LPI Linux Essentials: 2. Themenwoche 
 :prefix: le-slides-2
 :pygments-linenums-mode: inline
-:exampledir: docs/betriebssysteme/linux-essentials/slides/
+:exampledir: {pub_dir}/betriebssysteme/linux-essentials/slides/
 = {short-title}
 André Bauer
 v1.0, 18. März 2018

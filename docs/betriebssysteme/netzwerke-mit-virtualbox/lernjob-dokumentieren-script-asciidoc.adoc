@@ -155,7 +155,7 @@ erläutert.
 
 [source,asciidoc,subs=+macros]
 ----
-include::docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel-code.adoc[] 
+include::{pub_dir}/betriebssysteme/netzwerke-mit-virtualbox/asciidoc-basis-beispiel-code.adoc[] 
 ----
 <1> Der Dokumententitel wird zu Beginn des Dokuments mit einem `=`-Zeichen angegeben.
 <2> Die Angabe des Autors folgt in der Zeile nach dem Dokumententitel.
@@ -292,6 +292,8 @@ Sie können unter Ubuntu über das Paketmanagment-System installiert werden:
 $ sudo apt update
 $ sudo apt install python-blockdiag python-actdiag python-nwdiag python-seqdiag
 ----
+
+<<<
 
 :!sectnums:
 ==== Aufgabe {counter:a}
