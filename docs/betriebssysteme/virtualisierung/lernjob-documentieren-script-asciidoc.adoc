@@ -182,7 +182,7 @@ Kommando übersetzt und kann dann im Browser angezeigt werden.
 
 .Browserdarstellung eines mit Asciidoctor generieten HTML5-Dokumentes
 ====
-image::/docs/betriebssysteme/virtualisierung/asciidoc-basis-beispiel.svg[]
+image::asciidoc-basis-beispiel.svg[]
 ====
 
 Weitere Informationen, wie man ein AsciiDoc-Dokument gestalten kann,
