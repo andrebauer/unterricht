@@ -9,7 +9,8 @@ let stylesheets = [ 'stylesheets/**/*' ]
 
 let images = [ 'images/**/*' ]
 
-let resources = [ 'src/**/*',
+let resources = [ 'private/**/*',
+		  'src/**/*',
 		  'partials/**/*' ].concat(images);
 
 let html_resources = stylesheets.concat(images);
@@ -18,8 +19,12 @@ let build_dir = '_build/'
 
 let pub_dir = build_dir + 'unterricht/'
 
+let private_path = build_dir + 'private/'
+
 let pdf_paths = ['*/*/*.adoc',
 		 '*/*.adoc']
+
+let private_pdf_paths = [ '*.adoc' ];
 
 let html_paths = pdf_paths.concat('*.adoc');
 
@@ -36,6 +41,8 @@ let html_docs = map_build (html_paths);
 let pdf_docs = map_build (pdf_paths);
 
 let slide_docs = map_build (slide_paths);
+
+let private_pdf_docs = (map_prefix (private_path) (private_pdf_paths)).join(' ');
 
 /*
 var stylesheet_html5_dir =
@@ -131,9 +138,9 @@ gulp.task('build:pdf', function(cb) {
     exec(String.format(
   	 "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf {0} \
           --base-dir={1} -b pdf --safe-mode=safe \
-          -a pdf-style={2} -a allow-uri-read {3} {4}",
+          -a pdf-style={2} -a allow-uri-read {3} {4} {5}",
 	 verbose, build_dir, 'stylesheets/pdf/default-theme.yml',
-	 html_docs, slide_docs),
+	html_docs, private_pdf_docs, slide_docs),
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);
