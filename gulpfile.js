@@ -16,7 +16,7 @@ let html_resources = stylesheets.concat(images);
 
 let build_dir = '_build/'
 
-let pub_dir = build_dir + 'ovm-themenwochen/'
+let pub_dir = build_dir + 'unterricht/'
 
 let pdf_paths = ['*/*/*.adoc',
 		 '*/*.adoc']
