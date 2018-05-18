@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Netzwerke mit Virtualbox</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_netzwerke_mit_virtualbox">Netzwerke mit Virtualbox</a>
+<ul class="sectlevel1">
+<li><a href="#_aufgabe_1">Aufgabe 1</a></li>
+<li><a href="#_aufgabe_2">Aufgabe 2</a></li>
+<li><a href="#_aufgabe_3">Aufgabe 3</a></li>
+<li><a href="#_aufgabe_4">Aufgabe 4</a></li>
+<li><a href="#_aufgabe_5">Aufgabe 5</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Lernsituation</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernsituation IT-BS-VM-LS-3.1</strong><br>
+  <strong>Netzwerke mit Virtualbox</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-BS-VM-LS-3.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10. Mai 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.thomas-krenn.com/de/wiki/Netzwerkkonfiguration_in_VirtualBox">Netzwerkkonfiguration in VirtualBox</a></p>
+</li>
+<li>
+<p><a href="https://www.virtualbox.org/manual/">Oracle VM VirtualBox User Manual</a></p>
+</li>
+<li>
+<p><a href="https://www.virtualbox.org/manual/ch06.html">Oracle VM VirtualBox User Manual&#8201;&#8212;&#8201;Chapter 6. Virtual Networking</a></p>
+</li>
+<li>
+<p><a href="https://nocksoft.de/tutorials/virtualbox-netzwerkkonfiguration/">VirtualBox: Netzwerkkonfiguration</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf">ip command cheat sheet</a></p>
+</li>
+<li>
+<p><a href="http://linux-ip.net/html/tools-ip-routing.html">IP Route Management</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-BS-VM-LJ-3.1</p>
+</li>
+<li>
+<p>IT-BS-VM-LJ-3.2</p>
+</li>
+<li>
+<p>IT-BS-VM-LJ-3.3</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_netzwerke_mit_virtualbox" class="sect0">Netzwerke mit Virtualbox</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Bearbeiten Sie eine oder mehrere Aufgaben. Die Reihenfolge können
+Sie selbst wählen.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Wichtig"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+und stellen Sie Ihre Ergbnisse als PDF-Dateien in Ihrem
+E-Portfolio zur Verfügung (siehe Lernjob IT-BS-VM-LJ-3.1).</p>
+</li>
+<li>
+<p>Wählen Sie individuelle Hostnamen, IP-Adressen und Ports,
+die von den Beispielen in den Lernjobs und anderen Quellen abweichen.</p>
+</li>
+<li>
+<p>Im Fachgespräch wird von Ihnen erwartet, dass Sie das
+Erarbeitete auch vorführen können.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabe_1">Aufgabe 1</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Erstellen Sie mehrere Linux-VMs und vergeben Sie für die VMs
+<a href="https://de.wikipedia.org/wiki/Hostname">Hostnamen</a> nach einem
+<a href="http://seriss.com/people/erco/unixtools/hostnames.html">Schema</a>.
+Verbinden Sie wie in Lernjob IT-BS-VM-LJ-3.2
+die VMs und den Host über</p>
+<div class="openblock">
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>NAT mit Port-Weiterleitung</p>
+</li>
+<li>
+<p>Internes Netzwerk</p>
+</li>
+<li>
+<p>NAT-Netzwerk</p>
+</li>
+<li>
+<p>Netzwerkbrücke</p>
+</li>
+<li>
+<p>Host-only Adapter</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Tragen Sie jeweils auf den VMs in der Datei
+<a href="https://wiki.archlinux.de/title/Hosts"><code>/etc/hosts</code></a>
+die Hostnamen und die zugehörigen IP-Adressen ein.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Hinweis"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Auch unter Windows und Mac OS X kann die
+<a href="https://en.wikipedia.org/wiki/Hosts_(file)">Hosts-Datei</a>
+bearbeitet werden, so dass Sie auch
+auf Ihrem Hostsystem Hostnamen für die VMs verwenden können:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.imore.com/how-edit-your-macs-hosts-file-and-why-you-would-want">How to edit your Mac&#8217;s Hosts file and why you would want to</a></p>
+</li>
+<li>
+<p><a href="https://www.lifewire.com/how-to-edit-the-hosts-file-153661">How to Edit the HOSTS File in Windows</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Testen Sie jeweils mit ping, ssh, scp und der Kombination aus curl und WEBrick
+die Netzwerk-Verbindungen wie in den Lernjobs IT-BS-VM-LJ-3.2 und
+IT-BS-VM-LJ-3.3.
+Verwenden Sie dabei aber die Hostnamen statt der IP-Adressen.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabe_2">Aufgabe 2</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Erstellen Sie eine Linux-VM mit zwei Adaptern, die beide einen Zugang zum
+Internet haben
+(z.&#160;B. NAT, NAT-Netzwerk oder Netzwerkbrücke).</p>
+</li>
+<li>
+<p>Mit <code>ip route</code> können Sie feststellen, dass zwei Default-Routen in der
+Routingtabelle eingetragen sind.
+Verfolgen Sie die Route zum Google Public DNS (IP-Adresse <code>8.8.8.8</code>)
+per <code>traceroute 8.8.8.8</code>, um zu sehen, welche der beiden Routen
+gewählt wird.</p>
+</li>
+<li>
+<p>Verändern Sie anschließend die Einträge
+der Default-Routen (Löschen, Hinzufügen, Ändern)
+mit <code>ip route</code> und verfolgen Sie die Routen
+wieder mit <code>traceroute</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Hinweis"></i>
+</td>
+<td class="content">
+Hilfen zu <code>ip route</code> finden Sie im
+<a href="https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf">ip command cheat sheet</a>
+sowie im Abschnitt
+<a href="http://linux-ip.net/html/tools-ip-routing.html">IP Route Management</a>
+des
+<a href="http://linux-ip.net/html/index.html">Guide to IP Layer Network Administration with Linux</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabe_3">Aufgabe 3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Richten Sie eine VM mit Windows 10 ein. Verbinden
+Sie diese Windows-VM mit einer Linux-WM über</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>NAT mit Port-Weiterleitung</p>
+</li>
+<li>
+<p>Internes Netzwerk</p>
+</li>
+<li>
+<p>NAT-Netzwerk</p>
+</li>
+<li>
+<p>Netzwerkbrücke</p>
+</li>
+<li>
+<p>Host-only Adapter</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Testen Sie jeweils mit ping, ssh, scp und der Kombination aus curl und WEBrick
+die Netzwerk-Verbindungen wie in den Lernjobs
+IT-BS-VM-LJ-3.2 und IT-BS-VM-LJ-3.3
+zwischen den beiden VMs und Ihrem Hostsystem.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Anmerkung"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Das benötigte ISO-Image steht im Intranet über das Netzlaufwerk
+<code>\\ovm-nas\bfi_19</code> bereit.</p>
+</li>
+<li>
+<p>Dieses dürfen Sie nur vorübergehend für Schulungszwecke verwenden.</p>
+</li>
+<li>
+<p>Laden Sie das Image aufgrund des großen Datenvolumens
+über LAN statt WLAN.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabe_4">Aufgabe 4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Erstellen Sie ein virtuelles Netzwerk mit mindestens zwei Linux-VMs.
+Generieren Sie mit <code>ssh-keygen</code> auf einer Linux-VM ein Schlüsselpaar für SSH,
+übertragen Sie den öffentlichen Schlüssel mit <code>ssh-copy-id</code> auf
+die anderen Systeme und richten Sie
+den <code>ssh-agent</code> ein, sodass Sie sich
+auf den anderen Linux-VMs mit der Secure Shell ohne Passwort-Eingabe
+einloggen können.</p>
+</div>
+<div class="paragraph">
+<p>Anleitungen finden sie auf den folgenden Seiten:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.ssh.com/ssh/keygen/">ssh-keygen - Generate a New SSH Key</a></p>
+</li>
+<li>
+<p><a href="https://www.ssh.com/ssh/agent">ssh-agent - Single Sign-On using SSH</a></p>
+</li>
+<li>
+<p><a href="http://rabexc.org/posts/using-ssh-agent">Using an ssh-agent, or how to type your ssh password once, safely.</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabe_5">Aufgabe 5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Verfahren Sie wie im Lernjob IT-BS-VM-LJ-3.2, aber verwenden Sie IPv6
+statt IPv4.
+Umfassende Informationen zu IPv6 finden Sie im
+<a href="http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/index.html">Linux IPv6 HOWTO</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:26 CEST
+</div>
+</div>
+</body>
+</html>

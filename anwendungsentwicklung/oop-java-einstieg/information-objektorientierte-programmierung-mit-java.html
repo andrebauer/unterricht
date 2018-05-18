@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Objektorientierte Programmierung (OOP) mit Java</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_objektorientierte_programmierung_oop_mit_java">Objektorientierte Programmierung (OOP) mit Java</a>
+<ul class="sectlevel1">
+<li><a href="#_was_wird_noch_benötigt_damit_der_schalter_die_lampen_steuert">1. Was wird noch benötigt, damit der Schalter die Lampen steuert?</a></li>
+<li><a href="#_wie_kann_man_mehrere_lampen_mit_einem_schalter_verbinden">2. Wie kann man mehrere Lampen mit einem Schalter verbinden?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Information</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information IT-AE-UML-INFO-3.4</strong><br>
+  <strong>Objektorientierte Programmierung (OOP) mit Java</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-INFO-3.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17. April 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design">Wikipedia: Objektorientierte Analyse und Design</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-AE-UML-INFO-3.1-3.3</p>
+</li>
+<li>
+<p><a href="https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf">Vortragsfolien "Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"</a></p>
+</li>
+<li>
+<p><a href="http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf">Skript "Objektorientierte Programmierung mit Java und UML"</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjobs</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-LJ-3.*</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_objektorientierte_programmierung_oop_mit_java" class="sect0">Objektorientierte Programmierung (OOP) mit Java</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Gegenben ist als Ergenis der objektorientierten Modellierung
+das Klassendiagramm in <a href="#klassendiagramm-1">Abbildung 1</a>.</p>
+</div>
+<div id="klassendiagramm-1" class="imageblock">
+<div class="content">
+<img src="oop-klassendiagramm-schalter-lampe-enum-erweitert.svg" alt="oop klassendiagramm schalter lampe enum erweitert" width="352" height="325">
+</div>
+<div class="title">Abbildung 1. Klassendiagramm als ein Ergebnis der objektorientierten Modellierung</div>
+</div>
+<div class="paragraph">
+<p>Dem Klassendiagramm in <a href="#klassendiagramm-1">Abbildung 1</a>
+entspricht das folgende Java-Programm:</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 1. Java-Programm</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-c1">// Datei State.java</span>
+<span class="tok-kd">public</span> <span class="tok-kd">enum</span> <span class="tok-n">State</span> <span class="tok-o">{</span>
+  <span class="tok-n">ON</span><span class="tok-o">,</span>
+  <span class="tok-n">OFF</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Datei Color.java</span>
+<span class="tok-kd">public</span> <span class="tok-kd">enum</span> <span class="tok-n">Color</span> <span class="tok-o">{</span>
+  <span class="tok-n">RED</span><span class="tok-o">,</span> <span class="tok-n">BLUE</span><span class="tok-o">,</span> <span class="tok-n">GREEN</span><span class="tok-o">,</span> <span class="tok-n">WHITE</span><span class="tok-o">,</span> <span class="tok-n">YELLOW</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Datei Lamp.java</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Lamp</span> <span class="tok-o">{</span>
+  <span class="tok-kd">private</span> <span class="tok-n">State</span> <span class="tok-n">state</span><span class="tok-o">;</span>
+
+  <span class="tok-kd">private</span> <span class="tok-n">Color</span> <span class="tok-n">color</span><span class="tok-o">;</span>
+
+  <span class="tok-kd">public</span> <span class="tok-nf">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span> <span class="tok-n">color</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">turnOn</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">turnOff</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-o">}</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Datei Switch.java</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Switch</span> <span class="tok-o">{</span>
+  <span class="tok-kd">private</span> <span class="tok-n">State</span> <span class="tok-n">state</span><span class="tok-o">;</span>
+
+  <span class="tok-kd">public</span> <span class="tok-nf">Switch</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">press</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">connect</span><span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">disconnect</span><span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Java muss jede Klasse mit dem
+<a href="https://de.wikipedia.org/wiki/Zugriffsmodifikator">Zugriffsmodifikator</a>
+<code>public</code> in einer eigenen <code>java</code>-Datei mit dem Namen der
+Klasse gespeichert werden, so dass das
+Programm nun aus vier Dateien besteht.</p>
+</div>
+<div class="paragraph">
+<p>Ist damit die Entwicklung der Software abgeschlossen?
+Nein, noch nicht, wir haben bislang erst eine objektorientierte Struktur
+erstellt.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_was_wird_noch_benötigt_damit_der_schalter_die_lampen_steuert">1. Was wird noch benötigt, damit der Schalter die Lampen steuert?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<div class="title">Wir benötigen &#8230;&#8203;</div>
+<ul>
+<li>
+<p>Konstruktoren, die wie in den User-Stories den
+Anfangszustand herstellen und Objekte einer Klasse kreieren.</p>
+</li>
+<li>
+<p>eine Ausgabe, wenn die Lampe ihren Zustand wechselt, damit wir
+das Programm testen können.</p>
+</li>
+<li>
+<p>Quellcode, der die Beziehungen zwischen den Objekten erzeugt.
+Dazu betrachten wir zunächst eine Vereinfachung.</p>
+</li>
+<li>
+<p>Quellcode für die Aktionen der Objekte, wenn sie eine Nachricht erhalten,
+das heißt die Methoden
+<code>press()</code> in <code>Switch</code> sowie
+<code>turnOn()</code> sowie <code>turnOff()</code> in <code>Lamp</code> müssen implementiert werden.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Wir vereinfachen zunächst die Kennt-Beziehung zwischen <code>Switch</code> und
+<code>Lamp</code> so, dass nur eine <code>Lamp</code> mit einem <code>Switch</code> verbunden werden kann,
+dies nennt man eine <em>1-zu-1-Beziehung</em>.</p>
+</div>
+<div id="klassendiagramm-3" class="imageblock">
+<div class="content">
+<img src="oop-klassendiagramm-schalter-lampe-vereinfacht.svg" alt="oop klassendiagramm schalter lampe vereinfacht" width="437" height="377">
+</div>
+<div class="title">Abbildung 2. Klassendiagramm mit einer 1-zu-1-Beziehung zwischen <code>Switch</code> und <code>Lamp</code>.</div>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 2. Java-Programm</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-c1">// State.java</span>
+<span class="tok-kd">public</span> <span class="tok-kd">enum</span> <span class="tok-n">State</span> <span class="tok-o">{</span>
+  <span class="tok-n">ON</span><span class="tok-o">,</span>
+  <span class="tok-n">OFF</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Datei Color.java</span>
+<span class="tok-kd">public</span> <span class="tok-kd">enum</span> <span class="tok-n">Color</span> <span class="tok-o">{</span>
+  <span class="tok-n">RED</span><span class="tok-o">,</span>
+  <span class="tok-n">BLUE</span><span class="tok-o">,</span>
+  <span class="tok-n">GREEN</span><span class="tok-o">,</span>
+  <span class="tok-n">WHITE</span><span class="tok-o">,</span>
+  <span class="tok-n">YELLOW</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Datei Lamp.java</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Lamp</span> <span class="tok-o">{</span>
+  <span class="tok-kd">private</span> <span class="tok-n">State</span> <span class="tok-n">state</span><span class="tok-o">;</span>
+
+  <span class="tok-kd">private</span> <span class="tok-n">Color</span> <span class="tok-n">color</span><span class="tok-o">;</span>
+
+  <span class="tok-kd">public</span> <span class="tok-nf">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span> <span class="tok-n">color</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+    <span class="tok-k">this</span><span class="tok-o">.</span><span class="tok-na">color</span> <span class="tok-o">=</span> <span class="tok-n">color</span><span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">turnOn</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">ON</span><span class="tok-o">;</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-k">this</span> <span class="tok-o">+</span> <span class="tok-s">&quot; ON&quot;</span><span class="tok-o">);</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">turnOff</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-k">this</span> <span class="tok-o">+</span> <span class="tok-s">&quot; OFF&quot;</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Switch.java</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Switch</span> <span class="tok-o">{</span>
+  <span class="tok-kd">private</span> <span class="tok-n">State</span> <span class="tok-n">state</span><span class="tok-o">;</span>
+  <span class="tok-kd">private</span> <span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+  <span class="tok-kd">public</span> <span class="tok-nf">Switch</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">press</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">lamp</span> <span class="tok-o">!=</span> <span class="tok-kc">null</span><span class="tok-o">)</span> <span class="tok-o">{</span> <i class="conum" data-value="3"></i><b>(3)</b>
+      <span class="tok-k">switch</span> <span class="tok-o">(</span><span class="tok-n">state</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+        <span class="tok-k">case</span> <span class="tok-n">OFF</span><span class="tok-o">:</span>
+	  <span class="tok-k">this</span><span class="tok-o">.</span><span class="tok-na">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">ON</span><span class="tok-o">;</span>
+          <span class="tok-n">lamp</span><span class="tok-o">.</span><span class="tok-na">turnOn</span><span class="tok-o">();</span>
+          <span class="tok-k">break</span><span class="tok-o">;</span>
+
+       <span class="tok-k">case</span> <span class="tok-n">ON</span><span class="tok-o">:</span>
+	 <span class="tok-k">this</span><span class="tok-o">.</span><span class="tok-na">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+         <span class="tok-n">lamp</span><span class="tok-o">.</span><span class="tok-na">turnOff</span><span class="tok-o">();</span>
+       <span class="tok-o">}</span>
+    <span class="tok-o">}</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">connect</span><span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lampToConnect</span><span class="tok-o">)</span> <span class="tok-o">{</span> <i class="conum" data-value="4"></i><b>(4)</b>
+    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">lamp</span> <span class="tok-o">==</span> <span class="tok-kc">null</span><span class="tok-o">)</span> <span class="tok-o">{</span> <i class="conum" data-value="5"></i><b>(5)</b>
+      <span class="tok-n">lamp</span> <span class="tok-o">=</span> <span class="tok-n">lampToConnect</span><span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">disconnect</span><span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lampToDisconnect</span><span class="tok-o">)</span> <span class="tok-o">{</span> <i class="conum" data-value="6"></i><b>(6)</b>
+    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">lamp</span> <span class="tok-o">==</span> <span class="tok-n">lampToDisconnect</span><span class="tok-o">)</span> <span class="tok-o">{</span> <i class="conum" data-value="7"></i><b>(7)</b>
+      <span class="tok-n">lamp</span> <span class="tok-o">=</span> <span class="tok-kc">null</span><span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+  <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Hier wird ein Text auf der Konsole ausgegeben. Dieser
+setzt sich aus einer Information über
+das aktuellen Objekt <code>this</code> sowie dem Text <code>" ON"</code>
+zusammen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Um eine Beziehung von <code>Switch</code> zu <code>Lamp</code> herstellen zu
+können, wird ein Attribut der Klasse <code>Lamp</code> benötigt,
+dieses hat, wenn nichts angegeben wird,
+den initialen Wert <code>null</code>, d.&#160;h. es ist
+anfangs kein Objekt verknüpft.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Die Methoden <code>turnOn()</code> und <code>turnOff()</code> können nur aufgerufen
+werden, wenn <code>lamp</code> mit einem Objekt der Klasse <code>Lamp</code> verknüpft ist.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Die Methode <code>connect()</code> stellt die Verknüpfung einer Lampe mit einem
+Schalter her.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Eine neue Verknüpfung wird nur dann hergestellt, wenn der
+Schalter noch nicht verbunden ist.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Die Methode <code>disconnect()</code> löst eine Verknüpfung zwischen einer Lampe und
+einem Schalter.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Die Verknüpfung wird nur gelöst, wenn die im Parameter angegebene
+<code>lamp</code> mit der bereits verknüpften identisch ist.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Mit diesen Klassen können jetzt die Objekte <code>lamp1</code> und <code>switch1</code> erzeugt werden
+und die Lampe <code>lamp1</code> mit dem Schalter <code>switch1</code> verbunden werden.</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 3. Java-Anweisungen, um Objekte zu erzeugen und zu verbinden</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">Lamp</span> <span class="tok-n">lamp1</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span><span class="tok-o">.</span><span class="tok-na">RED</span><span class="tok-o">);</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="tok-n">Switch</span> <span class="tok-n">switch1</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Switch</span><span class="tok-o">();</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">connect</span><span class="tok-o">(</span><span class="tok-n">lamp1</span><span class="tok-o">);</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">press</span><span class="tok-o">();</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Eine neues Objekt der Klasse <code>Lamp</code> mit dem Bezeichner <code>lamp1</code> wird erzeugt.
+Beim Aufruf des Konstruktors <code>Lamp(Color)</code> wird die Farbe der Lampe mit
+<code>Color.RED</code> als Parameter übergeben.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Eine neues Objekt der Klasse <code>Switch</code> mit dem Bezeichner <code>switch1</code> wird erzeugt.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Die Lampe <code>lamp1</code> wird mit dem Schalter <code>switch1</code> verbunden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>&#8222;Betätigen&#8220; des Schalters.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Diese Befehle können in
+<a href="https://www.bluej.org/">BlueJ</a> auch ohne <code>main</code>-Methode
+direkt über die Oberfläche &#8222;per Hand&#8220;
+oder im integrierten CodePad ausgeführt werden.
+Für ein vollständiges Java-Programm wird hingegen in einer
+Klasse eine <code>main</code>-Methode benötigt wie in der Klasse <code>Controller</code>
+im <a href="#final-source-code">Quellcode 5</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_wie_kann_man_mehrere_lampen_mit_einem_schalter_verbinden">2. Wie kann man mehrere Lampen mit einem Schalter verbinden?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wir benötigen dazu eine Objekt-Sammlung im Switch. In Java gibt es dazu
+vorgefertigte Komponenten, z.B. eine
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">ArrayList</a>.
+Diese hat u.a. die Methoden</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>add(E e)</code>
+</td>
+<td class="hdlist2">
+<p>Fügt am Ende der Liste ein Objekt hinzu.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>get(int index): E</code>
+</td>
+<td class="hdlist2">
+<p>Gibt das Objekt an der angegeben Position <code>index</code> aus,
+der Index beginn in Java bei 0.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>remove(Object o)</code>
+</td>
+<td class="hdlist2">
+<p>Entfernt ein Objekt aus der Sammlung.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Zudem gibt es in Java eine besondere <code>for</code>-Schleife für Collections wie
+u.&#160;a. die ArrayList:</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 4. Java-Programm</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">:</span> <span class="tok-n">lamps</span><span class="tok-o">)</span> <span class="tok-o">{</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="tok-n">lamp</span><span class="tok-o">.</span><span class="tok-na">turnOn</span><span class="tok-o">();</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>In dem Schleifenkopf wird eine Collection ausgewählt, hier <code>lamps</code> sowie
+ein Bezeichner <code>lamp</code> der Klasse <code>Lamp</code> definiert,
+der nur in dem Schleifenrumpf gültig ist.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Im Schleifenrumpf werden die Aktionen festgelegt, die mit jedem
+Objekt der Sammlung durchgeführt werden, dazu verwendet man den oben
+definierten Bezeichner <code>lamp</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Hier der vollständige Quellcode, der User-Story 1 aus IT-AE-JA-INFO-5.1
+entspricht:</p>
+</div>
+<div id="final-source-code" class="listingblock">
+<div class="title">Quellcode 5. Vollständiges Java-Programm mit Javadoc-Kommentaren</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-c1">// State.java</span>
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * The representation of a state with the values ON and OFF.</span>
+<span class="tok-cm"> *</span>
+<span class="tok-cm"> * @author André Bauer</span>
+<span class="tok-cm"> * @version 1.0</span>
+<span class="tok-cm"> */</span>
+<span class="tok-kd">public</span> <span class="tok-kd">enum</span> <span class="tok-n">State</span> <span class="tok-o">{</span>
+  <span class="tok-n">ON</span><span class="tok-o">,</span>
+  <span class="tok-n">OFF</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Color.java</span>
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * The representation of a color.</span>
+<span class="tok-cm"> *</span>
+<span class="tok-cm"> * @author André Bauer</span>
+<span class="tok-cm"> * @version 1.0</span>
+<span class="tok-cm"> */</span>
+<span class="tok-kd">public</span> <span class="tok-kd">enum</span> <span class="tok-n">Color</span> <span class="tok-o">{</span>
+  <span class="tok-n">RED</span><span class="tok-o">,</span>
+  <span class="tok-n">BLUE</span><span class="tok-o">,</span>
+  <span class="tok-n">GREEN</span><span class="tok-o">,</span>
+  <span class="tok-n">WHITE</span><span class="tok-o">,</span>
+  <span class="tok-n">YELLOW</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Lamp.java</span>
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * A lamp with the states ON and OFF. It is not dimable.</span>
+<span class="tok-cm"> *</span>
+<span class="tok-cm"> * @author André Bauer</span>
+<span class="tok-cm"> * @version 1.0</span>
+<span class="tok-cm"> */</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Lamp</span> <span class="tok-o">{</span>
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * The current state of the lamp.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">private</span> <span class="tok-n">State</span> <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * The color of the lamp.</span>
+<span class="tok-cm">   */</span>
+    <span class="tok-kd">private</span> <span class="tok-n">Color</span> <span class="tok-n">color</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Creates a new lamp, with the initial state OFF.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-nf">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span> <span class="tok-n">color</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+    <span class="tok-k">this</span><span class="tok-o">.</span><span class="tok-na">color</span> <span class="tok-o">=</span> <span class="tok-n">color</span><span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Turns the state of the lamp to ON.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">turnOn</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">ON</span><span class="tok-o">;</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-k">this</span> <span class="tok-o">+</span> <span class="tok-s">&quot; ON&quot;</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Turns the state of the lamp to OFF.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">turnOff</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-k">this</span> <span class="tok-o">+</span> <span class="tok-s">&quot; OFF&quot;</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span>
+<span class="tok-o">}</span>
+
+
+<span class="tok-c1">// Switch.java</span>
+<span class="tok-kn">import</span> <span class="tok-nn">java.util.*</span><span class="tok-o">;</span>
+
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * A simple switch with the states ON and OFF.</span>
+<span class="tok-cm"> *</span>
+<span class="tok-cm"> * @author André Bauer</span>
+<span class="tok-cm"> * @version 1.0</span>
+<span class="tok-cm"> */</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Switch</span> <span class="tok-o">{</span>
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * The current state of the switch.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">private</span> <span class="tok-n">State</span> <span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * The list of connected lamps.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">private</span> <span class="tok-n">List</span><span class="tok-o">&lt;</span><span class="tok-n">Lamp</span><span class="tok-o">&gt;</span> <span class="tok-n">lamps</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Creates a new switch witch has an initial state OFF</span>
+<span class="tok-cm">   * and an empty list of connected lamps.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-nf">Switch</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-n">lamps</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">ArrayList</span><span class="tok-o">&lt;</span><span class="tok-n">Lamp</span><span class="tok-o">&gt;();</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Turns the state of the switch and</span>
+<span class="tok-cm">   * signals every connected lamp to turn</span>
+<span class="tok-cm">   * its state to the state of the switch.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">press</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-k">switch</span> <span class="tok-o">(</span><span class="tok-n">state</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+      <span class="tok-k">case</span> <span class="tok-n">OFF</span><span class="tok-o">:</span>
+	<span class="tok-k">this</span><span class="tok-o">.</span><span class="tok-na">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">ON</span><span class="tok-o">;</span>
+	<span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">:</span> <span class="tok-n">lamps</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+          <span class="tok-n">lamp</span><span class="tok-o">.</span><span class="tok-na">turnOn</span><span class="tok-o">();</span>
+	<span class="tok-o">}</span>
+	<span class="tok-k">break</span><span class="tok-o">;</span>
+
+      <span class="tok-k">case</span> <span class="tok-n">ON</span><span class="tok-o">:</span>
+	<span class="tok-k">this</span><span class="tok-o">.</span><span class="tok-na">state</span> <span class="tok-o">=</span> <span class="tok-n">State</span><span class="tok-o">.</span><span class="tok-na">OFF</span><span class="tok-o">;</span>
+	<span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">:</span> <span class="tok-n">lamps</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+          <span class="tok-n">lamp</span><span class="tok-o">.</span><span class="tok-na">turnOff</span><span class="tok-o">();</span>
+	<span class="tok-o">}</span>
+     <span class="tok-o">}</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Connects a lamp with the switch.</span>
+<span class="tok-cm">   *</span>
+<span class="tok-cm">   * @param lamp The lamp, which should become connected with the switch.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">connect</span><span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">lamps</span><span class="tok-o">.</span><span class="tok-na">add</span><span class="tok-o">(</span><span class="tok-n">lamp</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Disconnects a lamp from the switch, if connected</span>
+<span class="tok-cm">   *</span>
+<span class="tok-cm">   * @param lamp The lamp, which should become disconnected from the switch.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">disconnect</span><span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">lamps</span><span class="tok-o">.</span><span class="tok-na">remove</span><span class="tok-o">(</span><span class="tok-n">lamp</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span>
+<span class="tok-o">}</span>
+
+<span class="tok-c1">// Controller.java</span>
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * The main class which runs User-Story 1.</span>
+<span class="tok-cm"> *</span>
+<span class="tok-cm"> * @author André Bauer</span>
+<span class="tok-cm"> * @version 1.0</span>
+<span class="tok-cm"> */</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Controller</span> <span class="tok-o">{</span>
+  <span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">args</span><span class="tok-o">[])</span> <span class="tok-o">{</span>
+    <span class="tok-c1">// User-Story 1</span>
+    <span class="tok-n">Lamp</span> <span class="tok-n">lamp1</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span><span class="tok-o">.</span><span class="tok-na">BLUE</span><span class="tok-o">);</span>
+    <span class="tok-n">Lamp</span> <span class="tok-n">lamp2</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span><span class="tok-o">.</span><span class="tok-na">RED</span><span class="tok-o">);</span>
+    <span class="tok-n">Lamp</span> <span class="tok-n">lamp3</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span><span class="tok-o">.</span><span class="tok-na">YELLOW</span><span class="tok-o">);</span>
+    <span class="tok-n">Switch</span> <span class="tok-n">switch1</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Switch</span><span class="tok-o">();</span>
+    <span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">connect</span><span class="tok-o">(</span><span class="tok-n">lamp1</span><span class="tok-o">);</span>
+    <span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">connect</span><span class="tok-o">(</span><span class="tok-n">lamp2</span><span class="tok-o">);</span>
+    <span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">connect</span><span class="tok-o">(</span><span class="tok-n">lamp3</span><span class="tok-o">);</span>
+    <span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">press</span><span class="tok-o">();</span>
+  <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Der Quellcode wird mit dem Java-Compiler <code>javac</code> übersetzt.
+Dabei genügt es, die Datei <code>Controller.java</code> anzugeben.
+Der Java-Compiler übersetzt dann automatisch alle weiteren
+benötigten Dateien.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ javac Controller.java</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Das Programm wird mit <code>java</code> ausgeführt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ java Controller
+Lamp@6d06d69c ON <i class="conum" data-value="1"></i><b>(1)</b>
+Lamp@7852e922 ON
+Lamp@4e25154f ON</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>Lamp@6d06d69c</code> wird durch <code>this</code> in der Ausgabe mit
+<code>System.out.println(this + " ON");</code> erzeugt und setzt
+sich aus dem Namen der Klasse und der ID des Objektes zusammen.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:25 CEST
+</div>
+</div>
+</body>
+</html>

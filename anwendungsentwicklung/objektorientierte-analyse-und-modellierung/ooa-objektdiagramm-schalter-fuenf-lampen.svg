@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="171px" preserveAspectRatio="none" style="width:702px;height:171px;" version="1.1" viewBox="0 0 702 171" width="702px" zoomAndPan="magnify"><defs><filter height="300%" id="fxg1pezte0l6w" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fxg1pezte0l6w)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="133" x="282" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="119" x="289" y="21.1387">schalter1: Schalter</text><line style="stroke: #000000; stroke-width: 1.0;" x1="289" x2="408" y1="23.1387" y2="23.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="283" x2="414" y1="25.9688" y2="25.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="288" y="39.251">zustand = AUS</text><rect fill="#FEFECE" filter="url(#fxg1pezte0l6w)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="6" y="123"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="13" y="136.1387">lampe1: Lampe</text><line style="stroke: #000000; stroke-width: 1.0;" x1="13" x2="108" y1="138.1387" y2="138.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="114" y1="140.9688" y2="140.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="12" y="154.251">zustand = AUS</text><rect fill="#FEFECE" filter="url(#fxg1pezte0l6w)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="150" y="123"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="157" y="136.1387">lampe2: Lampe</text><line style="stroke: #000000; stroke-width: 1.0;" x1="157" x2="252" y1="138.1387" y2="138.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="151" x2="258" y1="140.9688" y2="140.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="156" y="154.251">zustand = AUS</text><rect fill="#FEFECE" filter="url(#fxg1pezte0l6w)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="294" y="123"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="301" y="136.1387">lampe3: Lampe</text><line style="stroke: #000000; stroke-width: 1.0;" x1="301" x2="396" y1="138.1387" y2="138.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="295" x2="402" y1="140.9688" y2="140.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="300" y="154.251">zustand = AUS</text><rect fill="#FEFECE" filter="url(#fxg1pezte0l6w)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="438" y="123"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="445" y="136.1387">lampe4: Lampe</text><line style="stroke: #000000; stroke-width: 1.0;" x1="445" x2="540" y1="138.1387" y2="138.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="439" x2="546" y1="140.9688" y2="140.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="444" y="154.251">zustand = AUS</text><rect fill="#FEFECE" filter="url(#fxg1pezte0l6w)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="582" y="123"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="589" y="136.1387">lampe5: Lampe</text><line style="stroke: #000000; stroke-width: 1.0;" x1="589" x2="684" y1="138.1387" y2="138.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="583" x2="690" y1="140.9688" y2="140.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="588" y="154.251">zustand = AUS</text><!--link schalter1 to lampe1--><path d="M290.1104,46.012 C264.5625,54.6587 234.3531,65.3295 207.5,76 C172.5812,89.8755 133.8385,107.3591 104.8967,120.8452 " fill="none" id="schalter1-lampe1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="100.3379,122.9741,110.185,122.7902,104.8682,120.8584,106.8,115.5416,100.3379,122.9741" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="208.5" y="89.0669">schaltet</text><!--link schalter1 to lampe3--><path d="M348.5,46.2484 C348.5,65.8183 348.5,96.207 348.5,117.487 " fill="none" id="schalter1-lampe3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="348.5,122.6888,352.5,113.6888,348.5,117.6888,344.5,113.6888,348.5,122.6888" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="290.0094" y="111.9568">schaltet</text><!--link schalter1 to lampe2--><path d="M324.3976,46.2484 C299.1659,66.3988 259.5715,98.0193 232.8542,119.356 " fill="none" id="schalter1-lampe2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="228.681,122.6888,238.2097,120.1979,232.5879,119.5686,233.2173,113.9468,228.681,122.6888" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="286.5" y="89.0669">schaltet</text><!--link schalter1 to lampe4--><path d="M372.6024,46.2484 C397.8341,66.3988 437.4285,98.0193 464.1458,119.356 " fill="none" id="schalter1-lampe4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="468.319,122.6888,463.7827,113.9468,464.4121,119.5686,458.7903,120.1979,468.319,122.6888" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="429.5" y="89.0669">schaltet</text><!--link schalter1 to lampe5--><path d="M406.8896,46.012 C432.4375,54.6587 462.6469,65.3295 489.5,76 C524.4188,89.8755 563.1615,107.3591 592.1033,120.8452 " fill="none" id="schalter1-lampe5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="596.6621,122.9741,590.2,115.5416,592.1318,120.8584,586.815,122.7902,596.6621,122.9741" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="526.5" y="89.0669">schaltet</text><!--
+@startuml
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = AUS
+}
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = AUS
+}
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = AUS
+}
+
+object "<u>lampe3: Lampe</u>" as lampe3 {
+  zustand = AUS
+}
+
+object "<u>lampe4: Lampe</u>" as lampe4 {
+  zustand = AUS
+}
+
+object "<u>lampe5: Lampe</u>" as lampe5 {
+  zustand = AUS
+}
+
+
+lampe1 <-down- schalter1 : schaltet
+
+schalter1 -down-> "schaltet" lampe3
+
+schalter1 -down-> lampe2 : schaltet
+
+schalter1 -down-> lampe4 : schaltet
+
+schalter1 -down-> lampe5 : schaltet
+@enduml
+
+PlantUML version 1.2018.01(Sun Jan 28 19:08:22 CET 2018)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_172-b11
+Operating System: Linux
+OS Version: 4.16.7-1-ARCH
+Default Encoding: UTF-8
+Language: de
+Country: DE
+--></g></svg>

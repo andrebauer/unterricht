@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Netzwerke mit Virtualbox</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_netzwerke_mit_virtualbox">Netzwerke mit Virtualbox</a>
+<ul class="sectlevel1">
+<li><a href="#_nat_mit_port_weiterleitung">1. NAT mit Port-Weiterleitung</a>
+<ul class="sectlevel2">
+<li><a href="#aufgabe-nat">Aufgabe 1</a></li>
+</ul>
+</li>
+<li><a href="#_internes_netzwerk">2. Internes Netzwerk</a>
+<ul class="sectlevel2">
+<li><a href="#aufgabe-internes-netzwerk">Aufgabe 2</a></li>
+</ul>
+</li>
+<li><a href="#_nat_netzwerk">3. NAT-Netzwerk</a>
+<ul class="sectlevel2">
+<li><a href="#aufgabe-nat-netzwerk">Aufgabe 3</a></li>
+</ul>
+</li>
+<li><a href="#_netzwerkbrücke">4. Netzwerkbrücke</a>
+<ul class="sectlevel2">
+<li><a href="#aufgabe-bridge">Aufgabe 4</a></li>
+</ul>
+</li>
+<li><a href="#_host_only_adapter">5. Host-only-Adapter</a>
+<ul class="sectlevel2">
+<li><a href="#aufgabe-host-only">Aufgabe 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Lernjob</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjob IT-BS-VM-LJ-3.2</strong><br>
+  <strong>Netzwerke mit Virtualbox</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-BS-VM-LJ-3.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10. Mai 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.thomas-krenn.com/de/wiki/Netzwerkkonfiguration_in_VirtualBox">Netzwerkkonfiguration in VirtualBox</a></p>
+</li>
+<li>
+<p><a href="https://www.virtualbox.org/manual/">Oracle VM VirtualBox User Manual</a></p>
+</li>
+<li>
+<p><a href="https://www.virtualbox.org/manual/ch06.html">Oracle VM VirtualBox User Manual&#8201;&#8212;&#8201;Chapter 6. Virtual Networking</a></p>
+</li>
+<li>
+<p><a href="https://nocksoft.de/tutorials/virtualbox-netzwerkkonfiguration/">VirtualBox: Netzwerkkonfiguration</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf">ip command cheat sheet</a></p>
+</li>
+<li>
+<p><a href="https://ec.haxx.se/cmdline-options.html">Buch: Everything curl</a></p>
+</li>
+<li>
+<p><a href="https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/">Deprecated Linux networking commands and their replacements</a></p>
+</li>
+<li>
+<p><a href="http://linux-ip.net/html/tools-ip-routing.html">IP Route Management</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-BS-VM-LS-3.1</p>
+</li>
+<li>
+<p>IT-BS-VM-LJ-3.1</p>
+</li>
+<li>
+<p>IT-BS-VM-LJ-3.3</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_netzwerke_mit_virtualbox" class="sect0">Netzwerke mit Virtualbox</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p></p>
+</div>
+<div class="paragraph">
+<p>Wie können virtuelle Netzwerke zwischen Virtuellen Maschinen
+(VMs) aufgebaut und mithilfe von Shell-Befehlen getestet werden?</p>
+</div>
+<div class="paragraph">
+<p>Virtualbox bietet sechs verschiedene Modi an, wie ein Netzwerkadapter
+verbunden werden kann, die bis auf den sechsten
+im Folgenden vorgestellt und beispielhaft verwendet werden:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>NAT</p>
+</li>
+<li>
+<p>Internes Netzwerk</p>
+</li>
+<li>
+<p>NAT-Netzwerk</p>
+</li>
+<li>
+<p>Netzwerkbrücke</p>
+</li>
+<li>
+<p>Host-only-Adapter</p>
+</li>
+<li>
+<p>Nicht angeschlossen</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Wichtig"></i>
+</td>
+<td class="content">
+Im Fachgespräch wird von Ihnen erwartet, dass Sie die
+	   Konfiguration der verschiedenen Netzwerk-Modi und den Einsatz
+	   der Test-Werkzeuge auch vorführen können.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nat_mit_port_weiterleitung">1. NAT mit Port-Weiterleitung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bei der Einstellung NAT erhält der Adapter des Gasts per NAT
+(<a href="https://de.wikipedia.org/wiki/Netzwerkadress%C3%BCbersetzung">NAT</a>
+steht für Network Address Translation)
+Zugriff auf das Netzwerk, an das der Host angeschlossen ist,
+der Gast kann aber umgekehrt von außen oder vom Hostsystem
+nicht erreicht werden.</p>
+</div>
+<div class="paragraph">
+<p>In den VM-Einstellungen richtet man unter Netzwerk bei einem Adapter
+mit der Einstellung NAT
+unter &#8222;Erweitert&#8220; eine Portweiterleitung ein.
+Zum Beispiel eine Weiterleitung des Host-Ports 8080
+auf den Gast-Port 8000, womit der Gast auf diesem Port erreichbar wird.</p>
+</div>
+<div class="paragraph">
+<p>Mit Ruby kann man ohne vorherige Konfiguration einen Webserver
+(WEBrick-HTTP-Server) in einer Virtuelle Maschine (VM) betreiben.
+Falls Ruby noch nicht installiert sein sollte, kann dies unter
+debian-basierten Systemen wie Ubuntu mit den folgenden beiden
+Befehlen eingerichtet werden:</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 1. Auf dem Gastsystem</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ sudo apt update
+$ sudo apt install ruby</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nun kann ein Verzeichnis <code>srv</code> mit einer Datei <code>index.html</code> angelegt
+werden und mit Ruby ein Webserver gestartet werden.</p>
+</div>
+<div id="start-webserver" class="listingblock">
+<div class="title">Quellcode 2. Auf dem Gastsystem</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ sudo hostname saturn <i class="conum" data-value="1"></i><b>(1)</b>
+$ mkdir srv
+$ <span class="tok-nb">echo</span> <span class="tok-s2">&quot;Hello from `hostname`.&quot;</span> &gt; srv/index.html <i class="conum" data-value="2"></i><b>(2)</b>
+$ ruby -run -e httpd srv -p <span class="tok-m">8000</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Setzt den Hostnamen auf <code>saturn</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Erstellt eine einfache Textdatei im Ordner <code>srv</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Startet WEBrick auf Port 8000 mit <code>srv</code> als Wurzelverzeichnis
+(Documentroot).</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Die Portweiterleitung kann mit <a href="https://curl.haxx.se/">curl</a>
+auf dem Hostsystem getestet werden. Das Programm ist für
+<a href="https://curl.haxx.se/download.html">alle gängigen Betriebssysteme verfügbar</a>.
+In dem Buch <a href="https://ec.haxx.se/">&#8222;Everything curl&#8220;</a> ist
+eine umfassende Dokumentation des Befehls
+<a href="https://ec.haxx.se/cmdline-options.html"><code>curl</code></a>
+enthalten.
+Unter debian-basierten Systemen kann curl mit</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ sudo apt update
+$ sudo apt install curl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>installiert werden.</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 3. Auf dem Hostsystem</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ curl localhost:8080
+Hello from saturn.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Eine zweite Möglichkeit ist, die Adresse <a href="http://localhost:8080" class="bare">http://localhost:8080</a>
+in einem Browser auf dem Hostsystem aufzurufen.</p>
+</div>
+<div class="paragraph">
+<p>Die Portweiterleitung ist aber nicht nur lokal über die
+Loopback-Schnittstelle gültig, sondern
+auch über die Netzwerkschnittstelle des Hosts, die mit dem
+pysischen Netzwerkadapter verknüpft ist.
+Diese kann mit <code>ipconfig</code> (Windows), <code>ifconfig</code> (Max OS X) oder
+<code>ip -4 addr</code> (Linux) ermittelt werden.</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 4. Auf dem Hostsystem</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ ip -4 addr
+<span class="tok-m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="tok-m">65536</span> qdisc noqueue state UNKNOWN group default qlen <span class="tok-m">1000</span>
+    inet <span class="tok-m">127</span>.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+<span class="tok-m">2</span>: enp0s25: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="tok-m">1500</span> qdisc fq_codel state UP group default qlen <span class="tok-m">1000</span>
+    inet <span class="tok-m">192</span>.168.178.21/24 brd <span class="tok-m">192</span>.168.178.255 scope global enp0s25
+       valid_lft forever preferred_lft forever
+
+$ curl <span class="tok-m">192</span>.168.178.21:8080
+Hello from saturn.</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 5. Auf einer zweiten Linux-VM oder dem Hostsystem</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ curl <span class="tok-m">192</span>.168.178.21:8080
+Hello from saturn.</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect2">
+<h3 id="aufgabe-nat">Aufgabe 1</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Wichtig"></i>
+</td>
+<td class="content">
+Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Richten Sie bei einer Linux-VM NAT mit einer Port-Weiterleitung ein
+und erstellen Sie wie in <a href="#start-webserver">Quellcode 2</a> eine Datei, die sie mit
+WEBrick zugänglich machen. Wählen Sie Port-Nummern, die von dem
+Beispiel und anderen Quellen abweichen.</p>
+</li>
+<li>
+<p>Testen Sie mit curl die Port-Weiterleitung von</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ihrem Hostsystem und</p>
+</li>
+<li>
+<p>einer zweiten Linux-VM.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_internes_netzwerk">2. Internes Netzwerk</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ein internes Netzwerk ist ein virtuelles Netzwerk, an dem ausschließlich
+Virtuelle Maschinen angebunden werden können. Im VirtualBox Manager
+wird dazu zwei oder mehreren <em>ausgeschalteten</em> VMs ein zusätzlicher
+Netzwerk-Adapter mit demselben internen Netzwerknamen hinzugefügt.
+Im Gegensatz zu der Standardoption NAT erhalten die Schnittstellen
+zunächst keine IP-Adressen, so dass diese entweder manuell vergeben werden
+müssen (siehe unten) oder ein
+<a href="https://de.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP-Server</a>
+für dieses interne Netz eingerichtet werden muss.
+Insofern eignet sich dieser Modus besonders,
+um z.&#160;B. die Einrichtung eines DHCP-Servers oder eines
+Domänencontrollers
+in einem virtuellen Netzwerk auszuprobieren und zu testen.</p>
+</div>
+<div class="paragraph">
+<p>Im folgenden werden zwei Linux-VMs benötigt, dazu kann
+z.&#160;B. eine bestehende,
+ausgeschaltete VM im Virtualbox Manager geklont werden.</p>
+</div>
+<div class="paragraph">
+<p>Die Systeme haben nun eine zusätzliche Netzwerkschnittstelle,
+der noch keine IPv4-Adresse zugeordnet wurde.
+Um Informationen über Netzwerkschnittstellen zu erhalten und diese
+zu konfigurieren, gibt es unter unix-artigen Systeme u.&#160;a. den Befehl
+<a href="https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf"><code>ip</code></a>.
+Unter Windows gibt es den Befehl
+<a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490921(v=technet.10)"><code>ipconfig</code></a>, der eine
+ähnliche Funktionalität hat.
+Im Beispiel hat die neue Schnittstelle den Namen <code>enp0s8</code>.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Beispiel 1. Auf Gast 1</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>$ ip addr
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo <i class="conum" data-value="1"></i><b>(1)</b>
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:07:74:c5 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3 <i class="conum" data-value="2"></i><b>(2)</b>
+       valid_lft 86186sec preferred_lft 86186sec
+    inet6 fe80::3bbb:2d8e:1e5:dea6/64 scope link
+       valid_lft forever preferred_lft forever
+3: enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Die Loopback-Schnittstelle erhält per Konvention die IPv4-Adresse
+<code>127.0.0.1/8</code> sowie die IPv6-Adresse <code>::1/128</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Der Schnittstelle <code>enp0s3</code> ist die IP-Adresse <code>10.0.2.15</code> zugeordnet.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Der Schnittstelle <code>enp0s8</code> ist bislang keine IP-Adresse zugeordnet.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Nun wird beiden Gästen den Schnittstellen, die am internen
+Netzwerk angeschlossen sind, jeweils mit <code>ip</code> eine
+IP-Adresse zugeordnet. Das verwendete Netzwerk darf noch nicht
+vergeben sein. Da die Schnittstelle <code>enp0s3</code> per NAT bereits mit dem
+Netzwerk <code>10.0.2.0/24</code> verbunden ist, wird mit der IP-Adresse <code>10.0.3.10/24</code>
+ein Netzwerk gewählt, dass noch frei ist.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Beispiel 2. Auf Gast 1</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ sudo ip addr add <span class="tok-m">10</span>.0.3.10/24 dev enp0s8 valid_lft forever <i class="conum" data-value="1"></i><b>(1)</b>
+$ ip addr show enp0s8 <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="tok-m">3</span>: enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="tok-m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="tok-m">1000</span>
+    link/ether <span class="tok-m">08</span>:00:27:f3:87:36 brd ff:ff:ff:ff:ff:ff
+    inet <span class="tok-m">10</span>.0.3.10/24 scope global enp0s8 <i class="conum" data-value="3"></i><b>(3)</b>
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fef3:8736/64 scope link
+       valid_lft forever preferred_lft forever
+
+$ ip route <i class="conum" data-value="4"></i><b>(4)</b>
+default via <span class="tok-m">10</span>.0.2.2 dev enp0s3  proto static  metric <span class="tok-m">100</span>
+<span class="tok-m">10</span>.0.2.0/24 dev enp0s3  proto kernel  scope link  src <span class="tok-m">10</span>.0.2.15  metric <span class="tok-m">100</span>
+<span class="tok-m">10</span>.0.3.0/24 dev enp0s8  proto kernel  scope link  src <span class="tok-m">10</span>.0.3.10 <i class="conum" data-value="5"></i><b>(5)</b>
+<span class="tok-m">169</span>.254.0.0/16 dev enp0s3  scope link  metric <span class="tok-m">1000</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Der Schnittstelle <code>enp0s8</code> wird die IP-Adresse <code>10.0.3.10</code> in
+dem Subnetz <code>10.0.3.0/24</code> (<a href="https://de.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR-Notation</a>) zugeordnet.
+Die Gültigkeit der IP-Adresse wird mit <code>valid_lft forever</code> als unbegrenzt
+gesetzt. Ohne diese Angabe wird die IP-Adresse nach einiger Zeit
+automatisch wieder verworfen, was in diesem Zusammenhang ein
+unerwünschtes Systemverhalten wäre. Falls nötig, kann
+mit <code>sudo ip addr del 10.0.3.10/24 dev enp0s8</code> die Zuordnung der IP-Adresse
+wieder entfernt werden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Durch Angabe des Schnittstellennamens gibt <code>ip addr</code> nur die Informationen
+für <code>enp0s8</code> aus.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>In der Ausgabe kann man nachvollziehen, dass die Netzwerkschnittstelle
+<code>enp0s8</code> nun die IP-Adresse <code>10.0.3.10/24</code> erhalten hat.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Der Befehl <code>ip route</code> gibt die
+<a href="https://de.wikipedia.org/wiki/Routingtabelle">Routingtabelle</a>
+des Systems aus.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Diese Zeile legt fest, dass alle Ziele aus dem Subnetz <code>10.0.3.0/24</code>
+über die Schnittstelle <code>enp0s8</code> weitergeleitet werden.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Die zweite VM erhält die IP-Adresse <code>10.0.3.11/24</code>.
+Mit dem Befehl <code>ping</code> kann schließlich
+überprüft werden, ob die erste VM unter der IP-Adresse <code>10.0.3.10/24</code>
+erreichbar ist.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Beispiel 3. Auf Gast 2</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ sudo ip addr add <span class="tok-m">10</span>.0.3.11/24 dev enp0s8 valid_lft forever <i class="conum" data-value="1"></i><b>(1)</b>
+$ ping <span class="tok-m">10</span>.0.3.10 <i class="conum" data-value="2"></i><b>(2)</b>
+PING <span class="tok-m">10</span>.0.3.10 <span class="tok-o">(</span><span class="tok-m">10</span>.0.3.10<span class="tok-o">)</span> <span class="tok-m">56</span><span class="tok-o">(</span><span class="tok-m">84</span><span class="tok-o">)</span> bytes of data.
+<span class="tok-m">64</span> bytes from <span class="tok-m">10</span>.0.3.10: <span class="tok-nv">icmp_seq</span><span class="tok-o">=</span><span class="tok-m">1</span> <span class="tok-nv">ttl</span><span class="tok-o">=</span><span class="tok-m">64</span> <span class="tok-nv">time</span><span class="tok-o">=</span><span class="tok-m">0</span>.972 ms
+<span class="tok-m">64</span> bytes from <span class="tok-m">10</span>.0.3.10: <span class="tok-nv">icmp_seq</span><span class="tok-o">=</span><span class="tok-m">2</span> <span class="tok-nv">ttl</span><span class="tok-o">=</span><span class="tok-m">64</span> <span class="tok-nv">time</span><span class="tok-o">=</span><span class="tok-m">0</span>.649 ms
+<span class="tok-m">64</span> bytes from <span class="tok-m">10</span>.0.3.10: <span class="tok-nv">icmp_seq</span><span class="tok-o">=</span><span class="tok-m">3</span> <span class="tok-nv">ttl</span><span class="tok-o">=</span><span class="tok-m">64</span> <span class="tok-nv">time</span><span class="tok-o">=</span><span class="tok-m">0</span>.584 ms
+<span class="tok-m">64</span> bytes from <span class="tok-m">10</span>.0.3.10: <span class="tok-nv">icmp_seq</span><span class="tok-o">=</span><span class="tok-m">4</span> <span class="tok-nv">ttl</span><span class="tok-o">=</span><span class="tok-m">64</span> <span class="tok-nv">time</span><span class="tok-o">=</span><span class="tok-m">0</span>.630 ms
+^C <i class="conum" data-value="3"></i><b>(3)</b>
+--- <span class="tok-m">10</span>.0.3.10 ping statistics ---
+<span class="tok-m">4</span> packets transmitted, <span class="tok-m">4</span> received, <span class="tok-m">0</span>% packet loss, <span class="tok-nb">time</span> 3052ms
+rtt min/avg/max/mdev <span class="tok-o">=</span> <span class="tok-m">0</span>.584/0.708/0.972/0.157 ms</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Das zweite System erhält mit <code>10.0.3.11/24</code> auch eine IP-Adresse aus dem
+Subnetz <code>10.0.3.0/24</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Mit <a href="https://de.wikipedia.org/wiki/Ping_(Daten%C3%BCbertragung)">Ping</a>
+wird auf der Ebene des TCP-Protokolls, dem
+<a href="https://de.wikipedia.org/wiki/Internet_Control_Message_Protocol">Internet Control Message Protocol (ICMP)</a>,
+geprüft, ob das System mit der angegebenen IP-Adresse erreichbar ist.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Mit der Tastenkombination <span class="keyseq"><kbd>Strg</kbd>+<kbd>C</kbd></span> wird <code>ping</code> abgebrochen.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aufgabe-internes-netzwerk">Aufgabe 2</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Wichtig"></i>
+</td>
+<td class="content">
+Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Erstellen Sie ein internes Netzwerk mit zwei Linux-VMs.
+Wählen Sie dazu IP-Adressen, die von den
+Beispielen und anderen Quellen abweichen.</p>
+</li>
+<li>
+<p>Testen Sie mit ping und der Kombination aus curl und WEBrick
+wie in <a href="#aufgabe-nat">Aufgabe 1</a> die Netzwerk-Verbindung zwischen
+den Linux-VMs.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nat_netzwerk">3. NAT-Netzwerk</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Zunächst wird im VirtualBox Manager unter Datei &#8594; Einstellungen &#8594; Netzwerk
+ein NAT-Netzwerk eingerichtet, z.&#160;B. mit dem Subnetz <code>10.0.5.0/24</code>
+und DHCP. Bei den VMs muss nun jeweils an einem Netzwerk-Adapter die
+Einstellung NAT-Netzwerk gesetzt werden.
+Aufgrund der DHCP-Unterstützung werden
+den Schnittstellen automatisch IP-Adressen zugeordnet.
+Die angeschlossenen Gäste können über das NAT-Netzwerk sowohl untereinander
+kommunizieren als auch Systeme außerhalb des
+Netzwerkes erreichen, die über die Netzwerkadapter des Hosts-Systems erreichbar
+sind. Die Gäste sind aber umgekehrt von außen oder dem Hostsystem
+ohne Port-Weiterleitung nicht erreichbar.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Beispiel 4. Auf Gast 1</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ ip -4 addr <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="tok-m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="tok-m">65536</span> qdisc noqueue state UNKNOWN group default qlen <span class="tok-m">1000</span>
+    inet <span class="tok-m">127</span>.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+<span class="tok-m">2</span>: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="tok-m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="tok-m">1000</span>
+    inet <span class="tok-m">10</span>.0.2.15/24 brd <span class="tok-m">10</span>.0.2.255 scope global dynamic enp0s3
+       valid_lft 86116sec preferred_lft 86116sec
+<span class="tok-m">3</span>: enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="tok-m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="tok-m">1000</span>
+    inet <span class="tok-m">10</span>.0.5.4/24 brd <span class="tok-m">10</span>.0.5.255 scope global dynamic enp0s8 <i class="conum" data-value="2"></i><b>(2)</b>
+       valid_lft 916sec preferred_lft 916sec</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Mit der Option <code>-4</code> zeigt <code>ip addr</code> nur IPv4-Adressen an.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Die am NAT-Netzwerk angeschlossene Schnittstelle <code>enp0s8</code> hat per
+DHCP die IP-Adresse <code>10.0.5.4/24</code> erhalten.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Beispiel 5. Auf Gast 2</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ ip -4 addr
+<span class="tok-m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="tok-m">65536</span> qdisc noqueue state UNKNOWN group default qlen <span class="tok-m">1000</span>
+    inet <span class="tok-m">127</span>.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+<span class="tok-m">2</span>: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="tok-m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="tok-m">1000</span>
+    inet <span class="tok-m">10</span>.0.2.15/24 brd <span class="tok-m">10</span>.0.2.255 scope global dynamic enp0s3
+       valid_lft 85808sec preferred_lft 85808sec
+<span class="tok-m">3</span>: enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="tok-m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="tok-m">1000</span>
+    inet <span class="tok-m">10</span>.0.5.5/24 brd <span class="tok-m">10</span>.0.5.255 scope global dynamic enp0s8 <i class="conum" data-value="1"></i><b>(1)</b>
+       valid_lft 1196sec preferred_lft 1196sec
+
+$ ping <span class="tok-m">10</span>.0.5.4 <i class="conum" data-value="2"></i><b>(2)</b>
+PING <span class="tok-m">10</span>.0.5.4 <span class="tok-o">(</span><span class="tok-m">10</span>.0.5.4<span class="tok-o">)</span> <span class="tok-m">56</span><span class="tok-o">(</span><span class="tok-m">84</span><span class="tok-o">)</span> bytes of data.
+<span class="tok-m">64</span> bytes from <span class="tok-m">10</span>.0.5.4: <span class="tok-nv">icmp_seq</span><span class="tok-o">=</span><span class="tok-m">1</span> <span class="tok-nv">ttl</span><span class="tok-o">=</span><span class="tok-m">64</span> <span class="tok-nv">time</span><span class="tok-o">=</span><span class="tok-m">0</span>.272 ms <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="tok-m">64</span> bytes from <span class="tok-m">10</span>.0.5.4: <span class="tok-nv">icmp_seq</span><span class="tok-o">=</span><span class="tok-m">2</span> <span class="tok-nv">ttl</span><span class="tok-o">=</span><span class="tok-m">64</span> <span class="tok-nv">time</span><span class="tok-o">=</span><span class="tok-m">0</span>.322 ms
+<span class="tok-m">64</span> bytes from <span class="tok-m">10</span>.0.5.4: <span class="tok-nv">icmp_seq</span><span class="tok-o">=</span><span class="tok-m">3</span> <span class="tok-nv">ttl</span><span class="tok-o">=</span><span class="tok-m">64</span> <span class="tok-nv">time</span><span class="tok-o">=</span><span class="tok-m">0</span>.647 ms
+^C
+--- <span class="tok-m">10</span>.0.5.4 ping statistics ---
+<span class="tok-m">3</span> packets transmitted, <span class="tok-m">3</span> received, <span class="tok-m">0</span>% packet loss, <span class="tok-nb">time</span> 2044ms
+rtt min/avg/max/mdev <span class="tok-o">=</span> <span class="tok-m">0</span>.272/0.413/0.647/0.167 ms</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Die Schnittstelle <code>enp0s8</code> hat per DHCP die IP-Adresse <code>10.0.5.5/24</code>
+erhalten und befindet sich im gleichen Subnetz wie <code>enp0s8</code> von Gast 1.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Gast 1 erhält ICMP-Anfragen mit ping.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Antworten von Gast 1 auf ICMP-Anfragen werden fotlaufend ausgegeben.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aufgabe-nat-netzwerk">Aufgabe 3</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Wichtig"></i>
+</td>
+<td class="content">
+Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Erstellen Sie ein NAT-Netzwerk mit zwei Linux-VMs.
+Wählen Sie dazu IP-Adressen, die von den
+Beispielen und anderen Quellen abweichen.</p>
+</li>
+<li>
+<p>Testen Sie mit ping und der Kombination aus curl und WEBrick
+wie in den <a href="#aufgabe-nat">Aufgaben 1</a> und <a href="#aufgabe-internes-netzwerk">2</a>
+die Netzwerk-Verbindungen zwischen</p>
+<div class="ulist">
+<ul>
+<li>
+<p>den beiden Linux-VMs sowie</p>
+</li>
+<li>
+<p>dem Hostsystem und einer Linux-VM.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_netzwerkbrücke">4. Netzwerkbrücke</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bei der Netzwerkbrücke erhält der Gast direkten Zugriff
+auf das Host-Netzwerk, so als wäre er dort direkt angeschlossen.
+Falls auf dem Host-Netzwerk ein DHCP-Server die IP-Adressen verwaltet,
+so erhält der Gast auch eine eigenständige IP-Adresse, die vom Hostsystem
+abweicht.
+Aufgrund der direkten Anbindung an das Host-Netzwerk ist die
+Netzwerkbrücke für einige Experimente, insbesondere mit DHCP,
+<em>nicht</em> geeignet.</p>
+</div>
+<div class="sect2">
+<h3 id="aufgabe-bridge">Aufgabe 4</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Wichtig"></i>
+</td>
+<td class="content">
+Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Erstellen Sie eine Netzwerkbrücke mit einer Linux-VM.</p>
+</li>
+<li>
+<p>Testen Sie mit ping und der Kombination aus curl und WEBrick
+wie in den vorherigen Aufgaben
+die Netzwerk-Verbindung zwischen</p>
+<div class="ulist">
+<ul>
+<li>
+<p>dem Hostsystem und der Linux-VM sowie</p>
+</li>
+<li>
+<p>der Linux-VM und einer zweiten VM.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_host_only_adapter">5. Host-only-Adapter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ähnlich wie beim internen Netzwerk muss im Virtualbox Manager unter
+&#8222;Globale Tools&#8220; zunächst ein
+Host-only-Netzwerk (optional mit DHCP-Server) erstellt werden.
+Dann kann in den Einstellungen der <em>abgeschalteten</em> VMs jeweils ein
+Adapter als Host-only-Adapter konfiguriert werden.</p>
+</div>
+<div class="paragraph">
+<p>Auch das Hostsystem erhält automatisch
+eine virtuelle Netzwerk-Schnittstelle und,
+falls der DHCP-Server für das Host-only-Netzwerk aktiviert ist, auch
+automatisch eine IP-Adresse für diese Schnittstelle.</p>
+</div>
+<div class="paragraph">
+<p>Die angeschlossenen Gäste und das Hostsystem haben nun ein gemeinsames
+internes Netzwerk, das mit anderen Netzen nicht verbunden ist.
+Dieser Modus eignet sich wie auch das interne Netzwerk oder das
+NAT-Netzwerk sehr gut für Experimente. Das Host-only-Netzwerk ermöglicht es,
+dass man auch das Hostsystem ohne Port-Weiterleitung
+zum Testen und zur Diagnose einsetzen kann.</p>
+</div>
+<div class="sect2">
+<h3 id="aufgabe-host-only">Aufgabe 5</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Wichtig"></i>
+</td>
+<td class="content">
+Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
+	   und stellen Sie das Ergbnis als PDF-Datei in Ihrem
+	   E-Portfolio zur Verfügung.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Erstellen Sie ein Host-only-Adapter mit zwei Linux-VM.
+Wählen Sie dazu IP-Adressen, die von den
+Beispielen und anderen Quellen abweichen.</p>
+</li>
+<li>
+<p>Testen Sie mit ping und der Kombination aus curl und WEBrick
+wie in <a href="#aufgabe-nat-netzwerk">Aufgabe 3</a>
+die Netzwerk-Verbindung zwischen</p>
+<div class="ulist">
+<ul>
+<li>
+<p>den beiden Linux-VMs sowie</p>
+</li>
+<li>
+<p>dem Hostsystem und einer Linux-VM.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:26 CEST
+</div>
+</div>
+</body>
+</html>

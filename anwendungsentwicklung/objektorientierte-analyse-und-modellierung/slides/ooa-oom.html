@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="author" content="André Bauer"><title>Objektorientierte Analyse und Modellierung</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/simple.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #408080; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+.listingblock .pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #BC7A00 } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #408080; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #408080; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #888888 } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+.listingblock .pygments .tok-m { color: #666666 } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #BA2121 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #7D9029 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #008000 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.listingblock .pygments .tok-no { color: #880000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #999999; font-weight: bold } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #0000FF } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #A0A000 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.listingblock .pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #19177C } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #BA2121 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #BA2121 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #BB6688 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #0000FF } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #19177C } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */</style><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/css/zenburn.css" rel="stylesheet"><script>var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/pdf.css" : "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/paper.css";
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Objektorientierte Analyse und Modellierung</h1><p class="author"><small>André Bauer</small></p></section><section id="objektorientierte_analyse"><h2>Objektorientierte Analyse</h2><div class="paragraph lead"><p>Vom Problem zu einem objektorientieren Modell</p></div></section>
+<section id="user-story-1"><h2>User-Story 1</h2><div class="sidebarblock"><div class="content"><div class="paragraph"><p>Cem drückt den Schalter neben der Tür seines Zimmers,
+daraufhin beginnen seine beiden Deckenlampen zu leuchten.</p></div></div></div></section>
+<section id="sequenzdiagramm_user_story_1"><h2>Sequenzdiagramm <a href="#user-story-1">User-Story 1</a></h2><div class="imageblock" id="sequenzdiagramm-1" style=""><img src="ooa-sequenzdiagramm-1.svg" alt="ooa sequenzdiagramm 1"></div></section>
+<section><section id="objektdiagramme_user_story_1"><h2>Objektdiagramme <a href="#user-story-1">User-Story 1</a></h2><div class="imageblock" id="objektdiagramm-1" style=""><img src="ooa-objektdiagramm-1.svg" alt="ooa objektdiagramm 1"></div></section><section id="objektdiagramme_user_story_1_2"><h2>Objektdiagramme <a href="#user-story-1">User-Story 1</a></h2><div class="imageblock" style=""><img src="ooa-objektdiagramm-1.svg" alt="ooa objektdiagramm 1"></div>
+<div class="imageblock" id="objektdiagramm-2" style=""><img src="ooa-objektdiagramm-2.svg" alt="ooa objektdiagramm 2"></div></section><section id="objektdiagramme_user_story_1_3"><h2>Objektdiagramme <a href="#user-story-1">User-Story 1</a></h2><div class="imageblock" style=""><img src="ooa-objektdiagramm-1.svg" alt="ooa objektdiagramm 1"></div>
+<div class="imageblock" style=""><img src="ooa-objektdiagramm-2.svg" alt="ooa objektdiagramm 2"></div>
+<div class="imageblock" id="objektdiagramm-3" style=""><img src="ooa-objektdiagramm-3.svg" alt="ooa objektdiagramm 3"></div></section><section id="objektdiagramme_user_story_1_4"><h2>Objektdiagramme <a href="#user-story-1">User-Story 1</a></h2><div class="imageblock" style=""><img src="ooa-objektdiagramm-1.svg" alt="ooa objektdiagramm 1"></div>
+<div class="imageblock" style=""><img src="ooa-objektdiagramm-2.svg" alt="ooa objektdiagramm 2"></div>
+<div class="imageblock" style=""><img src="ooa-objektdiagramm-3.svg" alt="ooa objektdiagramm 3"></div>
+<div class="imageblock" id="objektdiagramm-4" style=""><img src="ooa-objektdiagramm-4.svg" alt="ooa objektdiagramm 4"></div></section></section>
+<section><section id="klassendiagramm"><h2>Klassendiagramm</h2><div class="imageblock" id="klassendiagramm-1.1" style=""><img src="ooa-klassendiagramm-1.1.svg" alt="ooa klassendiagramm 1.1"></div><div class="title">Abbildung 1. Klassendiagramm</div></section><section id="user-story-2"><h2>User-Story 2</h2><div class="sidebarblock"><div class="content"><div class="paragraph"><p>Cem drückt den Schalter neben der Tür seines Zimmers,
+daraufhin hören seine beiden Deckenlampen auf zu leuchten.</p></div></div></div></section><section id="sequenzdiagramm_user_story_2"><h2>Sequenzdiagramm <a href="#user-story-2">User-Story 2</a></h2><div class="imageblock" id="sequenzdiagramm-2" style=""><img src="ooa-sequenzdiagramm-2.svg" alt="ooa sequenzdiagramm 2"></div></section><section id="klassendiagramm_2"><h2>Klassendiagramm</h2><div class="imageblock" id="klassendiagramm-1.2" style=""><img src="ooa-klassendiagramm-1.2.svg" alt="ooa klassendiagramm 1.2"></div><div class="title">Abbildung 2. Klassendiagramm</div></section></section>
+<section><section id="objektorientiere_modellierung"><h2>Objektorientiere Modellierung</h2><div class="imageblock" id="klassendiagramm-2.1" style=""><img src="ooa-klassendiagramm-2.1.svg" alt="ooa klassendiagramm 2.1"></div><div class="paragraph"><p>englischsprachige Begriffe</p></div></section><section id="lampen_und_schalter_erstellen"><h2>Lampen und Schalter erstellen</h2><div class="imageblock" id="klassendiagramm-2.2" style=""><img src="ooa-klassendiagramm-2.2.svg" alt="ooa klassendiagramm 2.2"></div>
+<div class="paragraph"><p>Konstruktoren <code>Switch()</code> und <code>Lamp()</code></p></div></section><section id="lampen_und_schalter_verbinden"><h2>Lampen und Schalter verbinden</h2><div class="imageblock" id="klassendiagramm-2.3" style=""><img src="ooa-klassendiagramm-2.3.svg" alt="ooa klassendiagramm 2.3"></div>
+<div class="paragraph"><p>Methoden <code>connect(Lamp)</code> und <code>disconnect(Lamp)</code></p></div></section><section id="enumeration"><h2>Enumeration</h2><div class="imageblock" style=""><img src="ooa-klassendiagramm-enum.svg" alt="ooa klassendiagramm enum"></div>
+<div class="paragraph"><p>Datentyp mit den Werten <code>ON</code> und <code>OFF</code></p></div>
+<div class="listingblock" id="listing-enum-state"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span></span><span class="tok-kd">enum</span> <span class="tok-n">State</span> <span class="tok-o">{</span>
+  <span class="tok-n">ON</span><span class="tok-o">,</span>
+  <span class="tok-n">OFF</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="erweitertes_klassendiagramm"><h2>Erweitertes Klassendiagramm</h2><div class="imageblock" id="klassendiagramm-2.4" style=""><img src="ooa-klassendiagramm-2.4.svg" alt="ooa klassendiagramm 2.4"></div></section></section>
+<section id="demo_bluej"><h2>Demo BlueJ</h2></section></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/head.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Set a per-slide timing for speaker notes, null means none
+  defaultTiming: null,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Randomizes the order of slides each time the presentation loads
+  shuffle: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Flags if we should show a help overlay when the questionmark
+  // key is pressed
+  help: true,
+  // Flags if speaker notes should be visible to all viewers
+  showNotes: false,
+  // Global override for autolaying embedded media (video/audio/iframe)
+  // - null: Media will only autoplay if data-autoplay is present
+  // - true: All media will autoplay, regardless of individual setting
+  // - false: No media will autoplay, regardless of individual setting
+  autoPlayMedia: null,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'simple',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/zoom-js/zoom.js', async: true },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', async: true }
+  ]
+});</script></body></html>

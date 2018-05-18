@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Das Verfahren nach Abbott</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_das_verfahren_nach_abbott">Das Verfahren nach Abbott</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Information</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information IT-AE-UML-INFO-3.2</strong><br>
+  <strong>Das Verfahren nach Abbott</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-INFO-3.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25. Februar 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autoren des Orginaldokuments</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="small">Informatikreferendare und ehemalige Informatikreferendare der
+Studienseminare (heute ZfsL) Arnsberg, Hamm und Solingen.<br>
+Die Urheberin der Zusammenfassung des Verfahrens nach Abbott ist
+unbekannt, dieses wird hier in leicht veränderter Form wiedergegeben.</span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Orginaldokument</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="small"><a href="http://ddi.uni-wuppertal.de/material/materialsammlung/oberstufe/allgemein/abbott/info_01_verfahren_abbott.pdf" class="bare">http://ddi.uni-wuppertal.de/material/materialsammlung/oberstufe/allgemein/abbott/info_01_verfahren_abbott.pdf</a></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-INFO-3.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjobs</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-LJ-3.1 bis 3.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="/unterricht/images/cc-by-nc-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_das_verfahren_nach_abbott" class="sect0">Das Verfahren nach Abbott</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Auf Russell J. Abbott geht ein Verfahren zurück, das für die
+objektorientierte Analyse (<em>OOA</em>) bzw. objektorientierte Modellierung
+(<em>OOM</em>) hilfreich sein kann.
+Es folgt eine Zusammenfassung der drei erforderlichen
+Schritte.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Um aus einer umgangssprachlich formulierten Problembeschreibung die Objekte mit
+den zugehörigen Attributen und Methoden (s.&#160;u.) zu erarbeiten,
+geht man wie folgt vor:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Substantive (Hauptwörter) und Eigennamen herausfiltern</strong><br>
+Die Hauptwörter sind mögliche <em>Objekte</em>.
+Meist nicht beachtet werden allerdings Mengen- und Größenangaben
+(»Kilogramm«), Sammelnamen (»Regierung«),
+Materialbezeichnungen (»Plastik«) und abstrakte Begriffe
+(»Liebe«, »Arbeit«).
+Zeitwörter (Verben), die als Hauptwörter benutzt werden (»das Betrachten
+eines Bildes«) werden behandelt wie die zugehörigen Zeitwörter.
+Gattungsnamen wie z.&#160;B. »Kraftfahrzeug«, »Säugetier« und
+»Einwohner« sind ebenfalls meist keine Objekte.</p>
+</li>
+<li>
+<p><strong>Verben (Zeitwörter) herausfiltern</strong><br>
+Sie bezeichnen häufig die Aktionen, welche von Objekten ausgeführt
+werden können, bzw. die Nachrichten, die diesen gesendet werden können,
+die sogenannten <em>Methoden</em> der Objekte.
+Es ist festzustellen, welchem Objekt die Methode zugeordnet werden kann.</p>
+</li>
+<li>
+<p><strong>Adjektive (Eigenschaftswörter) herausfiltern</strong><br>
+Sie bezeichnen häufig die »Ausprägungen« (<em>Attributwerte</em>),
+welche bestimmte Eigenschaften (die <em>Attribute</em>) von Objekten annehmen
+können. Beispielsweise wäre »ledig« ein Attributwert zum Attribut
+»Familienstand« oder »1216« der Attributwert des Attributs
+»Seitenzahl« des aktuellen Dudens.
+Auch hier ist wieder festzustellen, welchem Objekt der Attributwert
+zugeordnet und wie das zugehörige Attribut bezeichnet werden kann.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Die grafische Darstellung von Objekten erfolgt durch Rechtecke.
+Die erste Zeile beeinhaltet dabei den eindeutigen Namen des Objekts und
+durch einen Doppelpunkt getrennt den Namen der Klasse.
+Diese Zeile wird unterstrichen.
+Nach einer horizontalen Trennlinie folgen zeilenweise die Attribute mit ihren
+jeweiligen Attributwerten.
+Die Methoden der Objekte sind (sofern vorhanden) von den Attributen und
+Attributwerten wiederum durch eine horizontale Linie getrennt.
+Oft wird aber in Objektdiagrammen auf die Darstellung der Methoden
+verzichtet. diese werden dann nur im Klassendiagramm notiert.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="abbott-objekt.svg" alt="abbott objekt" width="345" height="115">
+</div>
+<div class="title">Abbildung 1. Beispiel für ein Objekt</div>
+</div>
+<div class="paragraph">
+<p><em>Bezeichner</em> für Objekte, Attribute und Methoden beginnen
+mit einem Kleinbuchstaben.
+Es ist in Java üblich, bei zusammengesetzten Bezeichnern neu einsetzende
+Worte durch Großbuchstaben hervorzuheben (siehe Beispiel).
+Diese Schreibweise wird auch als
+<a href="https://de.wikipedia.org/wiki/Binnenmajuskel#Programmiersprachen">camel case</a>
+bezeichnet.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:25 CEST
+</div>
+</div>
+</body>
+</html>

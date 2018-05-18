@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Objektorientierte Analyse (OOA)</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_objektorientierte_analyse_ooa">Objektorientierte Analyse (OOA)</a>
+<ul class="sectlevel1">
+<li><a href="#_user_stories">1. User-Stories</a></li>
+<li><a href="#_das_verfahren_nach_abbott">2. Das Verfahren nach Abbott</a></li>
+<li><a href="#_sequenzdiagramme">3. Sequenzdiagramme</a></li>
+<li><a href="#_objektdiagramme">4. Objektdiagramme</a></li>
+<li><a href="#_klassendiagramme">5. Klassendiagramme</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Information</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information IT-AE-UML-INFO-3.1</strong><br>
+  <strong>Objektorientierte Analyse (OOA)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-INFO-3.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10. März 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design">Wikipedia: Objektorientierte Analyse und Design</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-AE-UML-INFO-3.2</p>
+</li>
+<li>
+<p>IT-AE-UML-INFO-3.3</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjobs</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-AE-UML-LJ-3.1 bis 3.4</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_objektorientierte_analyse_ooa" class="sect0">Objektorientierte Analyse (OOA)</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p></p>
+</div>
+<div class="paragraph">
+<p>Wenn eine Software mehr als etwa hundert Zeilen Quellcode umfasst,
+spätestens ab mehreren hundert,
+benötigt man Techniken, um der Software eine klare
+Struktur zu geben. Eine klare Struktur ist wichtig, damit die Software leicht
+angepasst und erweitert werden kann, sowohl durch bisherige als auch durch
+andere Entwickler.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_stories">1. User-Stories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Eine sehr häufig angewandte Technik zum Entwurf und zur Strukturierung ist die
+objektorientierte Software-Entwicklung. Dazu wird in der objektorientierten
+Analyse anhand von Szenarien ermittelt, wie die zukünftige Nutzung des
+(Software-)Systems ablaufen soll. Dabei werden sogenannte
+<a href="https://de.wikipedia.org/wiki/User-Story">User-Stories</a>
+verfasst:</p>
+</div>
+<div id="user-story-1" class="sidebarblock">
+<div class="content">
+<div class="title">User-Story 1</div>
+<div class="paragraph">
+<p>Die Lampen lampe1, lampe2 und lampe3 sind anfangs ausgeschaltet. Der Schalter schalter1
+ist ebenfalls in der Positon &#8222;aus&#8220;.
+Der Benutzer betätigt den Schalter schalter1.
+Die Lampen lampe1, lampe2 und lampe3 werden eingeschaltet.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Aus den User-Stories können nun die relevanten Objekte abgeleitet werden;
+im Beispiel sind dies der Benutzer, der Schalter schalter1 sowie die
+Lampen lampe1, lampe2 und lampe3.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_das_verfahren_nach_abbott">2. Das Verfahren nach Abbott</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mit dem Verfahren von Abbott werden aus einer Problem- oder
+Situationsbeschreibung oder entsprechenden User-Stories
+mögliche Objekte, Attribute und Methoden ermittelt.
+Dieses Verfahren wird auf dem Informationsblatt IT-AE-JA-INFO-5.2
+erläutert.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sequenzdiagramme">3. Sequenzdiagramme</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Stellt man die User-Story in einem
+<a href="https://de.wikipedia.org/wiki/Sequenzdiagramm">UML-Sequenzdiagramm</a> dar,
+so kann man den Programmablauf entlang der Pfeile ablesen.
+So sendet der Schalter schalter1 die Nachricht <code>einschalten()</code> an die
+Lampe lampe1. Erst
+wenn diese den Einschaltvorgang abgeschlossen hat, setzt schalter1 seine Arbeit
+fort und sendet lampe2 die Nachricht <em>einschalten()</em> usw.</p>
+</div>
+<div id="sequenzdiagramm-1" class="imageblock">
+<div class="content">
+<img src="ooa-sequenzdiagramm-1.svg" alt="ooa sequenzdiagramm 1" width="644" height="366">
+</div>
+<div class="title">Abbildung 1. Sequenzdiagramm zur <a href="#user-story-1">User-Story 1</a></div>
+</div>
+<div class="paragraph">
+<p>Eine zweite User-Story vervollständigt die möglichen Anwendungsfälle
+der Schaltung:</p>
+</div>
+<div id="user-story-2" class="sidebarblock">
+<div class="content">
+<div class="title">User-Story 2</div>
+<div class="paragraph">
+<p>Die Lampen lampe1, lampe2 und lampe3 sind eingeschaltet. Der Schalter schalter1
+ist ebenfalls in der Positon &#8222;ein&#8220;.
+Der Benutzer betätigt den Schalter schalter1. Die Lampen
+lampe1, lampe2 und lampe3 werden ausgeschaltet.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Daraus ergibt sich das folgende Sequenzdiagramm:</p>
+</div>
+<div id="sequenzdiagramm-2" class="imageblock">
+<div class="content">
+<img src="ooa-sequenzdiagramm-2.svg" alt="ooa sequenzdiagramm 2" width="644" height="366">
+</div>
+<div class="title">Abbildung 2. Sequenzdiagramm zur <a href="#user-story-2">User-Story 2</a></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_objektdiagramme">4. Objektdiagramme</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Aus den User-Stories bzw. den zugehörigen Sequenzdiagrammen kann man
+ablesen, wie die beteiligten Objekte miteinander verknüpt sein müssen,
+um Nachrichten austauschen zu können.</p>
+</div>
+<div class="paragraph">
+<p>Objekte, die Nachrichten austauschen, werden im Diagramm mit Linien verbunden.
+Dieser Beziehungstyp wird <em>Assoziation</em> genannt (auch Kennt-Beziehung).
+Die Beziehungen werden mit einem Namen versehen, im Beispiel lautet dieser
+&#8222;schaltet&#8220;.
+Wenn die Nachrichten nur in eine Richtung ausgetauscht werden, wird
+dies durch eine Pfeilspitze kenntlich gemacht.</p>
+</div>
+<div class="paragraph">
+<p>Der Schalter schalter1 verwendet die Lampen lampe1, lampe2 und lampe3,
+um ihnen jeweils die
+Nachricht <code>einschalten()</code> bzw. <code>ausschalten()</code> senden zu können.
+Diese Beziehung wird daher in dem
+<a href="https://de.wikipedia.org/wiki/Objektdiagramm">Objektdiagramm</a>
+in <a href="#objektdiagramm-1">Abbildung 3</a> durch Pfeile dargestellt.</p>
+</div>
+<div id="objektdiagramm-1" class="imageblock">
+<div class="content">
+<img src="ooa-objektdiagramm-schalter-drei-lampen-1.svg" alt="ooa objektdiagramm schalter drei lampen 1" width="567" height="235">
+</div>
+<div class="title">Abbildung 3. Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zu Beginn der <a href="#user-story-1">User-Story 1</a></div>
+</div>
+<div class="paragraph">
+<p>Ein Objektdiagramm stellt den Zustand eines Software-Systems zu einen
+bestimmten Zeitpunkt dar.<br>
+Das Diagramm in <a href="#objektdiagramm-1">Abbildung 3</a> stellt den
+Zustand zu Beginn der <a href="#user-story-1">User-Story 1</a> bzw. zum Ende der
+<a href="#user-story-2">User-Story 2</a> dar, da der Schalter und die Lampen den Zustand <code>AUS</code> haben.</p>
+</div>
+<div class="paragraph">
+<p>Der Zustand zum Ende der <a href="#user-story-1">User-Story 1</a> bzw. zu Beginn der <a href="#user-story-2">User-Story 2</a>
+sieht so aus:</p>
+</div>
+<div id="objektdiagramm-2" class="imageblock">
+<div class="content">
+<img src="ooa-objektdiagramm-schalter-drei-lampen-2.svg" alt="ooa objektdiagramm schalter drei lampen 2" width="414" height="171">
+</div>
+<div class="title">Abbildung 4. Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zum Ende der <a href="#user-story-1">User-Story 1</a></div>
+</div>
+<div class="paragraph">
+<p>Man könnte jetzt den Schalter und jede der
+drei Lampen direkt programmieren, aber
+dies hätte Nachteile:
+für die Lampen würde man dreimal dasselbe Programm schreiben.
+Es wäre daher eine unflexible Lösung, man möchte mit derselben
+Software auch Schaltungen
+mit vier oder mehr Lampen mit einem Schalter verbinden können.</p>
+</div>
+<div id="objektdiagramm-b" class="imageblock">
+<div class="content">
+<img src="ooa-objektdiagramm-schalter-fuenf-lampen.svg" alt="ooa objektdiagramm schalter fuenf lampen" width="702" height="171">
+</div>
+<div class="title">Abbildung 5. Objektdiagramm für einen Aufbau mit einem Schalter und fünf Lampen</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_klassendiagramme">5. Klassendiagramme</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Daher verallgemeinert man die möglichen Objektbeziehungen in Form eines
+<a href="https://de.wikipedia.org/wiki/Klassendiagramm">UML-Klassendiagramms</a>:</p>
+</div>
+<div id="klassendiagramm-1" class="imageblock">
+<div class="content">
+<img src="ooa-klassendiagramm-schalter-lampe.svg" alt="ooa klassendiagramm schalter lampe" width="459" height="308">
+</div>
+<div class="title">Abbildung 6. Klassendiagramm als Ergebnis der OOA</div>
+</div>
+<div class="paragraph">
+<p>In einem Klassendiagramm werden Objekte mit derselben Struktur zu einer
+Klasse zusammengefasst.
+Die Lampen lampe1, lampe2 und lampe3 werden also zu den Klasse <code>Lampe</code> zusammengefasst.
+Die Nachricht <code>drücken()</code> wird
+dem Schalter und <code>ausschalten()</code> bei der <code>Lampe</code> notiert, also jeweils bei der
+Klasse, der die entsprechende Nachricht gesendet wird.
+Statt Nachricht wird im Zusammenhang mit der Programmsprache
+Java der Begriff <em>Methode</em> verwendet.
+Die Daten, die auch Attribute der Objekte bzw. Klassen genannt werden,
+können im Klassendiagramm mit ihren initialen Werten angegeben werden,
+zudem kann auch der entsprechende Datentyp benannt werden
+wie in <a href="#klassendiagramm-3">Abbildung 7</a>.</p>
+</div>
+<div id="klassendiagramm-3" class="imageblock">
+<div class="content">
+<img src="ooa-klassendiagramm-mit-datentypen-und-initialen-werten.svg" alt="ooa klassendiagramm mit datentypen und initialen werten" width="166" height="256">
+</div>
+<div class="title">Abbildung 7. Klassendiagramm mit Datentypen und initialen Werten.</div>
+</div>
+<div class="paragraph">
+<p>Das Klassendiagramm stellt im Gegensatz zu einem Objektdiagramm keinen
+Systemzustand dar, sondern die Struktur der zugrundeliegenden Software
+bzw. des Quellcodes.
+Die Darstellung einer Klasse im Klassendiagramm folgt dem folgenden Schema:</p>
+</div>
+<div id="klassendiagramm-schema" class="imageblock">
+<div class="content">
+<img src="ooa-klassendiagramm-schema.svg" alt="ooa klassendiagramm schema" width="221" height="143">
+</div>
+<div class="title">Abbildung 8. Schema der graphischen Darstellung einer Klasse</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:25 CEST
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Quellcode dokumentieren</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_quellcode_dokumentieren">Quellcode dokumentieren</a>
+<ul class="sectlevel1">
+<li><a href="#_javadoc_kommentare_und_tags">1. Javadoc-Kommentare und -Tags</a></li>
+<li><a href="#_der_javadoc_übersetzer">2. Der Javadoc-Übersetzer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Information</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information IT-AE-JA-INFO-3.5</strong><br>
+  <strong>Quellcode dokumentieren</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-JA-INFO-3.5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25. Februar 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><a href="https://de.wikipedia.org/wiki/Javadoc">Wikipedia: Javadoc</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html">How to Write Doc Comments for the Javadoc Tool</a></p>
+</li>
+<li>
+<p><a href="https://www.video2brain.com/de/tutorial/die-api-dokumentation-und-javadoc">Screencast: Die API-Dokumentation und Javadoc</a></p>
+</li>
+<li>
+<p><a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a></p>
+</li>
+<li>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/index.html">Java API Dokumentation</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_quellcode_dokumentieren" class="sect0">Quellcode dokumentieren</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Quellcode sollte so verfasst werden, dass er gut lesbar ist.
+Dazu sollten die Vereinbarungen, wie in einer Programmiersprache Quellcode
+gestaltet werden soll, eingehalten werden wie der <a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a>.
+Zu diesen Vereinbarungen zählen u.&#160;a. die korrekte Einrückung
+der Zeilen und die Verwendung gut gewählter Namen für Klassen,
+Variablen usw.</p>
+</div>
+<div class="paragraph">
+<p>Ein Teil der Dokumentation einer Software besteht auch in der Verwendung von
+Kommentaren im Quellcode.
+Mit ihnen kann man ausgewählte Teile des Quellcode erläutern.</p>
+</div>
+<div class="paragraph">
+<p>In Java beginnen mehrzeilige Kommentare mit <code>/*</code> und enden
+mit <code>*/</code>.
+Einzeilige Kommentare beginnen mit <code>//</code> und wirken bis zum Zeilenende.
+Kommentare werden vom Java-Compiler <code>javac</code> ignoriert,
+man kann sie daher auch dazu verwenden, um bestimmte Teile eines Programms
+&#8222;ein- und auszuschalten&#8220;, um z.&#160;B. die Wirkung
+derselben zu untersuchen und damit u.&#160;a. Fehler zu finden.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_javadoc_kommentare_und_tags">1. Javadoc-Kommentare und -Tags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Java wird mit <code>/**</code> ein mehrzeiliger Kommentar
+eingeleitet, der von
+dem Programm <code>javadoc</code> zur automatischen Generierung der
+HTML-Quellcode-Dokumentation verwendet
+wird. So ist die
+<a href="https://docs.oracle.com/javase/8/docs/api/index.html">Java API Dokumentation</a>
+mit <code>javadoc</code> erstellt.
+Ein Javadoc-Kommentar endet auch mit <code>*/</code>;
+dazwischen können und sollen auch
+Javadoc-Tags verwendet werden, wie z.&#160;B.:</p>
+</div>
+<div class="hdlist">
+<div class="title">Häufig verwendete Javadoc-Tags</div>
+<table>
+<tr>
+<td class="hdlist1">
+<code>@author</code>
+</td>
+<td class="hdlist2">
+<p>Angabe des Autors</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>@version</code>
+</td>
+<td class="hdlist2">
+<p>Angabe der Version</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>@return</code>
+</td>
+<td class="hdlist2">
+<p>Beschreibung des Rückgabewertes einer Methode</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>@param name</code>
+</td>
+<td class="hdlist2">
+<p>Beschreibung des Parameters mit dem Bezeichner <code>name</code>.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Die Tags <code>@author</code> und <code>@version</code> werden in dem Javadoc-Kommentar verwendet,
+der eine Klasse oder eine Schnittstelle beschreibt,
+sie werden daher üblicherweise zu Beginn einer Java-Datei verwendet.
+Neben diesen gibt es noch einige
+<a href="https://de.wikipedia.org/wiki/Javadoc#Übersicht_der_Javadoc-Tags">weitere Tags</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 1. Beispiel zur Verwendung von Javadoc-Kommentaren</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-cm">/**</span>
+<span class="tok-cm"> * The class switch is the model of a switch with the states ON and OFF.</span>
+<span class="tok-cm"> * You can connect multiple Lamp with it. </span><i class="conum" data-value="1"></i><b>(1)</b>
+<span class="tok-cm"> *</span>
+<span class="tok-cm"> * @author André Bauer</span>
+<span class="tok-cm"> * @version 1.0</span>
+<span class="tok-cm"> */</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Switch</span> <span class="tok-o">{</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * The current state of the switch.</span>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">private</span> <span class="tok-n">State</span> <span class="tok-n">state</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Connects a lamp with the switch. </span><i class="conum" data-value="2"></i><b>(2)</b>
+<span class="tok-cm">   *</span>
+<span class="tok-cm">   * @param lamp The lamp which should become connected. </span><i class="conum" data-value="3"></i><b>(3)</b>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">connect</span><span class="tok-o">(</span><span class="tok-n">Lamp</span> <span class="tok-n">lamp</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">lamps</span><span class="tok-o">.</span><span class="tok-na">add</span><span class="tok-o">(</span><span class="tok-n">lamp</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/**</span>
+<span class="tok-cm">   * Returns the current state of the switch.</span>
+<span class="tok-cm">   *</span>
+<span class="tok-cm">   * @return The current state of the switch. </span><i class="conum" data-value="4"></i><b>(4)</b>
+<span class="tok-cm">   */</span>
+  <span class="tok-kd">public</span> <span class="tok-n">State</span> <span class="tok-nf">getState</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-k">return</span> <span class="tok-n">state</span><span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-o">...</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Beschreibung der Aufgabe der Klasse zu Beginn der Datei.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Erläuterung der Aufgabe einer Methode. Bei Methoden, die
+als Rückgabe den Typ <code>void</code> haben, wird in der
+Dokumentation auf das Tag <code>@return</code> verzichtet.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Der Bezeicher nach dem Tag @param, hier ist es <code>lamp</code>, muss
+mit dem Parameter in der dokumentierten Methode übereinstimmen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Da <code>getState()</code> einen Wert zurückliefert,
+wird dieser mit dem Tag <code>@return</code> dokumentiert.
+Da diese Methode keine Parameter hat, wird auf das Tag <code>@param</code>
+verzichtet.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_der_javadoc_übersetzer">2. Der Javadoc-Übersetzer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Javadoc ist ein Kommandozeilen-Werkzeug. Bei einfachen Projekten, bei
+denen alle Quellcode-Dateien in einem Verzeichnis liegen, wird mit dem
+folgenden Aufruf die HTML-Dokumentation aller Klassen und Schnittstellen
+erzeugt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ javadoc -author -version -private *.java
+
+$ firefox index.html <span class="tok-p">&amp;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In einigen Entwicklungsumgebungen ist Javadoc integriert.
+So kann in <a href="https://www.bluej.org/">BlueJ</a> unter <code>bearbeiten</code> zwischen
+<code>Quelltext</code> und <code>Dokumentation</code> gewechselt werden.
+In einem
+<a href="https://www.video2brain.com/de/tutorial/die-api-dokumentation-und-javadoc">Screencast zur API-Dokumentation mit Javadoc</a> wird die Verwendung
+von Javadoc anhand von Eclipse vorgeführt.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:25 CEST
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+*~
+#*#
+*.pdf
+*.adoc
+*.bluej
+*.ctxt
+.asciidoctor/
+extra/
+anwendungsentwicklung/oop-java-einstieg/lampe-schalter/
+vendor/
+*.class
+partials/
+stylesheets/pdf/

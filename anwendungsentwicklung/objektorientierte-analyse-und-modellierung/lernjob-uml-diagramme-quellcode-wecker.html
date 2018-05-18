@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>UML-Diagramme auf der Basis einer User-Story erstellen</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_uml_diagramme_auf_der_basis_einer_user_story_erstellen">UML-Diagramme auf der Basis einer User-Story erstellen</a>
+<ul class="sectlevel1">
+<li><a href="#_aufgabe_1">Aufgabe 1</a></li>
+<li><a href="#_aufgabe_2">Aufgabe 2</a></li>
+<li><a href="#_aufgabe_3">Aufgabe 3</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Lernjob</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjob IT-AE-UML-LJ-3.4</strong><br>
+  <strong>UML-Diagramme auf der Basis einer User-Story erstellen</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-LJ-3.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21. Februar 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Zum Erstellen von UML-Diagrammen bieten sich die Programme
+<a href="https://wiki.gnome.org/Apps/Dia/">Dia</a>,
+<a href="https://www.draw.io/">draw.io</a>,
+<a href="http://www.yworks.com/products/yed">yEd</a> bzw.
+<a href="https://www.yworks.com/yed-live/">yEd Live</a> und
+<a href="http://plantuml.com/">PlantUML</a> an, dieses kann in u.&#160;a. in
+<a href="https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML">Eclipse und Word als Plugin verwendet werden</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-AE-UML-INFO-3.1</p>
+</li>
+<li>
+<p>IT-AE-UML-INFO-3.2</p>
+</li>
+<li>
+<p>IT-AE-UML-INFO-3.3</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_uml_diagramme_auf_der_basis_einer_user_story_erstellen" class="sect0">UML-Diagramme auf der Basis einer User-Story erstellen</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">User-Story</div>
+<div class="paragraph">
+<p>Anastasia stellt bei ihren Internet-Radiowecker die Weckzeit auf 6:25&#160;Uhr,
+wählt das Programm super-harmony.fm aus, aktiviert den Wecker und legt sich
+schlafen.
+Um 0:25&#160;Uhr synchronisiert der Wecker seine Uhrzeit mit einem
+NTP-Server.
+Als der Wecker am nächsten Morgen um 6:25&#160;Uhr beginnt, das
+Radioprogramm
+von super-harmony.fm zu streamen, drückt sie auf die Slummertaste, der
+Wecker schweigt und Anastasia schläft weiter.
+Als der Wecker nach 5&#160;Minuten
+wieder Musik spielt, liest Anastasia die Zeit 6:30&#160;Uhr vom Display ab,
+schaltet sie die Weckfunktion aus und stellt den Sender auf
+pure-techno.fm um. Nachdem sie sich umgezogen hat, schaltet sie das Radio
+wieder aus.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabe_1">Aufgabe 1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Erstellen Sie zu der User-Story ein geeignetes Sequenzdiagramm.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabe_2">Aufgabe 2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fertigen Sie zu der User-Story <em>zwei</em> Objektdiagramme an, die jeweils
+den Zustand der in der User-Story vorkommenden Objekte und Personen
+zu unterschiedlichen Zeitpunkten wiedergeben.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabe_3">Aufgabe 3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Erstellen Sie zu der User-Story ein Klassendiagramm auf der Grundlage
+Ihres Ergebnisses aus Aufgabe 2.
+Ergänzen Sie sinnvolle Methoden und, falls benötigt, zusätzliche Klassen wie
+z.&#160;B. eine Enumeration.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:25 CEST
+</div>
+</div>
+</body>
+</html>

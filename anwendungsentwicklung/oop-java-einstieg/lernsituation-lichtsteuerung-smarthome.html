@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Lichtsteuerung für das SmartHome</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel1">
+<li><a href="#_lichtsteuerung_für_das_smarthome">1. Lichtsteuerung für das SmartHome</a>
+<ul class="sectlevel2">
+<li><a href="#_aufgabe">1.1. Aufgabe</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Lernsituation</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernsituation IT-AE-UML-LS-3.1</strong><br>
+  <strong>Lichtsteuerung für das SmartHome</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-LS-3.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17. April 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Zum Erstellen von UML-Diagrammen bieten sich die Programme
+<a href="https://wiki.gnome.org/Apps/Dia/">Dia</a>,
+<a href="https://www.draw.io/">draw.io</a>,
+<a href="http://www.yworks.com/products/yed">yEd</a> bzw.
+<a href="https://www.yworks.com/yed-live/">yEd Live</a> und
+<a href="http://plantuml.com/">PlantUML</a> an, dieses kann in u.&#160;a. in
+<a href="https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML">Eclipse und Word als Plugin verwendet werden</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-AE-UML-INFO-3.1 bis 3.4</p>
+</li>
+<li>
+<p><a href="http://moodle2013.ovm-kassel.de/mod/url/view.php?id=8428">Infoblatt I-AE-MO-5 "Sequenzdiagramm"</a></p>
+</li>
+<li>
+<p><a href="https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf">Vortragsfolien "Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"</a></p>
+</li>
+<li>
+<p><a href="http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf">Skript "Objektorientierte Programmierung mit Java und UML"</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjobs</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-AE-UML-LJ-3.1 bis 3.6</p>
+</li>
+<li>
+<p><a href="http://moodle2013.ovm-kassel.de/mod/url/view.php?id=10065">Lernjob LJ-AE-UML-2.5.1 "Seqenzdiagramm-"Bestellvorgang" mit Musterlösung</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lichtsteuerung_für_das_smarthome">1. Lichtsteuerung für das SmartHome</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die Hometech GmbH entwickelt Hard- und Software für das SmartHome.
+Zur Zeit werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
+entwickelt.
+Steuerungskomponenten wie <em>Schalter</em>, <em>Taster</em>, <em>Dimmer</em>, <em>Zeitschalter</em>
+sowie <em>Bewegungs- und Geräuschsensoren</em>
+sollen zukünftig nicht mehr
+direkt mit den Lampen verbunden werden. Stattdessen soll eine
+programmierbare Steuerungseinheit diese Aufgabe übernehmen.</p>
+</div>
+<div class="paragraph">
+<p>Die Hometech GmbH hat Sie
+beauftragt, eine Software für diese Steuerungseinheit zu entwickeln.
+Als Vorgabe wurde festgelegt, dass die Software objektorientiert mit
+Java entwickelt werden soll, da die Hometech GmbH auch intern damit
+arbeitet.
+Zudem soll die Software gut dokumentiert werden, damit zu
+einem späteren Zeitpunkt ggf. interne Entwickler
+das Projekt übernehmen können.</p>
+</div>
+<div class="paragraph">
+<p>Damit das Produkt möglichst interessant für die Kunden wird,
+sollen mit der Software auch Funktionen ermöglicht werden,
+die mit der bisherigen Haustechnik nur sehr aufwändig oder nicht möglich
+waren, zum Beispiel:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ein Taster, der alle Beleuchtungskörper ausschaltet.</p>
+</li>
+<li>
+<p>Taster, die jeweils mehrere, sich überschneidende Gruppen
+vom Beleuchtungskörpern schalten.</p>
+</li>
+<li>
+<p>Dimmer, die bei einer Gruppe von Beleuchtungskörpern je nach
+eingestellter Stufe mehr oder weniger (nicht dimmbare) Lampen
+leuchten lassen.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_aufgabe">1.1. Aufgabe</h3>
+<div class="paragraph">
+<p>Wählen Sie Steuerungskomponenten und passende Beleuchtungskörper aus und
+erstellen Sie ein oder mehrere Anwendungsfälle.
+Führen Sie die
+Schritte der objektorientierten Analyse, objektorientierten Modellierung
+und objektorientiertn Programmierung mit Java
+durch.
+Erstellen Sie jeweils geeignete Dokumentationen.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Wichtig"></i>
+</td>
+<td class="content">
+Stellen sie die Quelltexte Ihrer Lösungen als
+	   Archiv-Dateien (<code>zip-</code> oder <code>tar.gz-</code> Format) zur Verfügung.<br>
+	   Diese sollten keine (<code>javac</code>-)Compiler-Fehler mehr enthalten.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:25 CEST
+</div>
+</div>
+</body>
+</html>

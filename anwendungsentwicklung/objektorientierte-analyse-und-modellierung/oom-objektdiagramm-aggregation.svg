@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="185px" preserveAspectRatio="none" style="width:328px;height:185px;" version="1.1" viewBox="0 0 328 185" width="328px" zoomAndPan="magnify"><defs><filter height="300%" id="f120z719cj526s" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#f120z719cj526s)" height="33.9688" style="stroke: #A80036; stroke-width: 1.5;" width="145" x="10.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="131" x="17.5" y="21.1387">motorrad1: Motorrad</text><line style="stroke: #000000; stroke-width: 1.0;" x1="17.5" x2="148.5" y1="23.1387" y2="23.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="11.5" x2="154.5" y1="25.9688" y2="25.9688"/><rect fill="#FEFECE" filter="url(#f120z719cj526s)" height="33.9688" style="stroke: #A80036; stroke-width: 1.5;" width="154" x="6" y="141"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="140" x="13" y="154.1387">vorderrad1: Vorderrad</text><line style="stroke: #000000; stroke-width: 1.0;" x1="13" x2="153" y1="156.1387" y2="156.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="159" y1="158.9688" y2="158.9688"/><!--link m1 to v1--><path d="M83,55.179 C83,81.6989 83,119.3358 83,140.9505 " fill="none" id="m1-v1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="83,42.1151,79,48.1151,83,54.1151,87,48.1151,83,42.1151" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M88,77 L88,102 L316,102 L316,87 L306,77 L88,77 " fill="#FBFB77" filter="url(#f120z719cj526s)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M306,77 L306,87 L316,87 L306,77 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="87" x="94" y="94.0669">Das Motorrad</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="21" x="185" y="94.0669">hat</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="210" y="94.0669">ein Vorderrad.</text><!--
+@startuml
+object "<u>motorrad1: Motorrad</u>" as m1
+
+object "<u>vorderrad1: Vorderrad</u>" as v1
+
+m1 o- - v1
+note on link
+  Das Motorrad <i>hat</i> ein Vorderrad.
+end note
+@enduml
+
+PlantUML version 1.2018.01(Sun Jan 28 19:08:22 CET 2018)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_172-b11
+Operating System: Linux
+OS Version: 4.16.7-1-ARCH
+Default Encoding: UTF-8
+Language: de
+Country: DE
+--></g></svg>

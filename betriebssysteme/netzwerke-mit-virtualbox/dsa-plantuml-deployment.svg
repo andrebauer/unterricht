@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="155px" preserveAspectRatio="none" style="width:229px;height:155px;" version="1.1" viewBox="0 0 229 155" width="229px" zoomAndPan="magnify"><defs><filter height="300%" id="fzhhzgjczbgmf" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--entity script_docs--><polygon fill="#FEFECE" filter="url(#fzhhzgjczbgmf)" points="56,8,141,8,148,30.2969,165,30.2969,165,47.2969,56,47.2969,56,8" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="56" x2="148" y1="30.2969" y2="30.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="79" x="60" y="23.9951">script_docs</text><!--entity h--><polygon fill="#FEFECE" filter="url(#fzhhzgjczbgmf)" points="6,107,6,143.2969,97,143.2969,97,117,87,107,6,107" style="stroke: #000000; stroke-width: 1.5;"/><path d="M87,107 L87,117 L97,117 " fill="#FEFECE" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="16" y="129.9951">hello.adoc</text><!--entity ad--><polygon fill="#FEFECE" filter="url(#fzhhzgjczbgmf)" points="132,107,132,143.2969,207,143.2969,207,117,197,107,132,107" style="stroke: #000000; stroke-width: 1.5;"/><path d="M197,107 L197,117 L207,117 " fill="#FEFECE" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="55" x="142" y="129.9951">ad.adoc</text><!--link script_docs to h--><path d="M98.5605,47.2306 C88.8961,63.2013 75.2784,85.7052 65.1766,102.3988 " fill="none" id="script_docs-h" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="62.4269,106.9429,70.5087,101.314,65.0156,102.6652,63.6644,97.1721,62.4269,106.9429" style="stroke: #A80036; stroke-width: 1.0;"/><!--link script_docs to ad--><path d="M122.4395,47.2306 C132.1039,63.2013 145.7216,85.7052 155.8234,102.3988 " fill="none" id="script_docs-ad" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="158.5731,106.9429,157.3356,97.1721,155.9844,102.6652,150.4913,101.314,158.5731,106.9429" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+folder "script_docs"
+
+file "hello.adoc" as h
+
+file "ad.adoc" as ad
+
+script_docs -down-> h
+
+script_docs -down-> ad
+@enduml
+
+PlantUML version 1.2018.01(Sun Jan 28 19:08:22 CET 2018)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_172-b11
+Operating System: Linux
+OS Version: 4.16.7-1-ARCH
+Default Encoding: UTF-8
+Language: de
+Country: DE
+--></g></svg>

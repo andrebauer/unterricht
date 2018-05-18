@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="author" content="André Bauer"><title>LPI Linux Essentials: 3. Themenwoche</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/simple.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #408080; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+.listingblock .pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #BC7A00 } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #408080; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #408080; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #888888 } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+.listingblock .pygments .tok-m { color: #666666 } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #BA2121 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #7D9029 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #008000 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.listingblock .pygments .tok-no { color: #880000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #999999; font-weight: bold } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #0000FF } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #A0A000 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.listingblock .pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #19177C } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #BA2121 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #BA2121 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #BB6688 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #0000FF } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #19177C } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */</style><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/css/zenburn.css" rel="stylesheet"><script>var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/pdf.css" : "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/paper.css";
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>LPI Linux Essentials</h1><h2>3. Themenwoche</h2><p class="author"><small>André Bauer</small></p></section><section><section id="organisatorisches"><h2>Organisatorisches</h2><div class="ulist"><ul><li><p>Diese Woche: Module 13 bis 16</p></li><li><p>Zusätzliches Material<br>
+Moodle &#8594; IT &#8594; Betriebssyteme &#8594; Linux Essentails &#8594; Zusätzliches Material</p></li></ul></div></section><section id="bungen_und_fragen"><h2>Übungen und Fragen</h2><div class="ulist"><ul><li><p><a href="https://ovm-my.sharepoint.com/personal/a_bauer_ovm-kassel_de/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fa%5Fbauer%5Fovm%2Dkassel%5Fde%2FDocuments%2Fthemenwochen%2Fbetriebssysteme%2Flinux%2Dessentials%2Fextra%2Fbsinfo%5Flinuxessentials%2Epdf&amp;parent=%2Fpersonal%2Fa%5Fbauer%5Fovm%2Dkassel%5Fde%2FDocuments%2Fthemenwochen%2Fbetriebssysteme%2Flinux%2Dessentials%2Fextra&amp;slrid=2a3c629e-d022-5000-c162-689baef3d133">Lernunterlage: Linux Essentials der Städtischen Berufsschule für Informationstechnik München</a></p></li><li><p><a href="https://www.tuxcademy.org/download/de/lxes/lxes-de-manual.pdf">Lernunterlage: Linux Essentials - Die Einsteiger-Zertifizierung des LPI (Linup Front / tuxcademy)</a></p></li><li><p><a href="https://www.proprofs.com/quiz-school/story.php?title=mtq1mtq2oqtx8h">Quiz:
+Linux Essentials Certification Exam LPI 010-150 Questions Quiz (80 Questions)</a></p></li></ul></div></section><section id="prfung"><h2>Prüfung</h2><div class="ulist"><ul><li><p>LPI Prüfung oder Klausur<br>
+(beide über alle Inhalte / Module des Kurses<br>
+<a href="https://www.netacad.com/courses/ndg-linux-essentials/">NDG Linux Essentials</a>
+bzw. die<br>
+<a href="https://www.lpice.eu/de/unsere-zertifizierungen/linux-essentials-ueberblick/lernziele-010">Lernziele der LPI Linux Essentials Prüfung 010</a>)</p></li><li><p>Geplanter Termin: Di., 15.5.</p></li></ul></div></section></section>
+<section id="neue_inhalte_der_dritten_woche"><h2>Neue Inhalte der dritten Woche</h2></section>
+<section><section id="benutzer_und_gruppen"><h2>Benutzer und Gruppen</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">/etc/passwd</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Benutzeraccouts</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">/etc/shadow</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Passwörter</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">/etc/group</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Benutzergruppen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">/etc/default/useradd</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Voreinstellungen für neue Benutzer</p></td></tr></table></section><section id="gruppen"><h2>Gruppen</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">groupadd</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Gruppe erstellen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">groupmod</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Gruppennamen oder -id ändern</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">groupdel</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Gruppe löschen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">groups</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Gruppeninformation</p></td></tr></table></section><section id="benutzer_1"><h2>Benutzer (1)</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">useradd</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Benutzer erstellen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">passwd</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Passwort ändern</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">chage</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Passwort aging</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">who, w</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Informationen über eingeloggte Benutzer</p></td></tr></table></section><section id="benutzer_2"><h2>Benutzer (2)</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">usermod</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Bestehend Benutzer ändern</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">userdel</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Benutzer löschen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Benutzer- und Gruppeninformationen</p></td></tr></table></section></section>
+<section><section id="datei_besitz_und_zugriffsrechte"><h2>Datei-Besitz und Zugriffsrechte</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">stat</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Detailinformationen über eine Datei oder ein Verzeichnis</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">chgrp</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Gruppenzugehörigkeit einer Datei oder eines Verzeichnisses ändern</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">chown</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Benutzerzugehörigkeit einer Datei oder eines Verzeichnisses ändern</p></td></tr></table></section><section id="datei_besitz_und_zugriffsrechte_2"><h2>Datei-Besitz und Zugriffsrechte</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">chmod</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Zugriffsrechte einer Datei oder eines Verzeichnisses ändern</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">umask</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Standardzugriffsrechte</p></td></tr></table></section><section id="zugriffsrechte"><h2>Zugriffsrechte</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>drwxr-xr-x <span class="tok-m">5</span> andre users <span class="tok-m">4096</span> <span class="tok-m">22</span>. Mär <span class="tok-m">07</span>:42 .
+-rwxr-xr-x <span class="tok-m">1</span> andre users   <span class="tok-m">60</span> <span class="tok-m">12</span>. Okt <span class="tok-m">2016</span>  example-script.sh
+-rw-r--r-- <span class="tok-m">1</span> andre users   <span class="tok-m">36</span> <span class="tok-m">18</span>. Mär <span class="tok-m">20</span>:22 example.txt</code></pre></div></div>
+<table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="ulist"><ul><li><p>Benutzerklassen</p><div class="ulist"><ul><li><p>owner</p></li><li><p>group</p></li><li><p>others</p></li></ul></div></li></ul></div></div></td><td class="tableblock halign-left valign-top"><div><div class="ulist"><ul><li><p>Rechte</p><div class="ulist"><ul><li><p>r&#8201;&#8212;&#8201;read</p></li><li><p>w&#8201;&#8212;&#8201;write</p></li><li><p>x&#8201;&#8212;&#8201;execute / traverse directory</p></li></ul></div></li></ul></div></div></td></tr></table></section><section id="spezialrechte"><h2>Spezialrechte</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ ls -ld /tmp /usr/bin/passwd /bin/wall
+-rwxr-sr-x  <span class="tok-m">1</span> root tty  <span class="tok-m">30680</span> <span class="tok-m">10</span>. Apr <span class="tok-m">14</span>:39 /bin/wall <i class="conum" data-value="1"></i><b>(1)</b>
+drwxrwxrwt <span class="tok-m">43</span> root root   <span class="tok-m">920</span> <span class="tok-m">27</span>. Apr <span class="tok-m">22</span>:36 /tmp <i class="conum" data-value="2"></i><b>(2)</b>
+-rwsr-xr-x  <span class="tok-m">1</span> root root <span class="tok-m">55416</span> <span class="tok-m">16</span>. Dez <span class="tok-m">17</span>:03 /usr/bin/passwd <i class="conum" data-value="3"></i><b>(3)</b></code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Set-Group-ID (SGID / setgid)</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Sticky-Bit (rwt)</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Set-User-ID (SUID / setuid)</td></tr></table></div></section></section>
+<section id="symbolische_und_hard_links"><h2>Symbolische und Hard-Links</h2><div class="imageblock" style=""><img src="le-slides-3-symbolic-vs-hard-links.svg" alt="le slides 3 symbolic vs hard links"></div>
+<div class="ulist"><ul><li><p>Hard-Links: <code>ln</code></p></li><li><p>Symbolische Links: <code>ln -s</code></p></li></ul></div></section>
+<section><section id="filesystem_hierarchy_standard"><h2><strong>F</strong>ilesystem <strong>H</strong>ierarchy <strong>S</strong>tandard</h2><div class="ulist"><ul><li><p><a href="https://de.wikipedia.org/wiki/Filesystem_Hierarchy_Standard" class="bare">https://de.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</a></p></li><li><p><a href="http://refspecs.linuxfoundation.org/fhs" class="bare">http://refspecs.linuxfoundation.org/fhs</a></p></li></ul></div><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/bin</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Binärdateien grundlegender Befehle</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/boot</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">statische Dateien des Bootloaders</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/etc</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Host-spezifische Systemkonfiguration</p></td></tr></table></section><section id="filesystem_hierarchy_standard_2"><h2><strong>F</strong>ilesystem <strong>H</strong>ierarchy <strong>S</strong>tandard</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/lib</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">grundlegende dynamische Bibliotheken und Kernel-Module</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/media</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Einhängepunkt für Wechseldatenträger</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/mnt</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">für temporär eingehängtes Dateisystem</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/opt</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">zusätzliche Anwendungsprogramme</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/run</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">für laufende Prozesse relevante Daten</p></td></tr></table></section><section id="filesystem_hierarchy_standard_3"><h2><strong>F</strong>ilesystem <strong>H</strong>ierarchy <strong>S</strong>tandard</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/sbin</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">essenzielle Binärdateien des Systems</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/srv</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Daten für Dienste</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/tmp</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">temporäre Dateien</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/usr</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">sekundäre Hierarchie</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/var</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">variable Daten</p></td></tr></table></section><section id="filesystem_hierarchy_standard_4"><h2><strong>F</strong>ilesystem <strong>H</strong>ierarchy <strong>S</strong>tandard</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/home</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Verzeichnisse der Benutzer</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/root</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Verzeichnis des Root-Kontos</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>/lib…</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">alternative dynamische Bibliotheken, beispielsweise /lib32 und /lib64 für 32-Bit und 64-Bit</p></td></tr></table></section></section>
+<section id="pipes_and_filters"><h2>Pipes and Filters</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ wc -l *.adoc <span class="tok-p">|</span> sort -n <span class="tok-p">|</span> head -n <span class="tok-m">5</span> <span class="tok-p">|</span> egrep it-
+   <span class="tok-m">40</span> it-bs-le-ls-1.1.adoc
+   <span class="tok-m">73</span> it-bs-le-info-1.1.adoc</code></pre></div></div>
+<div class="ulist"><ul><li><p>Die <strong>Pipe <code>|</code></strong> verknüpft die Ausgabe des linken Befehls mit der Eingabe
+des rechten.</p></li><li><p>Die <strong>Filter</strong> bearbeiten die Eingabe und schreiben das Ergebnis in die Ausgabe.</p><div class="ulist"><ul><li><p><code>sort -n</code>&#8201;&#8212;&#8201;Numerische Sortierung (hier nach der Anzahl der Wörter).</p></li><li><p><code>head -n 5</code>&#8201;&#8212;&#8201;Ausgabe der ersten fünf Zeilen.</p></li><li><p><code>egrep it-</code>&#8201;&#8212;&#8201;Wählt die Zeilen aus, die <code>it-</code> enthalten.</p></li></ul></div></li></ul></div></section>
+<section id="everything_is_a_file"><h2><a href="https://en.wikipedia.org/wiki/Everything_is_a_file">Everything is a file?</a></h2><div class="quoteblock"><blockquote><a href="http://yarchive.net/comp/linux/everything_is_file.html">"Everything is a file descriptor or a process"</a></blockquote><div class="attribution"><cite>Sun, 9 Jun 2002 18:10:36 GMT, Newsgroup fa.linux.kernel</cite><br>&#8212; Linus Torvalds</div></div></section></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/head.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Set a per-slide timing for speaker notes, null means none
+  defaultTiming: null,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Randomizes the order of slides each time the presentation loads
+  shuffle: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Flags if we should show a help overlay when the questionmark
+  // key is pressed
+  help: true,
+  // Flags if speaker notes should be visible to all viewers
+  showNotes: false,
+  // Global override for autolaying embedded media (video/audio/iframe)
+  // - null: Media will only autoplay if data-autoplay is present
+  // - true: All media will autoplay, regardless of individual setting
+  // - false: No media will autoplay, regardless of individual setting
+  autoPlayMedia: null,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'simple',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/zoom-js/zoom.js', async: true },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', async: true }
+  ]
+});</script></body></html>

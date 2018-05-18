@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Ein Programm mit einem Sequenzdiagramm und einem Objektdiagramm darstellen</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel1">
+<li><a href="#_ein_programm_mit_einem_sequenzdiagramm_und_einem_objektdiagramm_darstellen">1. Ein Programm mit einem Sequenzdiagramm und einem Objektdiagramm darstellen</a>
+<ul class="sectlevel2">
+<li><a href="#_aufgabe_1">1.1. Aufgabe 1</a></li>
+<li><a href="#_aufgabe_2">1.2. Aufgabe 2</a></li>
+<li><a href="#_aufgabe_3">1.3. Aufgabe 3</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Lernjob</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjob IT-AE-UML-LJ-3.5</strong><br>
+  <strong>Ein Programm mit einem Sequenzdiagramm und einem Objektdiagramm darstellen</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-LJ-3.5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17. April 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Zum Erstellen von UML-Diagrammen bieten sich die Programme
+<a href="https://wiki.gnome.org/Apps/Dia/">Dia</a>,
+<a href="https://www.draw.io/">draw.io</a>,
+<a href="http://www.yworks.com/products/yed">yEd</a> bzw.
+<a href="https://www.yworks.com/yed-live/">yEd Live</a> und
+<a href="http://plantuml.com/">PlantUML</a> an, dieses kann in u.&#160;a. in
+<a href="https://en.wikipedia.org/wiki/PlantUML#Applications_that_use_PlantUML">Eclipse und Word als Plugin verwendet werden</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>IT-AE-UML-INFO-3.1</p>
+</li>
+<li>
+<p>IT-AE-UML-INFO-3.3</p>
+</li>
+<li>
+<p><a href="http://moodle2013.ovm-kassel.de/mod/url/view.php?id=8428">Infoblatt I-AE-MO-5 "Sequenzdiagramm"</a></p>
+</li>
+<li>
+<p><a href="https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf">Vortragsfolien "Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Lernjobs</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><a href="http://moodle2013.ovm-kassel.de/mod/url/view.php?id=10065">Lernjob LJ-AE-UML-2.5.1 "Seqenzdiagramm-"Bestellvorgang" mit Musterlösung</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ein_programm_mit_einem_sequenzdiagramm_und_einem_objektdiagramm_darstellen">1. Ein Programm mit einem Sequenzdiagramm und einem Objektdiagramm darstellen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gegeben seien die Klassen <code>Switch</code> und <code>Lamp</code> sowie die Enumeration <code>State</code> in
+ihrer abschließenden Fassung aus dem Informationsblatt IT-AE-JA-INFO-5.4.
+Betrachten Sie folgenden Quellcode, der die Methode <code>main</code> des
+Programms ersetzt.</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 1. Java-Quellcode-Fragment</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">args</span><span class="tok-o">[])</span> <span class="tok-o">{</span>
+  <span class="tok-n">Lamp</span> <span class="tok-n">lamp1</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span><span class="tok-o">.</span><span class="tok-na">RED</span><span class="tok-o">);</span>
+  <span class="tok-n">Lamp</span> <span class="tok-n">lamp2</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span><span class="tok-o">.</span><span class="tok-na">BLUE</span><span class="tok-o">);</span>
+  <span class="tok-n">Lamp</span> <span class="tok-n">lamp3</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Lamp</span><span class="tok-o">(</span><span class="tok-n">Color</span><span class="tok-o">.</span><span class="tok-na">WHITE</span><span class="tok-o">);</span>
+  <span class="tok-n">Switch</span> <span class="tok-n">switch1</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Switch</span><span class="tok-o">();</span>
+  <span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">connect</span><span class="tok-o">(</span><span class="tok-n">lamp1</span><span class="tok-o">);</span>
+  <span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">connect</span><span class="tok-o">(</span><span class="tok-n">lamp2</span><span class="tok-o">);</span>
+  <span class="tok-n">Switch</span> <span class="tok-n">switch2</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">Switch</span><span class="tok-o">();</span>
+  <span class="tok-n">switch2</span><span class="tok-o">.</span><span class="tok-na">connect</span><span class="tok-o">(</span><span class="tok-n">lamp2</span><span class="tok-o">);</span>
+  <span class="tok-n">switch2</span><span class="tok-o">.</span><span class="tok-na">connect</span><span class="tok-o">(</span><span class="tok-n">lamp3</span><span class="tok-o">);</span>
+  <span class="tok-n">switch1</span><span class="tok-o">.</span><span class="tok-na">press</span><span class="tok-o">();</span>
+  <span class="tok-n">switch2</span><span class="tok-o">.</span><span class="tok-na">press</span><span class="tok-o">();</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabe_1">1.1. Aufgabe 1</h3>
+<div class="paragraph">
+<p>Erstellen Sie ein Sequenzdiagramm für die in der <code>main</code>-Methode erzeugten
+Objekte.<br>
+Als Hilfen können Sie u.&#160;a. das
+<a href="http://moodle2013.ovm-kassel.de/mod/url/view.php?id=8428">Infoblatt I-AE-MO-5 "Sequenzdiagramm"</a> sowie den
+<a href="http://moodle2013.ovm-kassel.de/mod/url/view.php?id=10065">Lernjob LJ-AE-UML-2.5.1 "Seqenzdiagramm-"Bestellvorgang" mit Musterlösung</a>
+verwenden.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabe_2">1.2. Aufgabe 2</h3>
+<div class="paragraph">
+<p>Fertigen Sie ein Objektdiagramm an, das den System-Zustand zum Ende
+der <code>main</code>-Methode zeigt.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabe_3">1.3. Aufgabe 3</h3>
+<div class="paragraph">
+<p>Bewerten Sie anhand Ihrer Lösungen aus den Aufgaben 1 und 2, ob diese
+Verbindung aus Schaltern und Lampen ein wünschenswertes
+Systemverhalten zeigt.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:25 CEST
+</div>
+</div>
+</body>
+</html>

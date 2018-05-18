@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="author" content="André Bauer"><title>LPI Linux Essentials: 2. Themenwoche</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/simple.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #408080; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+.listingblock .pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #BC7A00 } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #408080; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #408080; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #888888 } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+.listingblock .pygments .tok-m { color: #666666 } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #BA2121 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #7D9029 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #008000 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.listingblock .pygments .tok-no { color: #880000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #999999; font-weight: bold } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #0000FF } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #A0A000 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.listingblock .pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #19177C } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #BA2121 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #BA2121 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #BB6688 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #0000FF } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #19177C } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */</style><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/css/zenburn.css" rel="stylesheet"><script>var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/pdf.css" : "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/paper.css";
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>LPI Linux Essentials</h1><h2>2. Themenwoche</h2><p class="author"><small>André Bauer</small></p></section><section id="linux_distributionen"><h2>Linux-Distributionen</h2><div class="ulist"><ul><li><p><a href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">Linux Distribution Timeline</a></p></li><li><p><a href="https://distrowatch.com/" class="bare">https://distrowatch.com/</a></p></li></ul></div></section>
+<section><section id="server_anwendungen_1"><h2>Server-Anwendungen (1)</h2><table class="tableblock frame-topbot grid-all" style=""><colgroup><col><col></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Webserver</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Apache, Nginx</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Mail Transfer Agent (MTA)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">sendmail, Postfix</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Mail Delivery Agent (MDA)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">procmail, maildrop</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">POP/IMAP server</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Dovecot, Cyrus IMAP</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">File Sharing</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Samba, Netatalk, NFS</p></td></tr></table></section><section id="server_anwendungen_2"><h2>Server-Anwendungen (2)</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Domain Name System</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">bind</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">LDAP</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">OpenLDAP</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">ISC DHCP server</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Relationale Datenbank</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">MySQL, PostgreSQL</p></td></tr></table></section></section>
+<section id="command_line_interface_cli"><h2>Command Line Interface (CLI)</h2><div class="paragraph"><p>Prompt</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>user@linuxhost:~$</code></pre></div></div>
+<div class="paragraph"><p>Kommando-Syntax</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span><span class="tok-nb">command</span> <span class="tok-o">[</span>options<span class="tok-o">]</span> <span class="tok-o">[</span>arguments<span class="tok-o">]</span></code></pre></div></div>
+<div class="paragraph"><p>Beipsiel</p></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ ls -l /usr/bin/perl
+-rwxr-xr-x <span class="tok-m">1</span> root root <span class="tok-m">10024</span>  <span class="tok-m">5</span>. Jan <span class="tok-m">03</span>:53 /usr/bin/perl</code></pre></div></div></section>
+<section><section id="globbing_asterisk"><h2>Globbing: Asterisk (<code>*</code>)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ $ <span class="tok-nb">echo</span> /etc/t*
+/etc/texmf /etc/tmpfiles.d /etc/trusted-key.key /etc/ts.conf</code></pre></div></div><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> /etc/*d.d
+/etc/depmod.d /etc/modules-load.d /etc/xinetd.d</code></pre></div></div><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> /etc/r*.conf
+/etc/request-key.conf /etc/resolv.conf /etc/resolvconf.conf /etc/rsyncd.conf</code></pre></div></div></section><section id="globbing_question_mark"><h2>Globbing: Question Mark (<code>?</code>)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> /etc/t??????
+/etc/ts.conf</code></pre></div></div></section><section id="globbing_brackets"><h2>Globbing: Brackets (<code>[]</code>)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> /etc/<span class="tok-o">[</span>wy<span class="tok-o">]</span>*
+/etc/wgetrc /etc/yaourtrc</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> /etc/<span class="tok-o">[</span>x-z<span class="tok-o">]</span>*
+/etc/X11 /etc/xdg /etc/xinetd.d /etc/xml /etc/xrdb /etc/yaourtrc</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> /etc/*<span class="tok-o">[</span><span class="tok-m">6</span>-9<span class="tok-o">]</span>
+/etc/ImageMagick-6 /etc/ImageMagick-7 /etc/java-jdk9</code></pre></div></div></section><section id="globbing_exclamation_point"><h2>Globbing: Exclamation Point (<code>!</code>)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> /etc/<span class="tok-o">[</span>!a-w<span class="tok-o">]</span>*
+/etc/X11 /etc/xdg /etc/xinetd.d /etc/xml /etc/xrdb /etc/yaourtrc</code></pre></div></div></section></section>
+<section><section id="quoting_double_quotes"><h2>Quoting: Double Quotes</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> <span class="tok-s2">&quot;/etc/[!a-w]*&quot;</span>
+/etc/<span class="tok-o">[</span>!a-w<span class="tok-o">]</span>*</code></pre></div></div><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> <span class="tok-s2">&quot;The Shell is </span><span class="tok-nv">$SHELL</span><span class="tok-s2">&quot;</span>
+The Shell is /bin/bash</code></pre></div></div></section><section id="quoting_single_quotes"><h2>Quoting: Single Quotes</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> <span class="tok-s1">&#39;The Shell is $SHELL&#39;</span>
+The Shell is <span class="tok-nv">$SHELL</span></code></pre></div></div></section><section id="quoting_backslash"><h2>Quoting: Backslash (<code>\</code>)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> <span class="tok-s2">&quot;The Shell is \$SHELL&quot;</span>
+The Shell is <span class="tok-nv">$SHELL</span></code></pre></div></div></section><section id="quoting_back_quotes"><h2>Quoting: Back Quotes</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ <span class="tok-nb">echo</span> <span class="tok-s2">&quot;You are here: `pwd`&quot;</span>
+You are here: /home/user</code></pre></div></div></section></section>
+<section id="hilfe_systeme"><h2>Hilfe-Systeme</h2><div class="ulist"><ul><li><p><code>man</code>-Pages</p></li><li><p><code>info</code>-Dokumentation</p></li><li><p><code>--help</code>-Option</p></li><li><p><code>apropos</code></p></li><li><p><code>whatis</code></p></li></ul></div></section>
+<section><section id="erweiterte_regulre_ausdrcke"><h2>Erweiterte Reguläre Ausdrücke</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:15%"><col style="width:85%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>.</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Ein beliebiges einzelnes Zeichen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>?</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Der vorherige Ausdruck kann, muss aber nicht, einmal vorkommen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Der vorherige Ausdruck kann, muss aber nicht,
+      	mehrfach wiederholt werden.</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Der vorherige Ausdruck muss mindestens einmal wiederholt werden.</p></td></tr></table></section><section id="beispiele"><h2>Beispiele</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ cat example.txt
+abcddd
+xyzabc
+aaaxyz
+aaxyzdd
+eexyzf</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;.aa?&#39;</span> example.txt
+<span class="tok-m">2</span>:xyzabc
+<span class="tok-m">3</span>:aaaxyz
+<span class="tok-m">4</span>:aaxyzdd</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;a+x&#39;</span> example.txt
+<span class="tok-m">3</span>:aaaxyz
+<span class="tok-m">4</span>:aaxyzdd</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;aaa*xyz&#39;</span> example.txt
+<span class="tok-m">3</span>:aaaxyz
+<span class="tok-m">4</span>:aaxyzdd</code></pre></div></div></section><section id="erweiterte_regulre_ausdrcke_2"><h2>Erweiterte Reguläre Ausdrücke</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:15%"><col style="width:85%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ ]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Eine Liste oder ein Bereich von Zeichen,<br>
+     	  <code>^</code> negiert die Liste</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>^</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Der folgende Ausdruck muss am Anfang einer Zeile vorkommen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>$</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Der vorgehende Ausdruck muss an Ende einer Zeile vorkommen</p></td></tr></table></section><section id="beispiele_2"><h2>Beispiele</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ cat example.txt
+abcddd
+xyzabc
+aaaxyz
+aaxyzdd
+eexyzf</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;^xyz&#39;</span> example.txt
+<span class="tok-m">2</span>:xyzabc</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;xyz$&#39;</span> example.txt
+<span class="tok-m">3</span>:aaaxyz</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;^[a-c]+xyz&#39;</span> example.txt
+<span class="tok-m">3</span>:aaaxyz
+<span class="tok-m">4</span>:aaxyzdd</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;^[^a-c]+xyz&#39;</span> example.txt
+<span class="tok-m">5</span>:eexyzf</code></pre></div></div></section><section id="erweiterte_regulre_ausdrcke_3"><h2>Erweiterte Reguläre Ausdrücke</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:15%"><col style="width:85%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>( )</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Gruppieren von Ausdrücken</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>|</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Logische ODER-Verknüpfung von Ausdrücken</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>{n}</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Der vorgehende Ausdruck muss genau <code>n</code>-mal vorkommen</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>{n,m}</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Der vorgehende Ausdruck darf mindestens <code>n</code>-mal,
+  	    höchstens <code>m</code>-mal vorkommen</p></td></tr></table></section><section id="beispiele_3"><h2>Beispiele</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ cat example.txt
+abcddd
+xyzabc
+aaaxyz
+aaxyzdd
+eexyzf</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;^[abc]*xyz$|^xyz&#39;</span> example.txt
+<span class="tok-m">2</span>:xyzabc
+<span class="tok-m">3</span>:aaaxyz</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;(^[abc]*xyz$)|(^xyz)&#39;</span> example.txt
+<span class="tok-m">2</span>:xyzabc
+<span class="tok-m">3</span>:aaaxyz</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;^[^cd]{4}[zd]{3}&#39;</span> example.txt
+<span class="tok-m">4</span>:aaxyzdd</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="sh language-sh"><span></span>$ egrep -n --color <span class="tok-s1">&#39;^[^cd]{4}[yzd]{2,3}&#39;</span> example.txt
+<span class="tok-m">3</span>:aaaxyz
+<span class="tok-m">4</span>:aaxyzdd</code></pre></div></div></section></section>
+<section id="organisatorisches"><h2>Organisatorisches</h2><div class="ulist"><ul><li><p>Dokumentation im E-Portfolio, siehe Lernsituation IT-BS-LE-LS-2.1</p></li><li><p>Test am Ende dieser Themenwoche über die NDG-Linux-Essentials-Module 1-12</p></li></ul></div></section></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/head.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Set a per-slide timing for speaker notes, null means none
+  defaultTiming: null,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Randomizes the order of slides each time the presentation loads
+  shuffle: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Flags if we should show a help overlay when the questionmark
+  // key is pressed
+  help: true,
+  // Flags if speaker notes should be visible to all viewers
+  showNotes: false,
+  // Global override for autolaying embedded media (video/audio/iframe)
+  // - null: Media will only autoplay if data-autoplay is present
+  // - true: All media will autoplay, regardless of individual setting
+  // - false: No media will autoplay, regardless of individual setting
+  autoPlayMedia: null,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'simple',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/zoom-js/zoom.js', async: true },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', async: true }
+  ]
+});</script></body></html>

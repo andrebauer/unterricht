@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="361.244mm" height="327.731mm"
+ viewBox="0 0 1024 929"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
+<title>Qt Svg Document</title>
+<desc>Generated with Qt</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="#ffffff" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Helvetica" font-size="12" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M0,0 L1024,0 L1024,929 L0,929 L0,0"/>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M0,0 L1024,0 L1024,929 L0,929 L0,0"/>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M0,0 L1024,0 L1024,929 L0,929 L0,0"/>
+</g>
+
+<g fill="#ddddd8" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Helvetica" font-size="12" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M27,171 L997,171 L997,172 L27,172 L27,171"/>
+</g>
+
+<g fill="#000000" fill-opacity="0.85098" stroke="#000000" stroke-opacity="0.85098" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="DejaVu Sans" font-size="44" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.85098" stroke="none" xml:space="preserve" x="27" y="77" font-family="DejaVu Sans" font-size="44" font-weight="400" font-style="normal" 
+ >Shell-Sessions mit Asciidoctor</text>
+<text fill="#000000" fill-opacity="0.85098" stroke="none" xml:space="preserve" x="27" y="129" font-family="DejaVu Sans" font-size="44" font-weight="400" font-style="normal" 
+ >dokumentieren</text>
+</g>
+
+<g fill="#000000" fill-opacity="0.6" stroke="#000000" stroke-opacity="0.6" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.6" stroke="none" xml:space="preserve" x="29" y="162" font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+ >André Bauer</text>
+<text fill="#000000" fill-opacity="0.6" stroke="none" xml:space="preserve" x="127" y="162" font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+ > </text>
+<text fill="#000000" fill-opacity="0.6" stroke="none" xml:space="preserve" x="131" y="162" font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+ > – </text>
+<text fill="#000000" fill-opacity="0.6" stroke="none" xml:space="preserve" x="147" y="162" font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+ >13. Mai 2018</text>
+</g>
+
+<g fill="#efefed" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M27,762 L997,762 L997,763 L27,763 L27,762"/>
+</g>
+
+<g fill="#000000" fill-opacity="0.8" stroke="#000000" stroke-opacity="0.8" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="27" y="212" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ >Shell-Sessions, die mit Script aufgezeichnet wurden, werden mit vier Strichen (Minuszeichen bzw. &quot;dash&quot;) als</text>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="27" y="239" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ >Sourcecode-Block mit vorformatiertem Text eingerahmt.</text>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="27" y="286" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ >Zusätzlich kann mit der Angabe </text>
+</g>
+
+<g fill="#f7f7f8" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M295,270 L409,270 C411.208,270 413,271.792 413,274 L413,287 C413,289.208 411.208,291 409,291 L295,291 C292.792,291 291,289.208 291,287 L291,274 C291,271.792 292.792,270 295,270 "/>
+</g>
+
+<g fill="#000000" fill-opacity="0.901961" stroke="#000000" stroke-opacity="0.901961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Droid Sans Mono" font-size="16" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="295" y="286" font-family="Droid Sans Mono" font-size="16" font-weight="400" font-style="normal" 
+ >[source, sh]</text>
+</g>
+
+<g fill="#000000" fill-opacity="0.8" stroke="#000000" stroke-opacity="0.8" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="413" y="286" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ > die Sprache angegeben werden. Hier ein Beispiel:</text>
+</g>
+
+<g fill="#000000" fill-opacity="0.8" stroke="#000000" stroke-opacity="0.8" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="32" y="520" font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+ >1</text>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="41" y="520" font-family="Noto Serif" font-size="16" font-weight="400" font-style="normal" 
+ >. </text>
+</g>
+
+<g fill="#000000" fill-opacity="0.8" stroke="#000000" stroke-opacity="0.8" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="55" y="520" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ >Erzeugt die Datei </text>
+</g>
+
+<g fill="#f7f7f8" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M202,504 L336,504 C338.208,504 340,505.792 340,508 L340,521 C340,523.208 338.208,525 336,525 L202,525 C199.792,525 198,523.208 198,521 L198,508 C198,505.792 199.792,504 202,504 "/>
+</g>
+
+<g fill="#000000" fill-opacity="0.901961" stroke="#000000" stroke-opacity="0.901961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Droid Sans Mono" font-size="16" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="202" y="520" font-family="Droid Sans Mono" font-size="16" font-weight="400" font-style="normal" 
+ >diagramme.adoc</text>
+</g>
+
+<g fill="#000000" fill-opacity="0.8" stroke="#000000" stroke-opacity="0.8" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="340" y="520" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ >.</text>
+</g>
+
+<g fill="#ba3925" fill-opacity="1" stroke="#ba3925" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="DejaVu Sans" font-size="37" font-weight="400" font-style="normal" 
+>
+<text fill="#ba3925" fill-opacity="1" stroke="none" xml:space="preserve" x="27" y="599" font-family="DejaVu Sans" font-size="37" font-weight="400" font-style="normal" 
+ >Generieren einer HTML5-Datei</text>
+</g>
+
+<g fill="#000000" fill-opacity="0.8" stroke="#000000" stroke-opacity="0.8" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="27" y="646" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ >Ein AsciiDoc-Dokument wird dann mit dem folgenden Befehl in eine HTML-Datei umgewandelt.</text>
+</g>
+
+<g fill="#ba3925" fill-opacity="1" stroke="#ba3925" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="DejaVu Sans" font-size="37" font-weight="400" font-style="normal" 
+>
+<text fill="#ba3925" fill-opacity="1" stroke="none" xml:space="preserve" x="27" y="835" font-family="DejaVu Sans" font-size="37" font-weight="400" font-style="normal" 
+ >Anzeigen mit Firefox</text>
+</g>
+
+<g fill="#000000" fill-opacity="0.8" stroke="#000000" stroke-opacity="0.8" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="27" y="882" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ >Mit </text>
+</g>
+
+<g fill="#f7f7f8" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M63,866 L234,866 C236.208,866 238,867.792 238,870 L238,883 C238,885.208 236.208,887 234,887 L63,887 C60.792,887 59,885.208 59,883 L59,870 C59,867.792 60.792,866 63,866 "/>
+</g>
+
+<g fill="#000000" fill-opacity="0.901961" stroke="#000000" stroke-opacity="0.901961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Droid Sans Mono" font-size="16" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="63" y="882" font-family="Droid Sans Mono" font-size="16" font-weight="400" font-style="normal" 
+ >firefox index.html</text>
+</g>
+
+<g fill="#000000" fill-opacity="0.8" stroke="#000000" stroke-opacity="0.8" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.8" stroke="none" xml:space="preserve" x="238" y="882" font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+ > wird diese im Browser angezeigt.</text>
+</g>
+
+<g fill="#f7f7f8" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Noto Serif" font-size="17" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M31,313 L993,313 C995.208,313 997,314.792 997,317 L997,484 C997,486.208 995.208,488 993,488 L31,488 C28.792,488 27,486.208 27,484 L27,317 C27,314.792 28.792,313 31,313 "/>
+</g>
+
+<g fill="#000000" fill-opacity="0.901961" stroke="#000000" stroke-opacity="0.901961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="41" y="342" font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+ >user@ubuntu-vb:~$ cd srv/</text>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="41" y="363" font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+ >user@ubuntu-vb:~/srv$ ls</text>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="41" y="384" font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+ >index.adoc  index.html  index.pdf  inheritance.svg</text>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="41" y="405" font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+ >user@ubuntu-vb:~/srv$ touch diagramme.adoc   </text>
+</g>
+
+<g fill="#000000" fill-opacity="0.901961" stroke="#000000" stroke-opacity="0.901961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Droid Sans Mono" font-size="15" font-weight="700" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="446" y="405" font-family="Droid Sans Mono" font-size="15" font-weight="700" font-style="normal" 
+ >(1)</text>
+</g>
+
+<g fill="#000000" fill-opacity="0.901961" stroke="#000000" stroke-opacity="0.901961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="41" y="426" font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+ >user@ubuntu-vb:~/srv$ echo &quot;= Diagramme mit Asciidoctor&quot; &gt;&gt; diagramme.adoc</text>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="41" y="447" font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+ >user@ubuntu-vb:~/srv$ cat diagramme.adoc</text>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="41" y="468" font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+ >= Diagramme mit Asciidoctor</text>
+</g>
+
+<g fill="#f7f7f8" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M31,673 L993,673 C995.208,673 997,674.792 997,677 L997,718 C997,720.208 995.208,722 993,722 L31,722 C28.792,722 27,720.208 27,718 L27,677 C27,674.792 28.792,673 31,673 "/>
+</g>
+
+<g fill="#000000" fill-opacity="0.901961" stroke="#000000" stroke-opacity="0.901961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="0.901961" stroke="none" xml:space="preserve" x="41" y="702" font-family="Droid Sans Mono" font-size="15" font-weight="400" font-style="normal" 
+ >$ asciidoctor -r asciidoctor-diagram -b html index.adoc</text>
+</g>
+</g>
+</svg>

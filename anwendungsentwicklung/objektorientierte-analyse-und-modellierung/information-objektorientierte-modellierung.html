@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7">
+<title>Objektorientierte Modellierung (OOM)</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_objektorientierte_modellierung_oom">Objektorientierte Modellierung (OOM)</a>
+<ul class="sectlevel1">
+<li><a href="#_enumerations">1. Enumerations</a></li>
+<li><a href="#_objekte_und_beziehungen_zwischen_objekten_erstellen">2. Objekte und Beziehungen zwischen Objekten erstellen</a></li>
+<li><a href="#_die_aggregation_hat_beziehung">3. Die Aggregation (Hat-Beziehung)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Information</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information IT-AE-UML-INFO-3.3</strong><br>
+  <strong>Objektorientierte Modellierung (OOM)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-INFO-3.3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25. Februar 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design">Wikipedia: Objektorientierte Analyse und Design</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Literatur</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-INFO-3.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjobs</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-LJ-3.1 bis 3.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_objektorientierte_modellierung_oom" class="sect0">Objektorientierte Modellierung (OOM)</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p></p>
+</div>
+<div class="paragraph">
+<p>In der objektorientierten Modellierung werden u.&#160;a. die
+bereits vorgenommenen Modellierungen in den Klassendiagrammen
+verfeinert und z.&#160;B. Datentypen, initiale Werte und weitere
+Methoden eingefügt.
+Gegebenenfalls werden die Diagramme um weitere Klassen ergänzt,
+die sich nicht unmittelbar aus der Analyse ergeben haben, aber für
+die Implementierung in der gewählten Programmiersprache benötigt werden,
+wie die Definition einer Aufzählung (englisch Enumeration).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enumerations">1. Enumerations</h2>
+<div class="sectionbody">
+<div id="objektdiagramm-1" class="imageblock">
+<div class="content">
+<img src="oom-objektdiagramm-schalter-drei-lampen-1.svg" alt="oom objektdiagramm schalter drei lampen 1" width="414" height="171">
+</div>
+<div class="title">Abbildung 1. Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zu Beginn der User-Story-1</div>
+</div>
+<div id="objektdiagramm-2" class="imageblock">
+<div class="content">
+<img src="oom-objektdiagramm-schalter-drei-lampen-2.svg" alt="oom objektdiagramm schalter drei lampen 2" width="414" height="171">
+</div>
+<div class="title">Abbildung 2. Objektdiagramm für einen Aufbau mit einem Schalter und drei Lampen zum Ende der User-Story-1</div>
+</div>
+<div class="paragraph">
+<p>In den Objektdiagrammen in <a href="#objektdiagramm-1">Abbildung 1</a> und <a href="#objektdiagramm-2">Abbildung 2</a>
+haben die Objekte das
+Attribut <code>zustand</code> mit den möglichen Werten <code>ON</code> und <code>OFF.</code>
+Anstatt eines vorhandenen Java-Datentyps wie <code>int</code>, <code>boolean</code> oder <code>string</code>
+erstellen wir mithilfe einer Aufzählung (engl. enumeration, in Java abgekürzt
+zu <code>enum</code>)
+einen passenden neuen und aussagekräftigen Datentyp.
+Eine Enumeration ermöglicht es, einen Datentyp durch die Aufzählung der
+möglichen Werte zu definieren.</p>
+</div>
+<div id="listing-enum-state" class="listingblock">
+<div class="title">Quellcode 1. Enumertation State in Java</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-kd">enum</span> <span class="tok-n">State</span> <span class="tok-o">{</span>
+  <span class="tok-n">ON</span><span class="tok-o">,</span>
+  <span class="tok-n">OFF</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die Aufzählung <code>State</code> ergänzen wir in dem Klassendiagramm und
+verwenden zudem ab jetzt englische Begriffe. Die Verwendung englischer
+Sprache im Quellcode ist üblich, da bei den meisten Programmiersprachen
+für die Sprachelemente sowie die
+<a href="https://de.wikipedia.org/wiki/Programmbibliothek">Programmbibliotheken</a>
+ohnehin englische Sprache verwendet wird, wie auch bei Java.
+<code>Switch</code> und <code>Lamp</code> erhalten beide <code>OFF</code> als initialen Wert für <code>state</code>.</p>
+</div>
+<div id="klassendiagramm-2" class="imageblock">
+<div class="content">
+<img src="oom-klassendiagramm-schalter-lampe-enum.svg" alt="oom klassendiagramm schalter lampe enum" width="542" height="256">
+</div>
+<div class="title">Abbildung 3. Klassendiagramm mit Enumeration und englischen Begriffen</div>
+</div>
+<div class="paragraph">
+<p>Sowohl <code>Switch</code> als auch <code>Lamp</code> verwenden <code>State</code>, was durch Pfeile
+in <a href="#klassendiagramm-2">Abbildung 3</a> gekennzeichnet ist.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_objekte_und_beziehungen_zwischen_objekten_erstellen">2. Objekte und Beziehungen zwischen Objekten erstellen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Um Objekte einer Klasse zu erstellen, wird ein sogenannter Konstruktor
+benötigt. In Java sind Konstruktoren besondere Methoden, die
+denselben Namen wie die Klasse tragen. Sie können Parameter haben,
+um z.&#160;B. Attribute zu initialisieren.
+In unserem Beispiel erhält <code>Switch</code> den Konstruktor <code>Switch()</code> und
+<code>Lamp</code> den Konstruktor <code>Lamp()</code>.
+Die beiden Konstruktoren haben also jeweils keinen Parameter.</p>
+</div>
+<div class="paragraph">
+<p>Um die Beziehungen zwischen Objekten der Klasse <code>Lamp</code> und einem
+Objekt der Klasse <code>Switch</code> herzustellen bzw. auch wieder zu lösen,
+werden zusätzliche Methoden in <code>Switch</code> benötigt, für die wir mit
+<code>connect</code> bzw. <code>disconnect</code> möglichst passende Namen wählen.
+Sie haben beide einen Parameter mit dem Datentyp <code>Lamp</code>.</p>
+</div>
+<div id="klassendiagramm-3" class="imageblock">
+<div class="content">
+<img src="oom-klassendiagramm-schalter-lampe-enum-erweitert.svg" alt="oom klassendiagramm schalter lampe enum erweitert" width="241" height="307">
+</div>
+<div class="title">Abbildung 4. Klassendiagramm mit Enumeration und englischen Begriffen</div>
+</div>
+<div class="paragraph">
+<p>Damit haben wir aus den User-Stories eine objektorientierte Struktur
+für die Software entworfen. Man nennt diesen Schritt
+<a href="https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design"><strong>objektorientierte Modellierung</strong></a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_die_aggregation_hat_beziehung">3. Die Aggregation (Hat-Beziehung)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Neben der
+<a href="https://de.wikipedia.org/wiki/Assoziation_(UML)">Assoziation (Kennt-Beziehung)</a>
+gibt es noch stärkere Beziehungstypen, u.&#160;a. die
+<a href="https://de.wikipedia.org/wiki/Assoziation_(UML)#Aggregation_und_Komposition">Aggregation (Hat-Beziehung)</a> zwischen
+Objekten bzw. Klassen.
+So <em>hat</em> ein Motorrad ein Vorderrad.</p>
+</div>
+<div id="objektdiagramm-aggregation" class="imageblock">
+<div class="content">
+<img src="oom-objektdiagramm-aggregation.svg" alt="oom objektdiagramm aggregation" width="328" height="185">
+</div>
+<div class="title">Abbildung 5. Objektdiagramm mit Aggregation</div>
+</div>
+<div class="paragraph">
+<p>Die Raute (auch Diamand genannt),
+die diesen Beziehungstyp kennzeichnet, darf <em>nicht</em> wie
+die Pfeilspitze der Assoziation interpretiert werden, denn die Beziehung
+geht vom Motorrad zum Vorderrad und <em>nicht</em> vom
+Vorderrad zum Motorrad.
+Auf der Ebene der Programmierung ist bei einer Aggregation die Klasse
+Motorrad für die Verwaltung der Objekte der Klasse Vorderrad zuständig.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Zuletzt aktualisiert 2018-05-18 10:13:25 CEST
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="235px" preserveAspectRatio="none" style="width:567px;height:235px;" version="1.1" viewBox="0 0 567 235" width="567px" zoomAndPan="magnify"><defs><filter height="300%" id="fmaktkjgjc0f9" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fmaktkjgjc0f9)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="133" x="184" y="20.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="119" x="191" y="33.6387">schalter1: Schalter</text><line style="stroke: #000000; stroke-width: 1.0;" x1="191" x2="310" y1="35.6387" y2="35.6387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="185" x2="316" y1="38.4688" y2="38.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="190" y="51.751">zustand = AUS</text><rect fill="#FEFECE" filter="url(#fmaktkjgjc0f9)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="6" y="187"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="13" y="200.1387">lampe1: Lampe</text><line style="stroke: #000000; stroke-width: 1.0;" x1="13" x2="108" y1="202.1387" y2="202.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="114" y1="204.9688" y2="204.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="12" y="218.251">zustand = AUS</text><rect fill="#FEFECE" filter="url(#fmaktkjgjc0f9)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="216" y="187"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="223" y="200.1387">lampe2: Lampe</text><line style="stroke: #000000; stroke-width: 1.0;" x1="223" x2="318" y1="202.1387" y2="202.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="217" x2="324" y1="204.9688" y2="204.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="222" y="218.251">zustand = AUS</text><rect fill="#FEFECE" filter="url(#fmaktkjgjc0f9)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="379" y="187"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="95" x="386" y="200.1387">lampe3: Lampe</text><line style="stroke: #000000; stroke-width: 1.0;" x1="386" x2="481" y1="202.1387" y2="202.1387"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="380" x2="487" y1="204.9688" y2="204.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="74" x="385" y="218.251">zustand = AUS</text><path d="M352,8 L352,71.3984 A0,0 0 0 0 352,71.3984 L445.6911,71.3984 L435.7984,186.8661 L453.6911,71.3984 L555,71.3984 A0,0 0 0 0 555,71.3984 L555,18 L545,8 L352,8 A0,0 0 0 0 352,8 " fill="#FBFB77" filter="url(#fmaktkjgjc0f9)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M545,8 L545,18 L555,18 L545,8 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="131" x="358" y="25.0669">Objektname : Klasse</text><line style="stroke: #000000; stroke-width: 1.0;" x1="358" x2="489" y1="27.0669" y2="27.0669"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="362" y="40.1997"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="353" x2="554" y1="43.2656" y2="43.2656"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="182" x="358" y="59.3325">Attribut = Wert des Attributs</text><!--link schalter1 to lampe1--><path d="M183.9621,56.0619 C142.1539,67.8094 93.5619,84.3823 79.5,101 C60.4759,123.4818 57.7526,158.5337 58.4209,181.8736 " fill="none" id="schalter1-lampe1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="58.6252,186.9577,62.2607,177.8044,58.4245,181.9617,54.2671,178.1255,58.6252,186.9577" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M84.5,106 L84.5,131 L240.5,131 L240.5,116 L230.5,106 L84.5,106 " fill="#FBFB77" filter="url(#fmaktkjgjc0f9)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M230.5,106 L230.5,116 L240.5,116 L230.5,106 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="135" x="90.5" y="123.0669">Name der Beziehung</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="139" y="153.1997">schaltet</text><!--link schalter1 to lampe3--><path d="M274.915,58.6585 C289.7951,70.5453 309.0487,86.3051 325.5,101 C356.1048,128.3373 389.7694,161.6131 411.2433,183.2753 " fill="none" id="schalter1-lampe3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="414.8448,186.9148,411.3576,177.704,411.3279,183.3607,405.6711,183.331,414.8448,186.9148" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="350.3223" y="175.9201">schaltet</text><!--link schalter1 to lampe2--><path d="M252.7943,58.5997 C256.4465,89.0049 263.5784,148.3779 267.5864,181.744 " fill="none" id="schalter1-lampe2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="268.2018,186.8673,271.0997,177.4544,267.6054,181.903,263.1568,178.4087,268.2018,186.8673" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="265.5" y="133.5669">schaltet</text><!--
+@startuml
+object "<u>schalter1: Schalter</u>" as schalter1 {
+  zustand = AUS
+}
+
+object "<u>lampe1: Lampe</u>" as lampe1 {
+  zustand = AUS
+}
+
+object "<u>lampe2: Lampe</u>" as lampe2 {
+  zustand = AUS
+}
+
+object "<u>lampe3: Lampe</u>" as lampe3 {
+  zustand = AUS
+}
+note top
+  <u>Objektname : Klasse</u>
+
+  - -
+  Attribut = Wert des Attributs
+end note
+
+lampe1 <-down- schalter1 : schaltet
+note top on link
+  Name der Beziehung
+end note
+
+schalter1 -down-> "schaltet" lampe3
+
+schalter1 -down-> lampe2 : schaltet
+@enduml
+
+PlantUML version 1.2018.01(Sun Jan 28 19:08:22 CET 2018)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_172-b11
+Operating System: Linux
+OS Version: 4.16.7-1-ARCH
+Default Encoding: UTF-8
+Language: de
+Country: DE
+--></g></svg>
