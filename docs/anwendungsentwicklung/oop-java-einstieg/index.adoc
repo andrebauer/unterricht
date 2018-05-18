@@ -1,7 +1,15 @@
-= Objektorientierte Entwicklung mit Java - Einstieg
+include::partials/ovm-header.adoc[]
+include::partials/author.adoc[]
+:short-title: Objektorientierte Entwicklung mit Java
+:revdate: 17. Mai 2018
+:toc!:
 
-* <<it-ae-ja-ls-5.1.adoc#, Lernsituation IT-AE-JA-LS-5.1>>
+{empty}
 
-* <<it-ae-ja-ls-5.2.adoc#, Lernsituation IT-AE-JA-LS-5.2>>
+= {short-title}
 
-* <<information-oo-se.adoc#, Informationsblatt Objektorientierte Software-Entwicklung>>
+* <<information-objektorientierte-programmierung-mit-java.adoc#,Information IT-AE-UML-INFO-3.4 Objektorientierte Programmierung (OOP) mit Java>>
+* <<information-quellcode-dokumentieren.adoc#,Information IT-AE-JA-INFO-3.5 Quellcode dokumentieren>>
+* <<lernjob-code-zu-sequenzdiagramm-objektdiagramm.adoc#,Lernjob IT-AE-UML-LJ-3.5 Ein Programm mit einem Sequenzdiagramm und einem Objektdiagramm darstellen>>
+* <<lernjob-klassendiagramm-quellcode-beachvolleyball.adoc#,Lernjob IT-AE-UML-LJ-3.6 Klassendiagramm und Quellcode auf der Grundlage eines Objektdiagramms erstellen>>
+* <<lernsituation-lichtsteuerung-smarthome.adoc#,Lernsituation IT-AE-UML-LS-3.1 Lichtsteuerung für das SmartHome>>

@@ -1,7 +1,28 @@
-= Linux Essentials
+include::partials/ovm-header.adoc[]
+include::partials/author.adoc[]
+:short-title: Linux Essentials
+:revdate: 17. Mai 2018
 
-* <<it-bs-le-info-1.1.adoc#,IT-BS-LE-INFO-1.1: Virtualisierung, Virtualbox, Ubuntu>>
+{empty}
 
-* <<it-bs-le-ls-1.1.adoc#,Lernsituation IT-BS-LE-LS-1.1>>
+= {short-title}
 
-* <<slides/einstieg.adoc#,Vortrag zum Einstieg>>
+== Themenwoche 1
+
+* <<information-virtualbox.adoc#,Information IT-BS-LE-INFO-1.1 Einrichtung von Virtualbox>>
+* <<lernsituation-linux-essentials-themenwoche-1.adoc#,Lernsituation IT-BS-LE-LS-1.1 Linux Essentials: Themenwoche 1>>
+* <<slides/einstieg.adoc#,Vortragsfolien>>
+
+== Themenwoche 2
+
+* <<lernsituation-linux-essentials-themenwoche-2.adoc#,Lernsituation IT-BS-LE-LS-2.1 Linux Essentials: Themenwoche 2>>
+* <<slides/fortsetzung.adoc#,Vortragsfolien>>
+
+== Themenwoche 3
+
+* <<lernsituation-linux-essentials-themenwoche-3.adoc#,Lernsituation IT-BS-LE-LS-3.1 Linux Essentials: Themenwoche 3>>
+* <<slides/abschluss.adoc#,Vortragsfolien>>
+
+== Zusatzmaterial
+
+* <<lernjob-wiederholung.adoc#,Zusatzlernjob>>

@@ -1,3 +1,13 @@
-= Anwendungsentwicklung
+include::partials/ovm-header.adoc[]
+include::partials/author.adoc[]
+:short-title: Anwendungsentwicklung
+:revdate: 17. Mai 2018
+:!toc:
 
-* link:oop-java-einstieg/[Objektorientierte Entwicklung mit Java - Einstieg]
+{empty}
+
+= {short-title}
+
+* link:objektorientierte-analyse-und-modellierung/[Objektorientierte Analyse und Modellierung]
+
+* link:oop-java-einstieg/[Objektorientierte Programmierung mit Java]
