@@ -13,3 +13,4 @@ vendor/
 _build/
 *.class
 _publish/
+private/
