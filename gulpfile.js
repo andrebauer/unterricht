@@ -24,7 +24,7 @@ let private_path = build_dir + 'private/'
 let pdf_paths = ['*/*/*.adoc',
 		 '*/*.adoc']
 
-let private_pdf_paths = [ '*.adoc' ];
+let private_pdf_paths = [ '*/*/*.adoc' ];
 
 let html_paths = pdf_paths.concat('*.adoc');
 
@@ -103,8 +103,8 @@ gulp.task('prebuild',[ 'copy:docs',
 gulp.task('build:html', function(cb) {
     exec(String.format(
 	"asciidoctor -r asciidoctor-diagram {0} \
-         --base-dir={1} -b html5 --safe-mode=safe {2}",
-	verbose, build_dir, html_docs),
+         --base-dir={1} -b html5 --safe-mode=safe {2} {3}",
+	verbose, build_dir, html_docs, private_pdf_docs),
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);
