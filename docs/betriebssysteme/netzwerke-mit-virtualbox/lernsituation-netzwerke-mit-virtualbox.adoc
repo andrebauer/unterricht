@@ -4,7 +4,7 @@ include::partials/ovm-header.adoc[]
 :short-title: Netzwerke mit Virtualbox
 :experimental:
 include::partials/author.adoc[]
-:revdate: 10. Mai 2018
+:revdate: 22. Mai 2018
 :!sectnums:
 include::{pub_dir}/betriebssysteme/netzwerke-mit-virtualbox/links.adoc[]
 

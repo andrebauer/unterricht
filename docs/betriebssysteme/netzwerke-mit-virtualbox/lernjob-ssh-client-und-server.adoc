@@ -3,7 +3,7 @@ include::partials/ovm-header.adoc[]
 :kind: Lernjob
 :short-title: SSH-Client und -Server
 include::partials/author.adoc[]
-:revdate: 13. Mai 2018
+:revdate: 22. Mai 2018
 :sectnumlevels: 1
 include::{pub_dir}/betriebssysteme/netzwerke-mit-virtualbox/links.adoc[]
 
