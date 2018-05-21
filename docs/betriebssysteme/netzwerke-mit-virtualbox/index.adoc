@@ -3,12 +3,13 @@ include::partials/author.adoc[]
 :short-title: Themenwoche Netzwerke mit Virtualbox
 :revdate: 17. Mai 2018
 :toc!:
+include::{pub_dir}/betriebssysteme/netzwerke-mit-virtualbox/links.adoc[]
 
 {empty}
 
 = {short-title}
 
-* <<lernjob-dokumentieren-script-asciidoc.adoc#,Lernjob IT-BS-VM-LJ-3.1 Dokuementieren mit Script und AsciiDoc>>
-* <<lernjob-netzwerke-mit-virtualbox.adoc#,Lernjob IT-BS-VM-LJ-3.2 Netzwerke mit Virtualbox>>
-* <<lernjob-ssh-client-und-server.adoc#,Lernjob IT-BS-VM-LJ-3.3 SSH-Client und -Server>>
-* <<lernsituation-netzwerke-mit-virtualbox.adoc#,Lernsituation IT-BS-VM-LS-3.1 Netzwerke mit Virtualbox>> 
+* Lernjob {lj-doc}
+* Lernjob {lj-nwvb}
+* Lernjob {lj-ssh}
+* Lernsituation {ls-nwvb}
