@@ -6,6 +6,7 @@ include::partials/ovm-header.adoc[]
 include::partials/author.adoc[]
 :revdate: 10. Mai 2018
 :!sectnums:
+include::{pub_dir}/betriebssysteme/netzwerke-mit-virtualbox/links.adoc[]
 
 include::partials/ovm-head-table.adoc[]
 
@@ -22,9 +23,9 @@ a|
 | *Verwandte Literatur*
 a|
 
-* IT-BS-VM-LJ-3.1
-* IT-BS-VM-LJ-3.2
-* IT-BS-VM-LJ-3.3
+* {lj-doc}
+* {lj-nwvb}
+* {lj-ssh}
 
 | *Lizenz*
 | {cc-by-sa}
@@ -39,7 +40,7 @@ Sie selbst wählen.
 ====
 * Dokumentieren Sie Ihr Vorgehen mit Script und AsciiDoc
   und stellen Sie Ihre Ergbnisse als PDF-Dateien in Ihrem
-  E-Portfolio zur Verfügung (siehe Lernjob IT-BS-VM-LJ-3.1). 
+  E-Portfolio zur Verfügung (siehe Lernjob {lj-doc}). 
 * Wählen Sie individuelle Hostnamen, IP-Adressen und Ports,
   die von den Beispielen in den Lernjobs und anderen Quellen abweichen.
 * Im Fachgespräch wird von Ihnen erwartet, dass Sie das
@@ -56,7 +57,7 @@ Sie selbst wählen.
 . Erstellen Sie mehrere Linux-VMs und vergeben Sie für die VMs 
 https://de.wikipedia.org/wiki/Hostname[Hostnamen] nach einem
 http://seriss.com/people/erco/unixtools/hostnames.html[Schema].
-Verbinden Sie wie in Lernjob IT-BS-VM-LJ-3.2
+Verbinden Sie wie in Lernjob {lj-nwvb}
 die VMs und den Host über
 
 +
@@ -89,8 +90,8 @@ auf Ihrem Hostsystem Hostnamen für die VMs verwenden können:
 ====
 
 . Testen Sie jeweils mit ping, ssh, scp und der Kombination aus curl und WEBrick
-die Netzwerk-Verbindungen wie in den Lernjobs IT-BS-VM-LJ-3.2 und
-IT-BS-VM-LJ-3.3.
+die Netzwerk-Verbindungen wie in den Lernjobs {lj-nwvb} und
+{lj-ssh}.
 Verwenden Sie dabei aber die Hostnamen statt der IP-Adressen.
 
 == Aufgabe {counter:a}
@@ -131,7 +132,7 @@ Sie diese Windows-VM mit einer Linux-WM über
 
 Testen Sie jeweils mit ping, ssh, scp und der Kombination aus curl und WEBrick
 die Netzwerk-Verbindungen wie in den Lernjobs
-IT-BS-VM-LJ-3.2 und IT-BS-VM-LJ-3.3
+{lj-nwvb} und {lj-ssh}
 zwischen den beiden VMs und Ihrem Hostsystem.
 
 [NOTE]
@@ -161,7 +162,7 @@ Anleitungen finden sie auf den folgenden Seiten:
 
 == Aufgabe {counter:a}
 
-Verfahren Sie wie im Lernjob IT-BS-VM-LJ-3.2, aber verwenden Sie IPv6
+Verfahren Sie wie im Lernjob {lj-nwvb}, aber verwenden Sie IPv6
 statt IPv4.
 Umfassende Informationen zu IPv6 finden Sie im
 http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/index.html[Linux IPv6 HOWTO].

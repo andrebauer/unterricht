@@ -1,0 +1,4 @@
+:lj-doc: <<lernjob-dokumentieren-script-asciidoc#,IT-BS-VM-LJ-3.1 Dokumentieren mit Script und AsciiDoc>>
+:lj-nwvb: <<lernjob-netzwerke-mit-virtualbox#, IT-BS-VM-LJ-3.2 Netzwerke mit Virtualbox>>
+:lj-ssh: <<lernjob-ssh-client-und-server#, IT-BS-VM-LJ-3.3 SSH-Client und -Server>>
+:ls-nwvb: <<lernsituation-netzwerke-mit-virtualbox#,IT-BS-VM-LS-3.1 Netzwerke mit Virtualbox>>
