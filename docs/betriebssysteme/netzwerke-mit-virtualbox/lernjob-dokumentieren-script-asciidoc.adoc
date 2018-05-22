@@ -77,6 +77,93 @@ Script done on 2018-05-11 08:04:13+02:00
 ====
 
 :!sectnums:
+=== Monochrome Ausgabe der Shell
+:sectnums:
+
+[NOTE]
+====
+In vielen Linux-Distributionen enthält die Ausgabe im Terminal farbige
+Hervorhebungen. Diese führen zur Ausgabe von unerwünschten Zeichen
+in den Log-Dateien von Script. Die farbige Ausgabe wird in der
+Konfigurationsdatei der Shell gesteuert. Bei der Bash ist `~/.bashrc`
+diese Konfigurationsdatei. 
+Um die farbige Ausgabe von Script zu unterbinden müssen mit einem
+Texteditor wie `nano` zwei Zeilen verändert werden.
+Änderungen in der `~/.bashrc` sind in allen neu gestarteten Terminals wirksam.
+In dem aktuellen Terminal können sie durch `source` aktiviert werden:
+
+[source,sh]
+----
+$ source ~/.bashrc
+----   
+====
+
+Im Folgenden werden die beiden Stellen in der Datei `~/.bashrc` gezeigt,
+die geändert werden müssen.
+
+.Ursprüngliche `~/.bashrc`
+[source,sh]
+----
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\0
+33[01;34m\]\w\[\033[00m\]\$ ' <1>
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ ' <2>
+fi
+----
+<1> Setzt einen farbigen Prompt.
+<2> Setzt einen monochromen Prompt.
+
+.Geänderte `~/.bashrc`
+[source,sh]
+----
+if [ "$color_prompt" = yes ] && false; then <1>
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\0
+33[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+----
+<1> Durch Einfügen von `&& false` wird stets der monochrome Prompt ausgewählt.
+
+.Ursprüngliche `~/.bashrc`
+[source,sh]
+----
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto' <1>
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+----
+<1> Hier wir ein Alias für eine farbige Ausgabe mit `ls` gesetzt.
+
+.Geänderte `~/.bashrc`
+[source,sh]
+----
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ] && false; then <1>
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+----
+<1> Das Setzen der Aliasse wird durch Einfügen von `&& false` unterbunden.
+
+
+
+
+:!sectnums:
 === Aufgabe {counter:a}
 :sectnums:
 
