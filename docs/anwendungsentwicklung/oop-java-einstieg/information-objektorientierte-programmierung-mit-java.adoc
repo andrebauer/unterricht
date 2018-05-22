@@ -4,7 +4,7 @@ include::partials/ovm-header.adoc[]
 :short-title: Objektorientierte Programmierung (OOP) mit Java
 :prefix: oop
 include::partials/author.adoc[]
-:revdate: 17. April 2018
+:revdate: 18. April 2018
 
 include::partials/ovm-head-table.adoc[]
 
