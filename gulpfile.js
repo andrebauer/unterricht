@@ -19,6 +19,8 @@ let build_dir = '_build/'
 
 let pub_dir = build_dir + 'unterricht/'
 
+let publish_dir = '_publish/'
+
 let private_path = build_dir + 'private/'
 
 let pdf_paths = ['*/*/*.adoc',
@@ -100,7 +102,7 @@ gulp.task('prebuild',[ 'copy:docs',
 
 
 // builds html docs
-gulp.task('build:html', function(cb) {
+gulp.task('build:html', ['prebuild'], function(cb) {
     exec(String.format(
 	"asciidoctor -r asciidoctor-diagram {0} \
          --base-dir={1} -b html5 --safe-mode=safe {2} {3}",
@@ -113,7 +115,7 @@ gulp.task('build:html', function(cb) {
 })
 /* -a allow-uri-read */
 
-gulp.task('build:ad-basis-bsp-svg', function(cb) {
+gulp.task('build:ad-basis-bsp-svg', ['prebuild', 'build:html'], function() {
     exec(String.format(
 	"wkhtmltoimage -f svg {0}{1} {0}{2}",
 	pub_dir + 'betriebssysteme/netzwerke-mit-virtualbox/',
@@ -122,11 +124,10 @@ gulp.task('build:ad-basis-bsp-svg', function(cb) {
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
 	     console.log(stderr);
-	     cb(err);
 	 });
 })
 
-gulp.task('copy:ad-basis-bsp-svg', function() {
+gulp.task('copy:ad-basis-bsp-svg', ['build:ad-basis-bsp-svg'], function() {
     return gulp
 	.src(pub_dir + 'betriebssysteme/netzwerke-mit-virtualbox/' +
 	     'asciidoc-basis-beispiel.svg')
@@ -134,7 +135,7 @@ gulp.task('copy:ad-basis-bsp-svg', function() {
 })
 
 // builds pdf docs
-gulp.task('build:pdf', function(cb) {
+gulp.task('build:pdf', ['prebuild', 'copy:ad-basis-bsp-svg'], function(cb) {
     exec(String.format(
   	 "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf {0} \
           --base-dir={1} -b pdf --safe-mode=safe \
@@ -158,7 +159,7 @@ https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.ad
 */
 
 // builds slides
-gulp.task('build:slides', function(cb) {
+gulp.task('build:slides', ['prebuild'], function(cb) {
     exec(String.format(
   	 "asciidoctor-revealjs -a {0} \
          -r asciidoctor-diagram {1} \
@@ -182,7 +183,16 @@ gulp.task('build', ['prebuild',
 
 // remove generated files 
 gulp.task('clean', function(cb) {
-    del(['_build/**/*', '_build'], cb)
+    del([build_dir + '**/*', build_dir], cb)
 });
-	
-    
+
+// Copy files from pub_dir
+gulp.task('publish:copy', function() {
+    return gulp
+	.src([pub_dir] + '**/*')
+	.pipe(gulpCopy(publish_dir, {prefix: 2}))
+});
+
+gulp.task('publish:clean', function(cb) {
+    del([publish_dir + '**/*'], cb)
+});
