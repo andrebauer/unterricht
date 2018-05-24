@@ -2,6 +2,7 @@ include::partials/ovm-header.adoc[]
 include::partials/author.adoc[]
 :short-title: Linux Essentials
 :revdate: 17. Mai 2018
+:!sectnums:
 
 {empty}
 
@@ -23,6 +24,6 @@ include::partials/author.adoc[]
 * <<lernsituation-linux-essentials-themenwoche-3.adoc#,Lernsituation IT-BS-LE-LS-3.1 Linux Essentials: Themenwoche 3>>
 * <<slides/abschluss.adoc#,Vortragsfolien>>
 
-== Zusatzmaterial
+== Zusatzaufgaben
 
-* <<lernjob-wiederholung.adoc#,Zusatzlernjob>>
+* <<lernjob-zusatzaufgaben#,Lernjob Zusatzaufgaben>>
