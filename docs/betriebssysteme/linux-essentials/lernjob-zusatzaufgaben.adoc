@@ -1,0 +1,96 @@
+include::partials/ovm-header.adoc[]
+:ovm-code: IT-BS-LE-LJ-5.1
+:kind: Lernjob
+:short-title: Linux Essentials Zusatzaufgaben
+:experimental:
+:prefix: lez
+include::partials/author.adoc[]
+:revdate: 24. Mai 2018
+:link-le-tux: https://www.tuxcademy.org/download/de/lxes/lxes-de-manual.pdf[Linux Essentials - Die Einsteiger-Zertifizierung des LPI (Linup Front / tuxcademy)]
+:!sectnums:
+
+include::partials/ovm-head-table.adoc[]
+
+| *Lizenz*
+| {cc-by-sa}
+|=== 
+
+= {short-title}
+
+== Anmerkung
+
+[NOTE]
+====
+Dokumentieren Sie Ihre Lösungwege mit AsciiDoc wie im
+Lernjob
+<<{pub_dir}/betriebssysteme/netzwerke-mit-virtualbox/lernjob-dokumentieren-script-asciidoc#, Dokumentieren mit Script und AsciiDoc>>
+und geben Sie sowohl die AsciiDoc-Datei als auch eine daraus generierte
+PDF-Datei per E-Mail bis zum 5. Juni ab.
+
+====
+
+== Aufgaben
+
+Die folgenden Seitenangaben und Übungsnummern beziehen sich
+auf das Script {link-le-tux}.
+
+* Seite 59 -- 69, Übungen 3.6 und 3.7
+// 4 S. + 10 Min. + 5 Min. Nano = 1 h 15 Min
+//
+// * Seite 64, Übung 4.1
+
+* Seite 66, Übung 4.2
+// 1 S. + 10 Min. = 25 Min.
+// kumm 1h 40
+//
+// * Seite 73, Übungen 5.1 und 5.2 
+// Man-Seiten
+//
+// * Seite 74, Übung 5.4
+// Info-Seiten
+
+* Seite 84, Übungen 6.3 bis 6.5
+// 1,5 S. 10 Min. + 15 Min. + 10 Min. : ls = 50 Min.
+// kumm 2 h 30
+
+* Seite 85, Übung 6.6
+// 1 S. 20 Min. = 35 Min.
+// kumm 3h 05
+
+* Seite 88, Übungen 6.7 bis 6.10
+// 3 S. 30 Min. + 10 Min. + 15 Min. + 10 Min. : ls mit Mustern = 1h 50 Min.
+// kumm 4h 55
+
+* Seite 91, Übungen 6.11 bis 6.14
+// 2 S. 10 Min. + 10 Min. + 10 Min + 10 Min. : cp, mv = 1h 10 Min
+// kumm 6h 05
+
+* Seite 95, Übungen 6.15 bis 6. 17 und 6. 20 bis 6.21
+// 4 S. 10 Min. + 10 Min. + 10 Min + 10 Min + 10 Min : links = 1h 50 Min
+// kumm 7h 55
+//
+// * Seite 110, Übungen 7.2, 7.3 reguläre Ausdrücke
+
+* Seite 116, Übungen 8.1 bis 8.5
+// 4 S. 10 Min. + 10 Min. + 10Min. + 10 Min. + 10Min. : Kanäle umleiten = 1h 59 Min
+// kumm 9h 45
+
+* Seite 120, Übungen 8.8 bis 8.11
+// 1 S. + 4 * 10 Min : tail, head = 55 Min
+// kumm 10h 40
+
+* Seite 133, Übungen 9.3 bis 9.4
+// 1,5 S. + 15 Min. + 15 Min. : variablen = 55 Min
+// kumm 11h 35
+
+* Seite 173, Übungen 12.1 bis 12.2
+// 1,5 S. + 10 Min. + 10 Min. : su, sudo = 45 Min
+// kumm 12h 20
+
+* Seite 209, Übung 14.1
+// 4 S. + 10 Min : chgrp = 1h 10Min
+// kumm 13h 30
+
+* Seite 211, Übungen 14.3 bis 14.5
+// 3 S. + 3 * 15 Min = 1h 30 Min
+// kumm 15h
