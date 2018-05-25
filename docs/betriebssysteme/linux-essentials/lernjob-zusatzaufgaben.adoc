@@ -21,12 +21,11 @@ include::partials/ovm-head-table.adoc[]
 
 [NOTE]
 ====
-Dokumentieren Sie Ihre Lösungwege mit AsciiDoc wie im
+Dokumentieren Sie Ihre Lösungwege und Ergebnisse mit AsciiDoc wie im
 Lernjob
 <<{pub_dir}/betriebssysteme/netzwerke-mit-virtualbox/lernjob-dokumentieren-script-asciidoc#, Dokumentieren mit Script und AsciiDoc>>
 und geben Sie sowohl die AsciiDoc-Datei als auch eine daraus generierte
-PDF-Datei per E-Mail bis zum 5. Juni ab.
-
+PDF-Datei per E-Mail bis zum 4. Juni ab.
 ====
 
 == Aufgaben
