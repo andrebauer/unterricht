@@ -300,6 +300,52 @@ die geändert werden müssen.</p>
 </tr>
 </table>
 </div>
+<div class="listingblock">
+<div class="title">Quellcode 5. Ursprüngliche <code>~/.bashrc</code></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span><span class="tok-c1"># If this is an xterm set the title to user@host:dir</span>
+<span class="tok-k">case</span> <span class="tok-s2">&quot;</span><span class="tok-nv">$TERM</span><span class="tok-s2">&quot;</span> in
+xterm*<span class="tok-p">|</span>rxvt*<span class="tok-o">)</span>
+    <span class="tok-nv">PS1</span><span class="tok-o">=</span><span class="tok-s2">&quot;\[\e]0;</span><span class="tok-si">${</span><span class="tok-nv">debian_chroot</span><span class="tok-p">:+(</span><span class="tok-nv">$debian_chroot</span><span class="tok-p">)</span><span class="tok-si">}</span><span class="tok-s2">\u@\h: \w\a\]</span><span class="tok-nv">$PS1</span><span class="tok-s2">&quot;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="tok-p">;;</span>
+*<span class="tok-o">)</span>
+    <span class="tok-p">;;</span>
+<span class="tok-k">esac</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Diese Anweisung ist für die Terminals in Ubuntu unnötig, führt aber
+dazu, dass bei Script der Prompt <code>user@host:dir</code> doppelt erscheint.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 6. Ursprüngliche <code>~/.bashrc</code></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span><span class="tok-c1"># If this is an xterm set the title to user@host:dir</span>
+<span class="tok-k">case</span> <span class="tok-s2">&quot;</span><span class="tok-nv">$TERM</span><span class="tok-s2">&quot;</span> in
+xterm*<span class="tok-p">|</span>rxvt*<span class="tok-o">)</span>
+<span class="tok-c1">#    PS1=&quot;\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1&quot; </span><i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="tok-p">;;</span>
+*<span class="tok-o">)</span>
+    <span class="tok-p">;;</span>
+<span class="tok-k">esac</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>In Shell-Scripts wird durch ein <code>#</code> am Zeilenanfang, diese Zeile
+&#8222;auskommentiert&#8220; und dadurch nicht mehr ausgeführt.
+Der Prompt <code>user@host:dir</code> erscheint nun in den Aufzeichnungen
+mit Script nur noch einfach.</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_aufgabe_1">Aufgabe 1</h3>
@@ -734,7 +780,7 @@ die Sie in Ihr E-Portfolio einbinden.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Zuletzt aktualisiert 2018-05-25 10:32:33 CEST
+Zuletzt aktualisiert 2018-05-26 06:05:42 CEST
 </div>
 </div>
 </body>
