@@ -1,0 +1,508 @@
+include::partials/ovm-header.adoc[]
+:ovm-code: IT-AE-JA-LS-4.1
+:kind: Lernsituation
+:short-title: Ampelsteuerung
+include::partials/author.adoc[]
+:revdate: 26. Mai 2018
+:prefix: oopint
+
+include::partials/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+| *Verwandte Literatur*
+a|
+
+* https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf[Vortragsfolien "Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"]
+* http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf[Skript "Objektorientierte Programmierung mit Java und UML"]
+
+| *Lernjobs*
+a|
+
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+= {short-title}
+
+{empty}
+
+Die Smart Traffic Tech GmbH entwickelt u.{nbsp}a. Steuerungssysteme
+für Verkehrsampeln. Sie sollen dazu in der Entwicklungsabteilung
+eine Software-Komponente entwickeln.
+
+== Komponenten
+
+Der für das Projekt verantwortliche Software-Architekt hat
+bereits einen Entwurf für die Komponenten und deren
+Abhängigkeiten entwickelt.
+
+.Komponenten und Abhängigkeiten
+[plantuml, {prefix}-components, svg]
+....
+skinparam componentStyle uml2
+
+component com.traffic_lights.controller as c
+
+component com.traffic_lights.view as v
+
+component com.traffic_lights.input as i
+
+component com.traffic_lights.user as u
+
+component com.traffic_lights as m
+
+v -up-> c
+
+i -up-> c
+
+u -up-> i
+
+m -up-> c
+m -up-> i
+m -up-> u
+m -up-> v
+....
+
+Der Projektleiter hat Ihnen
+und ihrem Teampartner zur Wahl gestellt,
+ob Sie
+
+* die zentrale Steuerungseinheit, den Controller
+  `com.traffic_lights.controller`,
+* eine Komponente zur graphische Anzeige,
+  den View `com.traffic_lights.view`, oder
+* die Komponente für die Eingabe über eine
+  https://de.wikipedia.org/wiki/Grafische_Benutzeroberfl%C3%A4che[Grafische Benutzeroberfläche],
+  den Input `com.traffic_lights.input`,
+
+der Ampelschaltung entwickeln.
+
+== Schnittstellen
+
+Die Komponenten sollen dabei über
+http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_05_013.htm#mjfac44aa7eeb458fddc00bde8886194c9[Schnittstellen]
+verbunden werden und nur über diese Informationen austauschen.
+Dies soll die Integration der Komponenten aus den
+verschiedenen Teams erleichtern und ermöglichen, dass
+Komponenten auch ausgetauscht werden können.
+
+Die Schnittstelle der beiden Komponenten Controller und View ist durch zwei
+http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_05_013.htm#mjfac44aa7eeb458fddc00bde8886194c9[Java-Interfaces]
+definiert, die jeweils eine interne Aufzählung der möglichen Zustände
+enthalten, die den Ampelphasen für eine
+https://de.wikipedia.org/wiki/Ampel#Standard-Ampelanlage[Standard-Ampelanlage]
+mit vier Signalisierungszuständen
+bzw. einer zweiphasigen
+https://de.wikipedia.org/wiki/Ampel#Fu%C3%9Fg%C3%A4ngerampeln[Fußgängerampel]
+entsprechen.
+
+.Schnittstelle zwischen den Komponenten View und Controller
+[plantuml, {prefix}-interface-controller-view, svg]
+....
+package com.traffic_lights.controller {
+  enum "State" as pclstate {
+        Red,
+        Greem,
+        Off
+  }
+
+  interface "PedestrianCrossingLights" as pcl {
+    public void turn(State);
+  }
+
+  enum "State" as tlstate {
+        Red,
+        Green,
+        Yellow,
+        RedYellow,
+        Off,
+        Flash
+   }
+
+
+  interface "TrafficLights" as tl {
+    public void turn(State);
+  }
+
+  pcl +-up- pclstate
+
+  tl +-up- tlstate
+  note on link
+    Mit diesem Pfeiltyp
+    wird kenntlich gemacht,
+    dass State in der
+    Schnittstelle
+    TrafficLights
+    enhalten ist.
+  end note
+}
+....
+
+Der Controller benutzt diese Schnittstelle,
+indem er für die Steuerungskommandos an die Ampeln
+mit der Methode `turn(State)` die Java-Schnittstellen
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java[PedestrianCrossingLights]
+sowie
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java[TrafficLights]
+anstatt konkreter Java-Klassen verwendet.
+In <<diagram-cv>> verwendet die Klasse
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java[PedestrianCrossingController]
+die Schnittstellen zur
+Kommunikation mit dem View.
+
+Der View verwendet diese Schnittstelle durch Klassen,
+die die Java-Schnittstellen
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java[PedestrianCrossingLights]
+sowie 
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java[TrafficLights]
+implementieren,
+also indem er Klassen bereitstellt,
+die über eine passende Methode `turn(State)` verfügen.
+In <<diagram-cv>> implementieren die Klassen
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java[SimpleTrafficLights]
+und 
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java[SimplePedestrianCrossingLights]
+diese Schnittstellen. 
+
+[[diagram-cv]]
+.Verwendung der Schnittstelle zwischen den Komponenten View und Controller.
+[plantuml, {prefix}-use-of-interface-controller-view, svg]
+....
+package com.traffic_lights.controller {
+  class "PedestrianCrossingController" as pcc {
+  }
+
+  enum "State" as pclstate {
+        Red,
+        Greem,
+        Off
+  }
+
+  interface "PedestrianCrossingLights" as pcl {
+    public void turn(State);
+  }
+
+  pcl +-up- pclstate
+
+  enum "State" as tlstate {
+        Red,
+        Green,
+        Yellow,
+        RedYellow,
+        Off,
+        Flash
+   }
+
+
+  interface "TrafficLights" as tl {
+    public void turn(State);
+  }
+
+  tl +-up- tlstate
+
+  pcc -down-> pcl
+  pcc -down-> tl
+}
+
+package com.traffic_lights.view {
+  class "SimplePedestrianCrossingLights" as spcl {
+    public void turn(PedestrianCrossingLights.State)
+  }
+
+  spcl .up.|> pcl
+
+  class "SimpleTrafficLights" as stl {
+    public void turn(TrafficLights.State)
+  }
+
+  stl .up.|> tl
+  note on link
+    Mit diesem Pfeiltyp wird
+    kenntlich gemacht, dass
+    SimpleTrafficLights die
+    Schnittstelle TrafficLights
+    implementiert.
+  end note
+}
+....
+
+Die Komponenten Input und Controller kommunizieren über die Schnittstelle
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianInput.java[PedestrianInput].
+
+.Java-Interface PedestrianInput
+[plantuml, {prefix}-pedestrian-input, svg]
+....
+ interface "PedestrianInput" as pi {
+
+    public boolean isSet();
+    public void resume();
+    public void pause();
+  }
+....
+
+== Prototyp
+
+Einer der Senior-Entwickler hat bereits
+https://de.wikipedia.org/wiki/JUnit[JUnit]-Tests
+für die zu entwickelnden Komponenten und 
+https://de.wikipedia.org/wiki/Mock-Objekt[Mock-Objekte] entwickelt,
+die Sie für die
+https://de.wikipedia.org/wiki/Modultest[Modultests]
+mit den Schnittstellen verbinden. 
+
+Zudem hat ein Team bereist einen
+https://de.wikipedia.org/wiki/Proof_of_Concept[Prototypen]
+als Machbarkeitsnachweis entwickelt, der als
+https://github.com/bauerandre/traffic-lights[Git-Repository] und als
+https://github.com/bauerandre/traffic-lights/archive/master.zip[ZIP-Archiv]
+vorliegt und dessen Aufbau
+in <<diagram-prototype>> als Klassen-Diagramm dargestellt ist.
+
+[[diagram-prototype]]
+.Prototyp der Ampelsteuerung
+[plantuml, {prefix}-pedestrian-crossing-lights, svg]
+....
+/'
+package java.lang {
+
+interface Runnable {
+     public void run()
+  }
+}
+'/
+
+package com.traffic_lights.controller {
+  interface Controller {
+    public void addTrafficLights(TrafficLights,String);
+    public void addPedestrianCrossingLights(PedestrianCrossingLights, String);
+    public void addPedestrianInput(PedestrianInput, String);
+
+  }
+
+  ' Controller --|> Runnable
+
+  class "PedestrianCrossingController" as pcc {
+    private state : State
+
+    public PedestrianCrossingController ()
+    public void run()
+    private void wait(int)
+  }
+
+  enum "State" as pccstate {
+        CarsCrossing,
+        TransitionCarsToPedestrains,
+        PedestriansCrossing,
+        TransitionPedestriansToCars
+  }
+
+  pcc .up.|> Controller
+  pcc +-up- pccstate
+
+  enum "State" as pclstate {
+        Red,
+        Greem,
+        Off
+  }
+
+  interface "PedestrianCrossingLights" as pcl {
+    public void turn(State);
+  }
+
+  pcl +-up- pclstate
+
+  enum "State" as tlstate {
+        Red,
+        Green,
+        Yellow,
+        RedYellow,
+        Off,
+        Flash
+   }
+
+
+  interface "TrafficLights" as tl {
+    public void turn(State);
+  }
+
+  tl +-up- tlstate
+
+  interface "PedestrianInput" as pi {
+
+    public boolean isSet();
+    public void resume();
+    public void pause();
+  }
+
+  Controller --> tl
+  Controller --> pcl
+  Controller --> pi
+}
+
+package com.traffic_lights.input {
+  interface Button {
+    public void push();
+
+  }
+
+  class "SimpleButton" as sb {
+    private name : String
+    private state : State
+
+    public SimpleButton (String)
+  }
+
+  enum "State" as sbs {
+        Pushed,
+        Resumed,
+        Paused
+  }
+
+  sb .down.|> Button
+  sb .up.|> pi
+  sb +-right- sbs
+}
+
+package com.traffic_lights.view {
+  class "SimplePedestrianCrossingLights" as spcl {
+    private name : String
+    private state : PedestrianCrossingLights.State
+
+    public SimplePedestrianCrossingLights(String)
+  }
+
+  spcl .up.|> pcl
+
+  class "SimpleTrafficLights" as stl {
+    private name : String
+    private state : TrafficLights.State
+
+    public SimpleTrafficLights(String)
+  }
+
+  stl .up.|> tl
+}
+
+package com.traffic_lights.user {
+  class "RandomUser" as ru {
+    private name : String
+
+    public RandomUser(String, Button)
+    public void run()
+  }	
+
+  ru -up-> Button
+  ' ru .up.|> Runnable
+}
+
+/'
+package com.traffic_lights {
+  class Main {
+    public static void main(String[])
+  }
+
+  Main -up-> sb
+  Main -up-> ru
+  Main -up-> spcl
+  Main -up-> stl
+  Main -up-> Controller
+  Main -up-> pcc
+}
+'/
+....
+
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java[PedestrianCrossingController]
+und
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java[RandomUser]
+sind als
+http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_14_002.htm#mjd345a92a4debb2b6c1b71c9da5491844[Runnable]
+implementiert, so dass diese in
+http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58[nebenläufigen Threads]
+ablaufen können.
+Die Klasse https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java[RandomUser]
+dient dabei als Test-Benutzer, der nach zufälligen Zeitabständen
+den
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/input/Button.java[Button] 
+über die Methode `push()` betätigt.
+
+Eine
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/Main.java[Main-Klasse],
+die der Übersicht halber in <<diagram-prototype>> _nicht_ dargestellt ist,
+verbindet die Komponenten und startet das System.
+
+:!sectnums:
+== Aufgaben
+:sectnums:
+
+****
+IMPORTANT: Stellen sie die Quelltexte Ihrer Lösungen als
+	   Archiv-Dateien (im `zip-` oder `tar.gz-` Format) zur Verfügung. +
+	   Diese sollten keine (`javac`-)Compiler-Fehler mehr enthalten.
+
+. Importieren Sie den
+  https://github.com/bauerandre/traffic-lights[Prototypen]
+  in Ihre Java-Entwicklungsumgebung und prüfen Sie, ob Sie diesen
+  kompilieren und ausführen können. Die Ausgabe sollte nach
+  etwa einer Minute ungefähr so aussehen:
++
+----
+User Random
+Simple Pedestrian Crossing Lights PS1: Red
+Simple Traffic Lights TS1: Red
+SimpleButton B1 with State Resumed
+Simple Traffic Lights TS1: Green
+Simple Pedestrian Crossing Lights PS1: Red
+System and User started
+User Random pressed button SimpleButton B1 with State Resumed
+SimpleButton B1 with State Pushed
+SimpleButton B1 with State Paused
+Simple Traffic Lights TS1: Yellow
+User Random pressed button SimpleButton B1 with State Paused
+Simple Traffic Lights TS1: Red
+Simple Pedestrian Crossing Lights PS1: Green
+Simple Pedestrian Crossing Lights PS1: Red
+User Random pressed button SimpleButton B1 with State Paused
+Simple Traffic Lights TS1: RedYellow
+Simple Traffic Lights TS1: Green
+SimpleButton B1 with State Resumed
+User Random pressed button SimpleButton B1 with State Resumed
+SimpleButton B1 with State Pushed
+User Random pressed button SimpleButton B1 with State Pushed
+...
+----
+
+. Importieren Sie die JUnit-Tests und Mock-Objekte. +
+  Entwickeln und testen Sie entweder 
+.. für den View zwei Klassen
+`GraphicalTrafficLights` und `GraphicalPedestrianCrossingLights`,
+die anstatt der Text-Ausgaben von
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java[SimpleTrafficLights]
+und 
+https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java[SimplePedestrianCrossingLights]
+eine graphische Ausgabe mithilfe der
+http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa[Java-Grafikprogrammierung] anbieten,
+.. für den Input anstatt der Klasse https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/input/SimpleButton.java[SimpleButton]
+eine
+http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e[grafische Oberfläche (GUI)] oder
+.. einen Controller für die Ampfelsteuerung einer Straßenkreuzung. +
+   Vertiefend können Sie diesen Controller noch erweitern um
++   
+--
+... einen bedarfsgesteuerten Fußgängerübergang oder
+... eine Fahrradampel, deren Grün-Phase
+    zeitversetzt einige Sekunden vor den Fahrzeugen beginnt.
+--
++
+Das Systemverhalten können Sie zunächst mit einem
+http://moodle2013.ovm-kassel.de/mod/url/view.php?id=11247[Aktivitätsdiagramm]
+planen.
+. Führen Sie einen Integrationstest durch, indem Sie Ihre
+  Komponente mit der einer anderen Gruppe verbinden und Tests durchführen,
+  z.{nbsp}B. mit https://de.wikipedia.org/wiki/JUnit[JUnit].
+. <<{pub_dir}/anwendungsentwicklung/oop-java-einstieg/information-quellcode-dokumentieren#,Dokumentieren Sie Ihren Quellcode>>
+mit
+https://de.wikipedia.org/wiki/Javadoc[Javadoc].
+****
