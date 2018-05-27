@@ -1,0 +1,13 @@
+include::partials/ovm-header.adoc[]
+include::partials/author.adoc[]
+:short-title: Themenwoche Objektorientierte Analyse und Modelleriung
+:revdate: 17. Mai 2018
+:toc!:
+
+{empty}
+
+= {short-title}
+
+* <<lernsituation.adoc#,Lernsituation IT-AE-JA-LS-4.1 Ampelsteuerung>>
+
+* <<../oop-java-einstieg/information-quellcode-dokumentieren#,Information IT-AE-JA-INFO-3.5 Quellcode dokumentieren>>

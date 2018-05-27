@@ -1,5 +1,5 @@
 include::partials/ovm-header.adoc[]
-:ovm-code: IT-AE-JA-LS-4.1
+:ovm-code: IT-AE-JA-LS-1.1
 :kind: Lernsituation
 :short-title: Ampelsteuerung
 include::partials/author.adoc[]

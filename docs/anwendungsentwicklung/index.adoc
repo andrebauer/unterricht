@@ -11,3 +11,5 @@ include::partials/author.adoc[]
 * link:objektorientierte-analyse-und-modellierung/[Objektorientierte Analyse und Modellierung]
 
 * link:oop-java-einstieg/[Objektorientierte Programmierung mit Java]
+
+* link:objektorientierte-programmierung-ampelsteuerung/[Objektorientierte Programmierung -- Ampelsteuerung]
