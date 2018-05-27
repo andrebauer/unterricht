@@ -160,8 +160,37 @@ fi
 ----
 <1> Das Setzen der Aliasse wird durch Einfügen von `&& false` unterbunden.
 
+.Ursprüngliche `~/.bashrc`
+[source,sh]
+----
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" <1>
+    ;;
+*)
+    ;;
+esac
+----
+<1> Diese Anweisung ist für die Terminals in Ubuntu unnötig, führt aber
+    dazu, dass bei Script der Prompt `user@host:dir` doppelt erscheint.
 
-
+.Ursprüngliche `~/.bashrc`
+[source,sh]
+----
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" <1>
+    ;;
+*)
+    ;;
+esac
+----
+<1> In Shell-Scripts wird durch ein `#` am Zeilenanfang, diese Zeile
+    {ldquo}auskommentiert{rdquo} und dadurch nicht mehr ausgeführt.
+    Der Prompt `user@host:dir` erscheint nun in den Aufzeichnungen
+    mit Script nur noch einfach.
 
 :!sectnums:
 === Aufgabe {counter:a}
