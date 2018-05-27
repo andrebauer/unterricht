@@ -105,7 +105,8 @@ gulp.task('prebuild',[ 'copy:docs',
 gulp.task('build:html', ['prebuild'], function(cb) {
     exec(String.format(
 	"asciidoctor -r asciidoctor-diagram {0} \
-         --base-dir={1} -b html5 --safe-mode=safe {2} {3}",
+         --base-dir={1} -b html5  -a allow-uri-read \
+         --safe-mode=safe {2} {3}",
 	verbose, build_dir, html_docs, private_pdf_docs),
 	 function(err, stdout, stderr) {
 	     console.log(stdout);
@@ -163,6 +164,7 @@ gulp.task('build:slides', ['prebuild'], function(cb) {
     exec(String.format(
   	 "asciidoctor-revealjs -a {0} \
          -r asciidoctor-diagram {1} \
+         -a allow-uri-read \
          --base-dir={2} --safe-mode=safe -a notitle! {3}",
 	 'revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0',
 	 verbose, build_dir, slide_docs),
