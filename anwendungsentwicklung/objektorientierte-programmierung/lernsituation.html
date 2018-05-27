@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.7.1">
-<title>Lichtsteuerung für das SmartHome</title>
+<title>Ampelsteuerung</title>
 <link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
@@ -15,11 +15,7 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Inhalt</div>
 <ul class="sectlevel1">
-<li><a href="#_lichtsteuerung_für_das_smarthome">Lichtsteuerung für das SmartHome</a>
-<ul class="sectlevel2">
-<li><a href="#_aufgabe">Aufgabe</a></li>
-</ul>
-</li>
+<li><a href="#_ampelsteuerung">1. Ampelsteuerung</a></li>
 </ul>
 </div>
 </div>
@@ -39,13 +35,13 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernsituation IT-AE-UML-LS-3.1</strong><br>
-  <strong>Lichtsteuerung für das SmartHome</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernsituation IT-AE-JA-LS-4.1</strong><br>
+  <strong>Ampelsteuerung</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-UML-LS-3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IT-AE-JA-LS-4.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
@@ -89,16 +85,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjobs</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>IT-AE-UML-LJ-3.1 bis 3.6</p>
-</li>
-<li>
-<p><a href="http://moodle2013.ovm-kassel.de/mod/url/view.php?id=10065">Lernjob LJ-AE-UML-2.5.1 "Seqenzdiagramm-"Bestellvorgang" mit Musterlösung</a></p>
-</li>
-</ul>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
@@ -111,82 +98,59 @@ Dieses Werk ist lizenziert unter einer<br>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_lichtsteuerung_für_das_smarthome">Lichtsteuerung für das SmartHome</h2>
+<h2 id="_ampelsteuerung">1. Ampelsteuerung</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Die Hometech GmbH entwickelt Hard- und Software für das SmartHome.
-Zur Zeit werden Lösungen für die digital gesteuerte Gebäudebeleuchtung
-entwickelt.
-Steuerungskomponenten wie <em>Schalter</em>, <em>Taster</em>, <em>Dimmer</em>, <em>Zeitschalter</em>
-sowie <em>Bewegungs- und Geräuschsensoren</em>
-sollen zukünftig nicht mehr
-direkt mit den Lampen verbunden werden. Stattdessen soll eine
-programmierbare Steuerungseinheit diese Aufgabe übernehmen.</p>
+<div class="imageblock">
+<div class="content">
+<img src="oopint-components.svg" alt="oopint components" width="132" height="151">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="oopint-components-with-classes.svg" alt="oopint components with classes" width="249" height="79">
+</div>
 </div>
 <div class="paragraph">
-<p>Die Hometech GmbH hat Sie
-beauftragt, eine Software für diese Steuerungseinheit zu entwickeln.
-Als Vorgabe wurde festgelegt, dass die Software objektorientiert mit
-Java entwickelt werden soll, da die Hometech GmbH auch intern damit
-arbeitet.
-Zudem soll die Software gut dokumentiert werden, damit zu
-einem späteren Zeitpunkt ggf. interne Entwickler
-das Projekt übernehmen können.</p>
+<p>Vorgabe: UML-Modellierung
+Aufgabe: Programmieren</p>
 </div>
 <div class="paragraph">
-<p>Damit das Produkt möglichst interessant für die Kunden wird,
-sollen mit der Software auch Funktionen ermöglicht werden,
-die mit der bisherigen Haustechnik nur sehr aufwändig oder nicht möglich
-waren, zum Beispiel:</p>
+<p>Idee: zwei verschiedene Komponenten die über ein definierte Schnittstelle
+kommunizieren.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>ein Taster, der alle Beleuchtungskörper ausschaltet.</p>
-</li>
-<li>
-<p>Taster, die jeweils mehrere, sich überschneidende Gruppen
-vom Beleuchtungskörpern schalten.</p>
-</li>
-<li>
-<p>Dimmer, die bei einer Gruppe von Beleuchtungskörpern je nach
-eingestellter Stufe mehr oder weniger (nicht dimmbare) Lampen
-leuchten lassen.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_aufgabe">Aufgabe</h3>
 <div class="paragraph">
-<p>Wählen Sie Steuerungskomponenten und passende Beleuchtungskörper aus und
-erstellen Sie ein oder mehrere Anwendungsfälle.
-Führen Sie die
-Schritte der objektorientierten Analyse, objektorientierten Modellierung
-und objektorientiertn Programmierung mit Java
-durch.
-Erstellen Sie jeweils geeignete Dokumentationen.</p>
+<p>Schüler erhalten dazu Unit-Test (mit Dummy) für beiden Seiten der
+Schnittstelle. (Daniel)</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Wichtig"></i>
-</td>
-<td class="content">
-Stellen sie die Quelltexte Ihrer Lösungen als
-	   Archiv-Dateien (im <code>zip-</code> oder <code>tar.gz-</code> Format) zur Verfügung.<br>
-	   Diese sollten keine (<code>javac</code>-)Compiler-Fehler mehr enthalten.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Themengebiet: (Haussteuerung oder) Ampelsteuerung
+Kreuzung (optional Fußgängerübergang)</p>
 </div>
+<div class="paragraph">
+<p>Schnittstelle zwischen Steuerlogik und einer Ampelkomponente mit graphischer
+Ausgabe</p>
+</div>
+<div class="paragraph">
+<p><a href="http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_20_001.htm#mj0b6314b6f10d983ddef5d00966d99f1e">Java ist auch eine Insel: 20 Grafikprogrammierung</a></p>
+</div>
+<div class="paragraph">
+<p>Verlinken: Lernjob mit Aktivitätsdiagramm oder State Diagram als Hilfe: AE-UML-1.4</p>
+</div>
+<div class="paragraph">
+<p>Lernsituation: (André)</p>
+</div>
+<div class="paragraph">
+<p>Treffen: nächsten Dienstag 7. / 8.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_05_013.htm#mjfac44aa7eeb458fddc00bde8886194c9">Java ist auch eine Insel: 5.13 Schnittstellen</a></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Zuletzt aktualisiert 2018-05-27 23:16:26 CEST
+Zuletzt aktualisiert 2018-05-26 06:05:42 CEST
 </div>
 </div>
 </body>
