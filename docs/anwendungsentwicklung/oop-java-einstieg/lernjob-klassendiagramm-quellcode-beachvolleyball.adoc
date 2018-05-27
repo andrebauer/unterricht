@@ -5,6 +5,7 @@ include::partials/ovm-header.adoc[]
 :prefix: ljkdqc
 include::partials/author.adoc[]
 :revdate: 17. April 2018
+:!sectnums:
 
 include::partials/ovm-head-table.adoc[]
 

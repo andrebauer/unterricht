@@ -4,7 +4,7 @@ include::partials/ovm-header.adoc[]
 :short-title: Lichtsteuerung für das SmartHome
 include::partials/author.adoc[]
 :revdate: 17. April 2018
-
+:!sectnums:
 
 include::partials/ovm-head-table.adoc[]
 
@@ -87,5 +87,5 @@ durch.
 Erstellen Sie jeweils geeignete Dokumentationen.
 
 IMPORTANT: Stellen sie die Quelltexte Ihrer Lösungen als
-	   Archiv-Dateien (`zip-` oder `tar.gz-` Format) zur Verfügung. +
+	   Archiv-Dateien (im `zip-` oder `tar.gz-` Format) zur Verfügung. +
 	   Diese sollten keine (`javac`-)Compiler-Fehler mehr enthalten.

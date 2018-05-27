@@ -4,6 +4,7 @@ include::partials/ovm-header.adoc[]
 :short-title: Ein Programm mit einem Sequenzdiagramm und einem Objektdiagramm darstellen
 include::partials/author.adoc[]
 :revdate: 17. April 2018
+:!sectnums:
 
 include::partials/ovm-head-table.adoc[]
 
