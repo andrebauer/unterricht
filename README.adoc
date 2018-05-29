@@ -31,8 +31,9 @@ $ npm run watch <4>
     and `private` to `_build`
 <2> Runs the build once.
 <3> Starts `browser-sync`.
-<4> Starts an watch job on `docs` and `private` and starts 
-----
+<4> Starts a watch job on `docs` and `private` and runs the build job
+    on file changes.
+
 
 == Advanced Usage
 
