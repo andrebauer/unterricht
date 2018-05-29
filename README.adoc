@@ -37,7 +37,7 @@ $ npm run watch <4>
 
 == Advanced Usage
 
-To create Diagramms with
+To create Diagrams with
 https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
 you'll need to install the diagram tools and their dependencies with
 your package-manager, e.g. PlantUML: 
