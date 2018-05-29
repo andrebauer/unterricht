@@ -58,4 +58,4 @@ $ npm run serve-publish <2>
 ----
 <1> Copies `_build/unterricht` to `_publish`.
 <2> Runs WEBrick on http://localhost:5000/[] with `_test-publish` as
-    Documentroot.
+    documentroot.
