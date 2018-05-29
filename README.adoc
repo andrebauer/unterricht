@@ -1,0 +1,47 @@
+= Teaching materials for information technology
+
+See the latest build at https://bauerandre.github.io/unterricht/[].
+
+== Installation
+
+You'll need both npm and RubyGems.
+
+[source,sh]
+----
+$ git clone git@github.com:bauerandre/unterricht.git
+$ cd unterricht
+$ npm install
+$ bundle
+----
+
+== Usage
+
+With a watch job and browser-sync you can write your AsciiDoc-Files
+with your favourite editor and have automated updates in your browser
+each time you are saving your work in your editor. 
+
+[source,sh]
+----
+$ gulp prebuild <1>
+$ gulp build <2>
+$ npm run sync <3>
+$ npm run watch <4>
+----
+<1> Copies everything from `docs`, `images`, `partials`, `stylesheets`
+    and `private` to `_build`
+<2> Runs the build once.
+<3> Starts `browser-sync`.
+<4> Starts an watch job on `docs` and `private` and starts 
+----
+
+== Advanced Usage
+
+To create Diagramms with
+https://asciidoctor.org/docs/asciidoctor-diagram/[Asciidoctor Diagram]
+you'll need to install the diagram tools and their dependencies with
+your package-manager, e.g. PlantUML: 
+
+[source,sh]
+----
+$ apt install plantuml 
+----
