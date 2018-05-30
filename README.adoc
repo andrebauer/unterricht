@@ -8,7 +8,7 @@ You'll need both npm and RubyGems.
 
 [source,sh]
 ----
-$ git clone git@github.com:bauerandre/unterricht.git
+$ git clone https://github.com/bauerandre/unterricht.git
 $ cd unterricht
 $ npm install
 $ bundle
