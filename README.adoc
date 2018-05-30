@@ -4,14 +4,26 @@ See the latest build at https://bauerandre.github.io/unterricht/[].
 
 == Installation
 
-You'll need both npm and RubyGems.
+You'll need both npm and RubyGems with bundler.
+
+[source,sh]
+----
+$ sudo apt install npm ruby ruby-bundler
+$ sudo ln -s /usr/bin/nodejs /usr/local/bin/node <1>
+----
+<1> In Ubuntu node is named nodejs, so we need this symbolic link here.
+
+With this prerequisites you can install the project dependencies.
 
 [source,sh]
 ----
 $ git clone https://github.com/bauerandre/unterricht.git
 $ cd unterricht
 $ npm install
-$ bundle
+$ sudo npm install -g gulp
+$ bundler
+$ mkdir -p private/keep/keep
+$ touch private/keep/keep/keep.adoc
 ----
 
 == Usage
