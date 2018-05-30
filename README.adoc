@@ -46,7 +46,7 @@ your package-manager, e.g. PlantUML:
 
 [source,sh]
 ----
-$ apt install plantuml 
+$ sudo apt install plantuml 
 ----
 
 === Prepare publishing
