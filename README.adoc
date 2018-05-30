@@ -1,6 +1,14 @@
-= Teaching materials for information technology
+= Teaching materials for information technology and mathematics
 
 See the latest build at https://bauerandre.github.io/unterricht/[].
+
+== LICENSE
+
+* If not declared different in an individual file all documents are licensed
+  under a Creative Commons Attribution-ShareAlike 4.0 International License.
+  See link:LICENSE.CC-BY-SA[] for details.
+* If not declared different in an individual file all source code is
+  licensed under THE MIT License. See link:LICENSE.MIT[] for details.
 
 == Installation
 

@@ -6,6 +6,18 @@ include::partials/ovm-header.adoc[]
 include::partials/author.adoc[]
 :revdate: 25. Februar 2018
 
+// This work is licensed under a
+// Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+// License.
+// Authors: 
+// Informatikreferendare und ehemalige Informatikreferendare der
+// Studienseminare (heute ZfsL) Arnsberg, Hamm und Solingen. +
+// Die Urheberin der Zusammenfassung des Verfahrens nach Abbott ist
+// unbekannt.
+// Some modifications by André Bauer
+// Source:
+// http://ddi.uni-wuppertal.de/material/materialsammlung/oberstufe/allgemein/abbott/info_01_verfahren_abbott.pdf
+
 include::partials/ovm-head-table.adoc[]
 
 | *Autoren des Orginaldokuments*
