@@ -3,7 +3,7 @@ include::partials/ovm-header.adoc[]
 :kind: Lernsituation
 :short-title: Ampelsteuerung
 include::partials/author.adoc[]
-:revdate: 26. Mai 2018
+:revdate: 2. Juni 2018
 :prefix: oopint
 
 include::partials/ovm-head-table.adoc[]
@@ -11,15 +11,13 @@ include::partials/ovm-head-table.adoc[]
 | *Links*
 a|
 
-| *Verwandte Literatur*
-a|
-
 * https://pdfs.semanticscholar.org/presentation/b024/fbaa3c40ce8e5e6dd47d045b3ce34d44d291.pdf[Vortragsfolien "Modellieren mit der Unified Modeling Language: Klassen- und Objektdiagramme"]
 * http://www.erasmus-reinhold-gymnasium.de/info/prakt_inf/UML-Informatikskript.pdf[Skript "Objektorientierte Programmierung mit Java und UML"]
 
-| *Lernjobs*
+| *Verwandte Literatur*
 a|
 
+* <<../oop-java-einstieg/information-quellcode-dokumentieren#,Information IT-AE-JA-INFO-3.5 Quellcode dokumentieren>>
 
 | *Lizenz*
 | {cc-by-sa}
