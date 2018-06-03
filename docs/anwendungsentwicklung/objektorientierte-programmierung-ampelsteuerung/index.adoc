@@ -1,6 +1,6 @@
 include::partials/ovm-header.adoc[]
 include::partials/author.adoc[]
-:short-title: Themenwoche Objektorientierte Analyse und Modelleriung
+:short-title: Themenwoche Objektorientierte Programmierung -- Ampelsteuerung
 :revdate: 17. Mai 2018
 :toc!:
 
