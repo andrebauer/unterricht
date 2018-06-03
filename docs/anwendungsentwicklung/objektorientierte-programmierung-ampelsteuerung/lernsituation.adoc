@@ -251,7 +251,7 @@ https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/
 // https://de.wikipedia.org/wiki/Modultest[Modultests]
 // mit den Schnittstellen verbinden. 
 
-Ein Team hat bereist einen
+Ein Team hat bereits einen
 https://de.wikipedia.org/wiki/Proof_of_Concept[Prototypen]
 als Machbarkeitsnachweis entwickelt, der als
 https://github.com/bauerandre/traffic-lights[Git-Repository] und als
