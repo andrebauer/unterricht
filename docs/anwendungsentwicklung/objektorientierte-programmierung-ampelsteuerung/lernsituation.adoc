@@ -3,7 +3,7 @@ include::partials/ovm-header.adoc[]
 :kind: Lernsituation
 :short-title: Ampelsteuerung
 include::partials/author.adoc[]
-:revdate: 2. Juni 2018
+:revdate: 3. Juni 2018
 :prefix: oopint
 
 include::partials/ovm-head-table.adoc[]
@@ -243,15 +243,15 @@ https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/
 
 == Prototyp
 
-Einer der Senior-Entwickler hat bereits
-https://de.wikipedia.org/wiki/JUnit[JUnit]-Tests
-für die zu entwickelnden Komponenten und 
-https://de.wikipedia.org/wiki/Mock-Objekt[Mock-Objekte] entwickelt,
-die Sie für die
-https://de.wikipedia.org/wiki/Modultest[Modultests]
-mit den Schnittstellen verbinden. 
+// Einer der Senior-Entwickler hat bereits
+// https://de.wikipedia.org/wiki/JUnit[JUnit]-Tests
+// für die zu entwickelnden Komponenten und 
+// https://de.wikipedia.org/wiki/Mock-Objekt[Mock-Objekte] entwickelt,
+// die Sie für die
+// https://de.wikipedia.org/wiki/Modultest[Modultests]
+// mit den Schnittstellen verbinden. 
 
-Zudem hat ein Team bereist einen
+Ein Team hat bereist einen
 https://de.wikipedia.org/wiki/Proof_of_Concept[Prototypen]
 als Machbarkeitsnachweis entwickelt, der als
 https://github.com/bauerandre/traffic-lights[Git-Repository] und als
@@ -437,7 +437,8 @@ verbindet die Komponenten und startet das System.
 
 ****
 IMPORTANT: Stellen sie die Quelltexte Ihrer Lösungen als
-	   Archiv-Dateien (im `zip-` oder `tar.gz-` Format) zur Verfügung. +
+	   Archiv-Dateien (im `zip-` oder `tar.gz-` Format) oder
+	   als git-Repository zur Verfügung. +
 	   Diese sollten keine (`javac`-)Compiler-Fehler mehr enthalten.
 
 . Importieren Sie den
@@ -472,8 +473,8 @@ User Random pressed button SimpleButton B1 with State Pushed
 ...
 ----
 
-. Importieren Sie die JUnit-Tests und Mock-Objekte. +
-  Entwickeln und testen Sie entweder 
+.  Entwickeln und testen Sie mithilfe des
+   https://github.com/bauerandre/traffic-lights[Prototypen] entweder 
 .. für den View zwei Klassen
 `GraphicalTrafficLights` und `GraphicalPedestrianCrossingLights`,
 die anstatt der Text-Ausgaben von
@@ -498,7 +499,10 @@ Das Systemverhalten können Sie zunächst mit einem
 http://moodle2013.ovm-kassel.de/mod/url/view.php?id=11247[Aktivitätsdiagramm]
 planen.
 . Führen Sie einen Integrationstest durch, indem Sie Ihre
-  Komponente mit der einer anderen Gruppe verbinden und Tests durchführen,
+  Komponente mit der einer anderen Gruppe und
+  Komponenten des
+  https://github.com/bauerandre/traffic-lights[Prototypen]
+  verbinden und Tests durchführen,
   z.{nbsp}B. mit https://de.wikipedia.org/wiki/JUnit[JUnit].
 . <<{pub_dir}/anwendungsentwicklung/oop-java-einstieg/information-quellcode-dokumentieren#,Dokumentieren Sie Ihren Quellcode>>
 mit
