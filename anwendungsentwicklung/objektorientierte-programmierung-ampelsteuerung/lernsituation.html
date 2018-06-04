@@ -178,28 +178,28 @@ entsprechen.</p>
 <p>Der Controller benutzt diese Schnittstelle,
 indem er für die Steuerungskommandos an die Ampeln
 mit der Methode <code>turn(State)</code> die Java-Schnittstellen
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java">PedestrianCrossingLights</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java">PedestrianCrossingLights</a>
 sowie
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java">TrafficLights</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java">TrafficLights</a>
 anstatt konkreter Java-Klassen verwendet.
 In <a href="#diagram-cv">Abbildung 3</a> verwendet die Klasse
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java">PedestrianCrossingController</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java">PedestrianCrossingController</a>
 die Schnittstellen zur
 Kommunikation mit dem View.</p>
 </div>
 <div class="paragraph">
 <p>Der View verwendet diese Schnittstelle durch Klassen,
 die die Java-Schnittstellen
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java">PedestrianCrossingLights</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java">PedestrianCrossingLights</a>
 sowie
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java">TrafficLights</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java">TrafficLights</a>
 implementieren,
 also indem er Klassen bereitstellt,
 die über eine passende Methode <code>turn(State)</code> verfügen.
 In <a href="#diagram-cv">Abbildung 3</a> implementieren die Klassen
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java">SimpleTrafficLights</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java">SimpleTrafficLights</a>
 und
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java">SimplePedestrianCrossingLights</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java">SimplePedestrianCrossingLights</a>
 diese Schnittstellen.</p>
 </div>
 <div id="diagram-cv" class="imageblock">
@@ -210,7 +210,7 @@ diese Schnittstellen.</p>
 </div>
 <div class="paragraph">
 <p>Die Komponenten Input und Controller kommunizieren über die Schnittstelle
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianInput.java">PedestrianInput</a>.</p>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianInput.java">PedestrianInput</a>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -227,8 +227,8 @@ diese Schnittstellen.</p>
 <p>Ein Team hat bereits einen
 <a href="https://de.wikipedia.org/wiki/Proof_of_Concept">Prototypen</a>
 als Machbarkeitsnachweis entwickelt, der als
-<a href="https://github.com/bauerandre/traffic-lights">Git-Repository</a> und als
-<a href="https://github.com/bauerandre/traffic-lights/archive/master.zip">ZIP-Archiv</a>
+<a href="https://github.com/andrebauer/traffic-lights">Git-Repository</a> und als
+<a href="https://github.com/andrebauer/traffic-lights/archive/master.zip">ZIP-Archiv</a>
 vorliegt und dessen Aufbau
 in <a href="#diagram-prototype">Abbildung 5</a> als Klassen-Diagramm dargestellt ist.</p>
 </div>
@@ -239,23 +239,23 @@ in <a href="#diagram-prototype">Abbildung 5</a> als Klassen-Diagramm dargestellt
 <div class="title">Abbildung 5. Prototyp der Ampelsteuerung</div>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java">PedestrianCrossingController</a>
+<p><a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java">PedestrianCrossingController</a>
 und
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java">RandomUser</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java">RandomUser</a>
 sind als
 <a href="http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_14_002.htm#mjd345a92a4debb2b6c1b71c9da5491844">Runnable</a>
 implementiert, so dass diese in
 <a href="http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">nebenläufigen Threads</a>
 ablaufen können.
-Die Klasse <a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java">RandomUser</a>
+Die Klasse <a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java">RandomUser</a>
 dient dabei als Test-Benutzer, der nach zufälligen Zeitabständen
 den
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/input/Button.java">Button</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/input/Button.java">Button</a>
 über die Methode <code>push()</code> betätigt.</p>
 </div>
 <div class="paragraph">
 <p>Eine
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/Main.java">Main-Klasse</a>,
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/Main.java">Main-Klasse</a>,
 die der Übersicht halber in <a href="#diagram-prototype">Abbildung 5</a> <em>nicht</em> dargestellt ist,
 verbindet die Komponenten und startet das System.</p>
 </div>
@@ -285,7 +285,7 @@ Stellen sie die Quelltexte Ihrer Lösungen als
 <ol class="arabic">
 <li>
 <p>Importieren Sie den
-<a href="https://github.com/bauerandre/traffic-lights">Prototypen</a>
+<a href="https://github.com/andrebauer/traffic-lights">Prototypen</a>
 in Ihre Java-Entwicklungsumgebung und prüfen Sie, ob Sie diesen
 kompilieren und ausführen können. Die Ausgabe sollte nach
 etwa einer Minute ungefähr so aussehen:</p>
@@ -319,21 +319,21 @@ User Random pressed button SimpleButton B1 with State Pushed
 </li>
 <li>
 <p>Entwickeln und testen Sie mithilfe des
-<a href="https://github.com/bauerandre/traffic-lights">Prototypen</a> entweder</p>
+<a href="https://github.com/andrebauer/traffic-lights">Prototypen</a> entweder</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>für den View zwei Klassen
 <code>GraphicalTrafficLights</code> und <code>GraphicalPedestrianCrossingLights</code>,
 die anstatt der Text-Ausgaben von
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java">SimpleTrafficLights</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java">SimpleTrafficLights</a>
 und
-<a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java">SimplePedestrianCrossingLights</a>
+<a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java">SimplePedestrianCrossingLights</a>
 eine graphische Ausgabe mithilfe der
 <a href="http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">Java-Grafikprogrammierung</a> anbieten,</p>
 </li>
 <li>
-<p>für den Input anstatt der Klasse <a href="https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/input/SimpleButton.java">SimpleButton</a>
+<p>für den Input anstatt der Klasse <a href="https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/input/SimpleButton.java">SimpleButton</a>
 eine
 <a href="http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">grafische Oberfläche (GUI)</a> oder</p>
 </li>
@@ -368,7 +368,7 @@ planen.</p>
 <p>Führen Sie einen Integrationstest durch, indem Sie Ihre
 Komponente mit der einer anderen Gruppe und
 Komponenten des
-<a href="https://github.com/bauerandre/traffic-lights">Prototypen</a>
+<a href="https://github.com/andrebauer/traffic-lights">Prototypen</a>
 verbinden und Tests durchführen,
 z.&#160;B. mit <a href="https://de.wikipedia.org/wiki/JUnit">JUnit</a>.</p>
 </li>
@@ -386,7 +386,7 @@ mit
 </div>
 <div id="footer">
 <div id="footer-text">
-Zuletzt aktualisiert 2018-06-04 06:39:58 CEST
+Zuletzt aktualisiert 2018-06-04 23:05:00 CEST
 </div>
 </div>
 </body>
