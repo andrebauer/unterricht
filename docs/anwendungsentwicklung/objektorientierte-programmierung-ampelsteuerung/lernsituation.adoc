@@ -142,27 +142,27 @@ package com.traffic_lights.controller {
 Der Controller benutzt diese Schnittstelle,
 indem er für die Steuerungskommandos an die Ampeln
 mit der Methode `turn(State)` die Java-Schnittstellen
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java[PedestrianCrossingLights]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java[PedestrianCrossingLights]
 sowie
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java[TrafficLights]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java[TrafficLights]
 anstatt konkreter Java-Klassen verwendet.
 In <<diagram-cv>> verwendet die Klasse
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java[PedestrianCrossingController]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java[PedestrianCrossingController]
 die Schnittstellen zur
 Kommunikation mit dem View.
 
 Der View verwendet diese Schnittstelle durch Klassen,
 die die Java-Schnittstellen
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java[PedestrianCrossingLights]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingLights.java[PedestrianCrossingLights]
 sowie 
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java[TrafficLights]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/TrafficLights.java[TrafficLights]
 implementieren,
 also indem er Klassen bereitstellt,
 die über eine passende Methode `turn(State)` verfügen.
 In <<diagram-cv>> implementieren die Klassen
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java[SimpleTrafficLights]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java[SimpleTrafficLights]
 und 
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java[SimplePedestrianCrossingLights]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java[SimplePedestrianCrossingLights]
 diese Schnittstellen. 
 
 [[diagram-cv]]
@@ -228,7 +228,7 @@ package com.traffic_lights.view {
 ....
 
 Die Komponenten Input und Controller kommunizieren über die Schnittstelle
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianInput.java[PedestrianInput].
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianInput.java[PedestrianInput].
 
 .Java-Interface PedestrianInput
 [plantuml, {prefix}-pedestrian-input, svg]
@@ -254,8 +254,8 @@ interface "PedestrianInput" as pi {
 Ein Team hat bereits einen
 https://de.wikipedia.org/wiki/Proof_of_Concept[Prototypen]
 als Machbarkeitsnachweis entwickelt, der als
-https://github.com/bauerandre/traffic-lights[Git-Repository] und als
-https://github.com/bauerandre/traffic-lights/archive/master.zip[ZIP-Archiv]
+https://github.com/andrebauer/traffic-lights[Git-Repository] und als
+https://github.com/andrebauer/traffic-lights/archive/master.zip[ZIP-Archiv]
 vorliegt und dessen Aufbau
 in <<diagram-prototype>> als Klassen-Diagramm dargestellt ist.
 
@@ -412,22 +412,22 @@ package com.traffic_lights {
 '/
 ....
 
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java[PedestrianCrossingController]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/controller/PedestrianCrossingController.java[PedestrianCrossingController]
 und
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java[RandomUser]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java[RandomUser]
 sind als
 http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_14_002.htm#mjd345a92a4debb2b6c1b71c9da5491844[Runnable]
 implementiert, so dass diese in
 http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58[nebenläufigen Threads]
 ablaufen können.
-Die Klasse https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java[RandomUser]
+Die Klasse https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/user/RandomUser.java[RandomUser]
 dient dabei als Test-Benutzer, der nach zufälligen Zeitabständen
 den
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/input/Button.java[Button] 
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/input/Button.java[Button] 
 über die Methode `push()` betätigt.
 
 Eine
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/Main.java[Main-Klasse],
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/Main.java[Main-Klasse],
 die der Übersicht halber in <<diagram-prototype>> _nicht_ dargestellt ist,
 verbindet die Komponenten und startet das System.
 
@@ -442,7 +442,7 @@ IMPORTANT: Stellen sie die Quelltexte Ihrer Lösungen als
 	   Diese sollten keine (`javac`-)Compiler-Fehler mehr enthalten.
 
 . Importieren Sie den
-  https://github.com/bauerandre/traffic-lights[Prototypen]
+  https://github.com/andrebauer/traffic-lights[Prototypen]
   in Ihre Java-Entwicklungsumgebung und prüfen Sie, ob Sie diesen
   kompilieren und ausführen können. Die Ausgabe sollte nach
   etwa einer Minute ungefähr so aussehen:
@@ -474,16 +474,16 @@ User Random pressed button SimpleButton B1 with State Pushed
 ----
 
 .  Entwickeln und testen Sie mithilfe des
-   https://github.com/bauerandre/traffic-lights[Prototypen] entweder 
+   https://github.com/andrebauer/traffic-lights[Prototypen] entweder 
 .. für den View zwei Klassen
 `GraphicalTrafficLights` und `GraphicalPedestrianCrossingLights`,
 die anstatt der Text-Ausgaben von
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java[SimpleTrafficLights]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/view/SimpleTrafficLights.java[SimpleTrafficLights]
 und 
-https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java[SimplePedestrianCrossingLights]
+https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/view/SimplePedestrianCrossingLights.java[SimplePedestrianCrossingLights]
 eine graphische Ausgabe mithilfe der
 http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa[Java-Grafikprogrammierung] anbieten,
-.. für den Input anstatt der Klasse https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/input/SimpleButton.java[SimpleButton]
+.. für den Input anstatt der Klasse https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/input/SimpleButton.java[SimpleButton]
 eine
 http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e[grafische Oberfläche (GUI)] oder
 .. einen Controller für die Ampfelsteuerung einer Straßenkreuzung. +
@@ -501,7 +501,7 @@ planen.
 . Führen Sie einen Integrationstest durch, indem Sie Ihre
   Komponente mit der einer anderen Gruppe und
   Komponenten des
-  https://github.com/bauerandre/traffic-lights[Prototypen]
+  https://github.com/andrebauer/traffic-lights[Prototypen]
   verbinden und Tests durchführen,
   z.{nbsp}B. mit https://de.wikipedia.org/wiki/JUnit[JUnit].
 . <<{pub_dir}/anwendungsentwicklung/oop-java-einstieg/information-quellcode-dokumentieren#,Dokumentieren Sie Ihren Quellcode>>
