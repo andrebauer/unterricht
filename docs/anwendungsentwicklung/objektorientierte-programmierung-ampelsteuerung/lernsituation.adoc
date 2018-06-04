@@ -108,7 +108,7 @@ package com.traffic_lights.controller {
   }
 
   interface "PedestrianCrossingLights" as pcl {
-    public void turn(State);
+    void turn(State);
   }
 
   enum "State" as tlstate {
@@ -122,7 +122,7 @@ package com.traffic_lights.controller {
 
 
   interface "TrafficLights" as tl {
-    public void turn(State);
+    void turn(State);
   }
 
   pcl +-up- pclstate
@@ -180,7 +180,7 @@ package com.traffic_lights.controller {
   }
 
   interface "PedestrianCrossingLights" as pcl {
-    public void turn(State);
+    void turn(State);
   }
 
   pcl +-up- pclstate
@@ -196,7 +196,7 @@ package com.traffic_lights.controller {
 
 
   interface "TrafficLights" as tl {
-    public void turn(State);
+    void turn(State);
   }
 
   tl +-up- tlstate
@@ -233,12 +233,12 @@ https://github.com/bauerandre/traffic-lights/blob/master/src/com/traffic_lights/
 .Java-Interface PedestrianInput
 [plantuml, {prefix}-pedestrian-input, svg]
 ....
- interface "PedestrianInput" as pi {
+interface "PedestrianInput" as pi {
 
-    public boolean isSet();
-    public void resume();
-    public void pause();
-  }
+  boolean isSet();
+  void resume();
+  void pause();
+}
 ....
 
 == Prototyp
@@ -267,16 +267,16 @@ in <<diagram-prototype>> als Klassen-Diagramm dargestellt ist.
 package java.lang {
 
 interface Runnable {
-     public void run()
+     void run()
   }
 }
 '/
 
 package com.traffic_lights.controller {
   interface Controller {
-    public void addTrafficLights(TrafficLights,String);
-    public void addPedestrianCrossingLights(PedestrianCrossingLights, String);
-    public void addPedestrianInput(PedestrianInput, String);
+    void addTrafficLights(TrafficLights,String);
+    void addPedestrianCrossingLights(PedestrianCrossingLights, String);
+    void addPedestrianInput(PedestrianInput, String);
 
   }
 
@@ -307,7 +307,7 @@ package com.traffic_lights.controller {
   }
 
   interface "PedestrianCrossingLights" as pcl {
-    public void turn(State);
+    void turn(State);
   }
 
   pcl +-up- pclstate
@@ -323,16 +323,16 @@ package com.traffic_lights.controller {
 
 
   interface "TrafficLights" as tl {
-    public void turn(State);
+    void turn(State);
   }
 
   tl +-up- tlstate
 
   interface "PedestrianInput" as pi {
 
-    public boolean isSet();
-    public void resume();
-    public void pause();
+    boolean isSet();
+    void resume();
+    void pause();
   }
 
   Controller --> tl
@@ -342,7 +342,7 @@ package com.traffic_lights.controller {
 
 package com.traffic_lights.input {
   interface Button {
-    public void push();
+    void push();
 
   }
 
