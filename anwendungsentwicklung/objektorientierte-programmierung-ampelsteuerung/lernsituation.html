@@ -20,6 +20,7 @@
 <li><a href="#_komponenten">1. Komponenten</a></li>
 <li><a href="#_schnittstellen">2. Schnittstellen</a></li>
 <li><a href="#_prototyp">3. Prototyp</a></li>
+<li><a href="#_dokumentation">4. Dokumentation</a></li>
 <li><a href="#_aufgaben">Aufgaben</a></li>
 </ul>
 </li>
@@ -262,6 +263,31 @@ verbindet die Komponenten und startet das System.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_dokumentation">4. Dokumentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die Dokumentation mit Javadoc wird in der <a href="../oop-java-einstieg/information-quellcode-dokumentieren.html">Information IT-AE-JA-INFO-3.5 Quellcode dokumentieren</a> näher erläutert.
+Da die Ampelsteuerung aus mehreren Java-Paketen besteht, wird Javadoc
+mit der Option <code>-subpackages</code> mitgeteilt, dass auch für alle Unterpakete
+die Dokumentation generiert werden soll.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ javadoc -d doc -author -private -sourcepath src -subpackages com.traffic_lights</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die Dokumentation im Ordner <code>doc</code> kann anschließend mit einem Browser
+betrachtet werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ firefox doc/index.html</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_aufgaben">Aufgaben</h2>
 <div class="sectionbody">
 <div class="sidebarblock">
@@ -386,7 +412,7 @@ mit
 </div>
 <div id="footer">
 <div id="footer-text">
-Zuletzt aktualisiert 2018-06-04 23:05:00 CEST
+Zuletzt aktualisiert 2018-06-05 12:16:53 CEST
 </div>
 </div>
 </body>
