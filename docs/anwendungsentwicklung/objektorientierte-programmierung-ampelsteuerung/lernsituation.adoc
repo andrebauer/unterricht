@@ -5,6 +5,7 @@ include::partials/ovm-header.adoc[]
 include::partials/author.adoc[]
 :revdate: 3. Juni 2018
 :prefix: oopint
+:info-javadoc: <<../oop-java-einstieg/information-quellcode-dokumentieren#,Information IT-AE-JA-INFO-3.5 Quellcode dokumentieren>>
 
 include::partials/ovm-head-table.adoc[]
 
@@ -17,7 +18,7 @@ a|
 | *Verwandte Literatur*
 a|
 
-* <<../oop-java-einstieg/information-quellcode-dokumentieren#,Information IT-AE-JA-INFO-3.5 Quellcode dokumentieren>>
+* {info-javadoc}
 
 | *Lizenz*
 | {cc-by-sa}
@@ -430,6 +431,27 @@ Eine
 https://github.com/andrebauer/traffic-lights/blob/master/src/com/traffic_lights/Main.java[Main-Klasse],
 die der Übersicht halber in <<diagram-prototype>> _nicht_ dargestellt ist,
 verbindet die Komponenten und startet das System.
+
+== Dokumentation
+
+Die Dokumentation mit Javadoc wird in der {info-javadoc} näher erläutert.
+Da die Ampelsteuerung aus mehreren Java-Paketen besteht, wird Javadoc
+mit der Option `-subpackages` mitgeteilt, dass auch für alle Unterpakete
+die Dokumentation generiert werden soll.
+
+[source,sh]
+----
+$ javadoc -d doc -author -private -sourcepath src -subpackages com.traffic_lights
+----
+
+Die Dokumentation im Ordner `doc` kann anschließend mit einem Browser
+betrachtet werden.
+
+[source,sh]
+----
+$ firefox doc/index.html
+----
+
 
 :!sectnums:
 == Aufgaben
