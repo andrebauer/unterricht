@@ -33,7 +33,7 @@ PDF-Datei per E-Mail bis zum 4. Juni ab.
 Die folgenden Seitenangaben und Übungsnummern beziehen sich
 auf das Script {link-le-tux}.
 
-* Seite 59 -- 69, Übungen 3.6 und 3.7
+* Seite 59 -- 60, Übungen 3.6 und 3.7
 // 4 S. + 10 Min. + 5 Min. Nano = 1 h 15 Min
 //
 // * Seite 64, Übung 4.1
