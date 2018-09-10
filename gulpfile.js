@@ -140,7 +140,8 @@ gulp.task('copy:ad-basis-bsp-svg', ['build:ad-basis-bsp-svg'], function() {
 // builds pdf docs
 gulp.task('build:pdf', ['prebuild', 'copy:ad-basis-bsp-svg'], function(cb) {
     exec(String.format(
-  	 "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf {0} \
+  	 "asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf \
+          -r asciidoctor-mathematical {0} \
           --base-dir={1} -b pdf --safe-mode=safe \
           -a pdf-style={2} -a allow-uri-read {3} {4} {5}",
 	 verbose, build_dir, 'stylesheets/pdf/default-theme.yml',
