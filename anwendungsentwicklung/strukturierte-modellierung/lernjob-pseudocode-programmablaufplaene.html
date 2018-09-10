@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7.1">
+<title>Pseudocode und Programmablaufpläne</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_pseudocode_und_programmablaufpläne">Pseudocode und Programmablaufpläne</a>
+<ul class="sectlevel1">
+<li><a href="#_anfangsgeprüfte_schleife_und_verzweigung">1. Anfangsgeprüfte Schleife und Verzweigung</a>
+<ul class="sectlevel2">
+<li><a href="#_beispiel_1_primfaktorzerlegung">1.1. Beispiel 1: Primfaktorzerlegung</a>
+<ul class="sectlevel3">
+<li><a href="#_struktogramm">Struktogramm</a></li>
+<li><a href="#_pseudocode">Pseudocode</a></li>
+<li><a href="#_programmablaufplan">Programmablaufplan</a></li>
+</ul>
+</li>
+<li><a href="#_aufgabe_1_primzahlen">1.2. Aufgabe 1: Primzahlen</a></li>
+</ul>
+</li>
+<li><a href="#_zählschleife">2. Zählschleife</a>
+<ul class="sectlevel2">
+<li><a href="#_beispiel_2_isbn_10">2.1. Beispiel 2: ISBN-10</a>
+<ul class="sectlevel3">
+<li><a href="#_beispiel_isbn_3_8171_2004_4">Beispiel: ISBN 3-8171-2004-4</a></li>
+<li><a href="#_pseudocode_2">Pseudocode</a></li>
+<li><a href="#_programmablaufplan_2">Programmablaufplan</a></li>
+</ul>
+</li>
+<li><a href="#_aufgabe_2_pharmazentralnummer">2.2. Aufgabe 2: Pharmazentralnummer</a>
+<ul class="sectlevel3">
+<li><a href="#_beispiel_pzn_10024970">Beispiel: PZN 10024970</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_mehrfachauswahl">3. Mehrfachauswahl</a>
+<ul class="sectlevel2">
+<li><a href="#_beispiel_3_römische_zahlschrift">3.1. Beispiel 3: Römische Zahlschrift</a>
+<ul class="sectlevel3">
+<li><a href="#_pseudocode_3">Pseudocode</a></li>
+<li><a href="#_programmablaufplan_3">Programmablaufplan</a></li>
+</ul>
+</li>
+<li><a href="#_aufgabe_3_tcp_netzwerkdienste">3.2. Aufgabe 3: TCP-Netzwerkdienste</a></li>
+</ul>
+</li>
+<li><a href="#_mehrfache_verzweigung">4. Mehrfache Verzweigung</a>
+<ul class="sectlevel2">
+<li><a href="#_beispiel_ipv4_netzklassen">4.1. Beispiel IPv4-Netzklassen</a>
+<ul class="sectlevel3">
+<li><a href="#_pseudocode_4">Pseudocode</a></li>
+<li><a href="#_programmablaufplan_4">Programmablaufplan</a></li>
+</ul>
+</li>
+<li><a href="#_aufgabe_4_helligkeits_schwellwerte">4.2. Aufgabe 4: Helligkeits-Schwellwerte</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Lernjob</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lernjob AE-MS-LJ-1.4</strong><br>
+  <strong>Pseudocode und Programmablaufpläne</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AE-MS-LJ-1.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10. September 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><a href="https://code2flow.com/app">code2flow</a></p>
+</li>
+<li>
+<p><a href="http://friedrich-folkmann.de/papdesigner/Hauptseite.html">PapDesigner</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Verwandte Lernjobs</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AE-MS-LJ-1.1 bis 1.3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_pseudocode_und_programmablaufpläne" class="sect0">Pseudocode und Programmablaufpläne</h1>
+<div class="sect1">
+<h2 id="_anfangsgeprüfte_schleife_und_verzweigung">1. Anfangsgeprüfte Schleife und Verzweigung</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_beispiel_1_primfaktorzerlegung">1.1. Beispiel 1: Primfaktorzerlegung</h3>
+<div class="paragraph">
+<p>Jede natürliche Zahl kann als Produkt von Primzahlen geschrieben werden.
+Beispiele:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(6 = 2 \cdot 3\)</p>
+</li>
+<li>
+<p>\(24 = 2 \cdot 2 \cdot 2 \cdot 3\)</p>
+</li>
+<li>
+<p>\(99 = 3 \cdot 3 \cdot 11\)</p>
+</li>
+<li>
+<p>\(1001 = 7 \cdot 11 \cdot 13\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In einem Programm sollen zu einer gegebenen natürlichen Zahl
+die Primfaktoren berechnet und ausgegeben werden.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect3">
+<h4 id="_struktogramm">Struktogramm</h4>
+<div class="imageblock">
+<div class="content">
+<img src="/unterricht/anwendungsentwicklung/strukturierte-modellierung/Primfaktorzerlegung.svg" alt="Primfaktorzerlegung">
+</div>
+<div class="title">Abbildung 1. Struktogramm zur Primfaktorzerlegung</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pseudocode">Pseudocode</h4>
+<div class="listingblock">
+<div class="title">Quellcode 1. Pseudocode zur Primfaktorzerlegung</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">program</span> <span class="tok-n">Primfaktorzerlegung</span>
+  <span class="tok-n">read</span> <span class="tok-n">n</span><span class="tok-o">;</span>
+  <span class="tok-n">t</span> <span class="tok-o">:=</span> <span class="tok-mi">2</span><span class="tok-o">;</span>
+  <span class="tok-k">while</span><span class="tok-o">(</span><span class="tok-n">n</span> <span class="tok-o">&gt;</span> <span class="tok-mi">1</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-k">if</span><span class="tok-o">(</span><span class="tok-n">Ist</span> <span class="tok-n">n</span> <span class="tok-n">durch</span> <span class="tok-n">t</span> <span class="tok-n">ohne</span> <span class="tok-n">Rest</span> <span class="tok-n">teilbar</span><span class="tok-o">?)</span> <span class="tok-o">{</span>
+      <span class="tok-n">n</span> <span class="tok-o">:=</span> <span class="tok-n">n</span> <span class="tok-o">/</span> <span class="tok-n">t</span><span class="tok-o">;</span>
+      <span class="tok-n">print</span> <span class="tok-n">t</span><span class="tok-o">;</span>
+    <span class="tok-o">}</span> <span class="tok-k">else</span> <span class="tok-o">{</span>
+      <span class="tok-n">t</span> <span class="tok-o">:=</span> <span class="tok-n">t</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+    <span class="tok-o">}</span>
+  <span class="tok-o">}</span>
+<span class="tok-n">end</span> <span class="tok-n">program</span> <span class="tok-n">Primfaktorzerlegung</span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_programmablaufplan">Programmablaufplan</h4>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="https://code2flow.com/znlIQc"><img src="/unterricht/anwendungsentwicklung/strukturierte-modellierung/primfaktorzerlegung-flowdiagram.svg" alt="primfaktorzerlegung flowdiagram" width="65%"></a>
+</div>
+<div class="title">Abbildung 2. Programmablaufplan zur Primfaktorzerlegung</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabe_1_primzahlen">1.2. Aufgabe 1: Primzahlen</h3>
+<div class="paragraph">
+<p>Eine natürliche Zahl ist eine Primzahl,
+wenn sie nur durch 1 und durch sich selbst
+ohne Rest teilbar ist.</p>
+</div>
+<div class="paragraph">
+<p>Die Primzahlen sind 2, 3, 5, 7, 11, 13, 17, 19, 23, &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Als einfaches Verfahren, um zu prüfen, ob eine Zahl \(n\) eine Primzahl ist,
+kann man daher bei allen Zahlen zwischen 1 und der Zahl \(n\)
+testen, ob diese die Zahl \(n\) ohne Rest teilen.
+Falls ein Teiler gefunden wurde kann das Verfahren abgebrochen werden,
+da die Zahl \(n\) keine Primzahl ist. Falls kein Teiler gefunden wird, ist
+die Zahl \(n\) eine Primzahl.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_zählschleife">2. Zählschleife</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_beispiel_2_isbn_10">2.1. Beispiel 2: ISBN-10</h3>
+<div class="paragraph">
+<p>Bücher werden durch die Internationale Standardbuchnummer (ISBN) eindeutig
+gekennzeichnet. Bis 2006 wurde dazu eine zehnstellige Nummer verwendet,
+die eine Prüfziffer enthält.
+Diese Prüfziffer berechnet man,
+indem man die erste Ziffer mit eins multipliziert, die zweite mit zwei
+usw. bis zur neunten Ziffer und die Ergebnisse addiert.
+Diese Summe wird anschließend durch 11 dividiert. Aus dem Rest dieser
+Division wird die Prüfziffer gebildet. Falls der Rest 10 ist, wird das
+Zeichen &#8216;X&#8217; verwendet.</p>
+</div>
+<div class="sect3">
+<h4 id="_beispiel_isbn_3_8171_2004_4">Beispiel: ISBN 3-8171-2004-4</h4>
+<div class="paragraph">
+<p>Die ersten neun Ziffern sind 3-8171-2004.</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\begin{align*}
+3 \cdot 1 + 8 \cdot 2 + 1 \cdot 3 + 7 \cdot 4 + 1 \cdot 5 + 2 \cdot 6 + 0 \cdot 7 + 0 \cdot 8+ 4 \cdot 9 = 103 \\
+
+103 = 9 \cdot 11\;\;\text{ Rest }\;\;4
+\end{align*}\]
+</div>
+</div>
+<div class="paragraph">
+<p>Daher hat die ISBN 3-8171-2004-4 die Prüfziffer 4.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pseudocode_2">Pseudocode</h4>
+<div class="paragraph">
+<p>Die Ziffern der ISBN werden als Feld Z behandelt.</p>
+</div>
+<div class="listingblock">
+<div class="title">Quellcode 2. Pseudocode zur Berechnung der ISBN-10</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">read</span> <span class="tok-n">Z</span><span class="tok-o">;</span>
+<span class="tok-n">summe</span> <span class="tok-o">:=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+<span class="tok-k">for</span><span class="tok-o">(</span><span class="tok-n">i</span> <span class="tok-o">:=</span> <span class="tok-mi">1</span><span class="tok-o">;</span> <span class="tok-n">i</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">9</span><span class="tok-o">;</span> <span class="tok-n">i</span> <span class="tok-o">:=</span> <span class="tok-n">i</span> <span class="tok-o">+</span> <span class="tok-mi">1</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-n">produkt</span> <span class="tok-o">=</span> <span class="tok-n">Z</span><span class="tok-o">[</span><span class="tok-n">i</span><span class="tok-o">]</span> <span class="tok-o">*</span> <span class="tok-n">i</span><span class="tok-o">;</span>
+  <span class="tok-n">summe</span> <span class="tok-o">:=</span> <span class="tok-n">summe</span> <span class="tok-o">+</span> <span class="tok-n">produkt</span><span class="tok-o">;</span>
+<span class="tok-o">}</span>
+<span class="tok-n">p</span> <span class="tok-o">:=</span> <span class="tok-n">Rest</span> <span class="tok-n">der</span> <span class="tok-n">Division</span> <span class="tok-n">zwischen</span> <span class="tok-n">summe</span> <span class="tok-n">und</span> <span class="tok-mi">11</span><span class="tok-o">;</span>
+<span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">p</span> <span class="tok-o">=</span> <span class="tok-mi">10</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-n">print</span> <span class="tok-sc">&#39;X&#39;</span><span class="tok-o">;</span>
+<span class="tok-o">}</span> <span class="tok-k">else</span> <span class="tok-o">{</span>
+  <span class="tok-n">print</span> <span class="tok-n">p</span><span class="tok-o">;</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_programmablaufplan_2">Programmablaufplan</h4>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="https://code2flow.com/qFQczf"><img src="/unterricht/anwendungsentwicklung/strukturierte-modellierung/isbn-10-flowdiagram.svg" alt="isbn 10 flowdiagram" width="65%"></a>
+</div>
+<div class="title">Abbildung 3. Programmablaufplan zur Berechnung der ISBN-10</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabe_2_pharmazentralnummer">2.2. Aufgabe 2: Pharmazentralnummer</h3>
+<div class="paragraph">
+<p>Die Pharmazentralnummer (PZN) ist ein auf in deutschland
+erhältlichen Arzneimitteln angebrachter Identifikationsschlüssel.
+Sie besteht derzeit aus acht Ziffern, die letzte Stelle ist eine
+Prüfziffer.
+Ähnlich wie bei der ISBN-10 werden die Ziffern von links nach rechts
+aufsteigend mit den Zahlen 1 bis 7 multipliziert und aufsummiert.
+Anschließend wird der Rest der Division zwischen der Summe und 11 berechnet.
+Sollte der Rest 10 ergeben, wird die PZN nicht vergeben.</p>
+</div>
+<div class="sect3">
+<h4 id="_beispiel_pzn_10024970">Beispiel: PZN 10024970</h4>
+<div class="paragraph">
+<p>Die ersten sieben Ziffern sind 1002497.</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\begin{align*}
+1 \cdot 1 + 0 \cdot 2 + 0 \cdot 3 + 2 \cdot 4 + 4 \cdot 5 + 9 \cdot 6 + 7 \cdot 7 = 132\\
+
+132 = 12 \cdot 11\;\; \text{Rest}\;\; 0
+\end{align*}\]
+</div>
+</div>
+<div class="paragraph">
+<p>Die PZN 10024970 hat daher die Prüfziffer 0.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mehrfachauswahl">3. Mehrfachauswahl</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_beispiel_3_römische_zahlschrift">3.1. Beispiel 3: Römische Zahlschrift</h3>
+<div class="paragraph">
+<p>In die römischen Zahlschrift werden überlicherweise sieben Buchstaben verwendet,
+die jeweils einem bestimmten Wert entsprechen.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Wert</th>
+<th class="tableblock halign-left valign-top">Zeichen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Das folgende Programm gibt zu einem Wert das entsprechende Zeichen zurück.
+Falls es für einen Wert kein Zeichen gibt, wird eine Fehlermeldung
+zurückgegeben.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect3">
+<h4 id="_pseudocode_3">Pseudocode</h4>
+<div class="listingblock">
+<div class="title">Quellcode 3. Pseudocode zur Funktion <code>roemischesZahlzeichen</code></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">function</span> <span class="tok-nf">roemischesZahlzeichen</span><span class="tok-o">(</span><span class="tok-n">wert</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-k">switch</span><span class="tok-o">(</span><span class="tok-n">wert</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-k">case</span> <span class="tok-mi">1</span><span class="tok-o">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">I</span><span class="tok-o">;</span>
+    <span class="tok-k">break</span><span class="tok-o">;</span>
+  <span class="tok-k">case</span> <span class="tok-mi">5</span><span class="tok-o">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">V</span><span class="tok-o">;</span>
+    <span class="tok-k">break</span><span class="tok-o">;</span>
+  <span class="tok-k">case</span> <span class="tok-mi">10</span><span class="tok-o">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">X</span><span class="tok-o">;</span>
+    <span class="tok-k">break</span><span class="tok-o">;</span>
+  <span class="tok-k">case</span> <span class="tok-mi">50</span><span class="tok-o">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">L</span><span class="tok-o">;</span>
+    <span class="tok-k">break</span><span class="tok-o">;</span>
+  <span class="tok-k">case</span> <span class="tok-mi">100</span><span class="tok-o">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">C</span><span class="tok-o">;</span>
+    <span class="tok-k">break</span><span class="tok-o">;</span>
+  <span class="tok-k">case</span> <span class="tok-mi">500</span><span class="tok-o">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">D</span><span class="tok-o">;</span>
+    <span class="tok-k">break</span><span class="tok-o">;</span>
+  <span class="tok-k">case</span> <span class="tok-mi">1000</span><span class="tok-o">:</span>
+    <span class="tok-k">return</span> <span class="tok-n">M</span><span class="tok-o">;</span>
+    <span class="tok-k">break</span><span class="tok-o">;</span>
+  <span class="tok-k">default</span><span class="tok-o">:</span>
+    <span class="tok-n">error</span><span class="tok-o">:</span> <span class="tok-s">&quot;Für den Wert &quot;</span> <span class="tok-n">wert</span> <span class="tok-s">&quot; gibt es kein römisches Zahlzeichen&quot;</span>
+  <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_programmablaufplan_3">Programmablaufplan</h4>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="https://code2flow.com/U8sIfx"><img src="/unterricht/anwendungsentwicklung/strukturierte-modellierung/roemisches-zahlzeichen-flowdiagram.svg" alt="roemisches zahlzeichen flowdiagram" width="65%"></a>
+</div>
+<div class="title">Abbildung 4. Programmablaufplan zur Funktion <code>roemischesZahlzeichen</code></div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabe_3_tcp_netzwerkdienste">3.2. Aufgabe 3: TCP-Netzwerkdienste</h3>
+<div class="paragraph">
+<p>Ein Programm soll für eine Auswahl
+beliebter TCP-Netzwerkdienste zu der Standard-Portnummer
+den entsprechenden Dienstnamen ausgeben.
+Falls die Portnummer unbekannt ist, soll eine entsprechende Fehlermeldung
+ausgegeben werden.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Standard-Portnummer</th>
+<th class="tableblock halign-left valign-top">Dienstname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ftp</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smtp</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">domain</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pop3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mehrfache_verzweigung">4. Mehrfache Verzweigung</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_beispiel_ipv4_netzklassen">4.1. Beispiel IPv4-Netzklassen</h3>
+<div class="paragraph">
+<p>Die IPv4-Adressen haben eine Länge 32-Bit, d.&#160;h. vier Byte.
+Zur menschenlesbaren Darstellung ist es üblich, die vier Bytes
+jeweils im Dezimalsystem, also als Zahl zwischen 0 und 255 darzustellen,
+und mit einem Punkt zu trennen.
+So hat die Domain ovm-kassel.de die IP-Adresse 89.31.143.1.
+Anhand der Anfangsbits bzw. der ersten Bytes wurden die
+IPv4-Adressen bis 1993 in sogenannte Netzwerkklassen unterteilt.
+Anhand der Dezimaldarstellung des ersten Bytes ergibt sich die
+folgende Tabelle für die Netzwerkklassen:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Bereich</th>
+<th class="tableblock halign-left valign-top">Netzwerkklasse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0 – 127</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">128 – 191</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192 – 223</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">224 – 239</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">240 – 255</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Die IP-Adresse 89.31.143.1 liegt somit in der Netzwerkklasse A.</p>
+</div>
+<div class="sect3">
+<h4 id="_pseudocode_4">Pseudocode</h4>
+<div class="listingblock">
+<div class="title">Quellcode 4. Pseudocode zur Bestimmung der Netzwerkklasse</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">Start</span><span class="tok-o">;</span>
+<span class="tok-n">read</span> <span class="tok-n">firstByte</span><span class="tok-o">;</span>
+<span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">firstByte</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span> <span class="tok-n">oder</span> <span class="tok-n">firstByte</span> <span class="tok-o">&gt;</span> <span class="tok-mi">255</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-n">error</span> <span class="tok-s">&quot;Ungültige Eingabe&quot;</span>
+<span class="tok-o">}</span>
+<span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">firstByte</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">127</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-n">print</span> <span class="tok-s">&quot;Klasse A&quot;</span>
+<span class="tok-o">}</span> <span class="tok-n">elseif</span> <span class="tok-o">(</span><span class="tok-n">firstByte</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">191</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-n">print</span> <span class="tok-s">&quot;Klasse B&quot;</span>
+<span class="tok-o">}</span> <span class="tok-n">elseif</span> <span class="tok-o">(</span><span class="tok-n">firstByte</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">223</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-n">print</span> <span class="tok-s">&quot;Klasse C&quot;</span>
+<span class="tok-o">}</span> <span class="tok-n">elseif</span> <span class="tok-o">(</span><span class="tok-n">firstByte</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">239</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-n">print</span> <span class="tok-s">&quot;Klasse D&quot;</span>
+<span class="tok-o">}</span> <span class="tok-k">else</span> <span class="tok-o">{</span>
+  <span class="tok-n">print</span> <span class="tok-s">&quot;Klasse E&quot;</span>
+<span class="tok-o">}</span>
+<span class="tok-n">Stop</span><span class="tok-o">;</span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_programmablaufplan_4">Programmablaufplan</h4>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="https://code2flow.com/NPdgEU"><img src="/unterricht/anwendungsentwicklung/strukturierte-modellierung/ipv4-class-flowdiagram.svg" alt="ipv4 class flowdiagram" width="65%"></a>
+</div>
+<div class="title">Abbildung 5. Programmablaufplan zur Bestimmung der Netzwerkklasse</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabe_4_helligkeits_schwellwerte">4.2. Aufgabe 4: Helligkeits-Schwellwerte</h3>
+<div class="paragraph">
+<p>Eine Mustererkennungssoftware benötigt zu jedem Bildpunkt ein Klassifizierung
+anhand der Helligkeit. Die Helligkeit eines Bildpunktes wird
+als 10-Bit-Wert, d.&#160;h. als Dezimalzahl zwischen 0 und 1023 gemessen.
+Die Funktion soll zu der Helligkeit den entsprechende Farbnamen ausgeben.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Helligkeits-Bereich</th>
+<th class="tableblock halign-left valign-top">Farbname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0 – 149</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schwarz</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">150 – 400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dunkelgrau</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">401 – 624</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">grau</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">625 – 874</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hellgrau</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">875 – 1023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weiß</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
