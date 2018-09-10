@@ -6,6 +6,7 @@ include::partials/ovm-header.adoc[]
 :prefix: dsa
 include::partials/author.adoc[]
 :revdate: 22. Mai 2018
+:stem: latexmath
 
 include::partials/ovm-head-table.adoc[]
 
@@ -18,6 +19,15 @@ include::partials/ovm-head-table.adoc[]
 {empty}
 
 == Shell-Sessions mit Script documentieren
+
+stem:[sqrt(4) = 2]   
+
+Water (stem:[H_2O]) is a critical component.
+
+[stem] 
+++++ 
+sqrt(4) = 2
+++++
 
 Shell-Sessions können unter Linux mit
 dem Programm Script aufgezeichnet werden.
@@ -247,7 +257,7 @@ das Paketsystem für Ruby installiert, dass zur Installation von
 ----
 $ sudo gem install asciidoctor asciidoctor-diagram <1>
 $ sudo apt update
-$ sudo apt install plantuml
+$ sudo apt install plantuml graphviz
 $ mkdir srv
 $ cd srv
 $ nano index.adoc <2>
