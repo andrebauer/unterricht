@@ -1,0 +1,346 @@
+include::partials/ovm-header.adoc[]
+:ovm-code: AE-MS-LJ-1.4
+:kind: Lernjob
+:short-title: Pseudocode und Programmablaufpläne
+include::partials/author.adoc[]
+:revdate: 10. September 2018
+:sectnums:
+:sectnumlevels: 2
+:stem: latexmath
+:documentdir: /unterricht/anwendungsentwicklung/strukturierte-modellierung/
+
+include::partials/ovm-head-table.adoc[]
+
+| *Links*
+a|
+* https://code2flow.com/app[code2flow]
+* http://friedrich-folkmann.de/papdesigner/Hauptseite.html[PapDesigner]
+
+| *Verwandte Lernjobs*
+| AE-MS-LJ-1.1 bis 1.3
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+= {short-title}
+
+== Anfangsgeprüfte Schleife und Verzweigung
+
+=== Beispiel {counter:a}: Primfaktorzerlegung
+
+Jede natürliche Zahl kann als Produkt von Primzahlen geschrieben werden.
+Beispiele:
+
+* stem:[6 = 2 \cdot 3]
+* stem:[24 = 2 \cdot 2 \cdot 2 \cdot 3]
+* stem:[99 = 3 \cdot 3 \cdot 11]
+* stem:[1001 = 7 \cdot 11 \cdot 13]
+
+In einem Programm sollen zu einer gegebenen natürlichen Zahl
+die Primfaktoren berechnet und ausgegeben werden.
+
+<<<
+==== Struktogramm
+
+.Struktogramm zur Primfaktorzerlegung
+image::{documentdir}Primfaktorzerlegung.svg[]
+
+==== Pseudocode
+
+.Pseudocode zur Primfaktorzerlegung
+[source, java]
+....
+program Primfaktorzerlegung
+  read n;
+  t := 2;
+  while(n > 1) {
+    if(Ist n durch t ohne Rest teilbar?) {
+      n := n / t;
+      print t;
+    } else {
+      t := t + 1
+    }
+  }
+end program Primfaktorzerlegung
+....
+
+<<<
+==== Programmablaufplan
+
+.Programmablaufplan zur Primfaktorzerlegung
+[link=https://code2flow.com/znlIQc]
+image::{documentdir}primfaktorzerlegung-flowdiagram.svg[pdfwidth=65%,width=65%]
+
+
+=== Aufgabe {counter:b}: Primzahlen
+
+Eine natürliche Zahl ist eine Primzahl,
+wenn sie nur durch 1 und durch sich selbst
+ohne Rest teilbar ist.
+
+Die Primzahlen sind 2, 3, 5, 7, 11, 13, 17, 19, 23, ...
+
+Als einfaches Verfahren, um zu prüfen, ob eine Zahl stem:[n] eine Primzahl ist,
+kann man daher bei allen Zahlen zwischen 1 und der Zahl stem:[n]
+testen, ob diese die Zahl stem:[n] ohne Rest teilen.
+Falls ein Teiler gefunden wurde kann das Verfahren abgebrochen werden,
+da die Zahl stem:[n] keine Primzahl ist. Falls kein Teiler gefunden wird, ist
+die Zahl stem:[n] eine Primzahl.
+
+
+== Zählschleife
+
+=== Beispiel {counter:a}: ISBN-10
+
+Bücher werden durch die Internationale Standardbuchnummer (ISBN) eindeutig
+gekennzeichnet. Bis 2006 wurde dazu eine zehnstellige Nummer verwendet,
+die eine Prüfziffer enthält.
+Diese Prüfziffer berechnet man,
+indem man die erste Ziffer mit eins multipliziert, die zweite mit zwei
+usw. bis zur neunten Ziffer und die Ergebnisse addiert.
+Diese Summe wird anschließend durch 11 dividiert. Aus dem Rest dieser
+Division wird die Prüfziffer gebildet. Falls der Rest 10 ist, wird das
+Zeichen {lsquo}X{rsquo} verwendet.
+
+==== Beispiel: ISBN 3-8171-2004-4
+
+Die ersten neun Ziffern sind 3-8171-2004. 
+
+[stem]
+++++
+\begin{align*}
+3 \cdot 1 + 8 \cdot 2 + 1 \cdot 3 + 7 \cdot 4 + 1 \cdot 5 + 2 \cdot 6 + 0 \cdot 7 + 0 \cdot 8+ 4 \cdot 9 = 103 \\
+
+103 = 9 \cdot 11\;\;\text{ Rest }\;\;4
+\end{align*}
+++++
+
+Daher hat die ISBN 3-8171-2004-4 die Prüfziffer 4.
+
+
+==== Pseudocode
+
+Die Ziffern der ISBN werden als Feld Z behandelt. 
+
+.Pseudocode zur Berechnung der ISBN-10
+[source, java]
+....
+read Z;
+summe := 0;
+for(i := 1; i <= 9; i := i + 1) {
+  produkt = Z[i] * i;
+  summe := summe + produkt;
+}
+p := Rest der Division zwischen summe und 11;
+if (p = 10) {
+  print 'X';
+} else {
+  print p;
+}
+....
+
+<<<
+==== Programmablaufplan
+
+.Programmablaufplan zur Berechnung der ISBN-10
+[link=https://code2flow.com/qFQczf]
+image::{documentdir}isbn-10-flowdiagram.svg[pdfwidth=60%,width=65%]
+
+
+=== Aufgabe {counter:b}: Pharmazentralnummer
+
+Die Pharmazentralnummer (PZN) ist ein auf in deutschland
+erhältlichen Arzneimitteln angebrachter Identifikationsschlüssel.
+Sie besteht derzeit aus acht Ziffern, die letzte Stelle ist eine
+Prüfziffer.
+Ähnlich wie bei der ISBN-10 werden die Ziffern von links nach rechts
+aufsteigend mit den Zahlen 1 bis 7 multipliziert und aufsummiert.
+Anschließend wird der Rest der Division zwischen der Summe und 11 berechnet.
+Sollte der Rest 10 ergeben, wird die PZN nicht vergeben.
+
+==== Beispiel: PZN 10024970
+
+Die ersten sieben Ziffern sind 1002497.
+
+[stem]
+++++
+\begin{align*}
+1 \cdot 1 + 0 \cdot 2 + 0 \cdot 3 + 2 \cdot 4 + 4 \cdot 5 + 9 \cdot 6 + 7 \cdot 7 = 132\\
+
+132 = 12 \cdot 11\;\; \text{Rest}\;\; 0
+\end{align*}
+++++
+
+Die PZN 10024970 hat daher die Prüfziffer 0.
+
+
+<<<
+== Mehrfachauswahl
+
+=== Beispiel {counter:a}: Römische Zahlschrift
+
+In die römischen Zahlschrift werden überlicherweise sieben Buchstaben verwendet,
+die jeweils einem bestimmten Wert entsprechen.
+
+[width=50%]
+|===
+| Wert | Zeichen
+
+| 1 | I
+| 5 | V
+| 10 | X
+| 50 | L
+| 100 | C
+| 500 | D
+| 1000 | M
+
+|===
+
+Das folgende Programm gibt zu einem Wert das entsprechende Zeichen zurück.
+Falls es für einen Wert kein Zeichen gibt, wird eine Fehlermeldung
+zurückgegeben.
+
+<<<
+==== Pseudocode
+
+.Pseudocode zur Funktion `roemischesZahlzeichen`
+[source, java]
+....
+function roemischesZahlzeichen(wert) {
+  switch(wert) {
+  case 1:
+    return I;
+    break;
+  case 5:
+    return V;
+    break;
+  case 10:
+    return X;
+    break;
+  case 50:
+    return L;
+    break;
+  case 100:
+    return C;
+    break;
+  case 500:
+    return D;
+    break;
+  case 1000:
+    return M;
+    break;
+  default:
+    error: "Für den Wert " wert " gibt es kein römisches Zahlzeichen"
+  }
+}
+....
+
+<<<
+==== Programmablaufplan
+
+.Programmablaufplan zur Funktion `roemischesZahlzeichen`
+[link=https://code2flow.com/U8sIfx]
+image::{documentdir}roemisches-zahlzeichen-flowdiagram.svg[pdfwidth=65%,width=65%]
+
+
+=== Aufgabe {counter:b}: TCP-Netzwerkdienste
+
+Ein Programm soll für eine Auswahl
+beliebter TCP-Netzwerkdienste zu der Standard-Portnummer
+den entsprechenden Dienstnamen ausgeben.
+Falls die Portnummer unbekannt ist, soll eine entsprechende Fehlermeldung
+ausgegeben werden.
+
+[width=50%]
+|===
+| Standard-Portnummer | Dienstname
+
+| 20 | ftp
+| 22 | ssh
+| 25 | smtp
+| 53 | domain
+| 80 | http
+| 110 | pop3
+| 443 | https
+
+|===
+
+== Mehrfache Verzweigung
+
+=== Beispiel IPv4-Netzklassen
+
+Die IPv4-Adressen haben eine Länge 32-Bit, d.{nbsp}h. vier Byte.
+Zur menschenlesbaren Darstellung ist es üblich, die vier Bytes
+jeweils im Dezimalsystem, also als Zahl zwischen 0 und 255 darzustellen,
+und mit einem Punkt zu trennen.
+So hat die Domain ovm-kassel.de die IP-Adresse 89.31.143.1.
+Anhand der Anfangsbits bzw. der ersten Bytes wurden die
+IPv4-Adressen bis 1993 in sogenannte Netzwerkklassen unterteilt.
+Anhand der Dezimaldarstellung des ersten Bytes ergibt sich die
+folgende Tabelle für die Netzwerkklassen:
+
+[width=50%]
+|===
+| Bereich | Netzwerkklasse
+
+| 0 {en-dash} 127 | A
+| 128 {en-dash} 191 | B
+| 192 {en-dash} 223 | C
+| 224 {en-dash} 239 | D
+| 240 {en-dash} 255 | E
+
+|===
+
+Die IP-Adresse 89.31.143.1 liegt somit in der Netzwerkklasse A.
+
+
+==== Pseudocode
+
+.Pseudocode zur Bestimmung der Netzwerkklasse
+[source, java]
+....
+Start;
+read firstByte;
+if (firstByte < 0 oder firstByte > 255) {
+  error "Ungültige Eingabe"
+}
+if (firstByte <= 127) {
+  print "Klasse A"
+} elseif (firstByte <= 191) {
+  print "Klasse B"
+} elseif (firstByte <= 223) {
+  print "Klasse C"
+} elseif (firstByte <= 239) {
+  print "Klasse D"
+} else {
+  print "Klasse E"
+} 
+Stop;
+....
+
+<<<
+==== Programmablaufplan
+
+.Programmablaufplan zur Bestimmung der Netzwerkklasse
+[link=https://code2flow.com/NPdgEU]
+image::{documentdir}ipv4-class-flowdiagram.svg[pdfwidth=60%,width=65%]
+
+=== Aufgabe {counter:b}: Helligkeits-Schwellwerte
+
+Eine Mustererkennungssoftware benötigt zu jedem Bildpunkt ein Klassifizierung
+anhand der Helligkeit. Die Helligkeit eines Bildpunktes wird
+als 10-Bit-Wert, d.{nbsp}h. als Dezimalzahl zwischen 0 und 1023 gemessen.
+Die Funktion soll zu der Helligkeit den entsprechende Farbnamen ausgeben.
+
+[width=50%]
+|===
+| Helligkeits-Bereich | Farbname
+
+| 0 {en-dash} 149 | schwarz
+| 150 {en-dash} 400 | dunkelgrau
+| 401 {en-dash} 624 | grau
+| 625 {en-dash} 874 | hellgrau 
+| 875 {en-dash} 1023 | weiß
+
+|===

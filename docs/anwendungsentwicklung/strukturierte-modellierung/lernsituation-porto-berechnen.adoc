@@ -1,0 +1,87 @@
+include::partials/ovm-header.adoc[]
+:short-title:  Porto berechnen und prüfen
+:kind: Lernsituation
+:ovm-code: AE-MS-LS-1.5
+:revdate: 10. September 2018
+include::partials/author.adoc[]
+:!sectnums:
+:ln-dplup: https://www.deutschepost.de/preise[Leistungen und Preise]
+
+include::partials/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+| *Verwandte Lernjobs*
+| AE-MS-LJ-1.1 bis 1.4
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+= {kind} {short-title}
+
+== Einführung
+
+Das Porto für Briefe bzw. Päckchen und Pakete richtet sich nach den Maßen
+und dem Gewicht.
+Briefe werden anhand dieser Werte
+in die Klassen
+--
+* Standardbrief,
+* Kompaktbrief,
+* Großbrief,
+* Maxibrief und
+* Maxibrief Plus
+--
+eingeteilt (siehe {ln-dplup}, Seite 14).
+
+Als Maxibrief Plus gilt ein Maxibrief, der
+die Höchstmaße und/oder das Höchstgewicht überschreitet, aber noch
+die {ldquo}Höchstmaße[n] 600 mm x 300 mm x 150 mm (L x B x H) oder L + B + H = 
+900 mm, dabei keine Seite länger als
+600 mm{rdquo}footnote:[{ln-dplup}, Seite 15] einhält und
+nicht mehr 2.000g wiegt (siehe {ln-dplup}, Seite 15).
+
+Bei Standardbriefen und Kompaktbriefen muss zusätzlich
+{ldquo}die Länge [..] mindestens das 1,4-Fache der Breite
+betragen.{rdquo}footnote:[{ln-dplup}, Seite 15]
+
+== Aufgaben
+
+Modellieren Sie eine Funktion, die die Maße (Länge, Breite, Höhe) in
+Millimetern und das Gewicht in Gramm als Eingabe eines Briefes verarbeitet und
+die Klasse, d.{nbsp}h. Standardbrief, Kompaktbrief, Großbrief, Maxibrief oder
+Maxibrief Plus als Rückgabe liefert.
+Falls ein Brief nicht klassifiziert werden kann, soll eine Fehlermeldung
+zurückgegeben werden.
+
+Stellen Sie Ihre Lösung als
+--
+. Struktogramm,
+. Programmablaufplan und
+. Pseudocode dar.
+--
+
+== Erweiterung
+
+. Programmieren Sie die folgenden Funktionen
+
+** `String classify(int length, int width, int height, int weight)`
++
+Ermittelt die Klasse anhand der Maße in Millimetern und des Gewichts
+in Gramm und gibt die Klasse als Zeichenkette zurück.
+
+** `int portoOfClass (String classification)`
++
+Gibt anhand einer Klasse das entsprechende Porto zurück.
+
+
+. Entwickeln sie mithilfe der Funktion `classify` und `portoOfClass`
+folgendes:
+
+** eine Funktion, die anhand der Maße und des Gewichts das Porto
+   ausgibt.
+
+** eine Funktion, die anhand der Maße, des Gewichts
+   und des Portos prüft, ob ein Brief ausreichend frankiert ist.
