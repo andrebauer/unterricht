@@ -56,3 +56,4 @@ include::attributes-de.adoc[]
 :xrefstyle: short
 :sectnums:
 :docdir: :outdir
+:reproducible:
