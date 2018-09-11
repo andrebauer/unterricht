@@ -88,6 +88,9 @@ Falls ein Teiler gefunden wurde kann das Verfahren abgebrochen werden,
 da die Zahl stem:[n] keine Primzahl ist. Falls kein Teiler gefunden wird, ist
 die Zahl stem:[n] eine Primzahl.
 
+==== Testdaten 
+
+Als Testdaten stehen die https://de.wikibooks.org/wiki/Primzahlen:_Tabelle_der_Primzahlen_(2_-_100.000)[Primzahlen von 2 bis 100.000] zu Verfügung.
 
 == Zählschleife
 
@@ -110,9 +113,9 @@ Die ersten neun Ziffern sind 3-8171-2004.
 [stem]
 ++++
 \begin{align*}
-3 \cdot 1 + 8 \cdot 2 + 1 \cdot 3 + 7 \cdot 4 + 1 \cdot 5 + 2 \cdot 6 + 0 \cdot 7 + 0 \cdot 8+ 4 \cdot 9 = 103 \\
+3 \cdot 1 + 8 \cdot 2 + 1 \cdot 3 + 7 \cdot 4 + 1 \cdot 5 + 2 \cdot 6 + 0 \cdot 7 + 0 \cdot 8+ 4 \cdot 9 &= 103 \\
 
-103 = 9 \cdot 11\;\;\text{ Rest }\;\;4
+103 &= 9 \cdot 11\;\;\text{ Rest }\;\;4
 \end{align*}
 ++++
 
@@ -123,7 +126,7 @@ Daher hat die ISBN 3-8171-2004-4 die Prüfziffer 4.
 
 Die Ziffern der ISBN werden als Feld Z behandelt. 
 
-.Pseudocode zur Berechnung der ISBN-10
+.Pseudocode zur Berechnung der Prüfziffer für die ISBN-10
 [source, java]
 ....
 read Z;
@@ -143,9 +146,30 @@ if (p = 10) {
 <<<
 ==== Programmablaufplan
 
-.Programmablaufplan zur Berechnung der ISBN-10
+.Programmablaufplan zur Berechnung der Prüfziffer für die ISBN-10
 [link=https://code2flow.com/qFQczf]
 image::{documentdir}isbn-10-flowdiagram.svg[pdfwidth=60%,width=65%]
+
+==== Schreibtischtest
+
+Es wird das Programm mit der ISBN 3-8273-7046-9 getestet.
+
+|===
+| Schritt | Z | i | Z[i] | produkt | summe | p | Ausgabe
+
+| 0 | [3,8,2,7,3,7,0,4,6] | - | - | - | 0 | - | -
+| 1 | [3,8,2,7,3,7,0,4,6] | 1 | 3 | 3 | 3 | - | -
+| 2 | [3,8,2,7,3,7,0,4,6] | 2 | 8 | 16 | 19 | - | -
+| 3 | [3,8,2,7,3,7,0,4,6] | 3 | 2 | 6 | 25 | - | -
+| 4 | [3,8,2,7,3,7,0,4,6] | 4 | 7 | 28 | 53 | - | -
+| 5 | [3,8,2,7,3,7,0,4,6] | 5 | 3 | 15 | 68 | - | -
+| 6 | [3,8,2,7,3,7,0,4,6] | 6 | 7 | 42 | 110 | - | -
+| 7 | [3,8,2,7,3,7,0,4,6] | 7 | 0 | 0 | 110 | - | -
+| 8 | [3,8,2,7,3,7,0,4,6] | 8 | 4 | 32 | 142 | - | -
+| 9 | [3,8,2,7,3,7,0,4,6] | 9 | 6 | 54 | 196 | - | -
+| 10 | [3,8,2,7,3,7,0,4,6] | - | - | - | 196 | 9 | 9
+
+|===
 
 
 === Aufgabe {counter:b}: Pharmazentralnummer
@@ -166,9 +190,9 @@ Die ersten sieben Ziffern sind 1002497.
 [stem]
 ++++
 \begin{align*}
-1 \cdot 1 + 0 \cdot 2 + 0 \cdot 3 + 2 \cdot 4 + 4 \cdot 5 + 9 \cdot 6 + 7 \cdot 7 = 132\\
+1 \cdot 1 + 0 \cdot 2 + 0 \cdot 3 + 2 \cdot 4 + 4 \cdot 5 + 9 \cdot 6 + 7 \cdot 7 &= 132\\
 
-132 = 12 \cdot 11\;\; \text{Rest}\;\; 0
+132 &= 12 \cdot 11\;\; \text{Rest}\;\; 0
 \end{align*}
 ++++
 
