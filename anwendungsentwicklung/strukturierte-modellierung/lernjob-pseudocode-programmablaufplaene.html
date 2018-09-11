@@ -26,7 +26,11 @@
 <li><a href="#_programmablaufplan">Programmablaufplan</a></li>
 </ul>
 </li>
-<li><a href="#_aufgabe_1_primzahlen">1.2. Aufgabe 1: Primzahlen</a></li>
+<li><a href="#_aufgabe_1_primzahlen">1.2. Aufgabe 1: Primzahlen</a>
+<ul class="sectlevel3">
+<li><a href="#_testdaten">Testdaten</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_zählschleife">2. Zählschleife</a>
@@ -36,6 +40,7 @@
 <li><a href="#_beispiel_isbn_3_8171_2004_4">Beispiel: ISBN 3-8171-2004-4</a></li>
 <li><a href="#_pseudocode_2">Pseudocode</a></li>
 <li><a href="#_programmablaufplan_2">Programmablaufplan</a></li>
+<li><a href="#_schreibtischtest">Schreibtischtest</a></li>
 </ul>
 </li>
 <li><a href="#_aufgabe_2_pharmazentralnummer">2.2. Aufgabe 2: Pharmazentralnummer</a>
@@ -221,6 +226,12 @@ Falls ein Teiler gefunden wurde kann das Verfahren abgebrochen werden,
 da die Zahl \(n\) keine Primzahl ist. Falls kein Teiler gefunden wird, ist
 die Zahl \(n\) eine Primzahl.</p>
 </div>
+<div class="sect3">
+<h4 id="_testdaten">Testdaten</h4>
+<div class="paragraph">
+<p>Als Testdaten stehen die <a href="https://de.wikibooks.org/wiki/Primzahlen:_Tabelle_der_Primzahlen_(2_-_100.000)">Primzahlen von 2 bis 100.000</a> zu Verfügung.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -264,7 +275,7 @@ Zeichen &#8216;X&#8217; verwendet.</p>
 <p>Die Ziffern der ISBN werden als Feld Z behandelt.</p>
 </div>
 <div class="listingblock">
-<div class="title">Quellcode 2. Pseudocode zur Berechnung der ISBN-10</div>
+<div class="title">Quellcode 2. Pseudocode zur Berechnung der Prüfziffer für die ISBN-10</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">read</span> <span class="tok-n">Z</span><span class="tok-o">;</span>
 <span class="tok-n">summe</span> <span class="tok-o">:=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
@@ -288,8 +299,150 @@ Zeichen &#8216;X&#8217; verwendet.</p>
 <div class="content">
 <a class="image" href="https://code2flow.com/qFQczf"><img src="/unterricht/anwendungsentwicklung/strukturierte-modellierung/isbn-10-flowdiagram.svg" alt="isbn 10 flowdiagram" width="65%"></a>
 </div>
-<div class="title">Abbildung 3. Programmablaufplan zur Berechnung der ISBN-10</div>
+<div class="title">Abbildung 3. Programmablaufplan zur Berechnung der Prüfziffer für die ISBN-10</div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_schreibtischtest">Schreibtischtest</h4>
+<div class="paragraph">
+<p>Es wird das Programm mit der ISBN 3-8273-7046-9 getestet.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Schritt</th>
+<th class="tableblock halign-left valign-top">Z</th>
+<th class="tableblock halign-left valign-top">i</th>
+<th class="tableblock halign-left valign-top">Z[i]</th>
+<th class="tableblock halign-left valign-top">produkt</th>
+<th class="tableblock halign-left valign-top">summe</th>
+<th class="tableblock halign-left valign-top">p</th>
+<th class="tableblock halign-left valign-top">Ausgabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">68</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">142</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">196</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[3,8,2,7,3,7,0,4,6]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">196</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
