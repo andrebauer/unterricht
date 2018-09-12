@@ -41,7 +41,7 @@
 </li>
 <li><a href="#_mehrfache_verzweigung">3. Mehrfache Verzweigung</a>
 <ul class="sectlevel2">
-<li><a href="#_beispiel_3_ipv4_netzklassen">3.1. Beispiel 3 IPv4-Netzklassen</a>
+<li><a href="#_beispiel_3_ipv4_netzklassen">3.1. Beispiel 3: IPv4-Netzklassen</a>
 <ul class="sectlevel3">
 <li><a href="#_pseudocode_3">Pseudocode</a></li>
 <li><a href="#_programmablaufplan_3">Programmablaufplan</a></li>
@@ -286,14 +286,34 @@ die jeweils einem bestimmten Wert entsprechen.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Das folgende Programm gibt zu einem Wert das entsprechende Zeichen zurück.
+<p>Das folgende Funktion gibt zu einem Wert das entsprechende Zeichen zurück.
 Falls es für einen Wert kein Zeichen gibt, wird eine Fehlermeldung
-zurückgegeben.</p>
+zurückgegeben. Das Beispiel in <a href="#funktion-roemische-zahlen">Quellcode 3</a> ist
+als Funktion und nicht als vollständiges
+Programm ausgeführt. Die Funktion kann von einen übergeordneten
+Programm wie z.&#160;B. in dem Programm
+<a href="#aufruf-roemische-zahlen">Quellcode 2</a> mit <code>call</code> aufgerufen werden, dabei
+wird der Rückgabewert von <code>roemischesZahlzeichen</code> an
+die Variable <code>mille</code> übergeben.</p>
 </div>
+<div id="aufruf-roemische-zahlen" class="listingblock">
+<div class="title">Quellcode 2. Pseudocode zum Aufruf der Funktion <code>roemischesZahlzeichen</code></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><table class="pyhltable"><tr><td class="linenos"><div class="linenodiv">1
+2
+3
+4</div></td><td class="code"><span></span><span class="tok-n">program</span> <span class="tok-no">RoemischeZahl</span>
+  <span class="tok-n">mille</span> <span class="tok-o">=</span> <span class="tok-n">call</span> <span class="tok-n">roemischeszahlzeichen</span><span class="tok-p">(</span><span class="tok-mi">1000</span><span class="tok-p">)</span>
+  <span class="tok-nb">print</span> <span class="tok-s2">&quot;1000 hat das Zahlzeichen &quot;</span> <span class="tok-n">mille</span>
+<span class="tok-k">end</span> <span class="tok-n">program</span> <span class="tok-no">RoemischeZahl</span>
+</td></tr></table></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
 <div class="sect3">
 <h4 id="_pseudocode_2">Pseudocode</h4>
-<div class="listingblock">
-<div class="title">Quellcode 2. Pseudocode zur Funktion <code>roemischesZahlzeichen</code></div>
+<div id="funktion-roemische-zahlen" class="listingblock">
+<div class="title">Quellcode 3. Pseudocode zur Funktion <code>roemischesZahlzeichen</code></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ruby"><table class="pyhltable"><tr><td class="linenos"><div class="linenodiv"> 1
  2
@@ -320,26 +340,26 @@ zurückgegeben.</p>
 23
 24
 25</div></td><td class="code"><span></span><span class="tok-n">function</span> <span class="tok-n">roemischesZahlzeichen</span><span class="tok-p">(</span><span class="tok-n">wert</span><span class="tok-p">)</span>
-  <span class="tok-n">switch</span> <span class="tok-n">wert</span>
-    <span class="tok-k">case</span> <span class="tok-mi">1</span><span class="tok-p">:</span>
+  <span class="tok-k">case</span> <span class="tok-n">wert</span> <span class="tok-n">of</span>
+    <span class="tok-mi">1</span><span class="tok-p">:</span>
       <span class="tok-k">return</span> <span class="tok-n">I</span>
       <span class="tok-k">break</span>
-    <span class="tok-k">case</span> <span class="tok-mi">5</span><span class="tok-p">:</span>
+    <span class="tok-mi">5</span><span class="tok-p">:</span>
       <span class="tok-k">return</span> <span class="tok-n">V</span>
       <span class="tok-k">break</span>
-    <span class="tok-k">case</span> <span class="tok-mi">10</span><span class="tok-p">:</span>
+    <span class="tok-mi">10</span><span class="tok-p">:</span>
       <span class="tok-k">return</span> <span class="tok-n">X</span>
       <span class="tok-k">break</span>
-    <span class="tok-k">case</span> <span class="tok-mi">50</span><span class="tok-p">:</span>
+    <span class="tok-mi">50</span><span class="tok-p">:</span>
       <span class="tok-k">return</span> <span class="tok-n">L</span>
       <span class="tok-k">break</span>
-    <span class="tok-k">case</span> <span class="tok-mi">100</span><span class="tok-p">:</span>
+    <span class="tok-mi">100</span><span class="tok-p">:</span>
       <span class="tok-k">return</span> <span class="tok-n">C</span>
       <span class="tok-k">break</span>
-    <span class="tok-k">case</span> <span class="tok-mi">500</span><span class="tok-p">:</span>
+    <span class="tok-mi">500</span><span class="tok-p">:</span>
       <span class="tok-k">return</span> <span class="tok-n">D</span>
       <span class="tok-k">break</span>
-    <span class="tok-k">case</span> <span class="tok-mi">1000</span><span class="tok-p">:</span>
+    <span class="tok-mi">1000</span><span class="tok-p">:</span>
       <span class="tok-k">return</span> <span class="tok-n">M</span>
       <span class="tok-k">break</span>
     <span class="tok-ss">default</span><span class="tok-p">:</span>
@@ -362,11 +382,11 @@ zurückgegeben.</p>
 <div class="sect2">
 <h3 id="_aufgabe_2_tcp_netzwerkdienste">2.2. Aufgabe 2: TCP-Netzwerkdienste</h3>
 <div class="paragraph">
-<p>Ein Programm soll für eine Auswahl
+<p>Eine Funktion soll für eine Auswahl
 beliebter TCP-Netzwerkdienste zu der Standard-Portnummer
-den entsprechenden Dienstnamen ausgeben.
+den entsprechenden Dienstnamen zurückgeben.
 Falls die Portnummer unbekannt ist, soll eine entsprechende Fehlermeldung
-ausgegeben werden.</p>
+zurückgegeben werden.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -417,7 +437,7 @@ ausgegeben werden.</p>
 <h2 id="_mehrfache_verzweigung">3. Mehrfache Verzweigung</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_beispiel_3_ipv4_netzklassen">3.1. Beispiel 3 IPv4-Netzklassen</h3>
+<h3 id="_beispiel_3_ipv4_netzklassen">3.1. Beispiel 3: IPv4-Netzklassen</h3>
 <div class="paragraph">
 <p>Die IPv4-Adressen haben eine Länge 32-Bit, d.&#160;h. vier Byte.
 Zur menschenlesbaren Darstellung ist es üblich, die vier Bytes
@@ -469,7 +489,7 @@ folgende Tabelle für die Netzwerkklassen:</p>
 <div class="sect3">
 <h4 id="_pseudocode_3">Pseudocode</h4>
 <div class="listingblock">
-<div class="title">Quellcode 3. Pseudocode zur Bestimmung der Netzwerkklasse</div>
+<div class="title">Quellcode 4. Pseudocode zur Bestimmung der Netzwerkklasse</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ruby"><table class="pyhltable"><tr><td class="linenos"><div class="linenodiv"> 1
  2
@@ -521,7 +541,7 @@ folgende Tabelle für die Netzwerkklassen:</p>
 <p>Eine Mustererkennungssoftware benötigt zu jedem Bildpunkt ein Klassifizierung
 anhand der Helligkeit. Die Helligkeit eines Bildpunktes wird
 als 10-Bit-Wert, d.&#160;h. als Dezimalzahl zwischen 0 und 1023 gemessen.
-Die Funktion soll zu der Helligkeit den entsprechende Farbnamen ausgeben.</p>
+Die Funktion soll zu der Helligkeit den entsprechende Farbnamen zurückgeben.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -603,7 +623,7 @@ die Primfaktoren berechnet und ausgegeben werden.</p>
 <div class="sect3">
 <h4 id="_pseudocode_4">Pseudocode</h4>
 <div class="listingblock">
-<div class="title">Quellcode 4. Pseudocode zur Primfaktorzerlegung</div>
+<div class="title">Quellcode 5. Pseudocode zur Primfaktorzerlegung</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ruby"><table class="pyhltable"><tr><td class="linenos"><div class="linenodiv"> 1
  2
@@ -738,7 +758,8 @@ wenn sie nur durch 1 und durch sich selbst
 ohne Rest teilbar ist.</p>
 </div>
 <div class="paragraph">
-<p>Die Primzahlen sind 2, 3, 5, 7, 11, 13, 17, 19, 23, &#8230;&#8203;</p>
+<p>Die Primzahlen sind
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, &#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>Als einfaches Verfahren, um zu prüfen, ob eine Zahl \(n\) eine Primzahl ist,
@@ -798,7 +819,7 @@ Zeichen &#8216;X&#8217; verwendet.</p>
 <p>Die Ziffern der ISBN werden als Feld Z behandelt.</p>
 </div>
 <div class="listingblock">
-<div class="title">Quellcode 5. Pseudocode zur Berechnung der Prüfziffer für die ISBN-10</div>
+<div class="title">Quellcode 6. Pseudocode zur Berechnung der Prüfziffer für die ISBN-10</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ruby"><table class="pyhltable"><tr><td class="linenos"><div class="linenodiv"> 1
  2
