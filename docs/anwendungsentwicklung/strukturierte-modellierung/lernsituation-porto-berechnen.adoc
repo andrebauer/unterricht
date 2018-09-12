@@ -47,21 +47,18 @@ Bei Standardbriefen und Kompaktbriefen muss zusätzlich
 {ldquo}die Länge [..] mindestens das 1,4-Fache der Breite
 betragen.{rdquo}footnote:[{ln-dplup}, Seite 15]
 
-== Aufgaben
+== Aufgabe
 
 Modellieren Sie eine Funktion, die die Maße (Länge, Breite, Höhe) in
 Millimetern und das Gewicht in Gramm als Eingabe eines Briefes verarbeitet und
 die Klasse, d.{nbsp}h. Standardbrief, Kompaktbrief, Großbrief, Maxibrief oder
-Maxibrief Plus als Rückgabe liefert.
+Maxibrief Plus, als Rückgabe liefert.
 Falls ein Brief nicht klassifiziert werden kann, soll eine Fehlermeldung
 zurückgegeben werden.
 
-Stellen Sie Ihre Lösung als
---
-. Struktogramm,
-. Programmablaufplan und
-. Pseudocode dar.
---
+Erstellen Sie das Modell als Struktogramm, Programmablaufplan und
+Pseudocode.
+
 
 == Erweiterung
 
@@ -72,16 +69,16 @@ Stellen Sie Ihre Lösung als
 Ermittelt die Klasse anhand der Maße in Millimetern und des Gewichts
 in Gramm und gibt die Klasse als Zeichenkette zurück.
 
-** `int portoOfClass (String classification)`
+** `int postageOfClass (String classification)`
 +
 Gibt anhand einer Klasse das entsprechende Porto zurück.
 
 
-. Entwickeln sie mithilfe der Funktion `classify` und `portoOfClass`
+. Entwickeln sie mithilfe der Funktionen `classify` und `portoOfClass`
 folgendes:
 
-** eine Funktion, die anhand der Maße und des Gewichts das Porto
-   ausgibt.
+** eine Funktion `postage`, die anhand der Maße und des Gewichts das Porto
+   in Cent ausgibt.
 
-** eine Funktion, die anhand der Maße, des Gewichts
-   und des Portos prüft, ob ein Brief ausreichend frankiert ist.
+** eine Funktion `sufficientlyFranked`, die anhand der Maße, des Gewichts
+   und des Portos in Cent prüft, ob ein Brief ausreichend frankiert ist.
