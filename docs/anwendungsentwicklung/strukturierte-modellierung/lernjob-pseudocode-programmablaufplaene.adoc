@@ -29,16 +29,16 @@ a|
 
 === Beispiel {counter:a}: Umrechnung von Pferdestärken in Kilowatt
 
-Bevor die Einheit Watt zu Angabe der Leistung von Maschinen
+Bevor die Einheit Watt zur Angabe der Leistung von Maschinen
 im amtlichen und geschäftlichen Bereich vorgeschrieben wurde, wurde insb.
 für Kraftfahrzeuge die Einheit Pferdestärke (PS) verwendet, die dort auch
-heute noch gebräuchlich ist. Das Programm soll eine Angabe in Pferdestärken
+heute noch gebräuchlich ist.
+Dabei entspricht 1{nbsp}PS einer Leistung von 735,498{nbsp}W.
+
+Das Programm soll eine Angabe in Pferdestärken
 in Kilowatt (kW) umrechnen und ausgeben.
 
-[stem]
-++++
-1\;\text{PS} = 735{,}498\;\text{W}
-++++
+
 
 ==== Pseudocode
 
@@ -46,10 +46,10 @@ in Kilowatt (kW) umrechnen und ausgeben.
 [source, ruby, linenums]
 ....
 program LeistungVonPSinKW
-  read ps;
-  w := ps * 735.498;
-  kw := w / 1000;
-  print kw;
+  read ps
+  w := ps * 735.498
+  kw := w / 1000
+  print kw
 end programm LeistungVonPSinKW
 ....
 
@@ -67,7 +67,7 @@ Auf dem Display eines Fahrradcomputers sollen die seit dem letzten
 Zurücksetzen des Zählers zurückgelegte Strecke sowie die aktuelle
 Geschwindigkeit angezeigt werden.
 
-Als Berechnungsgrundlage dient jeweils der Reifenaußendurchmesser in Zoll
+Als Berechnungsgrundlage dienen jeweils der Reifenaußendurchmesser in Zoll
 sowie die Anzahl der Umdrehungen. Für die zurückgelegte Strecke
 wird die Anzahl seit dem letzten Zurücksetzen des Zählers
 gemessen, für die Geschwindigkeit die Anzahl der Umdrehungen in den
@@ -81,13 +81,13 @@ s &= \text{zurückgelegte Strecke} \\
 v &= \text{momentane Geschwindigkeit} \\
 
 s &= d \cdot
-2{,}54 \frac{\text{cm}}{\text{Zoll}} \cdot \pi \cdot
+\frac{2{,}54 \;\text{cm}}{\text{Zoll}} \cdot \pi \cdot
 \text{Umdrehungen} \cdot \frac{\text{m}}{100\;\text{cm}} \\
 
 v &= d \cdot
-2{,}54 \frac{\text{cm}}{\text{Zoll}} \cdot \pi \cdot
-\text{Umdrehungen} \cdot \frac{1}{3\;\text{s}} \cdot
-20\frac{\text{s}}{\text{min}} \cdot 60\frac{\text{min}}{\text{h}} \cdot
+\frac{2{,}54 \;\text{cm}}{\text{Zoll}} \cdot \pi \cdot
+\frac{\text{Umdrehungen}}{3\;\text{s}} \cdot
+\frac{60\;\text{s}}{\text{min}} \cdot \frac{60\;\text{min}}{\text{h}} \cdot
 \frac{\text{m}}{100\;\text{cm}} \cdot \frac{\text{km}}{1000\;\text{m}}
 \end{align*}
 ++++
@@ -125,26 +125,26 @@ zurückgegeben.
 function roemischesZahlzeichen(wert) 
   switch wert 
     case 1:
-      return I;
-      break;
+      return I
+      break
     case 5:
-      return V;
-      break;
+      return V
+      break
     case 10:
-      return X;
-      break;
+      return X
+      break
     case 50:
-      return L;
-      break;
+      return L
+      break
     case 100:
-      return C;
-      break;
+      return C
+      break
     case 500:
-      return D;
-      break;
+      return D
+      break
     case 1000:
-      return M;
-      break;
+      return M
+      break
     default:
       error: "Für den Wert " wert " gibt es kein römisches Zahlzeichen"
 ....
@@ -214,19 +214,19 @@ Die IP-Adresse 89.31.143.1 liegt somit in der Netzwerkklasse A.
 [source, ruby, linenums]
 ....
 program Netzwerkklasse
-  read firstByte;
+  read firstByte
   if firstByte < 0 oder firstByte > 255
-    error "Ungültige Eingabe";
+    error "Ungültige Eingabe"
   if firstByte <= 127
-    print "Klasse A";
+    print "Klasse A"
   elseif firstByte <= 191
-    print "Klasse B";
+    print "Klasse B"
   elseif firstByte <= 223
-    print "Klasse C";
+    print "Klasse C"
   elseif firstByte <= 239
-    print "Klasse D";
+    print "Klasse D"
   else
-    print "Klasse E";
+    print "Klasse E"
 end program Netzwerkklasse
 ....
 
@@ -286,12 +286,12 @@ image::{documentdir}Primfaktorzerlegung.svg[]
 [source, ruby, linenums]
 ....
 program Primfaktorzerlegung
-  read n;
-  t := 2;
+  read n
+  t := 2
   while n > 1
     if Ist n durch t ohne Rest teilbar?
-      n := n / t;
-      print t;
+      n := n / t
+      print t
     else
       t := t + 1
 end program Primfaktorzerlegung
@@ -378,15 +378,15 @@ Die Ziffern der ISBN werden als Feld Z behandelt.
 [source, ruby, linenums]
 ....
 program ISBN10checkDigit
-  summe := 0;
+  summe := 0
   for i := 1 to 9
-    produkt = Z[i] * i;
-    summe := summe + produkt;
-  p := Rest der Division zwischen summe und 11;
+    produkt = Z[i] * i
+    summe := summe + produkt
+  p := Rest der Division zwischen summe und 11
   if p = 10 
-    print 'X';
+    print 'X'
   else 
-    print p;
+    print p
 end program ISBN10checkDigit
 ....
 
