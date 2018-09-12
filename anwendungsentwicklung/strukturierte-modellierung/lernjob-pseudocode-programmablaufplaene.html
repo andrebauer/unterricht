@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.7.1">
-<title>Pseudocode und Programmablaufpläne</title>
+<title>Lernjob Pseudocode und Programmablaufpläne</title>
 <link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
@@ -15,7 +15,7 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Inhalt</div>
 <ul class="sectlevel0">
-<li><a href="#_pseudocode_und_programmablaufpläne">Pseudocode und Programmablaufpläne</a>
+<li><a href="#_lernjob_pseudocode_und_programmablaufpläne">Lernjob Pseudocode und Programmablaufpläne</a>
 <ul class="sectlevel1">
 <li><a href="#_lineare_strukturen">1. Lineare Strukturen</a>
 <ul class="sectlevel2">
@@ -77,10 +77,9 @@
 <li><a href="#_schreibtischtest_2">Schreibtischtest</a></li>
 </ul>
 </li>
-<li><a href="#_aufgabe_5_pharmazentralnummer">5.2. Aufgabe 5: Pharmazentralnummer</a>
+<li><a href="#_aufgabe_5_isbn_13">5.2. Aufgabe 5: ISBN-13</a>
 <ul class="sectlevel3">
-<li><a href="#_beispiel_pzn_10024970">Beispiel: PZN 10024970</a></li>
-<li><a href="#_testdaten_2">Testdaten</a></li>
+<li><a href="#_beispiel_isbn_978_3_14_235047_9">Beispiel: ISBN 978-3-14-235047-9</a></li>
 </ul>
 </li>
 </ul>
@@ -150,7 +149,7 @@ Dieses Werk ist lizenziert unter einer<br>
 </table>
 </div>
 </div>
-<h1 id="_pseudocode_und_programmablaufpläne" class="sect0">Pseudocode und Programmablaufpläne</h1>
+<h1 id="_lernjob_pseudocode_und_programmablaufpläne" class="sect0">Lernjob Pseudocode und Programmablaufpläne</h1>
 <div class="sect1">
 <h2 id="_lineare_strukturen">1. Lineare Strukturen</h2>
 <div class="sectionbody">
@@ -862,16 +861,16 @@ Zeichen &#8216;X&#8217; verwendet.</p>
 <div class="paragraph">
 <p>Es wird das Programm mit der ISBN 3-8273-7046-9 getestet.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
+<table class="tableblock frame-all grid-all" style="width: 75%;">
 <colgroup>
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
@@ -1001,59 +1000,55 @@ Zeichen &#8216;X&#8217; verwendet.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_aufgabe_5_pharmazentralnummer">5.2. Aufgabe 5: Pharmazentralnummer</h3>
+<h3 id="_aufgabe_5_isbn_13">5.2. Aufgabe 5: ISBN-13</h3>
 <div class="paragraph">
-<p>Die Pharmazentralnummer (PZN) ist ein auf in deutschland
-erhältlichen Arzneimitteln angebrachter Identifikationsschlüssel.
-Sie besteht derzeit aus acht Ziffern, die letzte Stelle ist eine
-Prüfziffer.
-Ähnlich wie bei der ISBN-10 werden die Ziffern von links nach rechts
-aufsteigend mit den Zahlen 1 bis 7 multipliziert und aufsummiert.
-Anschließend wird der Rest der Division zwischen der Summe und 11 berechnet.
-Sollte der Rest 10 ergeben, wird die PZN nicht vergeben.</p>
+<p>&#8222;Zur Berechnung der Prüfziffer bei der ISBN-13 werden alle zwölf
+Ziffern der noch unvollständigen ISBN addiert, wobei die Ziffern mit gerader
+Position (also die zweite, vierte und so weiter) dreifachen Wert erhalten.
+Eine 5 an sechster Stelle beispielsweise fließt also als 15 in den Term ein.
+Von dem Ergebnis dieser Addition wird die letzte Stelle bestimmt, die dann
+von 10 subtrahiert wird. Bei einem Additionsergebnis von zum Beispiel 124
+erhält man also 10 − 4 = 6. Dieses Endergebnis ist die Prüfziffer.
+Ist das Endergebnis 10, ist die Prüfziffer 0.&#8220;<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
 </div>
 <div class="sect3">
-<h4 id="_beispiel_pzn_10024970">Beispiel: PZN 10024970</h4>
+<h4 id="_beispiel_isbn_978_3_14_235047_9">Beispiel: ISBN 978-3-14-235047-9</h4>
 <div class="paragraph">
-<p>Die ersten sieben Ziffern sind 1002497.</p>
+<p>Die ersten zwölf Ziffern sind 978-3-14-235047.</p>
+</div>
+<div class="paragraph">
+<p>Summe der Ziffern mit ungerader Position:</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[9 + 8 + 1 + 2 + 5 + 4 = 29\]
+</div>
+</div>
+<div class="paragraph">
+<p>Summe der Ziffern mit gerader Position:</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[7 + 3 + 4 + 3 + 0 + 7 = 24\]
+</div>
 </div>
 <div class="stemblock">
 <div class="content">
 \[\begin{align*}
-1 \cdot 1 + 0 \cdot 2 + 0 \cdot 3 + 2 \cdot 4 + 4 \cdot 5 + 9 \cdot 6 + 7 \cdot 7 &amp;= 132\\
-
-132 &amp;= 12 \cdot 11\;\; \text{Rest}\;\; 0
+&amp;\text{Prüfsumme:}\quad 29 + 3 \cdot 24 = 10\mathbf{1} \\
+&amp;\text{Prüfziffer:}\quad 10 - \mathbf{1} = 9
 \end{align*}\]
 </div>
 </div>
-<div class="paragraph">
-<p>Die PZN 10024970 hat daher die Prüfziffer 0.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_testdaten_2">Testdaten</h4>
-<div class="paragraph">
-<p>Die folgenden Pharmazentralnummern können als Testdaten verwendet wreden.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>07728561
-10201099
-00040554
-00040548
-03806873
-01894063
-10203595
-10203603
-01743631
-03227112
-03464237
-04356248</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://de.wikipedia.org/wiki/Internationale_Standardbuchnummer#ISBN-13">Wikipedia.de: Internationale Standardbuchnummer, Abschnitt 4.2 Formeln zur Berechnung der Prüfziffer&#8201;&#8212;&#8201;ISBN-13</a>.
 </div>
 </div>
 <div id="footer">
