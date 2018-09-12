@@ -157,16 +157,15 @@ Dieses Werk ist lizenziert unter einer<br>
 <div class="sect2">
 <h3 id="_beispiel_1_umrechnung_von_pferdestärken_in_kilowatt">1.1. Beispiel 1: Umrechnung von Pferdestärken in Kilowatt</h3>
 <div class="paragraph">
-<p>Bevor die Einheit Watt zu Angabe der Leistung von Maschinen
+<p>Bevor die Einheit Watt zur Angabe der Leistung von Maschinen
 im amtlichen und geschäftlichen Bereich vorgeschrieben wurde, wurde insb.
 für Kraftfahrzeuge die Einheit Pferdestärke (PS) verwendet, die dort auch
-heute noch gebräuchlich ist. Das Programm soll eine Angabe in Pferdestärken
+heute noch gebräuchlich ist.
+Dabei entspricht 1&#160;PS einer Leistung von 735,498&#160;W.</p>
+</div>
+<div class="paragraph">
+<p>Das Programm soll eine Angabe in Pferdestärken
 in Kilowatt (kW) umrechnen und ausgeben.</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[1\;\text{PS} = 735{,}498\;\text{W}\]
-</div>
 </div>
 <div class="sect3">
 <h4 id="_pseudocode">Pseudocode</h4>
@@ -179,10 +178,10 @@ in Kilowatt (kW) umrechnen und ausgeben.</p>
 4
 5
 6</div></td><td class="code"><span></span><span class="tok-n">program</span> <span class="tok-no">LeistungVonPSinKW</span>
-  <span class="tok-n">read</span> <span class="tok-n">ps</span><span class="tok-p">;</span>
-  <span class="tok-n">w</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">ps</span> <span class="tok-o">*</span> <span class="tok-mi">735</span><span class="tok-o">.</span><span class="tok-mi">498</span><span class="tok-p">;</span>
-  <span class="tok-n">kw</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">w</span> <span class="tok-o">/</span> <span class="tok-mi">1000</span><span class="tok-p">;</span>
-  <span class="tok-nb">print</span> <span class="tok-n">kw</span><span class="tok-p">;</span>
+  <span class="tok-n">read</span> <span class="tok-n">ps</span>
+  <span class="tok-n">w</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">ps</span> <span class="tok-o">*</span> <span class="tok-mi">735</span><span class="tok-o">.</span><span class="tok-mi">498</span>
+  <span class="tok-n">kw</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">w</span> <span class="tok-o">/</span> <span class="tok-mi">1000</span>
+  <span class="tok-nb">print</span> <span class="tok-n">kw</span>
 <span class="tok-k">end</span> <span class="tok-n">programm</span> <span class="tok-no">LeistungVonPSinKW</span>
 </td></tr></table></code></pre>
 </div>
@@ -207,7 +206,7 @@ Zurücksetzen des Zählers zurückgelegte Strecke sowie die aktuelle
 Geschwindigkeit angezeigt werden.</p>
 </div>
 <div class="paragraph">
-<p>Als Berechnungsgrundlage dient jeweils der Reifenaußendurchmesser in Zoll
+<p>Als Berechnungsgrundlage dienen jeweils der Reifenaußendurchmesser in Zoll
 sowie die Anzahl der Umdrehungen. Für die zurückgelegte Strecke
 wird die Anzahl seit dem letzten Zurücksetzen des Zählers
 gemessen, für die Geschwindigkeit die Anzahl der Umdrehungen in den
@@ -221,13 +220,13 @@ s &amp;= \text{zurückgelegte Strecke} \\
 v &amp;= \text{momentane Geschwindigkeit} \\
 
 s &amp;= d \cdot
-2{,}54 \frac{\text{cm}}{\text{Zoll}} \cdot \pi \cdot
+\frac{2{,}54 \;\text{cm}}{\text{Zoll}} \cdot \pi \cdot
 \text{Umdrehungen} \cdot \frac{\text{m}}{100\;\text{cm}} \\
 
 v &amp;= d \cdot
-2{,}54 \frac{\text{cm}}{\text{Zoll}} \cdot \pi \cdot
-\text{Umdrehungen} \cdot \frac{1}{3\;\text{s}} \cdot
-20\frac{\text{s}}{\text{min}} \cdot 60\frac{\text{min}}{\text{h}} \cdot
+\frac{2{,}54 \;\text{cm}}{\text{Zoll}} \cdot \pi \cdot
+\frac{\text{Umdrehungen}}{3\;\text{s}} \cdot
+\frac{60\;\text{s}}{\text{min}} \cdot \frac{60\;\text{min}}{\text{h}} \cdot
 \frac{\text{m}}{100\;\text{cm}} \cdot \frac{\text{km}}{1000\;\text{m}}
 \end{align*}\]
 </div>
@@ -323,26 +322,26 @@ zurückgegeben.</p>
 25</div></td><td class="code"><span></span><span class="tok-n">function</span> <span class="tok-n">roemischesZahlzeichen</span><span class="tok-p">(</span><span class="tok-n">wert</span><span class="tok-p">)</span>
   <span class="tok-n">switch</span> <span class="tok-n">wert</span>
     <span class="tok-k">case</span> <span class="tok-mi">1</span><span class="tok-p">:</span>
-      <span class="tok-k">return</span> <span class="tok-n">I</span><span class="tok-p">;</span>
-      <span class="tok-k">break</span><span class="tok-p">;</span>
+      <span class="tok-k">return</span> <span class="tok-n">I</span>
+      <span class="tok-k">break</span>
     <span class="tok-k">case</span> <span class="tok-mi">5</span><span class="tok-p">:</span>
-      <span class="tok-k">return</span> <span class="tok-n">V</span><span class="tok-p">;</span>
-      <span class="tok-k">break</span><span class="tok-p">;</span>
+      <span class="tok-k">return</span> <span class="tok-n">V</span>
+      <span class="tok-k">break</span>
     <span class="tok-k">case</span> <span class="tok-mi">10</span><span class="tok-p">:</span>
-      <span class="tok-k">return</span> <span class="tok-n">X</span><span class="tok-p">;</span>
-      <span class="tok-k">break</span><span class="tok-p">;</span>
+      <span class="tok-k">return</span> <span class="tok-n">X</span>
+      <span class="tok-k">break</span>
     <span class="tok-k">case</span> <span class="tok-mi">50</span><span class="tok-p">:</span>
-      <span class="tok-k">return</span> <span class="tok-n">L</span><span class="tok-p">;</span>
-      <span class="tok-k">break</span><span class="tok-p">;</span>
+      <span class="tok-k">return</span> <span class="tok-n">L</span>
+      <span class="tok-k">break</span>
     <span class="tok-k">case</span> <span class="tok-mi">100</span><span class="tok-p">:</span>
-      <span class="tok-k">return</span> <span class="tok-n">C</span><span class="tok-p">;</span>
-      <span class="tok-k">break</span><span class="tok-p">;</span>
+      <span class="tok-k">return</span> <span class="tok-n">C</span>
+      <span class="tok-k">break</span>
     <span class="tok-k">case</span> <span class="tok-mi">500</span><span class="tok-p">:</span>
-      <span class="tok-k">return</span> <span class="tok-n">D</span><span class="tok-p">;</span>
-      <span class="tok-k">break</span><span class="tok-p">;</span>
+      <span class="tok-k">return</span> <span class="tok-n">D</span>
+      <span class="tok-k">break</span>
     <span class="tok-k">case</span> <span class="tok-mi">1000</span><span class="tok-p">:</span>
-      <span class="tok-k">return</span> <span class="tok-n">M</span><span class="tok-p">;</span>
-      <span class="tok-k">break</span><span class="tok-p">;</span>
+      <span class="tok-k">return</span> <span class="tok-n">M</span>
+      <span class="tok-k">break</span>
     <span class="tok-ss">default</span><span class="tok-p">:</span>
       <span class="tok-ss">error</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Für den Wert &quot;</span> <span class="tok-n">wert</span> <span class="tok-s2">&quot; gibt es kein römisches Zahlzeichen&quot;</span>
 </td></tr></table></code></pre>
@@ -487,19 +486,19 @@ folgende Tabelle für die Netzwerkklassen:</p>
 13
 14
 15</div></td><td class="code"><span></span><span class="tok-n">program</span> <span class="tok-no">Netzwerkklasse</span>
-  <span class="tok-n">read</span> <span class="tok-n">firstByte</span><span class="tok-p">;</span>
+  <span class="tok-n">read</span> <span class="tok-n">firstByte</span>
   <span class="tok-k">if</span> <span class="tok-n">firstByte</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span> <span class="tok-n">oder</span> <span class="tok-n">firstByte</span> <span class="tok-o">&gt;</span> <span class="tok-mi">255</span>
-    <span class="tok-n">error</span> <span class="tok-s2">&quot;Ungültige Eingabe&quot;</span><span class="tok-p">;</span>
+    <span class="tok-n">error</span> <span class="tok-s2">&quot;Ungültige Eingabe&quot;</span>
   <span class="tok-k">if</span> <span class="tok-n">firstByte</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">127</span>
-    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse A&quot;</span><span class="tok-p">;</span>
+    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse A&quot;</span>
   <span class="tok-n">elseif</span> <span class="tok-n">firstByte</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">191</span>
-    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse B&quot;</span><span class="tok-p">;</span>
+    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse B&quot;</span>
   <span class="tok-n">elseif</span> <span class="tok-n">firstByte</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">223</span>
-    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse C&quot;</span><span class="tok-p">;</span>
+    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse C&quot;</span>
   <span class="tok-n">elseif</span> <span class="tok-n">firstByte</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">239</span>
-    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse D&quot;</span><span class="tok-p">;</span>
+    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse D&quot;</span>
   <span class="tok-k">else</span>
-    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse E&quot;</span><span class="tok-p">;</span>
+    <span class="tok-nb">print</span> <span class="tok-s2">&quot;Klasse E&quot;</span>
 <span class="tok-k">end</span> <span class="tok-n">program</span> <span class="tok-no">Netzwerkklasse</span>
 </td></tr></table></code></pre>
 </div>
@@ -616,12 +615,12 @@ die Primfaktoren berechnet und ausgegeben werden.</p>
  8
  9
 10</div></td><td class="code"><span></span><span class="tok-n">program</span> <span class="tok-no">Primfaktorzerlegung</span>
-  <span class="tok-n">read</span> <span class="tok-n">n</span><span class="tok-p">;</span>
-  <span class="tok-n">t</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-mi">2</span><span class="tok-p">;</span>
+  <span class="tok-n">read</span> <span class="tok-n">n</span>
+  <span class="tok-n">t</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-mi">2</span>
   <span class="tok-k">while</span> <span class="tok-n">n</span> <span class="tok-o">&gt;</span> <span class="tok-mi">1</span>
     <span class="tok-k">if</span> <span class="tok-no">Ist</span> <span class="tok-n">n</span> <span class="tok-n">durch</span> <span class="tok-n">t</span> <span class="tok-n">ohne</span> <span class="tok-no">Rest</span> <span class="tok-n">teilbar?</span>
-      <span class="tok-n">n</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">n</span> <span class="tok-o">/</span> <span class="tok-n">t</span><span class="tok-p">;</span>
-      <span class="tok-nb">print</span> <span class="tok-n">t</span><span class="tok-p">;</span>
+      <span class="tok-n">n</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">n</span> <span class="tok-o">/</span> <span class="tok-n">t</span>
+      <span class="tok-nb">print</span> <span class="tok-n">t</span>
     <span class="tok-k">else</span>
       <span class="tok-n">t</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">t</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
 <span class="tok-k">end</span> <span class="tok-n">program</span> <span class="tok-no">Primfaktorzerlegung</span>
@@ -812,15 +811,15 @@ Zeichen &#8216;X&#8217; verwendet.</p>
  9
 10
 11</div></td><td class="code"><span></span><span class="tok-n">program</span> <span class="tok-no">ISBN10checkDigit</span>
-  <span class="tok-n">summe</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span>
+  <span class="tok-n">summe</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-mi">0</span>
   <span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-mi">1</span> <span class="tok-n">to</span> <span class="tok-mi">9</span>
-    <span class="tok-n">produkt</span> <span class="tok-o">=</span> <span class="tok-n">Z</span><span class="tok-o">[</span><span class="tok-n">i</span><span class="tok-o">]</span> <span class="tok-o">*</span> <span class="tok-n">i</span><span class="tok-p">;</span>
-    <span class="tok-n">summe</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">summe</span> <span class="tok-o">+</span> <span class="tok-n">produkt</span><span class="tok-p">;</span>
-  <span class="tok-nb">p</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-no">Rest</span> <span class="tok-n">der</span> <span class="tok-no">Division</span> <span class="tok-n">zwischen</span> <span class="tok-n">summe</span> <span class="tok-n">und</span> <span class="tok-mi">11</span><span class="tok-p">;</span>
+    <span class="tok-n">produkt</span> <span class="tok-o">=</span> <span class="tok-n">Z</span><span class="tok-o">[</span><span class="tok-n">i</span><span class="tok-o">]</span> <span class="tok-o">*</span> <span class="tok-n">i</span>
+    <span class="tok-n">summe</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-n">summe</span> <span class="tok-o">+</span> <span class="tok-n">produkt</span>
+  <span class="tok-nb">p</span> <span class="tok-p">:</span><span class="tok-o">=</span> <span class="tok-no">Rest</span> <span class="tok-n">der</span> <span class="tok-no">Division</span> <span class="tok-n">zwischen</span> <span class="tok-n">summe</span> <span class="tok-n">und</span> <span class="tok-mi">11</span>
   <span class="tok-k">if</span> <span class="tok-nb">p</span> <span class="tok-o">=</span> <span class="tok-mi">10</span>
-    <span class="tok-nb">print</span> <span class="tok-s1">&#39;X&#39;</span><span class="tok-p">;</span>
+    <span class="tok-nb">print</span> <span class="tok-s1">&#39;X&#39;</span>
   <span class="tok-k">else</span>
-    <span class="tok-nb">print</span> <span class="tok-nb">p</span><span class="tok-p">;</span>
+    <span class="tok-nb">print</span> <span class="tok-nb">p</span>
 <span class="tok-k">end</span> <span class="tok-n">program</span> <span class="tok-no">ISBN10checkDigit</span>
 </td></tr></table></code></pre>
 </div>
