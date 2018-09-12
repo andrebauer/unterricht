@@ -23,7 +23,7 @@ a|
 | {cc-by-sa}
 |===
 
-= {short-title}
+= {kind} {short-title}
 
 == Lineare Strukturen
 
@@ -428,6 +428,7 @@ image::{documentdir}isbn-10-flowdiagram.svg[pdfwidth=60%,width=65%]
 
 Es wird das Programm mit der ISBN 3-8273-7046-9 getestet.
 
+[%autowidth, pdfwidth=75%, width=75%]
 |===
 | Schritt | Z | i | Z[i] | produkt | summe | p | Ausgabe
 
@@ -458,54 +459,41 @@ Es wird das Programm mit der ISBN 3-8273-7046-9 getestet.
 // ....
 
 
-=== Aufgabe {counter:b}: Pharmazentralnummer
+=== Aufgabe {counter:b}: ISBN-13
 
-Die Pharmazentralnummer (PZN) ist ein auf in deutschland
-erhältlichen Arzneimitteln angebrachter Identifikationsschlüssel.
-Sie besteht derzeit aus acht Ziffern, die letzte Stelle ist eine
-Prüfziffer.
-Ähnlich wie bei der ISBN-10 werden die Ziffern von links nach rechts
-aufsteigend mit den Zahlen 1 bis 7 multipliziert und aufsummiert.
-Anschließend wird der Rest der Division zwischen der Summe und 11 berechnet.
-Sollte der Rest 10 ergeben, wird die PZN nicht vergeben.
+{ldquo}Zur Berechnung der Prüfziffer bei der ISBN-13 werden alle zwölf
+Ziffern der noch unvollständigen ISBN addiert, wobei die Ziffern mit gerader
+Position (also die zweite, vierte und so weiter) dreifachen Wert erhalten.
+Eine 5 an sechster Stelle beispielsweise fließt also als 15 in den Term ein.
+Von dem Ergebnis dieser Addition wird die letzte Stelle bestimmt, die dann
+von 10 subtrahiert wird. Bei einem Additionsergebnis von zum Beispiel 124
+erhält man also 10 − 4 = 6. Dieses Endergebnis ist die Prüfziffer.
+Ist das Endergebnis 10, ist die Prüfziffer 0.{rdquo}footnote:[https://de.wikipedia.org/wiki/Internationale_Standardbuchnummer#ISBN-13[Wikipedia.de: Internationale Standardbuchnummer, Abschnitt 4.2 Formeln zur Berechnung der Prüfziffer -- ISBN-13].]
 
-==== Beispiel: PZN 10024970
+==== Beispiel: ISBN 978-3-14-235047-9
 
-Die ersten sieben Ziffern sind 1002497.
+Die ersten zwölf Ziffern sind 978-3-14-235047.
+
+Summe der Ziffern mit ungerader Position:
+[stem]
+++++
+9 + 8 + 1 + 2 + 5 + 4 = 29
+++++
+
+Summe der Ziffern mit gerader Position:
+[stem]
+++++
+7 + 3 + 4 + 3 + 0 + 7 = 24
+++++
 
 [stem]
 ++++
 \begin{align*}
-1 \cdot 1 + 0 \cdot 2 + 0 \cdot 3 + 2 \cdot 4 + 4 \cdot 5 + 9 \cdot 6 + 7 \cdot 7 &= 132\\
-
-132 &= 12 \cdot 11\;\; \text{Rest}\;\; 0
+&\text{Prüfsumme:}\quad 29 + 3 \cdot 24 = 10\mathbf{1} \\
+&\text{Prüfziffer:}\quad 10 - \mathbf{1} = 9
 \end{align*}
 ++++
 
-Die PZN 10024970 hat daher die Prüfziffer 0.
 
 
-// #require "base";;
-// open Base;;
-// let ckpzn pzn = String.foldi pzn ~init:0 ~f:(fun i sum c -> sum + (Int.of_string (Char.to_string c)) * (i + 1)) mod 11;;
-// chpzn "0772856";;
-// - : inr = 1
 
-==== Testdaten
-
-Die folgenden Pharmazentralnummern können als Testdaten verwendet wreden. 
-
-----
-07728561
-10201099
-00040554
-00040548
-03806873
-01894063
-10203595
-10203603
-01743631
-03227112
-03464237
-04356248 
-----
