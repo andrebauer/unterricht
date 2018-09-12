@@ -18,7 +18,7 @@
 <li><a href="#_lernsituation_porto_berechnen_und_prüfen">Lernsituation Porto berechnen und prüfen</a>
 <ul class="sectlevel1">
 <li><a href="#_einführung">Einführung</a></li>
-<li><a href="#_aufgaben">Aufgaben</a></li>
+<li><a href="#_aufgabe">Aufgabe</a></li>
 <li><a href="#_erweiterung">Erweiterung</a></li>
 </ul>
 </li>
@@ -128,35 +128,19 @@ betragen.&#8220;<sup class="footnote">[<a id="_footnoteref_2" class="footnote" h
 </div>
 </div>
 <div class="sect1">
-<h2 id="_aufgaben">Aufgaben</h2>
+<h2 id="_aufgabe">Aufgabe</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Modellieren Sie eine Funktion, die die Maße (Länge, Breite, Höhe) in
 Millimetern und das Gewicht in Gramm als Eingabe eines Briefes verarbeitet und
 die Klasse, d.&#160;h. Standardbrief, Kompaktbrief, Großbrief, Maxibrief oder
-Maxibrief Plus als Rückgabe liefert.
+Maxibrief Plus, als Rückgabe liefert.
 Falls ein Brief nicht klassifiziert werden kann, soll eine Fehlermeldung
 zurückgegeben werden.</p>
 </div>
 <div class="paragraph">
-<p>Stellen Sie Ihre Lösung als</p>
-</div>
-<div class="openblock">
-<div class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Struktogramm,</p>
-</li>
-<li>
-<p>Programmablaufplan und</p>
-</li>
-<li>
-<p>Pseudocode dar.</p>
-</li>
-</ol>
-</div>
-</div>
+<p>Erstellen Sie das Modell als Struktogramm, Programmablaufplan und
+Pseudocode.</p>
 </div>
 </div>
 </div>
@@ -177,7 +161,7 @@ in Gramm und gibt die Klasse als Zeichenkette zurück.</p>
 </div>
 </li>
 <li>
-<p><code>int portoOfClass (String classification)</code></p>
+<p><code>int postageOfClass (String classification)</code></p>
 <div class="paragraph">
 <p>Gibt anhand einer Klasse das entsprechende Porto zurück.</p>
 </div>
@@ -186,17 +170,17 @@ in Gramm und gibt die Klasse als Zeichenkette zurück.</p>
 </div>
 </li>
 <li>
-<p>Entwickeln sie mithilfe der Funktion <code>classify</code> und <code>portoOfClass</code>
+<p>Entwickeln sie mithilfe der Funktionen <code>classify</code> und <code>portoOfClass</code>
 folgendes:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>eine Funktion, die anhand der Maße und des Gewichts das Porto
-ausgibt.</p>
+<p>eine Funktion <code>postage</code>, die anhand der Maße und des Gewichts das Porto
+in Cent ausgibt.</p>
 </li>
 <li>
-<p>eine Funktion, die anhand der Maße, des Gewichts
-und des Portos prüft, ob ein Brief ausreichend frankiert ist.</p>
+<p>eine Funktion <code>sufficientlyFranked</code>, die anhand der Maße, des Gewichts
+und des Portos in Cent prüft, ob ein Brief ausreichend frankiert ist.</p>
 </li>
 </ul>
 </div>
