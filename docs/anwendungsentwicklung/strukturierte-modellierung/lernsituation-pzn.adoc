@@ -1,0 +1,86 @@
+include::partials/ovm-header.adoc[]
+:short-title: Pharmazentralnummer
+:kind: Lernsituation
+:ovm-code: AE-MS-LS-1.6
+:revdate: 10. September 2018
+include::partials/author.adoc[]
+:!sectnums:
+:stem: latexmath
+
+include::partials/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+| *Verwandte Lernjobs*
+| AE-MS-LJ-1.1 bis 1.4
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+= {kind} {short-title}
+
+== Einführung
+
+Die Pharmazentralnummer (PZN) ist ein auf in deutschland
+erhältlichen Arzneimitteln angebrachter Identifikationsschlüssel.
+Sie besteht derzeit aus acht Ziffern, die letzte Stelle ist eine
+Prüfziffer.
+Ähnlich wie bei der ISBN-10 werden die Ziffern von links nach rechts
+aufsteigend mit den Zahlen 1 bis 7 multipliziert und aufsummiert.
+Anschließend wird der Rest der Division zwischen der Summe und 11 berechnet.
+Sollte der Rest 10 ergeben, wird die PZN nicht vergeben und die
+nächstfolgende siebenstellige Zahl geprüft.
+
+== Beispiel: PZN 10024970
+
+Die ersten sieben Ziffern sind 1002497.
+
+[stem]
+++++
+\begin{align*}
+1 \cdot 1 + 0 \cdot 2 + 0 \cdot 3 + 2 \cdot 4 + 4 \cdot 5 + 9 \cdot 6 + 7 \cdot 7 &= 132\\
+
+132 &= 12 \cdot 11\;\; \text{Rest}\;\; 0
+\end{align*}
+++++
+
+Die PZN 10024970 hat daher die Prüfziffer 0.
+
+
+// #require "base";;
+// open Base;;
+// let ckpzn pzn = String.foldi pzn ~init:0 ~f:(fun i sum c -> sum + (Int.of_string (Char.to_string c)) * (i + 1)) mod 11;;
+// chpzn "0772856";;
+// - : inr = 1
+
+== Aufgabe
+
+Erstellen Sie das Modell als Struktogramm, Programmablaufplan und Pseudocode.
+
+Die Funktion `getLatestPZN()` gibt die zuletzt vergebene PZN (aus der
+Datenbank) aus.
+Eine neu generierte und gültige achtstellige PZN soll
+auf dem Bildschirm ausgegeben werden und zudem
+mit `persistPZN(zahl)` in der Datenbank gespeichert werden.
+
+
+== Testdaten
+
+Die folgenden Pharmazentralnummern können als Testdaten verwendet werden. 
+
+----
+07728561
+10201099
+00040554
+00040548
+03806873
+01894063
+10203595
+10203603
+01743631
+03227112
+03464237
+04356248 
+----
