@@ -113,36 +113,54 @@ die jeweils einem bestimmten Wert entsprechen.
 
 |===
 
-Das folgende Programm gibt zu einem Wert das entsprechende Zeichen zurück.
+Das folgende Funktion gibt zu einem Wert das entsprechende Zeichen zurück.
 Falls es für einen Wert kein Zeichen gibt, wird eine Fehlermeldung
-zurückgegeben.
+zurückgegeben. Das Beispiel in <<funktion-roemische-zahlen>> ist
+als Funktion und nicht als vollständiges
+Programm ausgeführt. Die Funktion kann von einen übergeordneten
+Programm wie z.{nbsp}B. in dem Programm
+<<aufruf-roemische-zahlen>> mit `call` aufgerufen werden, dabei
+wird der Rückgabewert von `roemischesZahlzeichen` an
+die Variable `mille` übergeben.
 
+[[aufruf-roemische-zahlen]]
+.Pseudocode zum Aufruf der Funktion `roemischesZahlzeichen`
+[source, ruby, linenums]
+....
+program RoemischeZahl
+  mille = call roemischeszahlzeichen(1000)
+  print "1000 hat das Zahlzeichen " mille
+end program RoemischeZahl
+....
+
+<<<
 ==== Pseudocode
 
+[[funktion-roemische-zahlen]]
 .Pseudocode zur Funktion `roemischesZahlzeichen`
 [source, ruby, linenums]
 ....
 function roemischesZahlzeichen(wert) 
-  switch wert 
-    case 1:
+  case wert of 
+    1:
       return I
       break
-    case 5:
+    5:
       return V
       break
-    case 10:
+    10:
       return X
       break
-    case 50:
+    50:
       return L
       break
-    case 100:
+    100:
       return C
       break
-    case 500:
+    500:
       return D
       break
-    case 1000:
+    1000:
       return M
       break
     default:
@@ -159,11 +177,11 @@ image::{documentdir}roemisches-zahlzeichen-flowdiagram.svg[pdfwidth=65%,width=65
 
 === Aufgabe {counter:b}: TCP-Netzwerkdienste
 
-Ein Programm soll für eine Auswahl
+Eine Funktion soll für eine Auswahl
 beliebter TCP-Netzwerkdienste zu der Standard-Portnummer
-den entsprechenden Dienstnamen ausgeben.
+den entsprechenden Dienstnamen zurückgeben.
 Falls die Portnummer unbekannt ist, soll eine entsprechende Fehlermeldung
-ausgegeben werden.
+zurückgegeben werden.
 
 [width=50%]
 |===
@@ -181,7 +199,7 @@ ausgegeben werden.
 
 == Mehrfache Verzweigung
 
-=== Beispiel {counter:a} IPv4-Netzklassen
+=== Beispiel {counter:a}: IPv4-Netzklassen
 
 Die IPv4-Adressen haben eine Länge 32-Bit, d.{nbsp}h. vier Byte.
 Zur menschenlesbaren Darstellung ist es üblich, die vier Bytes
@@ -242,7 +260,7 @@ image::{documentdir}ipv4-class-flowdiagram.svg[pdfwidth=60%,width=65%]
 Eine Mustererkennungssoftware benötigt zu jedem Bildpunkt ein Klassifizierung
 anhand der Helligkeit. Die Helligkeit eines Bildpunktes wird
 als 10-Bit-Wert, d.{nbsp}h. als Dezimalzahl zwischen 0 und 1023 gemessen.
-Die Funktion soll zu der Helligkeit den entsprechende Farbnamen ausgeben.
+Die Funktion soll zu der Helligkeit den entsprechende Farbnamen zurückgeben.
 
 [width=50%]
 |===
@@ -327,7 +345,14 @@ Eine natürliche Zahl ist eine Primzahl,
 wenn sie nur durch 1 und durch sich selbst
 ohne Rest teilbar ist.
 
-Die Primzahlen sind 2, 3, 5, 7, 11, 13, 17, 19, 23, ...
+// let rec is_prime_helper n t = if t = n then true else if n mod t = 0 then false else is_prime_helper n (t + 1);;
+// let is_prime n = if n > 1 then is_prime_helper n 2 else false;;
+// let ns = List.init 1000 id;;
+// let primes = List.filter ns ~f:is_prime ;;
+// List.iter primes ~f:(fun p -> print_string ((Int.to_string p) ^ " "));;
+
+Die Primzahlen sind
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, ...
 
 Als einfaches Verfahren, um zu prüfen, ob eine Zahl stem:[n] eine Primzahl ist,
 kann man daher bei allen Zahlen zwischen 1 und der Zahl stem:[n]
