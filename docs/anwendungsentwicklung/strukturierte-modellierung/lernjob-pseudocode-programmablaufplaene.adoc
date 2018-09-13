@@ -61,6 +61,10 @@ end programm LeistungVonPSinKW
 [link=https://code2flow.com/HdHJgw]
 image::{documentdir}ps-kw-flowdiagram.svg[pdfwidth=16%,width=35%]
 
+==== Java-Sourcecode
+
+https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/LeistungVonPSinKW.java[LeistungVonPSinKW.java]
+
 === Aufgabe {counter:b}: Fahrradcomputer
 
 Auf dem Display eines Fahrradcomputers sollen die seit dem letzten
@@ -97,7 +101,7 @@ v &= d \cdot
 
 === Beispiel {counter:a}: Römische Zahlschrift
 
-In die römischen Zahlschrift werden überlicherweise sieben Buchstaben verwendet,
+In die römischen Zahlschrift werden üblicherweise sieben Buchstaben verwendet,
 die jeweils einem bestimmten Wert entsprechen.
 
 [width=50%]
@@ -120,7 +124,7 @@ zurückgegeben. Das Beispiel in <<funktion-roemische-zahlen>> ist
 als Funktion und nicht als vollständiges
 Programm ausgeführt. Die Funktion kann von einen übergeordneten
 Programm wie z.{nbsp}B. in dem Programm
-<<aufruf-roemische-zahlen>> mit `call` aufgerufen werden, dabei
+in <<aufruf-roemische-zahlen>> mit `call` aufgerufen werden, dabei
 wird der Rückgabewert von `roemischesZahlzeichen` an
 die Variable `mille` übergeben.
 
@@ -129,7 +133,7 @@ die Variable `mille` übergeben.
 [source, ruby, linenums]
 ....
 program RoemischeZahl
-  mille = call roemischeszahlzeichen(1000)
+  mille = call roemischesZahlzeichen(1000)
   print "1000 hat das Zahlzeichen " mille
 end program RoemischeZahl
 ....
@@ -145,36 +149,31 @@ function roemischesZahlzeichen(wert)
   case wert of 
     1:
       return I
-      break
     5:
       return V
-      break
     10:
       return X
-      break
     50:
       return L
-      break
     100:
       return C
-      break
     500:
       return D
-      break
     1000:
       return M
-      break
     default:
-      error: "Für den Wert " wert " gibt es kein römisches Zahlzeichen"
+      error: "Für den Wert " wert " gibt es kein römisches Zahlzeichen."
 ....
 
-<<<
 ==== Programmablaufplan
 
 .Programmablaufplan zur Funktion `roemischesZahlzeichen`
 [link=https://code2flow.com/U8sIfx]
 image::{documentdir}roemisches-zahlzeichen-flowdiagram.svg[pdfwidth=65%,width=65%]
 
+==== Java-Sourcecode
+
+https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/RoemischeZahl.java[RoemischeZahl.java]
 
 === Aufgabe {counter:b}: TCP-Netzwerkdienste
 
@@ -207,8 +206,8 @@ Die IPv4-Adressen haben eine Länge 32-Bit, d.{nbsp}h. vier Byte.
 Zur menschenlesbaren Darstellung ist es üblich, die vier Bytes
 jeweils im Dezimalsystem, also als Zahl zwischen 0 und 255 darzustellen,
 und mit einem Punkt zu trennen.
-So hat die Domain ovm-kassel.de die IP-Adresse 89.31.143.1.
-Anhand der Anfangsbits bzw. der ersten Bytes wurden die
+So hat die Domain ovm-kassel.de die IPv4-Adresse 89.31.143.1.
+Anhand der Anfangsbits bzw. des ersten Bytes wurden die
 IPv4-Adressen bis 1993 in sogenannte Netzwerkklassen unterteilt.
 Anhand der Dezimaldarstellung des ersten Bytes ergibt sich die
 folgende Tabelle für die Netzwerkklassen:
@@ -257,9 +256,13 @@ end program Netzwerkklasse
 [link=https://code2flow.com/NPdgEU]
 image::{documentdir}ipv4-class-flowdiagram.svg[pdfwidth=60%,width=65%]
 
+==== Java-Sourcecode
+
+https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/Netzwerkklasse.java[Netzwerkklasse.java]
+
 === Aufgabe {counter:b}: Helligkeits-Schwellwerte
 
-Eine Mustererkennungssoftware benötigt zu jedem Bildpunkt ein Klassifizierung
+Eine Mustererkennungssoftware benötigt zu jedem Bildpunkt eine Klassifizierung
 anhand der Helligkeit. Die Helligkeit eines Bildpunktes wird
 als 10-Bit-Wert, d.{nbsp}h. als Dezimalzahl zwischen 0 und 1023 gemessen.
 Die Funktion soll zu der Helligkeit den entsprechende Farbnamen zurückgeben.
@@ -328,6 +331,7 @@ image::{documentdir}primfaktorzerlegung-flowdiagram.svg[pdfwidth=65%,width=65%]
 
 Es wird das Programm mit der Zahl stem:[60 = 2 \cdot 2 \cdot 3 \cdot 5] getestet.
 
+[width=75%]
 |===
 | Schritt | n | t | Ausgabe | n > 1 | t teilt n
 
@@ -340,6 +344,10 @@ Es wird das Programm mit der Zahl stem:[60 = 2 \cdot 2 \cdot 3 \cdot 5] getestet
 | 6 | 5 | 5 | - | WAHR | WAHR
 | 7 | 1 | 5 | 5 | FALSCH | -
 |===
+
+==== Java-Sourcecode
+
+https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/Primfaktorzerlegung.java[Primfaktorzerlegung.java]
 
 === Aufgabe {counter:b}: Primzahlen
 
@@ -356,12 +364,12 @@ ohne Rest teilbar ist.
 Die Primzahlen sind
 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, ...
 
-Als einfaches Verfahren, um zu prüfen, ob eine Zahl stem:[n] eine Primzahl ist,
-kann man daher bei allen Zahlen zwischen 1 und der Zahl stem:[n]
-testen, ob diese die Zahl stem:[n] ohne Rest teilen.
+Als einfaches Verfahren, um zu prüfen, ob eine Zahl asciimath:[n] eine Primzahl ist,
+kann man daher bei allen Zahlen zwischen 1 und der Zahl asciimath:[n]
+testen, ob diese die Zahl asciimath:[n] ohne Rest teilen.
 Falls ein Teiler gefunden wurde kann das Verfahren abgebrochen werden,
-da die Zahl stem:[n] keine Primzahl ist. Falls kein Teiler gefunden wird, ist
-die Zahl stem:[n] eine Primzahl.
+da die Zahl asciimath:[n] keine Primzahl ist. Falls kein Teiler gefunden wird, ist
+die Zahl asciimath:[n] eine Primzahl.
 
 ==== Testdaten 
 
@@ -404,17 +412,18 @@ Die Ziffern der ISBN werden als Feld Z behandelt.
 .Pseudocode zur Berechnung der Prüfziffer für die ISBN-10
 [source, ruby, linenums]
 ....
-program ISBN10checkDigit
+program ISBN10CheckDigit
+  read Z
   summe := 0
   for i := 1 to 9
     produkt = Z[i] * i
     summe := summe + produkt
   p := Rest der Division zwischen summe und 11
   if p = 10 
-    print 'X'
+    print "X"
   else 
     print p
-end program ISBN10checkDigit
+end program ISBN10CheckDigit
 ....
 
 
@@ -445,6 +454,10 @@ Es wird das Programm mit der ISBN 3-8273-7046-9 getestet.
 | 10 | [3,8,2,7,3,7,0,4,6] | - | - | - | 196 | 9 | 9
 
 |===
+
+==== Java-Sourcecode
+
+https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/ISBN10CheckDigit.java[ISBN10CheckDigit.java]
 
 // ==== Automatisierter Test
 
