@@ -135,7 +135,11 @@ betragen.&#8220;<sup class="footnote">[<a id="_footnoteref_2" class="footnote" h
 Millimetern und das Gewicht in Gramm als Eingabe eines Briefes verarbeitet und
 die Klasse, d.&#160;h. Standardbrief, Kompaktbrief, Großbrief, Maxibrief oder
 Maxibrief Plus, als Rückgabe liefert.
-Falls ein Brief nicht klassifiziert werden kann, soll eine Fehlermeldung
+Gehen Sie dabei davon aus, dass die Maße absteigend sortiert sind,
+d.&#160;h. es gilt \(\text{Länge} \geq \text{Breite} \geq \text{Höhe}\).</p>
+</div>
+<div class="paragraph">
+<p>Falls ein Brief nicht klassifiziert werden kann, soll eine Fehlermeldung
 zurückgegeben werden.</p>
 </div>
 <div class="paragraph">
@@ -150,27 +154,11 @@ Pseudocode.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Programmieren Sie die folgenden Funktionen</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>String classify(int length, int width, int height, int weight)</code></p>
-<div class="paragraph">
-<p>Ermittelt die Klasse anhand der Maße in Millimetern und des Gewichts
-in Gramm und gibt die Klasse als Zeichenkette zurück.</p>
-</div>
+<p>Entwickeln Sie die Funktion <code>postageOfClass</code>, die anhand
+der Klasse das entsprechende Porto zurückgibt.</p>
 </li>
 <li>
-<p><code>int postageOfClass (String classification)</code></p>
-<div class="paragraph">
-<p>Gibt anhand einer Klasse das entsprechende Porto zurück.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Entwickeln sie mithilfe der Funktionen <code>classify</code> und <code>portoOfClass</code>
+<p>Entwickeln sie mithilfe der Klassifizierungsfunktion und <code>portoOfClass</code>
 folgendes:</p>
 <div class="ulist">
 <ul>
@@ -203,5 +191,21 @@ und des Portos in Cent prüft, ob ein Brief ausreichend frankiert ist.</p>
 <div id="footer-text">
 </div>
 </div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
