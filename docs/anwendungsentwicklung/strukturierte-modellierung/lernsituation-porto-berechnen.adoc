@@ -5,6 +5,7 @@ include::partials/ovm-header.adoc[]
 :revdate: 10. September 2018
 include::partials/author.adoc[]
 :!sectnums:
+:stem:
 :ln-dplup: https://www.deutschepost.de/preise[Leistungen und Preise]
 
 include::partials/ovm-head-table.adoc[]
@@ -53,6 +54,9 @@ Modellieren Sie eine Funktion, die die Maße (Länge, Breite, Höhe) in
 Millimetern und das Gewicht in Gramm als Eingabe eines Briefes verarbeitet und
 die Klasse, d.{nbsp}h. Standardbrief, Kompaktbrief, Großbrief, Maxibrief oder
 Maxibrief Plus, als Rückgabe liefert.
+Gehen Sie dabei davon aus, dass die Maße absteigend sortiert sind,
+d.{nbsp}h. es gilt latexmath:[\text{Länge} \geq \text{Breite} \geq \text{Höhe}].
+
 Falls ein Brief nicht klassifiziert werden kann, soll eine Fehlermeldung
 zurückgegeben werden.
 
@@ -62,20 +66,19 @@ Pseudocode.
 
 == Erweiterung
 
-. Programmieren Sie die folgenden Funktionen
+// . Programmieren Sie die folgenden Funktionen
 
-** `String classify(int length, int width, int height, int weight)`
-+
-Ermittelt die Klasse anhand der Maße in Millimetern und des Gewichts
-in Gramm und gibt die Klasse als Zeichenkette zurück.
-
-** `int postageOfClass (String classification)`
-+
-Gibt anhand einer Klasse das entsprechende Porto zurück.
+// ** `String classify(int length, int width, int height, int weight)`
+// +
+// Ermittelt die Klasse anhand der Maße in Millimetern und des Gewichts
+// in Gramm und gibt die Klasse als Zeichenkette zurück.
 
 
-. Entwickeln sie mithilfe der Funktionen `classify` und `portoOfClass`
-folgendes:
+. Entwickeln Sie die Funktion `postageOfClass`, die anhand
+  der Klasse das entsprechende Porto zurückgibt.
+
+. Entwickeln sie mithilfe der Klassifizierungsfunktion und `portoOfClass`
+  folgendes:
 
 ** eine Funktion `postage`, die anhand der Maße und des Gewichts das Porto
    in Cent ausgibt.

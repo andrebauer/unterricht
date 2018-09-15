@@ -31,7 +31,7 @@ Prüfziffer.
 aufsteigend mit den Zahlen 1 bis 7 multipliziert und aufsummiert.
 Anschließend wird der Rest der Division zwischen der Summe und 11 berechnet.
 Sollte der Rest 10 ergeben, wird die PZN nicht vergeben und die
-nächstfolgende siebenstellige Zahl geprüft.
+nächstfolgende siebenstellige Zahl geprüft usw.
 
 == Beispiel: PZN 10024970
 
@@ -59,7 +59,7 @@ Die PZN 10024970 hat daher die Prüfziffer 0.
 
 Erstellen Sie das Modell als Struktogramm, Programmablaufplan und Pseudocode.
 
-Die Funktion `getLatestPZN()` gibt die zuletzt vergebene PZN (aus der
+Die Funktion `zahl getLatestPZN()` liest die zuletzt vergebene PZN (aus der
 Datenbank) aus.
 Eine neu generierte und gültige achtstellige PZN soll
 auf dem Bildschirm ausgegeben werden und zudem

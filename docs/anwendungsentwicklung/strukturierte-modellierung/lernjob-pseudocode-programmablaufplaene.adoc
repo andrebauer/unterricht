@@ -61,7 +61,7 @@ end programm LeistungVonPSinKW
 [link=https://code2flow.com/HdHJgw]
 image::{documentdir}ps-kw-flowdiagram.svg[pdfwidth=16%,width=35%]
 
-==== Java-Sourcecode
+==== Java-Quellcode
 
 https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/LeistungVonPSinKW.java[LeistungVonPSinKW.java]
 
@@ -171,7 +171,7 @@ function roemischesZahlzeichen(wert)
 [link=https://code2flow.com/U8sIfx]
 image::{documentdir}roemisches-zahlzeichen-flowdiagram.svg[pdfwidth=65%,width=65%]
 
-==== Java-Sourcecode
+==== Java-Quellcode
 
 https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/RoemischeZahl.java[RoemischeZahl.java]
 
@@ -256,7 +256,7 @@ end program Netzwerkklasse
 [link=https://code2flow.com/NPdgEU]
 image::{documentdir}ipv4-class-flowdiagram.svg[pdfwidth=60%,width=65%]
 
-==== Java-Sourcecode
+==== Java-Quellcode
 
 https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/Netzwerkklasse.java[Netzwerkklasse.java]
 
@@ -327,7 +327,7 @@ end program Primfaktorzerlegung
 [link=https://code2flow.com/znlIQc]
 image::{documentdir}primfaktorzerlegung-flowdiagram.svg[pdfwidth=65%,width=65%]
 
-==== Schreibtischtest
+==== Tabellarischer Schreibtischtest
 
 Es wird das Programm mit der Zahl stem:[60 = 2 \cdot 2 \cdot 3 \cdot 5] getestet.
 
@@ -345,7 +345,7 @@ Es wird das Programm mit der Zahl stem:[60 = 2 \cdot 2 \cdot 3 \cdot 5] getestet
 | 7 | 1 | 5 | 5 | FALSCH | -
 |===
 
-==== Java-Sourcecode
+==== Java-Quellcode
 
 https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/Primfaktorzerlegung.java[Primfaktorzerlegung.java]
 
@@ -433,7 +433,7 @@ end program ISBN10CheckDigit
 [link=https://code2flow.com/qFQczf]
 image::{documentdir}isbn-10-flowdiagram.svg[pdfwidth=60%,width=65%]
 
-==== Schreibtischtest
+==== tabellarischer Schreibtischtest
 
 Es wird das Programm mit der ISBN 3-8273-7046-9 getestet.
 
@@ -455,7 +455,7 @@ Es wird das Programm mit der ISBN 3-8273-7046-9 getestet.
 
 |===
 
-==== Java-Sourcecode
+==== Java-Quellcode
 
 https://github.com/andrebauer/it-ae-ms-lj-1.4/blob/master/src/ISBN10CheckDigit.java[ISBN10CheckDigit.java]
 
