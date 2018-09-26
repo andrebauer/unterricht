@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7.1">
+<title>Git</title>
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/ovm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/unterricht/stylesheets/html5/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Inhalt</div>
+<ul class="sectlevel0">
+<li><a href="#_git">Git</a>
+<ul class="sectlevel1">
+<li><a href="#_das_konzept">1. Das Konzept</a></li>
+<li><a href="#_ein_neues_projekt_erstellen_initialisieren">2. Ein neues Projekt erstellen (initialisieren)</a></li>
+<li><a href="#_konfiguration">3. Konfiguration</a>
+<ul class="sectlevel2">
+<li><a href="#_globale_konfiguration">3.1. Globale Konfiguration</a></li>
+<li><a href="#_lokale_konfiguration">3.2. Lokale Konfiguration</a></li>
+</ul>
+</li>
+<li><a href="#_lokaler_workflow">4. Lokaler Workflow</a>
+<ul class="sectlevel2">
+<li><a href="#_neue_datei_erstellen">4.1. Neue Datei erstellen</a></li>
+<li><a href="#_änderungen">4.2. Änderungen</a></li>
+<li><a href="#_status_anzeigen">4.3. Status anzeigen</a></li>
+<li><a href="#_änderungen_anzeigen">4.4. Änderungen anzeigen</a></li>
+</ul>
+</li>
+<li><a href="#_remotes">5. Remotes</a>
+<ul class="sectlevel2">
+<li><a href="#_hinzufügen">5.1. Hinzufügen</a></li>
+<li><a href="#_workflow">5.2. Workflow</a></li>
+<li><a href="#_änderungen_von_anderen_übernehmen">5.3. Änderungen von anderen übernehmen</a></li>
+<li><a href="#_ein_vorhandenes_projekt_klonen">5.4. Ein vorhandenes Projekt klonen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="http://ovm-kassel.de" class="bare">http://ovm-kassel.de</a> | Information</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information AE-TOOLS-I-1.1</strong><br>
+  <strong>Git</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="/unterricht/images/Logo-RSBS-SVG_mini-blau.svg" alt="OvM-Logo" width="76" height="61"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AE-TOOLS-I-1.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autor</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">André Bauer<br>
+  &lt;a(dot)bauer(at)ovm-kassel(dot)de&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Datum</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26. September 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Links</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Bücher</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://git-scm.com/book/de/v2">Scott Chacon und Ben Straub: Pro Git Buch</a></p>
+</li>
+<li>
+<p><a href="https://jwiegley.github.io/git-from-the-bottom-up/">John Wiegley: Git from the Bottom Up</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pluralsight/git-internals-pdf/releases/download/v2.0/peepcode-git.pdf">Scott Chacon: Git Internals</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cheat Sheets</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://education.github.com/git-cheat-sheet-education.pdf">GitHub Git cheat sheet</a></p>
+</li>
+<li>
+<p><a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf">GiLab Git cheat sheet</a></p>
+</li>
+<li>
+<p><a href="https://downloads.git-tower.com/content/cheat-sheet-bundle.zip">Tower Git cheat sheet</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lizenz</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="/unterricht/images/cc-by-sa-88x31.png" alt="Creative Commons Lizenzvertrag"></a></span><br>
+Dieses Werk ist lizenziert unter einer<br>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="_git" class="sect0">Git</h1>
+<div class="sect1">
+<h2 id="_das_konzept">1. Das Konzept</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Git ist eine verteiltes Versionskontrollsystem (DVCS). Es ist als
+Entwicklerwerkzeug im Hinblick auf Quelltexte entwicklet worden, kann aber
+auch für andere Projekte und Daten verwendet werden.</p>
+</div>
+<div class="paragraph">
+<p>Git speichert Änderungen in Form von Snappschüssen in eine Repository.
+Im Unterschied zu zentralisierten Versionskonrollsystemen enthält
+jedes Git-Repository sämtliche Snappschüsse, so dass die meisten
+Aktionen vollständig lokal ausgeführt werden können und damit auch
+ohne Netzwerkverbindung Änderungen gespeichert werden können.
+In einem Projekt-Ordnert wird nach der Initialisierung
+ein Unterverzeichnis <code>.git</code> erstellt, dass das Repository enthält.
+Alle anderen Dateien und Unterverzeichnisse bilden das Arbeitsverzeichnis
+(working tree).</p>
+</div>
+<div class="paragraph">
+<p>Für Änderungen sieht Git ein zweistufiges Verfahren vor:
+Ändergen werden zunächst vorgemerkt (staged) und dann gespeichert (commit).
+Dies ermöglich eine sehr feine Kontrolle welche Änderungen in einen
+Commit einfließen, so dass inhaltlich zusammengehörige Änderungen in
+einem Commit zusammengefasst werden können.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ein_neues_projekt_erstellen_initialisieren">2. Ein neues Projekt erstellen (initialisieren)</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ mkdir myproject
+$ <span class="tok-nb">cd</span> myproject
+$ git init</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_konfiguration">3. Konfiguration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_globale_konfiguration">3.1. Globale Konfiguration</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git config --global user.name <span class="tok-s2">&quot;André Bauer&quot;</span>
+$ git config --global user.email a.bauer@ovm-kassel.de
+$ git config --list</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lokale_konfiguration">3.2. Lokale Konfiguration</h3>
+<div class="paragraph">
+<p>In einem bestehenden Projekt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ <span class="tok-nb">cd</span> myproject <i class="conum" data-value="1"></i><b>(1)</b>
+$ git config --local user.email a.bauer@ovm-kassel.de</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Das Verzeichnis <code>myproject</code> muss bereits unter Versionskontrolle
+durch Git stehen.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lokaler_workflow">4. Lokaler Workflow</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_neue_datei_erstellen">4.1. Neue Datei erstellen</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ <span class="tok-nb">echo</span> <span class="tok-s2">&quot;Hallo git.&quot;</span> &gt; hallo <i class="conum" data-value="1"></i><b>(1)</b>
+$ git add hallo <i class="conum" data-value="2"></i><b>(2)</b>
+$ git commit -m <span class="tok-s2">&quot;Add hello.&quot;</span>  <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Erstellt eine einfache Textdatei.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Die Datei <code>hallo</code> wird nun von Git versioniert und ist nun
+für Änderungen vorgemerkt (staged).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Übernimmt die vorgemerkten Änderung in das Repository (commit) mit der
+angegebenen Nachricht.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_änderungen">4.2. Änderungen</h3>
+<div class="paragraph">
+<p>Der Ablauf ist wie bei einer neuen Datei. Nach einer Änderung
+wird diese mit <code>git add</code> vorgemerkt und mit <code>git commit</code> dauerhaft
+im Repository gespeichert.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ <span class="tok-nb">echo</span> <span class="tok-s2">&quot;Hallo git2.&quot;</span> &gt;&gt; hallo
+$ git add hallo
+$ git commit -m <span class="tok-s2">&quot;Add hello.&quot;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_status_anzeigen">4.3. Status anzeigen</h3>
+<div class="paragraph">
+<p>Der aktuelle Status, d.h. welche Dateien unversioniert oder geändert wurden
+und welche Änderung vorgemerkt wurden, kann mit <code>git status</code> angezeigt werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die Änderungen, die in das Repository übernommen wurden, können mit
+<code>git log</code> angezeigt werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git log</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Für diesen Befehl gibt es eine
+<a href="https://git-scm.com/book/de/v2/Los-geht%E2%80%99s-Viewing-the-Commit-History">große Anzahl von Parametern, um das Format und den Umfang der Ausgabe festzulegen</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_änderungen_anzeigen">4.4. Änderungen anzeigen</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git diff <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Zeigt Änderungen im diff-Format an, die noch nicht vorgemerkt wurden.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git diff --staged <i class="conum" data-value="1"></i><b>(1)</b>
+$ git diff --cached <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Zeigt Änderungen im diff-Format an, die vorgemerkt wurden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Statt <code>--staged</code> kann auch <code>--cached</code> verwendet werden.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_remotes">5. Remotes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_hinzufügen">5.1. Hinzufügen</h3>
+<div class="paragraph">
+<p>Mit einem lokalen Repository können andere Repositories verknüpft werden, die
+sogenannten Remotes.
+Dazu erstellt man z.B. unter GitHub oder GitLab ein neues Repository
+und fügt mit <code>git remote add</code> diese dem Bestehenden Repository hinzu.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git remote add github git@github.com:andrebauer/git-beispiel.git
+$ git remote add gitlab git@gitlab.com:andrebauer/git-beispiel.git
+$ git remote
+github
+gitlab</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_workflow">5.2. Workflow</h3>
+<div class="paragraph">
+<p>Mit <code>git push</code>, <code>git fetch</code> und <code>git pull</code> werden Änderungen (commits)
+mit remote ausgetauscht.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git push -u gitlab <i class="conum" data-value="1"></i><b>(1)</b>
+$ <span class="tok-nb">echo</span> <span class="tok-s2">&quot;Hallo Git!&quot;</span> &gt;&gt; hallo <i class="conum" data-value="2"></i><b>(2)</b>
+$ git add hallo <i class="conum" data-value="3"></i><b>(3)</b>
+$ git commit -m <span class="tok-s2">&quot;Add hello message to hallo.&quot;</span> <i class="conum" data-value="4"></i><b>(4)</b>
+$ git push gitlab <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Füge die Änderungen aus dem aktuellen Branch, dieser heißt
+standardmäßig master, dem Remote gitlab hinzu.
+Falls der Zweig noch nicht auf dem Remote existiert, so wird diese
+bei Verwendung der Option <code>-u</code> angelegt.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Bearbeiten der Datei hallo.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Vormerken der Änderungen in hello.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Übernehmen der Änderungen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Die Änderungen auf den Remote gitlab übertragen.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_änderungen_von_anderen_übernehmen">5.3. Änderungen von anderen übernehmen</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git fetch gitlab <i class="conum" data-value="1"></i><b>(1)</b>
+$ git merge gitlab/master</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Holt Änderungen von anderen vom Remote gitlab.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Mischt die Änderungen von Branch gitlab/master mit dem lokalen Branch
+master.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Mit <code>git pull</code> können <code>git fetch</code> und <code>git merge</code> in einer Aktion ausgeführt
+werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git pull gitlab</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bei <code>git merge</code> und <code>git pull</code> können Konflikte auftreten, die Git
+nicht automatisch beheben kann, wenn z.&#160;B. Änderungen in derselben
+Zeile eine Programms durch verschiedene Parteien eingebracht wurden.
+Git fügt dann mihilfe von Markierungen beide Varianten
+in den betroffenen Dateien ein, der Merge muss dann manuell vollendet werden.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ein_vorhandenes_projekt_klonen">5.4. Ein vorhandenes Projekt klonen</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sh"><span></span>$ git clone git@github.com:andrebauer/git-beispiel.git <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Überträgt das Repository in das Verzeichnis <code>git-beispiel</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
