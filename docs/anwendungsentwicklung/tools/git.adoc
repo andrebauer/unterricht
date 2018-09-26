@@ -22,7 +22,7 @@ a|
 ** https://education.github.com/git-cheat-sheet-education.pdf[GitHub Git cheat sheet]
 ** https://about.gitlab.com/images/press/git-cheat-sheet.pdf[GiLab Git cheat sheet]
 ** https://downloads.git-tower.com/content/cheat-sheet-bundle.zip[Tower Git cheat sheet]
-
+* https://de.wikipedia.org/wiki/Git[Wikipedia-Eintrag zu Git]
 
 | *Lizenz*
 | {cc-by-sa}
@@ -223,3 +223,12 @@ in den betroffenen Dateien ein, der Merge muss dann manuell vollendet werden.
 $ git clone git@github.com:andrebauer/git-beispiel.git <1>
 ....
 <1> Überträgt das Repository in das Verzeichnis `git-beispiel`.
+
+=== Einen SSH-Schlüssel erstellen
+
+Um mit Remotes ohne Passworteingabe arbeiten zu können, kann ein
+SSH-Schlüsselpaar erstellt und der öffentliche Teil bei GitLab bzw. GitHub
+hinterlegt werden.
+
+* https://docs.gitlab.com/ce/ssh/README.html[]
+* https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/[]
