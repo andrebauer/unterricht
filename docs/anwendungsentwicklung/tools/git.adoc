@@ -1,0 +1,225 @@
+include::partials/ovm-header.adoc[]
+:ovm-code: AE-TOOLS-I-1.1
+:kind: Information
+:short-title: Git
+include::partials/author.adoc[]
+:revdate: 26. September 2018
+:sectnums:
+:sectnumlevels: 2
+:stem: latexmath
+:documentdir: /unterricht/anwendungsentwicklung/
+
+include::partials/ovm-head-table.adoc[]
+
+| *Links*
+a|
+
+* Bücher
+** https://git-scm.com/book/de/v2[Scott Chacon und Ben Straub: Pro Git Buch]
+** https://jwiegley.github.io/git-from-the-bottom-up/[John Wiegley: Git from the Bottom Up]
+** https://github.com/pluralsight/git-internals-pdf/releases/download/v2.0/peepcode-git.pdf[Scott Chacon: Git Internals]
+* Cheat Sheets
+** https://education.github.com/git-cheat-sheet-education.pdf[GitHub Git cheat sheet]
+** https://about.gitlab.com/images/press/git-cheat-sheet.pdf[GiLab Git cheat sheet]
+** https://downloads.git-tower.com/content/cheat-sheet-bundle.zip[Tower Git cheat sheet]
+
+
+| *Lizenz*
+| {cc-by-sa}
+|===
+
+= {short-title}
+
+== Das Konzept
+
+Git ist eine verteiltes Versionskontrollsystem (DVCS). Es ist als
+Entwicklerwerkzeug im Hinblick auf Quelltexte entwicklet worden, kann aber
+auch für andere Projekte und Daten verwendet werden.
+
+Git speichert Änderungen in Form von Snappschüssen in eine Repository.
+Im Unterschied zu zentralisierten Versionskonrollsystemen enthält
+jedes Git-Repository sämtliche Snappschüsse, so dass die meisten
+Aktionen vollständig lokal ausgeführt werden können und damit auch
+ohne Netzwerkverbindung Änderungen gespeichert werden können.
+In einem Projekt-Ordnert wird nach der Initialisierung
+ein Unterverzeichnis `.git` erstellt, dass das Repository enthält.
+Alle anderen Dateien und Unterverzeichnisse bilden das Arbeitsverzeichnis
+(working tree).
+
+Für Änderungen sieht Git ein zweistufiges Verfahren vor:
+Ändergen werden zunächst vorgemerkt (staged) und dann gespeichert (commit).
+Dies ermöglich eine sehr feine Kontrolle welche Änderungen in einen
+Commit einfließen, so dass inhaltlich zusammengehörige Änderungen in
+einem Commit zusammengefasst werden können. 
+
+== Ein neues Projekt erstellen (initialisieren)
+
+[source, sh]
+....
+$ mkdir myproject
+$ cd myproject
+$ git init
+....
+
+== Konfiguration
+
+=== Globale Konfiguration
+
+[source, sh]
+....
+$ git config --global user.name "André Bauer"
+$ git config --global user.email a.bauer@ovm-kassel.de
+$ git config --list
+....
+
+=== Lokale Konfiguration
+
+In einem bestehenden Projekt. 
+
+[source, sh]
+....
+$ cd myproject <1>
+$ git config --local user.email a.bauer@ovm-kassel.de
+....
+<1> Das Verzeichnis `myproject` muss bereits unter Versionskontrolle
+    durch Git stehen.
+
+
+== Lokaler Workflow
+
+=== Neue Datei erstellen
+
+[source, sh]
+....
+$ echo "Hallo git." > hallo <1>
+$ git add hallo <2>
+$ git commit -m "Add hello."  <3>
+....
+<1> Erstellt eine einfache Textdatei.
+<2> Die Datei `hallo` wird nun von Git versioniert und ist nun
+    für Änderungen vorgemerkt (staged). 
+<3> Übernimmt die vorgemerkten Änderung in das Repository (commit) mit der
+    angegebenen Nachricht.
+
+=== Änderungen  
+
+Der Ablauf ist wie bei einer neuen Datei. Nach einer Änderung
+wird diese mit `git add` vorgemerkt und mit `git commit` dauerhaft
+im Repository gespeichert.
+
+[source, sh]
+....
+$ echo "Hallo git2." >> hallo 
+$ git add hallo
+$ git commit -m "Add hello." 
+....
+
+=== Status anzeigen
+
+Der aktuelle Status, d.h. welche Dateien unversioniert oder geändert wurden
+und welche Änderung vorgemerkt wurden, kann mit `git status` angezeigt werden. 
+
+[source, sh]
+....
+$ git status
+....
+
+Die Änderungen, die in das Repository übernommen wurden, können mit
+`git log` angezeigt werden.
+
+[source, sh]
+....
+$ git log
+....
+
+Für diesen Befehl gibt es eine
+https://git-scm.com/book/de/v2/Los-geht%E2%80%99s-Viewing-the-Commit-History[große Anzahl von Parametern, um das Format und den Umfang der Ausgabe festzulegen].  
+
+=== Änderungen anzeigen
+
+[source, sh]
+....
+$ git diff <1>
+....
+<1> Zeigt Änderungen im diff-Format an, die noch nicht vorgemerkt wurden. 
+
+[source, sh]
+....
+$ git diff --staged <1>
+$ git diff --cached <2>
+....
+<1> Zeigt Änderungen im diff-Format an, die vorgemerkt wurden. 
+<2> Statt `--staged` kann auch `--cached` verwendet werden. 
+
+== Remotes
+
+=== Hinzufügen
+
+Mit einem lokalen Repository können andere Repositories verknüpft werden, die
+sogenannten Remotes.
+Dazu erstellt man z.B. unter GitHub oder GitLab ein neues Repository
+und fügt mit `git remote add` diese dem Bestehenden Repository hinzu.
+
+[source, sh]
+....
+$ git remote add github git@github.com:andrebauer/git-beispiel.git
+$ git remote add gitlab git@gitlab.com:andrebauer/git-beispiel.git
+$ git remote
+github
+gitlab
+....
+
+=== Workflow
+
+Mit `git push`, `git fetch` und `git pull` werden Änderungen (commits)
+mit remote ausgetauscht.
+
+[source, sh]
+....
+$ git push -u gitlab <1>
+$ echo "Hallo Git!" >> hallo <2>
+$ git add hallo <3>
+$ git commit -m "Add hello message to hallo." <4>
+$ git push gitlab <5>
+....
+<1> Füge die Änderungen aus dem aktuellen Branch, dieser heißt
+    standardmäßig master, dem Remote gitlab hinzu.
+    Falls der Zweig noch nicht auf dem Remote existiert, so wird diese
+    bei Verwendung der Option `-u` angelegt.
+<2> Bearbeiten der Datei hallo.
+<3> Vormerken der Änderungen in hello.
+<4> Übernehmen der Änderungen.
+<5> Die Änderungen auf den Remote gitlab übertragen.
+
+=== Änderungen von anderen übernehmen
+
+[source, sh]
+....
+$ git fetch gitlab <1>
+$ git merge gitlab/master
+....
+<1> Holt Änderungen von anderen vom Remote gitlab.
+<2> Mischt die Änderungen von Branch gitlab/master mit dem lokalen Branch
+    master.
+
+Mit `git pull` können `git fetch` und `git merge` in einer Aktion ausgeführt
+werden.
+
+[source, sh]
+....
+$ git pull gitlab
+....
+
+Bei `git merge` und `git pull` können Konflikte auftreten, die Git
+nicht automatisch beheben kann, wenn z.{nbsp}B. Änderungen in derselben
+Zeile eine Programms durch verschiedene Parteien eingebracht wurden.
+Git fügt dann mihilfe von Markierungen beide Varianten
+in den betroffenen Dateien ein, der Merge muss dann manuell vollendet werden. 
+
+=== Ein vorhandenes Projekt klonen
+
+[source, sh]
+....
+$ git clone git@github.com:andrebauer/git-beispiel.git <1>
+....
+<1> Überträgt das Repository in das Verzeichnis `git-beispiel`.
